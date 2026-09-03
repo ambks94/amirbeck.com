@@ -1,0 +1,26 @@
+# Amir Beck
+
+> Senior design engineer in San Francisco who both designs and ships fintech products. At Lumanu he leads the design of a B2B2C payments platform and personally builds it in React, Next.js, and TypeScript — bridging Figma to production code on a design system that compounds.
+
+## Facts
+
+- Name: Amir Beck
+- Role: Senior Design Engineer at Lumanu (February 2023–present)
+- Location: San Francisco, CA
+- Focus: fintech / payments product design, design systems, design-to-code, AI-assisted prototyping
+- Stack: React, TypeScript, Next.js, HTML/CSS, Figma, design tokens, Code Connect, Figma MCP
+- Education: UC Davis — B.A. Digital Media and B.A. Economics
+
+## Selected work
+
+- Lumanu (2023–now): leads design of a B2B2C payments platform; personally coded ~90% of the app redesign; pivoted company strategy from influencer marketing to payments.
+- SkySlope (2020–2022): improved UX across DigiSign, Forms, and Breeze; led Breeze from concept through launch; cut digital signing mistakes by ~50%.
+- Granate (2022–2023): led product design for a grief-support app; ~25% drop in onboarding drop-off; ~30% lift in weekly engagement.
+- EasyPeady (2021): designed and launched a standalone real-estate form app in one quarter.
+
+## Links
+
+- Website: https://amirbeck.com
+- LinkedIn: https://www.linkedin.com/in/amir-beck/
+- GitHub: https://github.com/amirbecklumanu
+- Email: beck@amirbeck.com

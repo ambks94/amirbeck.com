@@ -1,0 +1,46 @@
+.contact {
+  position: relative;
+  border-top: 1px solid var(--ink);
+  padding-block: var(--band);
+  overflow: hidden;
+}
+.contact > :global(.wrap) {
+  position: relative;
+  z-index: 1;
+}
+.h2 {
+  font-weight: 400;
+  font-size: var(--step-3);
+  line-height: 1.1;
+  margin-bottom: 14px;
+}
+.copy {
+  margin: 0;
+  color: var(--muted);
+  max-width: var(--measure);
+}
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 26px;
+}
+.curves {
+  position: absolute;
+  right: -4%;
+  bottom: -14%;
+  width: min(38%, 400px);
+  height: auto;
+  opacity: 0.45;
+  pointer-events: none;
+  z-index: 0;
+  animation: drift 28s ease-in-out infinite reverse;
+}
+@media (max-width: 899px) {
+  .curves {
+    width: 64%;
+    right: -16%;
+    bottom: -8%;
+    opacity: 0.3;
+  }
+}

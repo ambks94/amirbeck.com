@@ -1,0 +1,226 @@
+:root {
+  --paper: #eeebe5;
+  --surface: #f5f3ee;
+  --ink: #353b39;
+  --muted: #6b716e;
+  --faint: #939894;
+  --rule: #d9d5cc;
+  --accent: #24405c;
+  --on-accent: #eeebe5;
+
+  --step--1: clamp(0.82rem, 0.79rem + 0.12vw, 0.88rem);
+  --step-0: clamp(1rem, 0.96rem + 0.2vw, 1.09rem);
+  --step-1: clamp(1.15rem, 1.08rem + 0.34vw, 1.35rem);
+  --step-2: clamp(1.4rem, 1.26rem + 0.66vw, 1.85rem);
+  --step-3: clamp(1.8rem, 1.55rem + 1.2vw, 2.65rem);
+  --step-4: clamp(2.6rem, 2rem + 2.9vw, 4.6rem);
+
+  --gutter: clamp(20px, 5vw, 64px);
+  --band: clamp(56px, 8vw, 112px);
+  --measure: 66ch;
+
+  --font-display: var(--font-instrument), Georgia, "Times New Roman", serif;
+  --font-body: var(--font-geist), "Helvetica Neue", Arial, sans-serif;
+  --font-mono: var(--font-mono-jb), ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  color-scheme: light dark;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #1b1f1e;
+    --surface: #232827;
+    --ink: #eeebe5;
+    --muted: #a2a8a4;
+    --faint: #7c8380;
+    --rule: #343a38;
+    --accent: #9fc0d8;
+    --on-accent: #1b1f1e;
+  }
+}
+
+:root[data-theme="dark"] {
+  --paper: #1b1f1e;
+  --surface: #232827;
+  --ink: #eeebe5;
+  --muted: #a2a8a4;
+  --faint: #7c8380;
+  --rule: #343a38;
+  --accent: #9fc0d8;
+  --on-accent: #1b1f1e;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: var(--step-0);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--on-accent);
+}
+
+a {
+  color: inherit;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+img {
+  max-width: 100%;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  letter-spacing: -0.015em;
+  margin: 0;
+}
+
+/* ---------- shared primitives ---------- */
+
+.wrap {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding-inline: var(--gutter);
+}
+
+.label {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--faint);
+  font-weight: 500;
+  margin: 0;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 11px 18px;
+  background: var(--accent);
+  color: var(--on-accent);
+  text-decoration: none;
+  font-size: var(--step--1);
+  font-weight: 500;
+  border-radius: 3px;
+  border: 1px solid var(--accent);
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease,
+    transform 0.2s ease, opacity 0.2s ease;
+}
+.btn:hover {
+  opacity: 0.86;
+}
+.btn:active {
+  transform: translateY(1px);
+}
+
+.btn--ghost {
+  background: transparent;
+  color: var(--ink);
+  border-color: var(--rule);
+}
+.btn--ghost:hover {
+  background: var(--accent);
+  color: var(--on-accent);
+  border-color: var(--accent);
+  opacity: 1;
+}
+
+.section {
+  padding-block: var(--band);
+  scroll-margin-top: 74px;
+}
+
+.sectionHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  flex-wrap: wrap;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--ink);
+  margin-bottom: clamp(30px, 5vw, 52px);
+}
+.sectionHead h2 {
+  font-weight: 400;
+  font-size: var(--step-3);
+  line-height: 1.05;
+}
+.sectionHead .dots {
+  height: 16px;
+  width: auto;
+  opacity: 0.75;
+}
+
+/* ---------- motion ----------
+   Entrance animates transform only, never opacity, so every word is legible
+   on the first painted frame. */
+@keyframes rise {
+  from {
+    transform: translateY(14px);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+@keyframes drift {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-18px);
+  }
+}
+@keyframes driftCentered {
+  0%,
+  100% {
+    transform: translateY(-50%);
+  }
+  50% {
+    transform: translateY(calc(-50% - 16px));
+  }
+}
+
+.rise {
+  animation: rise 0.7s cubic-bezier(0.22, 0.68, 0, 1) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}
