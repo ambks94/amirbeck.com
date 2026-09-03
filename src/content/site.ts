@@ -2,15 +2,19 @@ export const site = {
   name: "Amir Beck",
   role: "Design Engineer",
   location: "San Francisco",
+  focus: "Fintech · Payments · San Francisco",
   email: "beck@amirbeck.com",
   phone: "530-204-8757",
   phoneHref: "+15302048757",
   linkedin: "https://www.linkedin.com/in/amir-beck/",
   github: "https://github.com/amirbecklumanu",
   lead:
-    "I lead design for Lumanu's B2B2C payments platform and build it in production, owning the surface from Figma to a React, Next.js, and TypeScript codebase.",
+    "I design and build software, leading Lumanu's payments platform from concept to production code.",
   sub: "",
 };
+
+export const workIntro =
+  "Fintech and real estate products, designed and coded end to end.";
 
 export type Stat = { figure: string; text: string; source: string };
 
@@ -18,7 +22,7 @@ export const stats: Stat[] = [
   { figure: "90%", text: "of the app redesign coded personally", source: "Lumanu" },
   { figure: "~50%", text: "cut in digital signing mistakes", source: "SkySlope" },
   { figure: "~25%", text: "drop in onboarding drop off", source: "Granate" },
-  { figure: "1 qtr", text: "developed and launched", source: "EasyPeady" },
+  { figure: "1 quarter", text: "developed and launched", source: "EasyPeady" },
 ];
 
 export type Project = {
@@ -126,44 +130,42 @@ export const projects: Project[] = [
 
 export const practices = [
   {
-    label: "Design & code",
-    title: "I build what I design",
+    label: "Craft",
+    title: "Taste is knowing what to cut",
     body:
-      "I lead the creation and evolution of a scalable design system for multiple web products, personally bridging Figma designs with a React, Next.js, and TypeScript codebase.",
+      "I cut to the key problem and the business goal behind it, then design only what serves both.",
   },
   {
     label: "Systems",
     title: "The system and the code agree",
     body:
-      "I aligned the design system and codebase in component design, naming, and functionality, so developer handoff is clean and the work is ready for AI tools.",
+      "I align the design system and codebase so handoff is clean and the work is ready for AI tools.",
   },
   {
-    label: "Problems",
-    title: "Design is problem solving",
+    label: "Design & code",
+    title: "I build what I design",
     body:
-      "I approach design as solving problems, balancing business needs with user requirements through iterative exploration.",
+      "I design a scalable system and ship it in React, Next.js, and TypeScript. I build features and use AI to prototype and optimize.",
   },
 ];
 
 export const about = [
-  "I work across product, design, and engineering, and lead with design engineering.",
-  "I'm a design engineer at Lumanu in San Francisco, working across Marketing, Engineering, and CS to create, design, and ship product features.",
-  "I studied Digital Media and Economics at UC Davis, and started out designing and developing websites for clients, which is where the habit of doing both came from.",
-  "I'm currently building Glizzy, a custom app of my own. Outside of work I make music and shoot nature photography.",
+  "I'm a design engineer at Lumanu in San Francisco, working across Product, Engineering, and Marketing to create, design, and ship product features.",
+  "I studied Digital Media and Economics at UC Davis, and started out designing and developing websites for clients.",
+  "I'm currently working on side projects like Glizzy. Outside of work I love to cook, write and play music, run, and shoot nature photography.",
 ];
 
 export const kit = [
   {
     label: "Engineering",
-    text: "Production quality UI in React, TypeScript, and Next.js. Design to code with Code Connect and the Figma MCP. Design tokens, accessibility, Git, CI/CD.",
+    text: "Production quality UI in React, TypeScript, and Next.js, with modern HTML and CSS. Design to code with Code Connect and the Figma MCP, plus design tokens, animation, web performance, accessibility, and CI/CD.",
   },
   {
     label: "Design & systems",
-    text: "Figma, prototyping, and motion. Design systems that compound in architecture, Token Studio, and Storybook, so every screen starts stronger than the last.",
+    text: "Figma, prototyping, and motion. Design systems that compound in reusable components, variants, Token Studio, and Storybook.",
   },
   {
     label: "Product",
-    text: "Taste and judgment on what to build. Product strategy and roadmapping, AI assisted prototyping, research, experimentation, design sprints.",
+    text: "Taste and judgment on what to build. Product strategy and roadmapping, 0 to 1 through launch, AI assisted prototyping, research, and experimentation.",
   },
-  { label: "Now", text: "Senior Design Engineer at Lumanu, February 2023 to present." },
 ];

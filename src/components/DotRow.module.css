@@ -1,0 +1,79 @@
+.root {
+  display: block;
+  width: auto;
+  overflow: visible;
+}
+
+/* Every animatable piece transforms around its own center, smoothly. */
+.g1,
+.g2,
+.g3,
+.g4,
+.dot,
+.ring,
+.crescent,
+.eclipseBack,
+.eclipseFront {
+  transform-box: fill-box;
+  transform-origin: center;
+  transition: transform 0.55s cubic-bezier(0.22, 0.68, 0, 1);
+}
+
+/* ---------- variant A (hero) ---------- */
+.va:hover .dot {
+  transform: translateX(3px);
+}
+.va:hover .crescent {
+  transform: rotate(-30deg);
+}
+.va:hover .eclipseFront {
+  transform: translate(-3px, -3px);
+}
+.va:hover .g4 {
+  transform: translateY(-3px);
+}
+
+/* ---------- variant B (work) — staggered lift ---------- */
+.vb:hover .g1 {
+  transform: translateY(-4px);
+}
+.vb:hover .g2 {
+  transform: translateY(3px);
+}
+.vb:hover .g3 {
+  transform: rotate(10deg);
+}
+.vb:hover .g4 {
+  transform: translateY(-4px);
+}
+.vb:hover .dot {
+  transform: scale(1.5);
+}
+
+/* ---------- variant C (how I work) — spin + drift ---------- */
+.vc:hover .crescent {
+  transform: rotate(190deg);
+}
+.vc:hover .dot {
+  transform: translateY(-3px);
+}
+.vc:hover .eclipseFront {
+  transform: translateX(4px);
+}
+.vc:hover .ring {
+  transform: scale(1.08);
+}
+
+/* ---------- variant D (about) — gentle drift ---------- */
+.vd:hover .g1 {
+  transform: translateX(3px);
+}
+.vd:hover .g4 {
+  transform: translateX(-3px);
+}
+.vd:hover .eclipseFront {
+  transform: translateY(4px);
+}
+.vd:hover .crescent {
+  transform: scale(0.78);
+}

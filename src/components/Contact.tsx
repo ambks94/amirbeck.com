@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { ArrowUpRight } from "lucide-react";
 import styles from "./Contact.module.css";
 import { site } from "@/content/site";
 
@@ -15,14 +16,10 @@ export default function Contact() {
       />
       <div className="wrap">
         <h2 className={styles.h2}>Contact Me</h2>
-        <p className={styles.copy}>
-          Open to design engineering roles. Happy to walk through any of the work above, or the
-          code behind it.
-        </p>
         <div className={styles.actions}>
           <a className="btn" href={`mailto:${site.email}`}>{site.email}</a>
-          <a className="btn btn--ghost" href={site.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
-          <a className="btn btn--ghost" href={site.github} target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+          <a className="btn btn--ghost" href={site.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn <ArrowUpRight size={15} strokeWidth={2} aria-hidden="true" /></a>
+          <a className="btn btn--ghost" href={site.github} target="_blank" rel="noopener noreferrer">GitHub <ArrowUpRight size={15} strokeWidth={2} aria-hidden="true" /></a>
           <a className="btn btn--ghost" href="/resume.pdf">Résumé (PDF)</a>
         </div>
       </div>

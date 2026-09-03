@@ -1,4 +1,6 @@
 import Image from "next/image";
+import { ArrowDown } from "lucide-react";
+import DotRow from "./DotRow";
 import styles from "./Hero.module.css";
 import { site } from "@/content/site";
 
@@ -6,16 +8,9 @@ export default function Hero() {
   return (
     <section className={styles.hero}>
       <div className={`wrap ${styles.grid}`}>
-        <Image
-          className={`${styles.dotRow} rise`}
-          src="/illustrations/dot-row.svg"
-          alt=""
-          width={284}
-          height={33}
-          priority
-        />
+        <DotRow variant="a" className={`${styles.dotRow} rise`} />
         <p className="label rise" style={{ animationDelay: "0.05s" }}>
-          {site.location}
+          {site.focus}
         </p>
         <h1 className={`${styles.h1} rise`} style={{ animationDelay: "0.12s" }}>
           {site.name}
@@ -33,10 +28,10 @@ export default function Hero() {
         </div>
 
         <div className={`${styles.jump} rise`} style={{ animationDelay: "0.48s" }}>
-          <a href="#work">Work ↓</a>
-          <a href="#how">How I work ↓</a>
-          <a href="#about">About ↓</a>
-          <a href="#contact">Contact ↓</a>
+          <a href="#work">Work <ArrowDown size={12} strokeWidth={2} aria-hidden="true" /></a>
+          <a href="#how">How I work <ArrowDown size={12} strokeWidth={2} aria-hidden="true" /></a>
+          <a href="#about">About <ArrowDown size={12} strokeWidth={2} aria-hidden="true" /></a>
+          <a href="#contact">Contact <ArrowDown size={12} strokeWidth={2} aria-hidden="true" /></a>
         </div>
       </div>
 

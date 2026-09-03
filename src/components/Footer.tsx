@@ -10,7 +10,7 @@ export default function Footer() {
         <a href={site.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn</a>
         <a href={site.github} target="_blank" rel="noopener noreferrer">GitHub</a>
         <p className={`label ${styles.copyright}`}>
-          © {new Date().getFullYear()} {site.name}. All rights reserved.
+          © {new Date().getFullYear()} {site.name}
         </p>
       </div>
     </footer>

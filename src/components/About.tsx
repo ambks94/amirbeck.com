@@ -1,4 +1,5 @@
 import Image from "next/image";
+import DotRow from "./DotRow";
 import styles from "./About.module.css";
 import { about, kit } from "@/content/site";
 
@@ -10,13 +11,13 @@ export default function About() {
         src="/illustrations/contour.svg"
         alt=""
         aria-hidden="true"
-        width={265}
-        height={419}
+        width={460}
+        height={700}
       />
       <div className={`wrap ${styles.wrap}`}>
         <div className="sectionHead">
           <h2>About</h2>
-          <Image className="dots" src="/illustrations/dot-row.svg" alt="" width={284} height={33} />
+          <DotRow variant="d" className="dots" />
         </div>
         <div className={styles.grid}>
           <div>

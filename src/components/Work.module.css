@@ -1,6 +1,5 @@
 .work {
   position: relative;
-  overflow: hidden;
 }
 .wrap {
   position: relative;
@@ -24,6 +23,13 @@
     opacity: 0.16;
     width: 128px;
   }
+}
+
+.intro {
+  color: var(--muted);
+  max-width: 60ch;
+  margin: calc(-1 * clamp(16px, 2.5vw, 30px)) 0 clamp(34px, 5vw, 54px);
+  line-height: 1.6;
 }
 
 .list {
@@ -56,14 +62,38 @@
   line-height: 1.1;
 }
 .wave {
-  height: 14px;
-  width: auto;
-  opacity: 0.7;
+  position: relative;
+  width: 88px;
+  height: 16px;
   flex: 0 0 auto;
-  transition: transform 0.4s cubic-bezier(0.22, 0.68, 0, 1);
+  color: var(--faint);
+  overflow: visible;
+  display: inline-flex;
+  align-items: center;
+}
+.waveSvg {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  overflow: visible;
+}
+.waveLine {
+  stroke-dasharray: 100;
+  stroke-dashoffset: 62; /* hides the straight underline until hover */
+  transition: stroke-dashoffset 0.65s cubic-bezier(0.22, 0.68, 0, 1), stroke 0.3s ease;
 }
 .entry:hover .wave {
-  transform: translateX(5px);
+  color: var(--ink);
+}
+.entry:hover .waveLine {
+  stroke-dashoffset: 0; /* draws the underline in under the label */
+}
+.category {
+  transition: color 0.3s ease;
+}
+.entry:hover .category {
+  color: var(--ink);
 }
 .years {
   margin-left: auto;
@@ -159,18 +189,21 @@
   flex-direction: column;
   gap: 13px;
 }
+/* Airtable-style: a thin left accent rule per result, no bullet dots. */
 .outcomes li {
-  display: flex;
-  gap: 10px;
-  align-items: flex-start;
   font-size: var(--step--1);
   color: var(--muted);
   line-height: 1.5;
+  padding-left: 15px;
+  border-left: 2px solid var(--rule);
+  transition: border-color 0.35s ease, color 0.35s ease;
 }
-.outcomes li img {
-  width: 7px;
-  height: 7px;
-  margin-top: 0.5em;
-  flex: 0 0 auto;
-  opacity: 0.8;
+.entry:hover .outcomes li {
+  border-color: var(--accent);
+  color: var(--ink);
+}
+.metric {
+  color: var(--ink);
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
 }

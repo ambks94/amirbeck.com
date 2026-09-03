@@ -1,4 +1,5 @@
 import Image from "next/image";
+import DotRow from "./DotRow";
 import styles from "./HowIWork.module.css";
 import { practices } from "@/content/site";
 
@@ -16,7 +17,7 @@ export default function HowIWork() {
       <div className={`wrap ${styles.inner}`}>
         <div className="sectionHead">
           <h2>How I work</h2>
-          <Image className="dots" src="/illustrations/dot-row.svg" alt="" width={284} height={33} />
+          <DotRow variant="c" className="dots" />
         </div>
         <div className={styles.grid}>
           {practices.map((p) => (
