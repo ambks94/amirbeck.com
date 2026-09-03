@@ -1,20 +1,32 @@
 import styles from "./ContribGraph.module.css";
 
-type Day = { date: string; count: number };
+type Day = { date: string; level: number };
 
-// Public contributions API (no auth). Returns [] on any failure so the section
-// simply hides rather than breaking the page.
-async function fetchUser(user: string): Promise<Day[]> {
+// GitHub's own public contributions calendar (HTML). No auth. Returns empty on
+// any failure so the section simply hides rather than breaking the page.
+async function fetchUser(user: string): Promise<{ days: Day[]; total: number }> {
   try {
-    const res = await fetch(
-      `https://github-contributions-api.jogruber.com/v4/${user}?y=last`,
-      { next: { revalidate: 86400 } }
-    );
-    if (!res.ok) return [];
-    const data = (await res.json()) as { contributions?: Day[] };
-    return data.contributions ?? [];
+    const res = await fetch(`https://github.com/users/${user}/contributions`, {
+      next: { revalidate: 86400 },
+      headers: { "User-Agent": "amirbeck.com", "x-requested-with": "XMLHttpRequest" },
+    });
+    if (!res.ok) return { days: [], total: 0 };
+    const html = await res.text();
+
+    const days: Day[] = [];
+    // day cells carry data-date and data-level (in either attribute order)
+    const re =
+      /data-date="(\d{4}-\d{2}-\d{2})"[^>]*?data-level="(\d)"|data-level="(\d)"[^>]*?data-date="(\d{4}-\d{2}-\d{2})"/g;
+    let m: RegExpExecArray | null;
+    while ((m = re.exec(html))) {
+      if (m[1]) days.push({ date: m[1], level: Number(m[2]) });
+      else days.push({ date: m[4]!, level: Number(m[3]) });
+    }
+    const t = html.match(/([\d,]+)\s+contribution/);
+    const total = t ? Number(t[1].replace(/,/g, "")) : 0;
+    return { days, total };
   } catch {
-    return [];
+    return { days: [], total: 0 };
   }
 }
 
@@ -23,19 +35,20 @@ const CELL = 12;
 const GAP = 3;
 
 export default async function ContribGraph() {
-  const all = await Promise.all(usernames.map(fetchUser));
+  const results = await Promise.all(usernames.map(fetchUser));
 
-  // merge both accounts by date
-  const totals = new Map<string, number>();
-  for (const days of all) for (const d of days) totals.set(d.date, (totals.get(d.date) ?? 0) + d.count);
-  if (totals.size === 0) return null;
+  // merge both accounts: highest level per date, sum the headline totals
+  const levels = new Map<string, number>();
+  let total = 0;
+  for (const r of results) {
+    total += r.total;
+    for (const d of r.days) levels.set(d.date, Math.max(levels.get(d.date) ?? 0, d.level));
+  }
+  if (levels.size === 0) return null;
 
-  const days = [...totals.entries()]
-    .map(([date, count]) => ({ date, count }))
+  const days = [...levels.entries()]
+    .map(([date, level]) => ({ date, level }))
     .sort((a, b) => a.date.localeCompare(b.date));
-
-  const max = Math.max(...days.map((d) => d.count), 1);
-  const total = days.reduce((s, d) => s + d.count, 0);
 
   // columns = weeks, rows = weekday (0 Sun .. 6 Sat)
   const weeks: (Day | null)[][] = [];
@@ -54,30 +67,24 @@ export default async function ContribGraph() {
   const w = weeks.length * (CELL + GAP) - GAP;
   const h = 7 * (CELL + GAP) - GAP;
   const cls = styles as Record<string, string>;
-  const level = (c: number) => {
-    if (c <= 0) return 0;
-    const r = c / max;
-    if (r <= 0.25) return 1;
-    if (r <= 0.5) return 2;
-    if (r <= 0.75) return 3;
-    return 4;
-  };
 
   return (
     <div className={styles.root} aria-label="GitHub contributions">
       <p className={`label ${styles.label}`}>On GitHub</p>
-      <p className={styles.caption}>
-        {total.toLocaleString()} contributions in the last year across{" "}
-        <a href="https://github.com/amirbecklumanu" target="_blank" rel="noopener noreferrer">amirbecklumanu</a>{" "}
-        and{" "}
-        <a href="https://github.com/ambks94" target="_blank" rel="noopener noreferrer">ambks94</a>.
-      </p>
+      {total > 0 && (
+        <p className={styles.caption}>
+          {total.toLocaleString()} contributions in the last year across{" "}
+          <a href="https://github.com/amirbecklumanu" target="_blank" rel="noopener noreferrer">amirbecklumanu</a>{" "}
+          and{" "}
+          <a href="https://github.com/ambks94" target="_blank" rel="noopener noreferrer">ambks94</a>.
+        </p>
+      )}
       <div className={styles.scroll}>
         <svg className={styles.graph} viewBox={`0 0 ${w} ${h}`} width={w} height={h} role="img" aria-label={`${total} GitHub contributions in the last year`}>
           {weeks.map((col, x) =>
             col.map((d, y) => {
               if (!d) return null;
-              const lv = level(d.count);
+              const lv = d.level;
               return (
                 <rect
                   key={`${x}-${y}`}
