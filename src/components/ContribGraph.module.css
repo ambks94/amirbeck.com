@@ -1,0 +1,46 @@
+.root {
+  margin-top: clamp(40px, 6vw, 72px);
+}
+.label {
+  margin-bottom: 12px;
+}
+.caption {
+  color: var(--muted);
+  font-size: var(--step--1);
+  margin: 0 0 18px;
+  line-height: 1.6;
+}
+.caption a {
+  color: var(--ink);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  transition: color 0.2s ease;
+}
+.caption a:hover {
+  color: var(--accent);
+}
+.scroll {
+  overflow-x: auto;
+  padding-bottom: 6px;
+}
+.graph {
+  display: block;
+  height: auto;
+}
+
+/* intensity ramp, brand colors, works in light and dark via tokens */
+.l0 {
+  fill: var(--rule);
+}
+.l1 {
+  fill: color-mix(in srgb, var(--accent) 30%, var(--rule));
+}
+.l2 {
+  fill: color-mix(in srgb, var(--accent) 55%, var(--rule));
+}
+.l3 {
+  fill: color-mix(in srgb, var(--accent) 78%, var(--rule));
+}
+.l4 {
+  fill: var(--accent);
+}

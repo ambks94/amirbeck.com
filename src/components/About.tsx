@@ -1,5 +1,6 @@
 import Image from "next/image";
 import DotRow from "./DotRow";
+import ContribGraph from "./ContribGraph";
 import styles from "./About.module.css";
 import { about, kit } from "@/content/site";
 
@@ -34,6 +35,7 @@ export default function About() {
             ))}
           </div>
         </div>
+        <ContribGraph />
       </div>
     </section>
   );
