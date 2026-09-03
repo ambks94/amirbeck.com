@@ -9,6 +9,7 @@ export default function DotRow({
   variant?: "a" | "b" | "c" | "d";
   className?: string;
 }) {
+  const maskId = `dr-crescent-${variant}`;
   return (
     <svg
       className={`${styles.root} ${styles[`v${variant}`]} ${className}`}
@@ -25,10 +26,10 @@ export default function DotRow({
       </g>
 
       {/* glyph 2 — crescent */}
-      <mask id="dr-crescent" width="24" height="24" x="84" y="4" maskUnits="userSpaceOnUse" style={{ maskType: "alpha" }}>
+      <mask id={maskId} width="24" height="24" x="84" y="4" maskUnits="userSpaceOnUse" style={{ maskType: "alpha" }}>
         <circle cx="96" cy="16" r="11.625" fill="var(--ink)" stroke="var(--ink)" strokeWidth=".75" />
       </mask>
-      <g className={styles.g2} mask="url(#dr-crescent)">
+      <g className={styles.g2} mask={`url(#${maskId})`}>
         <circle className={styles.crescent} cx="104" cy="25" r="11.625" fill="var(--paper)" stroke="var(--ink)" strokeWidth=".75" />
       </g>
 
