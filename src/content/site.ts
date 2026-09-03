@@ -9,7 +9,7 @@ export const site = {
   github: "https://github.com/amirbecklumanu",
   lead:
     "I lead the design process for Lumanu's B2B2C payments software, and personally bridge Figma designs with a React, Next.js, and TypeScript codebase.",
-  sub: "Previously at SkySlope, Granate, and Unearth Campaigns.",
+  sub: "",
 };
 
 export type Stat = { figure: string; text: string; source: string };
@@ -17,7 +17,7 @@ export type Stat = { figure: string; text: string; source: string };
 export const stats: Stat[] = [
   { figure: "90%", text: "of the app redesign coded personally", source: "Lumanu" },
   { figure: "~50%", text: "cut in digital signing mistakes", source: "SkySlope" },
-  { figure: "~25%", text: "drop in onboarding drop-off", source: "Granate" },
+  { figure: "~25%", text: "drop in onboarding drop off", source: "Granate" },
   { figure: "1 qtr", text: "developed and launched", source: "EasyPeady" },
 ];
 
@@ -37,7 +37,7 @@ export const projects: Project[] = [
     slug: "lumanu",
     name: "Lumanu",
     category: "Payments Platform",
-    years: "2023–Now",
+    years: "2023 to Now",
     body:
       "I lead the design of Lumanu's B2B2C payments platform. I redesigned the app from the ground up and personally coded 90% of it.",
     outcomes: [
@@ -49,7 +49,7 @@ export const projects: Project[] = [
       src: "/images/lumanu.webp",
       width: 2000,
       height: 1500,
-      alt: "Lumanu buyer dashboard, a role-aware homepage showing an overview of the workspace",
+      alt: "Lumanu buyer dashboard, a role aware homepage showing an overview of the workspace",
     },
     links: [
       { label: "View Case Study", href: "/lumanu" },
@@ -60,13 +60,13 @@ export const projects: Project[] = [
     slug: "skyslope",
     name: "SkySlope",
     category: "Real Estate Platform",
-    years: "2020–2022",
+    years: "2020 to 2022",
     body:
       "SkySlope builds real estate transaction software. I improved the UX across DigiSign, Forms, and Breeze, and led Breeze's design from concept through launch.",
     outcomes: [
       "Cut digital signing mistakes by ~50%",
       "Expanded product for entire real estate teams",
-      "15% increase in cross-product usage",
+      "15% increase in cross product usage",
     ],
     image: {
       src: "/images/skyslope.webp",
@@ -83,11 +83,11 @@ export const projects: Project[] = [
     slug: "granate",
     name: "Granate",
     category: "Grief Support App",
-    years: "2022–2023",
+    years: "2022 to 2023",
     body:
-      "I led product design for an app built to support individuals through loss and end-of-life planning. My focus was simplifying onboarding, driving engagement, and building a scalable design foundation.",
+      "I led product design for an app built to support individuals through loss and end of life planning. My focus was simplifying onboarding, driving engagement, and building a scalable design foundation.",
     outcomes: [
-      "~25% drop in onboarding drop-off",
+      "~25% drop in onboarding drop off",
       "~30% lift in weekly engagement",
       "Set up the development team for quick feature delivery",
     ],
@@ -105,10 +105,10 @@ export const projects: Project[] = [
     category: "Real Estate Form Streamlining",
     years: "2021",
     body:
-      "I spearheaded the streamlining of the PEAD-V form, enabling real estate agents to maintain focus on client support amidst the pandemic. Built and launched as a standalone web app in one quarter.",
+      "I streamlined the PEAD form so real estate agents could stay focused on clients during the pandemic. Built and launched as a standalone web app in one quarter.",
     outcomes: [
       "Developed and launched in a quarter",
-      "15% uplift in cross-product engagement",
+      "15% uplift in cross product engagement",
       "Generated a pipeline of new paying users",
     ],
     image: {
@@ -147,22 +147,22 @@ export const practices = [
 
 export const about = [
   "I'm a design engineer at Lumanu living in San Francisco. I work across Marketing, Engineering, and CS to create, design, and implement product features.",
-  "I studied Digital Media and Economics at UC Davis, and started out designing and developing websites for clients — which is where the habit of doing both came from.",
+  "I studied Digital Media and Economics at UC Davis, and started out designing and developing websites for clients, which is where the habit of doing both came from.",
   "I'm currently working on a personal startup venture. Outside of work I make music and shoot nature photography.",
 ];
 
 export const kit = [
   {
     label: "Engineering",
-    text: "Production-quality UI in React, TypeScript, and Next.js. Design-to-code with Code Connect and the Figma MCP. Design tokens, accessibility, Git, CI/CD.",
+    text: "Production quality UI in React, TypeScript, and Next.js. Design to code with Code Connect and the Figma MCP. Design tokens, accessibility, Git, CI/CD.",
   },
   {
     label: "Design & systems",
-    text: "Figma, prototyping, and motion. Design systems that compound — architecture, Token Studio, Storybook — so every screen starts stronger than the last.",
+    text: "Figma, prototyping, and motion. Design systems that compound in architecture, Token Studio, and Storybook, so every screen starts stronger than the last.",
   },
   {
     label: "Product",
-    text: "Taste and judgment on what to build. Product strategy and roadmapping, AI-assisted prototyping, research, experimentation, design sprints.",
+    text: "Taste and judgment on what to build. Product strategy and roadmapping, AI assisted prototyping, research, experimentation, design sprints.",
   },
-  { label: "Now", text: "Senior Design Engineer at Lumanu, February 2023 – present." },
+  { label: "Now", text: "Senior Design Engineer at Lumanu, February 2023 to present." },
 ];

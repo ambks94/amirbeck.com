@@ -79,32 +79,31 @@
   color: var(--accent);
 }
 
-.contour {
+/* Gradient lines: a tall, narrow field of wavy strokes fading left(dark) to
+   right(light), spanning the full hero height on the right and bleeding off the
+   page edge. Content sits to the left of it; z-index 0 keeps it in the background. */
+.stipple {
   position: absolute;
-  right: calc(var(--gutter) * -0.55);
-  top: 54%;
+  right: calc(var(--gutter) * -0.4);
+  top: 50%;
   transform: translateY(-50%);
-  width: clamp(120px, 16vw, 196px);
-  height: auto;
+  height: 118%;
+  width: auto;
   pointer-events: none;
   z-index: 0;
-  opacity: 0.9;
+  opacity: 0.5;
   animation: driftCentered 30s ease-in-out infinite;
 }
 @media (max-width: 1023px) {
-  .contour {
-    right: calc(var(--gutter) * -0.9);
-    width: clamp(104px, 14vw, 146px);
-    opacity: 0.5;
+  .stipple {
+    right: calc(var(--gutter) * -1.4);
+    opacity: 0.32;
   }
 }
 @media (max-width: 639px) {
-  .contour {
-    width: 96px;
-    top: auto;
-    bottom: -10px;
-    transform: none;
-    animation: drift 30s ease-in-out infinite;
+  .stipple {
+    right: -34%;
+    opacity: 0.2;
   }
 }
 

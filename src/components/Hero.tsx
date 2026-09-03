@@ -26,9 +26,6 @@ export default function Hero() {
         <p className={`${styles.lead} rise`} style={{ animationDelay: "0.23s" }}>
           {site.lead}
         </p>
-        <p className={`${styles.sub} rise`} style={{ animationDelay: "0.3s" }}>
-          {site.sub}
-        </p>
 
         <div className={`${styles.actions} rise`} style={{ animationDelay: "0.37s" }}>
           <a className="btn" href="#work">See Work</a>
@@ -43,15 +40,15 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* Offset to the side of the page, bleeding past the gutter — capped at every
-          breakpoint so it can never push content or scroll the page sideways. */}
+      {/* Gradient lines spanning the full hero height on the right, bleeding off the
+          page edge. Capped so it can never push content or scroll the page sideways. */}
       <Image
-        className={styles.contour}
-        src="/illustrations/contour.svg"
+        className={styles.stipple}
+        src="/illustrations/stipple.svg"
         alt=""
         aria-hidden="true"
-        width={265}
-        height={419}
+        width={738}
+        height={1962}
         priority
       />
     </section>

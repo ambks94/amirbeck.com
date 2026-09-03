@@ -6,23 +6,23 @@
   position: relative;
   z-index: 1;
 }
-/* Contour on the RIGHT, flipped horizontally, behind the content. */
+/* Contour on the RIGHT — cut edge hugs the page edge, bleeding off (mirror of Work). */
 .contour {
   position: absolute;
-  right: calc(var(--gutter) * -0.7);
+  right: 0;
   bottom: 4%;
-  width: clamp(96px, 12vw, 160px);
+  width: clamp(150px, 19vw, 268px);
   height: auto;
   opacity: 0.24;
   pointer-events: none;
   z-index: 0;
-  transform: scaleX(-1);
+  transform: translateX(30%);
   animation: drift 38s ease-in-out infinite;
 }
 @media (max-width: 899px) {
   .contour {
     opacity: 0.14;
-    width: 104px;
+    width: 128px;
   }
 }
 
