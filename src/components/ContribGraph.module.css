@@ -23,6 +23,24 @@
   overflow-x: auto;
   padding-bottom: 6px;
 }
+.link {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  margin-top: 14px;
+  min-height: 44px;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  text-decoration: none;
+  transition: color 0.2s ease, gap 0.2s ease;
+}
+.link:hover {
+  color: var(--accent);
+  gap: 10px;
+}
 .graph {
   display: block;
   height: auto;

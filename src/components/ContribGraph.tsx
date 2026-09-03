@@ -1,3 +1,4 @@
+import { Github, ArrowUpRight } from "lucide-react";
 import styles from "./ContribGraph.module.css";
 
 type Day = { date: string; level: number };
@@ -101,6 +102,16 @@ export default async function ContribGraph() {
           )}
         </svg>
       </div>
+      <a
+        className={styles.link}
+        href="https://github.com/amirbecklumanu"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <Github size={14} strokeWidth={2} aria-hidden="true" />
+        <span>View on GitHub</span>
+        <ArrowUpRight size={13} strokeWidth={2} aria-hidden="true" />
+      </a>
     </div>
   );
 }
