@@ -4,8 +4,16 @@ import { about, kit } from "@/content/site";
 
 export default function About() {
   return (
-    <section className="section" id="about">
-      <div className="wrap">
+    <section className={`section ${styles.about}`} id="about">
+      <Image
+        className={styles.contour}
+        src="/illustrations/contour.svg"
+        alt=""
+        aria-hidden="true"
+        width={265}
+        height={419}
+      />
+      <div className={`wrap ${styles.wrap}`}>
         <div className="sectionHead">
           <h2>About</h2>
           <Image className="dots" src="/illustrations/dot-row.svg" alt="" width={284} height={33} />

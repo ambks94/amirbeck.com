@@ -1,3 +1,31 @@
+.about {
+  position: relative;
+  overflow: hidden;
+}
+.wrap {
+  position: relative;
+  z-index: 1;
+}
+/* Contour on the RIGHT, flipped horizontally, behind the content. */
+.contour {
+  position: absolute;
+  right: calc(var(--gutter) * -0.7);
+  bottom: 4%;
+  width: clamp(96px, 12vw, 160px);
+  height: auto;
+  opacity: 0.24;
+  pointer-events: none;
+  z-index: 0;
+  transform: scaleX(-1);
+  animation: drift 38s ease-in-out infinite;
+}
+@media (max-width: 899px) {
+  .contour {
+    opacity: 0.14;
+    width: 104px;
+  }
+}
+
 .grid {
   display: grid;
   gap: clamp(26px, 5vw, 60px);

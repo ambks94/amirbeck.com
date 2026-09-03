@@ -153,16 +153,16 @@ export const about = [
 
 export const kit = [
   {
-    label: "Front-end",
-    text: "React, TypeScript, Next.js, HTML/CSS, design tokens, accessibility, Git, CI/CD",
+    label: "Engineering",
+    text: "Production-quality UI in React, TypeScript, and Next.js. Design-to-code with Code Connect and the Figma MCP. Design tokens, accessibility, Git, CI/CD.",
   },
   {
     label: "Design & systems",
-    text: "Figma, Framer, prototyping & motion, design system architecture, Code‑Connect, Figma MCP, Token Studio, Storybook",
+    text: "Figma, prototyping, and motion. Design systems that compound — architecture, Token Studio, Storybook — so every screen starts stronger than the last.",
   },
   {
-    label: "Product & strategy",
-    text: "Product strategy & roadmapping, AI/ML integration, research, experimentation, design sprint facilitation",
+    label: "Product",
+    text: "Taste and judgment on what to build. Product strategy and roadmapping, AI-assisted prototyping, research, experimentation, design sprints.",
   },
-  { label: "Now", text: "Senior Design Engineer at Lumanu, February 2023 – present" },
+  { label: "Now", text: "Senior Design Engineer at Lumanu, February 2023 – present." },
 ];

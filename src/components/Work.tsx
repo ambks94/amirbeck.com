@@ -10,8 +10,16 @@ export default function Work() {
   const [open, setOpen] = useState<Project["image"] | null>(null);
 
   return (
-    <section className="section" id="work">
-      <div className="wrap">
+    <section className={`section ${styles.work}`} id="work">
+      <Image
+        className={styles.contour}
+        src="/illustrations/contour.svg"
+        alt=""
+        aria-hidden="true"
+        width={265}
+        height={419}
+      />
+      <div className={`wrap ${styles.wrap}`}>
         <div className="sectionHead">
           <h2>Work</h2>
           <Image className="dots" src="/illustrations/dot-row.svg" alt="" width={284} height={33} />

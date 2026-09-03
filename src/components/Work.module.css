@@ -1,3 +1,31 @@
+.work {
+  position: relative;
+  overflow: hidden;
+}
+.wrap {
+  position: relative;
+  z-index: 1;
+}
+/* Contour on the LEFT — flipped so its cut edge hugs the page edge, bleeding off. */
+.contour {
+  position: absolute;
+  left: 0;
+  top: 6%;
+  width: clamp(150px, 19vw, 268px);
+  height: auto;
+  opacity: 0.28;
+  pointer-events: none;
+  z-index: 0;
+  transform: scaleX(-1) translateX(30%);
+  animation: drift 34s ease-in-out infinite;
+}
+@media (max-width: 899px) {
+  .contour {
+    opacity: 0.16;
+    width: 128px;
+  }
+}
+
 .list {
   display: flex;
   flex-direction: column;
