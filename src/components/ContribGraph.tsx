@@ -75,8 +75,10 @@ export default async function ContribGraph() {
       <div className={styles.scroll}>
         <svg className={styles.graph} viewBox={`0 0 ${w} ${h}`} width={w} height={h} role="img" aria-label={`${total} GitHub contributions in the last year`}>
           {weeks.map((col, x) =>
-            col.map((d, y) =>
-              d ? (
+            col.map((d, y) => {
+              if (!d) return null;
+              const lv = level(d.count);
+              return (
                 <rect
                   key={`${x}-${y}`}
                   x={x * (CELL + GAP)}
@@ -84,10 +86,11 @@ export default async function ContribGraph() {
                   width={CELL}
                   height={CELL}
                   rx={2.5}
-                  className={cls[`l${level(d.count)}`]}
+                  className={lv > 0 ? `${cls[`l${lv}`]} ${styles.cell}` : cls.l0}
+                  style={lv > 0 ? { animationDelay: `${((x * 13 + y * 7) % 24) / 6}s` } : undefined}
                 />
-              ) : null
-            )
+              );
+            })
           )}
         </svg>
       </div>

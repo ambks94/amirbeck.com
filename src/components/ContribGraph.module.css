@@ -44,3 +44,18 @@
 .l4 {
   fill: var(--accent);
 }
+
+/* Subtle pulse on days that had a commit. Staggered per cell (delay set inline)
+   so it shimmers organically rather than flashing in sync. */
+@keyframes cellPulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.62;
+  }
+}
+.cell {
+  animation: cellPulse 3.6s ease-in-out infinite;
+}
