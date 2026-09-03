@@ -14,25 +14,25 @@ export default function Hero() {
           height={33}
           priority
         />
-        <p className="label rise" style={{ animationDelay: "0.02s" }}>
+        <p className="label rise" style={{ animationDelay: "0.05s" }}>
           {site.location}
         </p>
-        <h1 className={`${styles.h1} rise`} style={{ animationDelay: "0.09s" }}>
+        <h1 className={`${styles.h1} rise`} style={{ animationDelay: "0.12s" }}>
           {site.name}
         </h1>
-        <p className={`${styles.role} rise`} style={{ animationDelay: "0.16s" }}>
+        <p className={`${styles.role} rise`} style={{ animationDelay: "0.19s" }}>
           {site.role}
         </p>
-        <p className={`${styles.lead} rise`} style={{ animationDelay: "0.23s" }}>
+        <p className={`${styles.lead} rise`} style={{ animationDelay: "0.27s" }}>
           {site.lead}
         </p>
 
-        <div className={`${styles.actions} rise`} style={{ animationDelay: "0.37s" }}>
+        <div className={`${styles.actions} rise`} style={{ animationDelay: "0.36s" }}>
           <a className="btn" href="#work">See Work</a>
           <a className="btn btn--ghost" href="#how">How I work</a>
         </div>
 
-        <div className={styles.jump}>
+        <div className={`${styles.jump} rise`} style={{ animationDelay: "0.48s" }}>
           <a href="#work">Work ↓</a>
           <a href="#how">How I work ↓</a>
           <a href="#about">About ↓</a>

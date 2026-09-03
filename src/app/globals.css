@@ -131,14 +131,15 @@ h3 {
   font-weight: 500;
   border-radius: 3px;
   border: 1px solid var(--accent);
-  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease,
-    transform 0.2s ease, opacity 0.2s ease;
+  transition: background 0.18s ease, color 0.18s ease, border-color 0.18s ease,
+    opacity 0.18s ease, transform 0.15s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 .btn:hover {
   opacity: 0.86;
 }
 .btn:active {
-  transform: translateY(1px);
+  transform: scale(0.97);
+  transition-duration: 80ms;
 }
 
 .btn--ghost {
@@ -184,7 +185,15 @@ h3 {
    on the first painted frame. */
 @keyframes rise {
   from {
-    transform: translateY(14px);
+    transform: translateY(16px);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+@keyframes slideDown {
+  from {
+    transform: translateY(-100%);
   }
   to {
     transform: translateY(0);
@@ -210,7 +219,7 @@ h3 {
 }
 
 .rise {
-  animation: rise 0.7s cubic-bezier(0.22, 0.68, 0, 1) both;
+  animation: rise 0.65s cubic-bezier(0.19, 1, 0.22, 1) both;
 }
 
 @media (prefers-reduced-motion: reduce) {

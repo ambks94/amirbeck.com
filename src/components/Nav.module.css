@@ -5,6 +5,7 @@
   background: color-mix(in srgb, var(--paper) 90%, transparent);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--rule);
+  animation: slideDown 0.55s cubic-bezier(0.19, 1, 0.22, 1) both;
 }
 .inner {
   display: flex;

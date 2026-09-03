@@ -8,9 +8,8 @@ export default function Nav() {
     <header className={styles.nav}>
       <ScrollProgress />
       <div className={`wrap ${styles.inner}`}>
-        <a className={styles.mark} href="#top">
-          <Image src="/logo.png" alt="" width={30} height={30} priority />
-          <b>{site.name}</b>
+        <a className={styles.mark} href="#top" aria-label={site.name}>
+          <Image src="/logo.png" alt={site.name} width={30} height={30} priority />
         </a>
         <nav className={styles.links}>
           <a href="#work">Work</a>

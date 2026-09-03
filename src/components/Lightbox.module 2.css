@@ -11,12 +11,6 @@
 .dialog::backdrop {
   background: color-mix(in srgb, #101413 88%, transparent);
   backdrop-filter: blur(3px);
-  animation: backdropIn 0.3s ease both;
-}
-@keyframes backdropIn {
-  from {
-    opacity: 0;
-  }
 }
 .inner {
   width: 100%;
@@ -34,7 +28,7 @@
   object-fit: contain;
   border-radius: 5px;
   box-shadow: 0 30px 90px -30px rgba(0, 0, 0, 0.7);
-  animation: pop 0.35s cubic-bezier(0.19, 1, 0.22, 1) both;
+  animation: pop 0.3s cubic-bezier(0.22, 0.68, 0, 1) both;
 }
 @keyframes pop {
   from {

@@ -8,7 +8,7 @@ export const site = {
   linkedin: "https://www.linkedin.com/in/amir-beck/",
   github: "https://github.com/amirbecklumanu",
   lead:
-    "I lead the design process for Lumanu's B2B2C payments software, and personally bridge Figma designs with a React, Next.js, and TypeScript codebase.",
+    "I lead design for Lumanu's B2B2C payments platform and build it in production, owning the surface from Figma to a React, Next.js, and TypeScript codebase.",
   sub: "",
 };
 
@@ -135,7 +135,7 @@ export const practices = [
     label: "Systems",
     title: "The system and the code agree",
     body:
-      "I aligned the design system and code base in component design, naming convention, and functionality to ensure seamless developer handoff and optimize for AI tools.",
+      "I aligned the design system and codebase in component design, naming, and functionality, so developer handoff is clean and the work is ready for AI tools.",
   },
   {
     label: "Problems",
@@ -146,9 +146,10 @@ export const practices = [
 ];
 
 export const about = [
-  "I'm a design engineer at Lumanu living in San Francisco. I work across Marketing, Engineering, and CS to create, design, and implement product features.",
+  "I work across product, design, and engineering, and lead with design engineering.",
+  "I'm a design engineer at Lumanu in San Francisco, working across Marketing, Engineering, and CS to create, design, and ship product features.",
   "I studied Digital Media and Economics at UC Davis, and started out designing and developing websites for clients, which is where the habit of doing both came from.",
-  "I'm currently working on a personal startup venture. Outside of work I make music and shoot nature photography.",
+  "I'm currently building Glizzy, a custom app of my own. Outside of work I make music and shoot nature photography.",
 ];
 
 export const kit = [

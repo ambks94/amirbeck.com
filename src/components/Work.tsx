@@ -1,13 +1,31 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import styles from "./Work.module.css";
 import Lightbox from "./Lightbox";
 import { projects, type Project } from "@/content/site";
 
 export default function Work() {
   const [open, setOpen] = useState<Project["image"] | null>(null);
+  const listRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const list = listRef.current;
+    if (!list) return;
+    const entries = Array.from(list.querySelectorAll<HTMLElement>(`.${styles.entry}`));
+    const observer = new IntersectionObserver(
+      (obs) => obs.forEach((e) => {
+        if (e.isIntersecting) {
+          (e.target as HTMLElement).classList.add(styles.visible);
+          observer.unobserve(e.target);
+        }
+      }),
+      { threshold: 0.08 }
+    );
+    entries.forEach((el) => observer.observe(el));
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <section className={`section ${styles.work}`} id="work">
@@ -25,7 +43,7 @@ export default function Work() {
           <Image className="dots" src="/illustrations/dot-row.svg" alt="" width={284} height={33} />
         </div>
 
-        <div className={styles.list}>
+        <div className={styles.list} ref={listRef}>
           {projects.map((p, i) => (
             <article key={p.slug} className={styles.entry}>
               <div className={styles.head}>
