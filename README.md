@@ -2,7 +2,6 @@
 
 I design and ship fintech products. At **Lumanu** I lead the design of a B2B2C payments platform.
 
-
 **→ [amirbeck.com](https://amirbeck.com)**
 
 This repo is the site itself.
@@ -15,13 +14,11 @@ the way I fixed what Framer had quietly broken, including illustrations cropped 
 frames, images served far larger than they render, and text and tap targets under accessible
 minimums.
 
-**Designed in Figma.** The layout, type scale, and palette all started in Figma. The two brand
-colors come straight out of my own illustrations, so the design tokens and the artwork agree.
+**Designed in Figma.** The layout, type scale, and palette all started in Figma.
 
 **Bridged design to code with Figma Code Connect and the Figma MCP.** Components map to their
 Figma source, so the design system and the codebase share one vocabulary of component names,
-props, and structure. It is the same practice I lead at Lumanu, design to code where the system
-compounds instead of resetting every screen.
+props, and structure. It is the same practice I lead at Lumanu, design to code where the system compounds instead of resetting every screen.
 
 **Motion.** Load-time stagger is CSS and animates transform, never opacity, so every word is
 legible on the first painted frame. Slow ambient drift on the illustrations. A scroll progress
@@ -35,20 +32,17 @@ tools, then held it to a high bar. All of it turns off under `prefers-reduced-mo
   Lead the design through the company
   strategy pivot from influencer marketing to payments.
 - **[SkySlope](https://amirbeck.com/skyslope).** Improved UX across DigiSign, Forms, and
-  Breeze, and led Breeze from concept through launch. 
+  Breeze, and led Breeze from concept through launch.
 - **[Granate](https://amirbeck.com/granate).** Led product design for a grief support app.
 
 - **[EasyPeady](https://amirbeck.com/easypeady).** Designed and launched a standalone real
-  estate form app in one quarter, built alongside engineering. It became the groundwork for
-  Breeze.
+  estate form app in one quarter, built alongside engineering. It became the groundwork for Breeze.
 
 ## Stack
 
-Next.js 16, React 19, TypeScript, CSS Modules, Motion, Lucide, self hosted Google Fonts,
-deployed on Vercel. Figma, Code Connect, Figma MCP, and design tokens on the design side.
+Next.js 16, React 19, TypeScript, CSS Modules, Motion, Lucide, self hosted Google Fonts, deployed on Vercel. Figma, Code Connect, Figma MCP, and design tokens on the design side.
 
 ## Contact
 
 [beck@amirbeck.com](mailto:beck@amirbeck.com) ·
 [LinkedIn](https://www.linkedin.com/in/amir-beck/) ·
-[GitHub](https://github.com/amirbecklumanu)
