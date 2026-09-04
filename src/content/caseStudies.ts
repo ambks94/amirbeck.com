@@ -76,7 +76,7 @@ export const caseStudies: CaseStudy[] = [
     intro:
       "Lumanu is a fintech that processes payments and handles tax compliance for brands paying creators.",
     description:
-      "Amir Beck led the Lumanu payments platform redesign as design engineer and coded 90% of it. Lumanu processes payments and tax compliance for brands paying creators.",
+      "Amir Beck led the Lumanu payments platform redesign as lead product designer. Lumanu processes payments and tax compliance for brands paying creators.",
     metrics: [
       { figure: "~90%", text: "of the app redesign coded personally" },
       {
@@ -102,7 +102,7 @@ export const caseStudies: CaseStudy[] = [
         tags: ["Figma", "React", "Next.js"],
         problem:
           "The app was information dense, hard to navigate, and had outdated UI.",
-        body: "I redesigned it from the ground up and held it to a pixel perfect bar, coding 90% myself, with help on the left nav and new features like universal search.",
+        body: "I redesigned it from the ground up and held it to a pixel perfect bar, coding ~90% myself, with help on the left nav and new features like universal search.",
         result: "A faster, clearer, and more modern app.",
         beforeAfter: true,
         images: [
