@@ -94,7 +94,6 @@
   color: var(--ink);
   text-decoration: none;
   width: max-content;
-  transform: translateY(14px);
   transition: color 0.2s ease;
 }
 /* Magnific-style leading pointer on hover/focus. */
@@ -127,7 +126,6 @@
   color: var(--accent);
   text-decoration: none;
   width: max-content;
-  transform: translateY(14px);
 }
 .close {
   position: absolute;
@@ -163,6 +161,7 @@
   .menuBtn {
     display: inline-flex;
   }
+  /* Motion (AnimatePresence) drives opacity + the staggered link rise. */
   .overlay {
     position: fixed;
     inset: 0;
@@ -173,48 +172,5 @@
     padding: clamp(28px, 9vw, 60px);
     background: color-mix(in srgb, var(--paper) 97%, transparent);
     backdrop-filter: blur(18px);
-    opacity: 0;
-    visibility: hidden;
-    transition:
-      opacity 0.3s ease,
-      visibility 0.3s ease;
-  }
-  .overlay[data-open="true"] {
-    opacity: 1;
-    visibility: visible;
-  }
-  /* Staggered rise — transform only, so text is legible on the first frame. */
-  .overlay[data-open="true"] .overlayLinks a,
-  .overlay[data-open="true"] .overlayContact {
-    animation: menuRise 0.5s cubic-bezier(0.19, 1, 0.22, 1) both;
-  }
-  .overlay[data-open="true"] .overlayLinks a:nth-child(1) {
-    animation-delay: 0.06s;
-  }
-  .overlay[data-open="true"] .overlayLinks a:nth-child(2) {
-    animation-delay: 0.12s;
-  }
-  .overlay[data-open="true"] .overlayLinks a:nth-child(3) {
-    animation-delay: 0.18s;
-  }
-  .overlay[data-open="true"] .overlayContact {
-    animation-delay: 0.24s;
-  }
-}
-
-@keyframes menuRise {
-  to {
-    transform: translateY(0);
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .overlayLinks a,
-  .overlayContact {
-    transform: none;
-    animation: none !important;
-  }
-  .overlay {
-    transition: opacity 0.001s;
   }
 }

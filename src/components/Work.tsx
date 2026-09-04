@@ -5,6 +5,7 @@ import { ArrowUpRight, ArrowRight } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import styles from "./Work.module.css";
 import Lightbox from "./Lightbox";
+import ShimmerImage from "./ShimmerImage";
 import DotRow from "./DotRow";
 import { projects, workIntro, type Project } from "@/content/site";
 
@@ -111,30 +112,25 @@ export default function Work() {
                       <span className={styles.url}>{p.image.browser}</span>
                     </span>
                     <span className={styles.viewport}>
-                      <Image
+                      <ShimmerImage
                         src={p.image.src}
                         alt={p.image.alt}
-                        fill
                         sizes="(max-width: 1120px) 100vw, 1120px"
-                        quality={90}
-                        preload={i === 0}
-                        style={{
-                          objectFit: "cover",
-                          objectPosition: "center top",
-                        }}
+                        priority={i === 0}
+                        objectFit="cover"
+                        objectPosition="center top"
                       />
                     </span>
                   </span>
                 ) : (
                   <span className={styles.media}>
-                    <Image
+                    <ShimmerImage
                       src={p.image.src}
                       alt={p.image.alt}
-                      fill
                       sizes="(max-width: 1120px) 100vw, 1120px"
-                      quality={90}
-                      preload={i === 0}
-                      style={{ objectFit: "contain", objectPosition: "center" }}
+                      priority={i === 0}
+                      objectFit="contain"
+                      objectPosition="center"
                     />
                   </span>
                 )}

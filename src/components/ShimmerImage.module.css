@@ -1,0 +1,30 @@
+.skeleton {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  background: color-mix(in srgb, var(--ink) 4%, var(--surface));
+}
+.sweep {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    color-mix(in srgb, var(--ink) 7%, transparent),
+    transparent
+  );
+}
+.img {
+  z-index: 1;
+  opacity: 0;
+  transition: opacity 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+}
+.img[data-loaded="true"] {
+  opacity: 1;
+}
+@media (prefers-reduced-motion: reduce) {
+  .img {
+    transition: opacity 0.01s;
+  }
+}
