@@ -58,6 +58,7 @@
 /* Eyebrow (FINTECH · PAYMENTS · SAN FRANCISCO) — keep it to one line. */
 .eyebrow {
   white-space: nowrap;
+  margin-bottom: 14px;
 }
 .jump {
   display: flex;
