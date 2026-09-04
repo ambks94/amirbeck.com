@@ -88,6 +88,10 @@
   color: var(--muted);
   max-width: 26ch;
 }
+.metric dt,
+.metric dd {
+  margin: 0;
+}
 
 .sections {
   display: flex;

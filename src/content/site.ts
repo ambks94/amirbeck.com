@@ -8,9 +8,12 @@ export const site = {
   phoneHref: "+15302048757",
   linkedin: "https://www.linkedin.com/in/amir-beck/",
   github: "https://github.com/amirbecklumanu",
+  githubPersonal: "https://github.com/ambks94",
   lead: "I design and build software, leading Lumanu's payments platform from concept to production code.",
   sub: "",
   colophon: "I designed and built this site. Hosted on Vercel.",
+  description:
+    "Amir Beck is a senior design engineer in San Francisco who both designs and ships fintech products. At Lumanu he leads the design of a B2B2C payments platform and personally builds it in React, Next.js, and TypeScript. He bridges Figma to production code on a design system that compounds.",
 };
 
 export const workIntro =

@@ -5,7 +5,13 @@ import styles from "./LoopVideo.module.css";
 
 const CROP = new Set(["/images/lumanu/buyer-dashboard.webm"]);
 
-export default function LoopVideo({ src }: { src: string }) {
+export default function LoopVideo({
+  src,
+  label,
+}: {
+  src: string;
+  label?: string;
+}) {
   const ref = useRef<HTMLVideoElement>(null);
   const mp4 = src.replace(/\.webm$/, ".mp4");
   const crop = CROP.has(src);
@@ -40,6 +46,8 @@ export default function LoopVideo({ src }: { src: string }) {
         loop
         playsInline
         preload="metadata"
+        aria-label={label}
+        title={label}
       >
         <source src={src} type="video/webm" />
         <source src={mp4} type="video/mp4" />

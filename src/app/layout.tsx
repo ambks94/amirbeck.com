@@ -26,16 +26,15 @@ const jetbrains = JetBrains_Mono({
   display: "swap",
 });
 
-const description =
-  "Amir Beck is a senior design engineer in San Francisco who both designs and ships fintech products. At Lumanu he leads the design of a B2B2C payments platform and personally builds it in React, Next.js, and TypeScript. He bridges Figma to production code on a design system that compounds.";
+const title = `${site.name}, ${site.role}`;
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://amirbeck.com"),
   title: {
-    default: "Amir Beck, Design Engineer",
+    default: title,
     template: "%s, Amir Beck",
   },
-  description,
+  description: site.description,
   keywords: [
     "design engineer",
     "senior design engineer",
@@ -62,8 +61,8 @@ export const metadata: Metadata = {
     googleBot: { index: true, follow: true, "max-image-preview": "large" },
   },
   openGraph: {
-    title: "Amir Beck, Design Engineer",
-    description,
+    title,
+    description: site.description,
     url: "https://amirbeck.com",
     siteName: site.name,
     locale: "en_US",
@@ -73,65 +72,16 @@ export const metadata: Metadata = {
         url: "/images/og.png",
         width: 1200,
         height: 630,
-        alt: "Amir Beck, Design Engineer",
+        alt: title,
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Amir Beck, Design Engineer",
-    description,
+    title,
+    description: site.description,
     images: ["/images/og.png"],
   },
-};
-
-// Structured data for search + answer engines (AEO). Facts only; kept in sync with site.ts.
-const personLd = {
-  "@context": "https://schema.org",
-  "@type": "Person",
-  name: site.name,
-  url: "https://amirbeck.com",
-  jobTitle: "Senior Design Engineer",
-  worksFor: {
-    "@type": "Organization",
-    name: "Lumanu",
-    url: "https://lumanu.com",
-  },
-  address: {
-    "@type": "PostalAddress",
-    addressLocality: "San Francisco",
-    addressRegion: "CA",
-    addressCountry: "US",
-  },
-  email: `mailto:${site.email}`,
-  sameAs: [site.linkedin, site.github],
-  alumniOf: {
-    "@type": "CollegeOrUniversity",
-    name: "University of California, Davis",
-  },
-  knowsAbout: [
-    "Design engineering",
-    "Design systems",
-    "Fintech",
-    "Payments",
-    "B2B2C software",
-    "Design-to-code",
-    "React",
-    "Next.js",
-    "TypeScript",
-    "Figma",
-    "AI product design",
-    "Prototyping",
-  ],
-  description,
-};
-
-const siteLd = {
-  "@context": "https://schema.org",
-  "@type": "WebSite",
-  name: site.name,
-  url: "https://amirbeck.com",
-  author: { "@type": "Person", name: site.name },
 };
 
 export default function RootLayout({
@@ -145,14 +95,6 @@ export default function RootLayout({
       <body>
         {children}
         <Analytics />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(personLd) }}
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(siteLd) }}
-        />
       </body>
     </html>
   );

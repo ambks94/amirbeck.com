@@ -23,4 +23,6 @@
 - Website: https://amirbeck.com
 - LinkedIn: https://www.linkedin.com/in/amir-beck/
 - GitHub: https://github.com/amirbecklumanu
+- GitHub (personal): https://github.com/ambks94
 - Email: beck@amirbeck.com
+- Full text: https://amirbeck.com/llms-full.txt

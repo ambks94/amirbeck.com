@@ -54,8 +54,19 @@ function Figure({
 }
 
 // media for the micro layout (video / before-after / grid)
+function Video({ src, caption }: { src: string; caption?: string }) {
+  const video = <LoopVideo src={src} label={caption} />;
+  if (!caption) return video;
+  return (
+    <figure className={styles.figure}>
+      {video}
+      <figcaption className={styles.caption}>{caption}</figcaption>
+    </figure>
+  );
+}
+
 function Media({ section }: { section: CaseSection }) {
-  if (section.video) return <LoopVideo src={section.video} />;
+  if (section.video) return <Video src={section.video} caption={section.caption} />;
   const imgs = section.images ?? [];
   if (!imgs.length) return null;
   if (section.beforeAfter && imgs.length >= 2) {
@@ -98,7 +109,7 @@ function BlockMedia({ block }: { block: CaseBlock }) {
       </div>
     );
   }
-  if (block.video) return <LoopVideo src={block.video} />;
+  if (block.video) return <Video src={block.video} caption={block.caption} />;
   const imgs = block.images ?? [];
   if (!imgs.length) return null;
   if (block.beforeAfter && imgs.length >= 2) {
@@ -166,6 +177,16 @@ export default function CaseStudyView({ study }: { study: CaseStudy }) {
           </p>
           <h1 className={styles.title}>{study.name}</h1>
           <p className={styles.intro}>{study.intro}</p>
+          {study.metrics.length > 0 && (
+            <dl className={styles.metrics}>
+              {study.metrics.map((m) => (
+                <div key={m.text} className={styles.metric}>
+                  <dt className={styles.figure}>{m.figure}</dt>
+                  <dd className={styles.mtext}>{m.text}</dd>
+                </div>
+              ))}
+            </dl>
+          )}
 
           {study.hero && (
             <div className={styles.heroShot}>

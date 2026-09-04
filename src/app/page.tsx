@@ -5,6 +5,8 @@ import Work from "@/components/Work";
 import HowIWork from "@/components/HowIWork";
 import About from "@/components/About";
 import Contact from "@/components/Contact";
+import JsonLd from "@/components/JsonLd";
+import { homeGraph } from "@/content/jsonld";
 
 export default function Home() {
   return (
@@ -18,6 +20,7 @@ export default function Home() {
         <About />
       </main>
       <Contact />
+      <JsonLd data={homeGraph()} />
     </>
   );
 }

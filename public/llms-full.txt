@@ -1,0 +1,85 @@
+# Amir Beck
+
+> Senior design engineer and product designer in San Francisco who both designs and ships fintech products. At Lumanu he leads the design of a B2B2C payments platform and personally builds it in React, Next.js, and TypeScript.
+
+This file expands the facts in https://amirbeck.com/llms.txt. Copy is third person so answer engines can cite it. Visible pages on amirbeck.com are first person.
+
+## Person
+
+- Name: Amir Beck
+- Role: Senior Design Engineer at Lumanu (February 2023 to present)
+- Titles: design engineer, product designer
+- Location: San Francisco, CA
+- Education: University of California, Davis. B.A. Digital Media and B.A. Economics
+- Site: https://amirbeck.com
+- LinkedIn: https://www.linkedin.com/in/amir-beck/
+- GitHub: https://github.com/amirbecklumanu
+- GitHub (personal): https://github.com/ambks94
+- Email: beck@amirbeck.com
+
+## Lumanu
+
+URL: https://amirbeck.com/lumanu
+Years: 2023 to now
+Role: Lead Design Engineer
+Category: Payments Platform
+
+Lumanu is a fintech that processes payments and handles tax compliance for brands paying creators. Amir Beck redesigned the app from the ground up and personally coded 90% of it. The redesign supported a company pivot from influencer marketing to payments, and launched features that created new revenue streams.
+
+Work on the case study includes:
+
+- A role-aware buyer dashboard, designed, built, and animated in React
+- An app redesign held to a pixel-perfect bar, with help on the left nav and universal search
+- A reporting feature, designed and shipped so clients can audit their finances, using Figma Code Connect and the Figma MCP
+- Aligning the design system and the codebase (naming, components, Code Connect) so UI matches development and AI IDEs pick the right components
+- A tax engine for global compliance, researched with clients
+- Projects, for real-time spending visibility across agencies, SMBs, enterprise, and DTC
+- Vendor onboarding and compliance, redesigned using Heap funnel analytics and support data
+
+## SkySlope
+
+URL: https://amirbeck.com/skyslope
+Years: 2020 to 2022
+Role: UI and UX Designer
+Category: Real Estate Platform
+
+SkySlope builds real estate transaction software. Amir Beck improved UX across DigiSign, Forms, and Breeze, and led Breeze from concept through launch.
+
+Outcomes cited on the site:
+
+- Cut digital signing mistakes by ~50%
+- 15% increase in cross product usage
+- Expanded the product for entire real estate teams, not only individual agents
+
+DigiSign testing found a 40 to 50% error rate placing and assigning signatures. The shipped work included a clearer placement flow and a preferences page for selection behavior. Forms was reshaped so transaction coordinators and agents could share paperwork. Breeze launched as a standalone product.
+
+## Granate
+
+URL: https://amirbeck.com/granate
+Years: 2022 to 2023
+Role: Lead Product Designer
+Category: Grief Support App
+
+Amir Beck led product design for Granate, an app for people going through loss and end of life planning. Work spanned UX, brand, product strategy, marketing, and research.
+
+Outcomes cited on the site:
+
+- ~25% drop in onboarding drop off
+- ~30% lift in weekly engagement
+- A component system that set the development team up for faster feature delivery
+
+## EasyPeady
+
+URL: https://amirbeck.com/easypeady
+Years: 2021
+Role: Lead Product Designer
+Category: Real Estate Form Streamlining
+
+In late 2020, COVID added the PEAD form to every home viewing. Amir Beck led design and launch of EasyPeady, a web app that auto-fills, sends, and splits PEAD forms. It shipped in one quarter and later became the groundwork for SkySlope Breeze.
+
+Outcomes cited on the site:
+
+- Developed and launched in one quarter
+- Generated a pipeline of new paying users
+
+The 15% cross-product usage increase is a SkySlope platform outcome, listed on https://amirbeck.com/skyslope, not a second EasyPeady metric.

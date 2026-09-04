@@ -14,6 +14,7 @@ export type CaseSection = {
   problem?: string;
   result?: string;
   video?: string;
+  caption?: string;
   images?: CaseImage[];
   beforeAfter?: boolean;
 };
@@ -27,6 +28,7 @@ export type CaseBlock = {
   list?: string[];
   images?: CaseImage[];
   video?: string;
+  caption?: string;
   embed?: string;
   beforeAfter?: boolean;
   captions?: string[];
@@ -46,6 +48,8 @@ export type CaseStudy = {
   years: string;
   role: string;
   intro: string;
+  /** Optional third-person summary for meta tags and JSON-LD. Falls back to intro. */
+  description?: string;
   hero?: CaseImage;
   problem?: string;
   result?: string;
