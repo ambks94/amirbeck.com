@@ -1,42 +1,25 @@
 import type { Metadata } from "next";
 import PermissionsPlayground from "@/playground/PermissionsPlayground";
 import DirectoryNav from "@/components/DirectoryNav";
-import NameWave from "@/components/NameWave";
 import { playgroundGroups, type PlaygroundItem } from "@/content/playground";
 import caseStyles from "@/components/CaseStudy.module.css";
 import styles from "./page.module.css";
 
 export const metadata: Metadata = {
   title: "Playground",
-  description: "Live UI grouped by company work and personal work.",
+  description: "Live UI grouped by company work and side projects.",
   alternates: { canonical: "/playground" },
 };
 
-function groupCategory(
-  group: ReturnType<typeof playgroundGroups>[number],
-) {
-  if (group.id !== "company") return undefined;
-  const names = [
-    ...new Set(
-      group.items.flatMap((item) =>
-        item.kind === "company" ? [item.company] : [],
-      ),
-    ),
-  ];
-  return names.join(", ") || undefined;
-}
-
 function Stage({ item }: { item: PlaygroundItem }) {
-  switch (item.slug) {
-    case "permissions":
-      return <PermissionsPlayground />;
-    default:
-      return null;
+  if (item.slug === "permissions") {
+    return <PermissionsPlayground />;
   }
+  return null;
 }
 
 function Experiment({ item }: { item: PlaygroundItem }) {
-  const kicker = item.kind === "company" ? item.company : "Personal";
+  const kicker = item.kind === "company" ? item.company : "Side projects";
 
   return (
     <div id={item.slug} className={styles.experiment}>
@@ -75,25 +58,20 @@ export default function PlaygroundPage() {
     <article>
       <h1 className={`rise ${styles.title}`}>Playground</h1>
       <p className={styles.intro}>
-        Live UI grouped by company work and personal work.
+        Live UI grouped by company work and side projects.
       </p>
 
       <div className={styles.directory}>
         {groups.map((group) => (
-          <div key={group.id} className={styles.directoryGroup}>
-            <NameWave
-              name={group.label}
-              category={groupCategory(group)}
-            />
-            <DirectoryNav
-              label={group.label}
-              items={group.items.map((item) => ({
-                href: `#${item.slug}`,
-                name: item.title,
-                summary: item.blurb,
-              }))}
-            />
-          </div>
+          <DirectoryNav
+            key={group.id}
+            label={group.label}
+            items={group.items.map((item) => ({
+              href: `#${item.slug}`,
+              name: item.title,
+              summary: item.blurb,
+            }))}
+          />
         ))}
       </div>
 

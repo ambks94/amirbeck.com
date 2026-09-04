@@ -16,8 +16,8 @@ export type PlaygroundItem =
   | (PlaygroundBase & { kind: "personal" });
 
 export const playgroundGroupLabels: Record<PlaygroundGroupId, string> = {
-  company: "Company",
-  personal: "Personal",
+  company: "Company work",
+  personal: "Side projects",
 };
 
 export const playgroundItems: PlaygroundItem[] = [

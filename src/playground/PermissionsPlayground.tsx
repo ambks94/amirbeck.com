@@ -176,6 +176,8 @@ function InviteeCard({
   onRemove: () => void;
 }) {
   const held = new Set(invitee.held);
+  const hasChips =
+    hasEveryPerm(kind, held) || groupsHeld(kind, held).length > 0;
 
   return (
     <div className={styles.inviteeRow}>
@@ -202,12 +204,16 @@ function InviteeCard({
             onFocus={onSelect}
             onClick={(event) => event.stopPropagation()}
           />
+          {error ? <p className={styles.fieldError}>{error}</p> : null}
         </div>
-        <div className={styles.divider} />
-        <div className={styles.chips}>
-          <Chips kind={kind} held={held} />
-        </div>
-        {error ? <p className={styles.fieldError}>{error}</p> : null}
+        {hasChips ? (
+          <>
+            <div className={styles.divider} />
+            <div className={styles.chips}>
+              <Chips kind={kind} held={held} />
+            </div>
+          </>
+        ) : null}
       </div>
       <button
         type="button"
