@@ -4,6 +4,8 @@ export type CaseImage = {
   width: number;
   height: number;
   alt: string;
+  /** phone = device crop; wide = full-bleed diagram that should not share a column */
+  frame?: "phone" | "wide";
 };
 export type CaseSection = {
   heading: string;
@@ -489,6 +491,7 @@ export const caseStudies: CaseStudy[] = [
                 width: 1541,
                 height: 1330,
                 alt: "Granate navigation after the redesign",
+                frame: "phone",
               },
             ],
             captions: [
@@ -505,12 +508,14 @@ export const caseStudies: CaseStudy[] = [
                 width: 938,
                 height: 2030,
                 alt: "Onboarding before the change",
+                frame: "phone",
               },
               {
                 src: "/images/granate/jQfxkXSf8GKNMGIjcmIIz1OT6Q.webp",
                 width: 939,
                 height: 2030,
                 alt: "Onboarding after the change",
+                frame: "phone",
               },
             ],
             captions: ["Old", "New"],
@@ -524,12 +529,14 @@ export const caseStudies: CaseStudy[] = [
                 width: 938,
                 height: 2030,
                 alt: "Account creation before",
+                frame: "phone",
               },
               {
                 src: "/images/granate/ZvSERljg05hpXcetk0EFP9CTBA.webp",
                 width: 939,
                 height: 2030,
                 alt: "Account creation after with skip option",
+                frame: "phone",
               },
             ],
             captions: ["Old", "New"],
@@ -542,16 +549,26 @@ export const caseStudies: CaseStudy[] = [
                 src: "/images/granate/AOiugZLCINxahom2ueqPNyt0Fg.webp",
                 width: 1226,
                 height: 2405,
+                alt: "Figma pages, one per component type",
+                frame: "phone",
+              },
+              {
+                src: "/images/granate/WFUK2m6gDmkfG1JYfkzBMCUBOM.webp",
+                width: 2800,
+                height: 1514,
                 alt: "Button components, each in its own frame",
+                frame: "wide",
               },
               {
                 src: "/images/granate/iHatOeHeHIYd0ekyQp1XQr1a8Qg.webp",
                 width: 2800,
                 height: 643,
                 alt: "The complete Granate design system",
+                frame: "wide",
               },
             ],
             captions: [
+              "Figma pages, one per component type.",
               "Button components, each in its own frame.",
               "The complete design system.",
             ],
@@ -565,6 +582,7 @@ export const caseStudies: CaseStudy[] = [
                 width: 2800,
                 height: 1524,
                 alt: "The phased design system rollout",
+                frame: "wide",
               },
             ],
             captions: ["The phased rollout, mocked screen by screen."],
@@ -614,6 +632,7 @@ export const caseStudies: CaseStudy[] = [
                 width: 2800,
                 height: 1641,
                 alt: "The community MVP user flow",
+                frame: "wide",
               },
             ],
             captions: ["The community MVP flow."],
@@ -627,6 +646,7 @@ export const caseStudies: CaseStudy[] = [
                 width: 2800,
                 height: 1537,
                 alt: "Wireframes for the community flow",
+                frame: "wide",
               },
             ],
             captions: ["Wireframes for the community flow."],
@@ -662,8 +682,9 @@ export const caseStudies: CaseStudy[] = [
               {
                 src: "/images/granate/BhvkxmM7MTXKwbdVYk4e1r1th48.webp",
                 width: 2800,
-                height: 2182,
+                height: 2180,
                 alt: "An audit of every in app question",
+                frame: "wide",
               },
             ],
             captions: ["Every possible in app question."],
@@ -677,6 +698,7 @@ export const caseStudies: CaseStudy[] = [
                 width: 2800,
                 height: 706,
                 alt: "Categorizing tasks by priority and timeline",
+                frame: "wide",
               },
             ],
             captions: ["Categorizing by priority and timeline."],
@@ -688,14 +710,16 @@ export const caseStudies: CaseStudy[] = [
               {
                 src: "/images/granate/CpIy2hNkH82HCIAUAdfIvigcw.webp",
                 width: 2800,
-                height: 2382,
+                height: 2381,
                 alt: "Tailoring tasks to the user's role",
+                frame: "wide",
               },
               {
                 src: "/images/granate/88X7aNZrdX6WATYMfU2M3FgcdBU.webp",
                 width: 2800,
-                height: 1830,
+                height: 1744,
                 alt: "Further prioritized task grouping",
+                frame: "wide",
               },
             ],
             captions: [

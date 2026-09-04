@@ -11,6 +11,7 @@
   --rule: #343a38;
   --accent: #9fc0d8;
   --on-accent: #1b1f1e;
+  --shade: #050605;
   color-scheme: dark;
   background: var(--paper);
   color: var(--ink);
@@ -172,7 +173,7 @@
   background: var(--surface);
   border: 1px solid color-mix(in srgb, var(--ink) 5%, transparent);
   border-radius: 16px;
-  box-shadow: 0 22px 50px -20px rgb(0 0 0 / 0.6);
+  box-shadow: var(--elev);
 }
 .boxLabel {
   font-family: var(--font-mono);

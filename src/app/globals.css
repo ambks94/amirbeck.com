@@ -24,6 +24,14 @@
   --font-mono:
     var(--font-mono-jb), ui-monospace, SFMono-Regular, Menlo, monospace;
 
+  --shade: #2c312f;
+  --elev:
+    0 2px 4px -1px color-mix(in srgb, var(--shade) 14%, transparent),
+    0 12px 28px -10px color-mix(in srgb, var(--shade) 12%, transparent);
+  --elev-hover:
+    0 3px 6px -1px color-mix(in srgb, var(--shade) 10%, transparent),
+    0 20px 40px -12px color-mix(in srgb, var(--shade) 11%, transparent);
+
   color-scheme: light dark;
 }
 
@@ -37,6 +45,7 @@
     --rule: #343a38;
     --accent: #9fc0d8;
     --on-accent: #1b1f1e;
+    --shade: #050605;
   }
 }
 
@@ -49,6 +58,7 @@
   --rule: #343a38;
   --accent: #9fc0d8;
   --on-accent: #1b1f1e;
+  --shade: #050605;
 }
 
 *,

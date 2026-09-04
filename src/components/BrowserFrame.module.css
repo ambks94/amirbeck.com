@@ -4,7 +4,7 @@
   border-radius: 10px;
   overflow: hidden;
   background: var(--surface);
-  box-shadow: 0 24px 60px -30px color-mix(in srgb, var(--ink) 55%, transparent);
+  box-shadow: var(--elev);
 }
 .bar {
   display: flex;

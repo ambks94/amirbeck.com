@@ -106,7 +106,7 @@
   border-radius: 10px;
   overflow: hidden;
   border: 1px solid var(--rule);
-  box-shadow: 0 22px 55px -30px color-mix(in srgb, var(--ink) 55%, transparent);
+  box-shadow: var(--elev);
   appearance: none;
   font: inherit;
   color: inherit;
@@ -177,8 +177,7 @@
 }
 @media (hover: hover) and (pointer: fine) {
   .shot:hover {
-    box-shadow: 0 32px 70px -28px
-      color-mix(in srgb, var(--ink) 60%, transparent);
+    box-shadow: var(--elev-hover);
     transform: translateY(-4px);
   }
 }
