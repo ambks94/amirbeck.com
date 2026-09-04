@@ -75,6 +75,8 @@ export const caseStudies: CaseStudy[] = [
     role: "Lead Design Engineer",
     intro:
       "Lumanu is a fintech that processes payments and handles tax compliance for brands paying creators.",
+    description:
+      "Amir Beck led the Lumanu payments platform redesign as design engineer and coded 90% of it. Lumanu processes payments and tax compliance for brands paying creators.",
     metrics: [
       { figure: "~90%", text: "of the app redesign coded personally" },
       {
@@ -92,6 +94,8 @@ export const caseStudies: CaseStudy[] = [
         body: "I designed, built, and animated a role aware homepage that surfaces that value and gives a clear, actionable overview.",
         result: "A dashboard that makes invisible value visible on first load.",
         video: "/images/lumanu/buyer-dashboard.webm",
+        caption:
+          "Role-aware Lumanu homepage that surfaces value and an actionable overview.",
       },
       {
         heading: "App redesign",
@@ -125,6 +129,8 @@ export const caseStudies: CaseStudy[] = [
         result:
           "A new reporting feature which allowed our clients to audit their finances.",
         video: "/images/lumanu/reporting.webm",
+        caption:
+          "Reporting in Lumanu, built so clients can audit their finances.",
       },
       {
         heading: "Design system and AI tooling",
@@ -235,6 +241,8 @@ export const caseStudies: CaseStudy[] = [
     role: "UI and UX Designer",
     intro:
       "SkySlope builds real estate transaction software. I improved the UX across DigiSign, Forms, and Breeze, and led Breeze from concept through launch.",
+    description:
+      "Amir Beck improved UX across SkySlope DigiSign, Forms, and Breeze, led Breeze from concept through launch, and cut digital signing mistakes by ~50%.",
     metrics: [],
     layout: "story",
 
@@ -267,10 +275,14 @@ export const caseStudies: CaseStudy[] = [
             heading: "Usability testing",
             body: "I ran targeted usability tests to see why users struggled. Many could not place and assign signatures correctly, a 40 to 50% error rate. 4 of 10 testers were frustrated setting the properties of each block after drawing it, and 5 of 10 struggled to change a property selection while creating a block.",
             video: "/images/skyslope/digisign-usability.webm",
+            caption:
+              "Usability test of placing and assigning signatures in DigiSign.",
           },
           {
             body: "DigiSign kept the signature block and its type selected after placement, unlike most e signing tools. That forced extra clicks and unexpected changes when moving to the next signature. Changing who a block was for also changed the signature type.",
             video: "/images/skyslope/digisign-behavior.webm",
+            caption:
+              "DigiSign keeping the signature block selected after placement.",
           },
           {
             heading: "Ideation",
@@ -445,6 +457,8 @@ export const caseStudies: CaseStudy[] = [
     role: "Lead Product Designer",
     intro:
       "I led product design for an app that supports people through loss and end of life planning. My work spanned UX, brand, and product strategy for an early stage startup.",
+    description:
+      "Amir Beck led product design for Granate, a grief support app. Onboarding drop off fell ~25% and weekly engagement rose ~30%.",
     metrics: [],
     layout: "story",
     impact: [
@@ -722,6 +736,8 @@ export const caseStudies: CaseStudy[] = [
     role: "Lead Product Designer",
     intro:
       "In late 2020, agents were overwhelmed by COVID related paperwork, especially the PEAD form required for every home viewing. I led the design and launch of EasyPeady, a web app that streamlined it.",
+    description:
+      "Amir Beck designed and launched EasyPeady, a standalone PEAD form app for real estate agents, in one quarter. It later became the groundwork for SkySlope Breeze.",
     problem:
       "COVID added the PEAD-V form to every home viewing, and managing it across properties and clients pulled buyer agents away from their clients.",
     result:

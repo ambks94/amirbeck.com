@@ -18,7 +18,11 @@ export function personNode() {
     familyName: "Beck",
     url: ORIGIN,
     image: abs("/images/og.png"),
-    jobTitle: "Senior Design Engineer",
+    jobTitle: ["Design Engineer", "Product Designer", "Senior Design Engineer"],
+    hasOccupation: [
+      { "@type": "Occupation", name: "Design Engineer" },
+      { "@type": "Occupation", name: "Product Designer" },
+    ],
     worksFor: {
       "@type": "Organization",
       name: "Lumanu",
@@ -39,6 +43,7 @@ export function personNode() {
     },
     knowsAbout: [
       "Design engineering",
+      "Product design",
       "Design systems",
       "Fintech",
       "Payments",

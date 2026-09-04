@@ -1,11 +1,12 @@
 # Amir Beck
 
-> Senior design engineer in San Francisco who both designs and ships fintech products. At Lumanu he leads the design of a B2B2C payments platform and personally builds it in React, Next.js, and TypeScript. He bridges Figma to production code on a design system that compounds.
+> Senior design engineer and product designer in San Francisco who both designs and ships fintech products. At Lumanu he leads the design of a B2B2C payments platform and personally builds it in React, Next.js, and TypeScript. He bridges Figma to production code on a design system that compounds.
 
 ## Facts
 
 - Name: Amir Beck
 - Role: Senior Design Engineer at Lumanu (February 2023 to present)
+- Titles: design engineer, product designer
 - Location: San Francisco, CA
 - Focus: fintech and payments product design, design systems, design to code, AI assisted prototyping
 - Stack: React, TypeScript, Next.js, HTML/CSS, Figma, design tokens, Code Connect, Figma MCP
@@ -13,10 +14,10 @@
 
 ## Selected work
 
-- Lumanu (2023 to now): leads design of a B2B2C payments platform. Personally coded ~90% of the app redesign. Pivoted company strategy from influencer marketing to payments.
-- SkySlope (2020 to 2022): improved UX across DigiSign, Forms, and Breeze. Led Breeze from concept through launch. Cut digital signing mistakes by ~50%.
+- Lumanu (2023 to now): leads design of a B2B2C payments platform. Personally coded 90% of the app redesign. Pivoted company strategy from influencer marketing to payments.
+- SkySlope (2020 to 2022): improved UX across DigiSign, Forms, and Breeze. Led Breeze from concept through launch. Cut digital signing mistakes by ~50%. 15% increase in cross product usage.
 - Granate (2022 to 2023): led product design for a grief support app. ~25% drop in onboarding drop off, and a ~30% lift in weekly engagement.
-- EasyPeady (2021): designed and launched a standalone real estate form app in one quarter.
+- EasyPeady (2021): designed and launched a standalone real estate form app in one quarter. Later the groundwork for SkySlope Breeze.
 
 ## Links
 

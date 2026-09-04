@@ -177,16 +177,6 @@ export default function CaseStudyView({ study }: { study: CaseStudy }) {
           </p>
           <h1 className={styles.title}>{study.name}</h1>
           <p className={styles.intro}>{study.intro}</p>
-          {study.metrics.length > 0 && (
-            <dl className={styles.metrics}>
-              {study.metrics.map((m) => (
-                <div key={m.text} className={styles.metric}>
-                  <dt className={styles.figure}>{m.figure}</dt>
-                  <dd className={styles.mtext}>{m.text}</dd>
-                </div>
-              ))}
-            </dl>
-          )}
 
           {study.hero && (
             <div className={styles.heroShot}>
