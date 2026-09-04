@@ -1,19 +1,16 @@
-import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
 import styles from "./Contact.module.css";
+import MagneticIllo from "./MagneticIllo";
 import { site, stack } from "@/content/site";
 
 // Single site footer: the closing contact CTA plus the credit line.
 export default function Contact() {
   return (
     <footer className={styles.contact} id="contact">
-      <Image
+      <MagneticIllo
         className={styles.curves}
         src="/illustrations/curves.svg"
-        alt=""
-        aria-hidden="true"
-        width={880}
-        height={909}
+        strength={30}
       />
       <div className="wrap">
         <h2 className={styles.h2}>Contact Me</h2>

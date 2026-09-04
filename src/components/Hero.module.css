@@ -146,7 +146,6 @@
       transparent 100%
     );
   mask-composite: intersect;
-  animation: driftCentered 30s ease-in-out infinite;
 }
 @media (max-width: 1023px) {
   .stipple {

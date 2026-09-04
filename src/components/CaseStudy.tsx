@@ -150,8 +150,8 @@ export default function CaseStudyView({ study }: { study: CaseStudy }) {
               priority
             />
           </Link>
-          <Link className={styles.back} href="/#work">
-            <ArrowLeft size={15} strokeWidth={2} aria-hidden="true" /> Work
+          <Link className={styles.back} href="/">
+            <ArrowLeft size={15} strokeWidth={2} aria-hidden="true" /> Home
           </Link>
           <a className="btn" href={`mailto:${site.email}`}>
             Contact Me
@@ -184,6 +184,23 @@ export default function CaseStudyView({ study }: { study: CaseStudy }) {
                     {p}
                   </p>
                 ))}
+                {study.problem && study.result && (
+                  <div className={styles.flowGroup}>
+                    <span className={styles.flow} aria-hidden="true">
+                      <span className={styles.flowRail}>
+                        <span className={styles.flowShine} />
+                      </span>
+                    </span>
+                    <p className={styles.meta}>
+                      <span className={styles.metaLabel}>Problem</span>
+                      {study.problem}
+                    </p>
+                    <p className={`${styles.meta} ${styles.result}`}>
+                      <span className={styles.metaLabel}>Solution</span>
+                      {study.result}
+                    </p>
+                  </div>
+                )}
                 <div className={styles.details}>
                   {study.impact && study.impact.length > 0 && (
                     <div className={styles.detailCol}>
@@ -267,7 +284,26 @@ export default function CaseStudyView({ study }: { study: CaseStudy }) {
                       {b.heading && (
                         <h3 className={styles.blockHead}>{b.heading}</h3>
                       )}
-                      {b.body && <p className={styles.body}>{b.body}</p>}
+                      {b.problem && b.result ? (
+                        <div className={styles.flowGroup}>
+                          <span className={styles.flow} aria-hidden="true">
+                            <span className={styles.flowRail}>
+                              <span className={styles.flowShine} />
+                            </span>
+                          </span>
+                          <p className={styles.meta}>
+                            <span className={styles.metaLabel}>Problem</span>
+                            {b.problem}
+                          </p>
+                          {b.body && <p className={styles.body}>{b.body}</p>}
+                          <p className={`${styles.meta} ${styles.result}`}>
+                            <span className={styles.metaLabel}>Solution</span>
+                            {b.result}
+                          </p>
+                        </div>
+                      ) : (
+                        b.body && <p className={styles.body}>{b.body}</p>
+                      )}
                       {b.list && (
                         <ul className={styles.outcomeList}>
                           {b.list.map((li) => (

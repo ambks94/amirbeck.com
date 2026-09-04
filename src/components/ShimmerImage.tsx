@@ -10,6 +10,7 @@ type Props = {
   alt: string;
   sizes: string;
   priority?: boolean;
+  quality?: number;
   objectFit?: "cover" | "contain";
   objectPosition?: string;
 };
@@ -21,6 +22,7 @@ export default function ShimmerImage({
   alt,
   sizes,
   priority,
+  quality = 100,
   objectFit = "cover",
   objectPosition = "center",
 }: Props) {
@@ -50,7 +52,7 @@ export default function ShimmerImage({
         alt={alt}
         fill
         sizes={sizes}
-        quality={90}
+        quality={quality}
         priority={priority}
         onLoad={() => setLoaded(true)}
         className={styles.img}

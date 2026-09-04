@@ -26,6 +26,24 @@
     opacity: 0.2;
   }
 }
+/* Line cluster anchored in the top-left corner (magnetic). */
+.topLeft {
+  position: absolute;
+  left: -4%;
+  top: -12%;
+  width: min(30%, 320px);
+  height: auto;
+  opacity: 0.26;
+  pointer-events: none;
+  z-index: 0;
+}
+@media (max-width: 899px) {
+  .topLeft {
+    width: 56%;
+    left: -14%;
+    opacity: 0.16;
+  }
+}
 .grid {
   display: grid;
   gap: clamp(26px, 4vw, 42px);
