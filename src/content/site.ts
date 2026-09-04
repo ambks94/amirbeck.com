@@ -163,7 +163,7 @@ export const kit = [
   },
   {
     label: "Tooling",
-    text: "I build and prototype with AI native, design first tools daily. Cursor, Claude Code, Claude, Figma Make, Figma MCP, Code Connect, Paper, and the Vercel AI SDK.",
+    text: "I build and prototype with AI native, design first tools daily. Cursor, Claude Code, Claude, Figma Make, Figma MCP, Code Connect, Paper, Framer AI, Motion, and the Vercel AI SDK.",
   },
   {
     label: "Design & systems",
