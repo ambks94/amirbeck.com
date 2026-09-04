@@ -7,6 +7,7 @@ import {
 } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import { site } from "@/content/site";
+import ScrollReset from "@/components/ScrollReset";
 import "./globals.css";
 
 const instrumentSerif = Instrument_Serif({

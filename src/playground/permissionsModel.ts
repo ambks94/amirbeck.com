@@ -263,11 +263,15 @@ export function newInvitee(kind: WorkspaceKind, email = ""): Invitee {
 export function seedInvitees(kind: WorkspaceKind): Invitee[] {
   return [
     {
-      id: crypto.randomUUID(),
+      id: "seed-dana",
       email: "dana@northwindstudio.com",
       held: starterHeld(kind),
     },
-    newInvitee(kind, ""),
+    {
+      id: "seed-empty",
+      email: "",
+      held: defaultHeld(kind),
+    },
   ];
 }
 
