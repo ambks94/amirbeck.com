@@ -11,6 +11,7 @@ export const site = {
   lead:
     "I design and build software, leading Lumanu's payments platform from concept to production code.",
   sub: "",
+  colophon: "I designed and built this site. Hosted on Vercel.",
 };
 
 export const workIntro =

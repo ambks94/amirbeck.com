@@ -9,8 +9,9 @@ export default function Footer() {
         <a href={`tel:${site.phoneHref}`}>{site.phone}</a>
         <a href={site.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn</a>
         <a href={site.github} target="_blank" rel="noopener noreferrer">GitHub</a>
-        <p className={`label ${styles.copyright}`}>
-          © {new Date().getFullYear()} {site.name}
+        <p className={styles.credit}>
+          <span className="label">© {new Date().getFullYear()} {site.name}</span>
+          {site.colophon}
         </p>
       </div>
     </footer>
