@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import PermissionsPlayground from "@/playground/PermissionsPlayground";
+import WithdrawalPlayground from "@/playground/WithdrawalPlayground";
 import DirectoryNav from "@/components/DirectoryNav";
 import { playgroundGroups, type PlaygroundItem } from "@/content/playground";
 import caseStyles from "@/components/CaseStudy.module.css";
@@ -14,6 +15,9 @@ export const metadata: Metadata = {
 function Stage({ item }: { item: PlaygroundItem }) {
   if (item.slug === "permissions") {
     return <PermissionsPlayground />;
+  }
+  if (item.slug === "withdrawal") {
+    return <WithdrawalPlayground />;
   }
   return null;
 }
@@ -47,6 +51,7 @@ function Experiment({ item }: { item: PlaygroundItem }) {
       <div className={styles.stage}>
         <Stage item={item} />
       </div>
+      {item.note ? <p className={styles.note}>{item.note}</p> : null}
     </div>
   );
 }

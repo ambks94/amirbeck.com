@@ -395,11 +395,16 @@ function AddMembers() {
   return (
     <div className={styles.root}>
       <header className={styles.benchHead}>
-        <p className={styles.benchTitle}>Add Members Modal</p>
-        <p className={styles.benchSub}>
-          Invite members and set permissions per member. Brand and vendor
-          workspaces get different permissions.
-        </p>
+        <div className={styles.benchCopy}>
+          <p className={styles.benchTitle}>Add Members Modal</p>
+          <p className={styles.benchSub}>
+            Invite members and set permissions per member. Brand and vendor
+            workspaces get different permissions.
+          </p>
+        </div>
+        <button type="button" className={styles.benchReset} onClick={reset}>
+          Reset
+        </button>
       </header>
       <div className={styles.dialog} ref={setOverlay}>
         <OverlayRoot.Provider value={overlay}>

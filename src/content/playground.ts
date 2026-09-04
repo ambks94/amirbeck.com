@@ -9,6 +9,7 @@ type PlaygroundBase = {
   problem: string;
   solution: string;
   description: string;
+  note?: string;
 };
 
 export type PlaygroundItem =
@@ -32,6 +33,19 @@ export const playgroundItems: PlaygroundItem[] = [
     solution:
       "We moved to permission groups, so access can be set per user for enterprise companies with stricter compliance requirements.",
     description: "Granular workspace permissioning",
+  },
+  {
+    slug: "withdrawal",
+    title: "Simplify Linking Withdrawal Methods",
+    kind: "company",
+    company: "Lumanu",
+    blurb: "Linking withdrawal methods & live currency conversion",
+    problem:
+      "Users were confused when linking their withdrawal method, resulting in support tickets.",
+    solution:
+      "Simplify the flow and guide users, starting with country and currency, then showing the withdrawal methods that work for that pair.",
+    description: "Link a withdrawal method by wallet",
+    note: "The wallet is a fixed $1,000 USD. Conversion uses a live mid-market rate from open.er-api.com, cached for 15 minutes. Default country is bas from your location, or your timezone if country is missing.",
   },
 ];
 
