@@ -51,6 +51,12 @@
   width: var(--stage);
   max-width: 100%;
   display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.benchLead {
+  display: flex;
   flex-direction: row;
   align-items: flex-start;
   justify-content: space-between;
@@ -132,8 +138,7 @@
 }
 
 .controls {
-  width: var(--stage);
-  max-width: 100%;
+  width: 100%;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -350,9 +355,17 @@
      TransferOverview, desktop
      ============================================================ */
 .overview {
+  --overview-pad-y: 8px;
+  --overview-center-gap: 2px;
+  --overview-lines: 2;
+  --overview-line-height: calc(12px * 1.333);
   display: flex;
   flex-direction: row;
-  align-items: center;
+  align-items: stretch;
+  height: calc(
+    var(--overview-pad-y) * 2 + 14px + var(--overview-center-gap) +
+      (var(--overview-line-height) * var(--overview-lines)) + 1px
+  );
   border-top: 0.5px solid var(--n100);
   border-bottom: 0.5px solid var(--n100);
 }
@@ -368,14 +381,15 @@
   align-items: center;
   justify-content: flex-start;
   flex: 1;
-  padding: 16px 24px;
-  min-height: 70px;
+  min-width: 0;
+  padding: var(--overview-pad-y) 24px;
 }
 
 .col-text {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  min-width: 0;
 }
 
 .col-center {
@@ -383,23 +397,38 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 8px;
-  align-self: stretch;
+  gap: var(--overview-center-gap, 8px);
   min-width: 200px;
   border-left: 0.5px solid var(--n100);
   border-right: 0.5px solid var(--n100);
-  padding: 16px 8px;
+  padding: var(--overview-pad-y) 8px;
+}
+
+.col-center > svg {
+  display: block;
+  flex-shrink: 0;
 }
 
 .col-center .center-text {
   display: flex;
   flex-direction: column;
   align-items: center;
+  max-height: calc(var(--overview-line-height) * var(--overview-lines));
+  overflow: hidden;
 }
+
 .col-center .body2 {
   text-align: center;
   color: var(--n700);
 }
+
+.col .body1,
+.col .body2 {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 .col .body2 {
   color: var(--n700);
 }
@@ -1253,4 +1282,10 @@
   .method-card:active {
     transform: none;
   }
+}
+
+/* Reserves height for the lazily-mounted flow so gating it on scroll does not
+   shift the page. Roughly the height of the details step. */
+.flowPlaceholder {
+  min-height: 560px;
 }

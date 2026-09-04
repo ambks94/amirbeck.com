@@ -395,16 +395,37 @@ function AddMembers() {
   return (
     <div className={styles.root}>
       <header className={styles.benchHead}>
-        <div className={styles.benchCopy}>
-          <p className={styles.benchTitle}>Add Members Modal</p>
-          <p className={styles.benchSub}>
-            Invite members and set permissions per member. Brand and vendor
-            workspaces get different permissions.
-          </p>
+        <div className={styles.benchLead}>
+          <div className={styles.benchCopy}>
+            <p className={styles.benchTitle}>Add Members Modal</p>
+            <p className={styles.benchSub}>
+              Invite members and set permissions per member. Brand and vendor
+              workspaces get different permissions.
+            </p>
+          </div>
+          <button type="button" className={styles.benchReset} onClick={reset}>
+            Reset
+          </button>
         </div>
-        <button type="button" className={styles.benchReset} onClick={reset}>
-          Reset
-        </button>
+        <div className={styles.controls}>
+          <p className={styles.controlsLabel}>Workspace type</p>
+          <div className={styles.seg}>
+            <button
+              type="button"
+              aria-pressed={kind === "brand"}
+              onClick={() => switchKind("brand")}
+            >
+              Brand
+            </button>
+            <button
+              type="button"
+              aria-pressed={kind === "vendor"}
+              onClick={() => switchKind("vendor")}
+            >
+              Vendor
+            </button>
+          </div>
+        </div>
       </header>
       <div className={styles.dialog} ref={setOverlay}>
         <OverlayRoot.Provider value={overlay}>
@@ -516,26 +537,6 @@ function AddMembers() {
             </div>
           </div>
         </OverlayRoot.Provider>
-      </div>
-
-      <div className={styles.controls}>
-        <p className={styles.controlsLabel}>Workspace type</p>
-        <div className={styles.seg}>
-          <button
-            type="button"
-            aria-pressed={kind === "brand"}
-            onClick={() => switchKind("brand")}
-          >
-            Brand
-          </button>
-          <button
-            type="button"
-            aria-pressed={kind === "vendor"}
-            onClick={() => switchKind("vendor")}
-          >
-            Vendor
-          </button>
-        </div>
       </div>
     </div>
   );

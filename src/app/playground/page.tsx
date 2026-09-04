@@ -51,6 +51,9 @@ function Experiment({ item }: { item: PlaygroundItem }) {
       <div className={styles.stage}>
         <Stage item={item} />
       </div>
+      {item.disclaimer ? (
+        <p className={styles.disclaimer}>{item.disclaimer}</p>
+      ) : null}
       {item.note ? <p className={styles.note}>{item.note}</p> : null}
     </div>
   );

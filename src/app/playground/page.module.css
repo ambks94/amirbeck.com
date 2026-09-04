@@ -60,8 +60,15 @@
 .stage {
   margin-top: clamp(34px, 5vw, 54px);
 }
-.note {
+.disclaimer {
   margin: 14px 0 0;
+  width: 100%;
+  font-size: var(--step--1);
+  line-height: 1.55;
+  color: var(--ink);
+}
+.note {
+  margin: 8px 0 0;
   width: 100%;
   font-size: var(--step--1);
   line-height: 1.55;

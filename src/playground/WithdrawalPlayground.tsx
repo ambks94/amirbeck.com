@@ -489,9 +489,17 @@ function isPhoneViewport() {
 function LinkFlow() {
   const [device, setDevice] = useState<Device>("desktop");
   const [step, setStep] = useState<Step>("details");
-  const [country, setCountry] = useState("");
-  const [currency, setCurrency] = useState<string | null>(null);
-  const [flagCode, setFlagCode] = useState<string | null>(null);
+  // LinkFlow only mounts client-side (gated on scroll), so it is safe to seed
+  // country state from the browser here without risking a hydration mismatch.
+  // A later /api/geo response refines it.
+  const [initialDefaults] = useState(visitorCountryDefaults);
+  const [country, setCountry] = useState(initialDefaults.country);
+  const [currency, setCurrency] = useState<string | null>(
+    initialDefaults.currency,
+  );
+  const [flagCode, setFlagCode] = useState<string | null>(
+    initialDefaults.flagCode,
+  );
   const [showMoreCurrencies, setShowMoreCurrencies] = useState(false);
   const [otherSelected, setOtherSelected] = useState(false);
   const [otherCurrency, setOtherCurrency] = useState<string | null>(null);
@@ -503,9 +511,11 @@ function LinkFlow() {
   const [acknowledge, setAcknowledge] = useState(false);
   const [linked, setLinked] = useState<string | null>(null);
   const userPickedCountry = useRef(false);
-  const located = useRef(visitorCountryDefaults());
+  const located = useRef(initialDefaults);
 
-  function applyCountryDefaults(next: ReturnType<typeof visitorCountryDefaults>) {
+  function applyCountryDefaults(
+    next: ReturnType<typeof visitorCountryDefaults>,
+  ) {
     located.current = next;
     setCountry(next.country);
     setCurrency(next.currency);
@@ -525,8 +535,8 @@ function LinkFlow() {
   }, []);
 
   useEffect(() => {
-    applyCountryDefaults(visitorCountryDefaults());
-
+    // Seeded from the browser above; here we only refine it from the edge geo
+    // header once the request returns.
     let cancelled = false;
     fetch("/api/geo", { cache: "no-store" })
       .then((res) => (res.ok ? res.json() : null))
@@ -634,18 +644,39 @@ function LinkFlow() {
   return (
     <div className={styles.root}>
       <header className={styles.benchHead}>
-        <div className={styles.benchCopy}>
-          <p className={styles.benchTitle}>Link a withdrawal method</p>
-          <p className={styles.benchSub}>
-            Set up where you want to be paid. Pick a country and a currency,
-            then choose a bank transfer or PayPal. The bar at the top of the
-            card shows how the money will travel from your wallet to your
-            account.
-          </p>
+        <div className={styles.benchLead}>
+          <div className={styles.benchCopy}>
+            <p className={styles.benchTitle}>Link a withdrawal method</p>
+            <p className={styles.benchSub}>
+              Set up where you want to be paid. Pick a country and a currency,
+              then choose a bank transfer or PayPal. The bar at the top of the
+              card shows how the money will travel from your wallet to your
+              account.
+            </p>
+          </div>
+          <button type="button" className={styles.benchReset} onClick={reset}>
+            Reset
+          </button>
         </div>
-        <button type="button" className={styles.benchReset} onClick={reset}>
-          Reset
-        </button>
+        <div className={styles.controls}>
+          <p className={styles.controlsLabel}>Mobile or Desktop</p>
+          <div className={styles.seg}>
+            <button
+              type="button"
+              aria-pressed={device === "desktop"}
+              onClick={() => setDevice("desktop")}
+            >
+              Desktop
+            </button>
+            <button
+              type="button"
+              aria-pressed={device === "mobile"}
+              onClick={() => setDevice("mobile")}
+            >
+              Mobile
+            </button>
+          </div>
+        </div>
       </header>
 
       <div className={styles.stage} data-device={device}>
@@ -1381,34 +1412,37 @@ function LinkFlow() {
           <Overview variant="mobile" overview={overview} method={method} />
         </div>
       </div>
-
-      <div className={styles.controls}>
-        <p className={styles.controlsLabel}>Viewport</p>
-        <div className={styles.seg}>
-          <button
-            type="button"
-            aria-pressed={device === "desktop"}
-            onClick={() => setDevice("desktop")}
-          >
-            Desktop
-          </button>
-          <button
-            type="button"
-            aria-pressed={device === "mobile"}
-            onClick={() => setDevice("mobile")}
-          >
-            Mobile
-          </button>
-        </div>
-      </div>
     </div>
   );
 }
 
 export default function WithdrawalPlayground() {
+  const ref = useRef<HTMLDivElement>(null);
+  const [ready, setReady] = useState(false);
+
+  // Only mount the flow — and fire its geo / FX requests — once the experiment
+  // scrolls near the viewport, so nothing kicks off just by loading the page.
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const io = new IntersectionObserver(
+      (entries, obs) => {
+        if (entries.some((entry) => entry.isIntersecting)) {
+          setReady(true);
+          obs.disconnect();
+        }
+      },
+      { rootMargin: "400px" },
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
+
   return (
-    <LiveFrame url="app / wallet / withdraw">
-      <LinkFlow />
-    </LiveFrame>
+    <div ref={ref}>
+      <LiveFrame url="app / wallet / withdraw">
+        {ready ? <LinkFlow /> : <div className={styles.flowPlaceholder} />}
+      </LiveFrame>
+    </div>
   );
 }

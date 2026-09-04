@@ -59,7 +59,7 @@ export default function RippleIllo({ src, className }: Props) {
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img className={styles.base} src={src} alt="" />
       {reduce ? null : (
-        // eslint-disable-next-line @next/next/no-img-element
+         
         <motion.img
           className={styles.bright}
           src={src}
