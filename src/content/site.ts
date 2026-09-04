@@ -162,6 +162,10 @@ export const kit = [
     text: "Production quality UI in React, TypeScript, and Next.js, with modern HTML and CSS. Design to code with Code Connect and the Figma MCP, plus design tokens, animation, web performance, accessibility, and CI/CD.",
   },
   {
+    label: "Tooling",
+    text: "I build and prototype with AI native, design first tools daily. Cursor, Claude Code, Claude, Figma Make, Figma MCP, Code Connect, Paper, and the Vercel AI SDK.",
+  },
+  {
     label: "Design & systems",
     text: "Figma, prototyping, and motion. Design systems that compound in reusable components, variants, Token Studio, and Storybook.",
   },

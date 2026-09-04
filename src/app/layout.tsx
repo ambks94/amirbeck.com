@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Instrument_Serif, Geist, JetBrains_Mono } from "next/font/google";
 import { site } from "@/content/site";
-import Gate from "@/components/Gate";
 import "./globals.css";
 
 const instrumentSerif = Instrument_Serif({
@@ -129,7 +128,7 @@ export default function RootLayout({
       className={`${instrumentSerif.variable} ${geist.variable} ${jetbrains.variable}`}
     >
       <body>
-        <Gate>{children}</Gate>
+        {children}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(personLd) }}
