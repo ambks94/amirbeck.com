@@ -36,7 +36,11 @@ export default function ShimmerImage({
               className={styles.sweep}
               initial={{ x: "-100%" }}
               animate={{ x: "100%" }}
-              transition={{ duration: 1.4, ease: "easeInOut", repeat: Infinity }}
+              transition={{
+                duration: 1.4,
+                ease: "easeInOut",
+                repeat: Infinity,
+              }}
             />
           )}
         </span>
