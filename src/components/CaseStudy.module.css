@@ -253,14 +253,9 @@
   width: 100%;
   margin: 0;
   padding: clamp(14px, 2vw, 28px);
-  background: color-mix(in srgb, var(--surface) 50%, transparent);
-  backdrop-filter: blur(14px) saturate(1.1);
-  -webkit-backdrop-filter: blur(14px) saturate(1.1);
-  border: 1px solid color-mix(in srgb, var(--ink) 4%, transparent);
+  background: transparent;
+  border: 0;
   border-radius: 16px;
-  box-shadow:
-    inset 0 1px 0 color-mix(in srgb, #ffffff 35%, transparent),
-    var(--elev);
   cursor: zoom-in;
   text-align: left;
   font: inherit;
@@ -268,11 +263,38 @@
   appearance: none;
   -webkit-appearance: none;
 }
+/* Glass on its own layer so the drop shadow does not dither through the blur. */
+.shot::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  background: color-mix(in srgb, var(--surface) 50%, transparent);
+  backdrop-filter: blur(14px) saturate(1.1);
+  -webkit-backdrop-filter: blur(14px) saturate(1.1);
+  border: 1px solid color-mix(in srgb, var(--ink) 4%, transparent);
+  box-shadow: inset 0 1px 0 color-mix(in srgb, #ffffff 35%, transparent);
+}
+.shot::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: inherit;
+  pointer-events: none;
+  box-shadow:
+    0 2px 4px color-mix(in srgb, var(--ink) 6%, transparent),
+    0 12px 28px -10px color-mix(in srgb, var(--ink) 14%, transparent);
+}
 .shot:focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: 3px;
 }
 .shot img {
+  position: relative;
+  z-index: 1;
   display: block;
   width: 100%;
   height: auto;
@@ -289,6 +311,7 @@
 }
 .zoom {
   position: absolute;
+  z-index: 1;
   right: 18px;
   bottom: 18px;
   display: inline-flex;
