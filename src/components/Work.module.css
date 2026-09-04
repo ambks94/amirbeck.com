@@ -43,7 +43,8 @@
   gap: 22px;
   opacity: 0;
   transform: translateY(22px);
-  transition: opacity 0.65s cubic-bezier(0.19, 1, 0.22, 1),
+  transition:
+    opacity 0.65s cubic-bezier(0.19, 1, 0.22, 1),
     transform 0.65s cubic-bezier(0.19, 1, 0.22, 1);
 }
 .entry.visible {
@@ -81,7 +82,9 @@
 .waveLine {
   stroke-dasharray: 100;
   stroke-dashoffset: 62; /* hides the straight underline until hover */
-  transition: stroke-dashoffset 0.65s cubic-bezier(0.22, 0.68, 0, 1), stroke 0.3s ease;
+  transition:
+    stroke-dashoffset 0.65s cubic-bezier(0.22, 0.68, 0, 1),
+    stroke 0.3s ease;
 }
 .entry:hover .wave {
   color: var(--ink);
@@ -117,7 +120,9 @@
   font: inherit;
   color: inherit;
   cursor: zoom-in;
-  transition: box-shadow 0.35s ease, transform 0.35s cubic-bezier(0.22, 0.68, 0, 1);
+  transition:
+    box-shadow 0.35s ease,
+    transform 0.35s cubic-bezier(0.22, 0.68, 0, 1);
 }
 .media {
   position: absolute;
@@ -183,7 +188,8 @@
 }
 @media (hover: hover) and (pointer: fine) {
   .shot:hover {
-    box-shadow: 0 32px 70px -28px color-mix(in srgb, var(--ink) 60%, transparent);
+    box-shadow: 0 32px 70px -28px
+      color-mix(in srgb, var(--ink) 60%, transparent);
     transform: translateY(-4px);
   }
 }
@@ -205,7 +211,9 @@
   color: var(--muted);
   opacity: 0;
   transform: translateY(4px);
-  transition: opacity 0.25s ease, transform 0.25s ease;
+  transition:
+    opacity 0.25s ease,
+    transform 0.25s ease;
 }
 .shot:hover .zoom,
 .shot:focus-visible .zoom {
@@ -250,7 +258,9 @@
   line-height: 1.5;
   padding-left: 15px;
   border-left: 2px solid var(--rule);
-  transition: border-color 0.35s ease, color 0.35s ease;
+  transition:
+    border-color 0.35s ease,
+    color 0.35s ease;
 }
 .entry:hover .outcomes li {
   border-color: var(--accent);

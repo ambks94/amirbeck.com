@@ -18,11 +18,21 @@ export default function Contact() {
       <div className="wrap">
         <h2 className={styles.h2}>Contact Me</h2>
         <div className={styles.actions}>
-          <a className="btn" href={`mailto:${site.email}`}>{site.email}</a>
-          <a className="btn btn--ghost" href={site.linkedin} target="_blank" rel="noopener noreferrer">
-            LinkedIn <ArrowUpRight size={15} strokeWidth={2} aria-hidden="true" />
+          <a className="btn" href={`mailto:${site.email}`}>
+            {site.email}
           </a>
-          <a className="btn btn--ghost" href="/resume.pdf">Résumé (PDF)</a>
+          <a
+            className="btn btn--ghost"
+            href={site.linkedin}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            LinkedIn{" "}
+            <ArrowUpRight size={15} strokeWidth={2} aria-hidden="true" />
+          </a>
+          <a className="btn btn--ghost" href="/resume.pdf">
+            Résumé (PDF)
+          </a>
         </div>
 
         <div className={styles.meta}>
@@ -35,7 +45,9 @@ export default function Contact() {
             </ul>
           </div>
           <p className={styles.credit}>
-            <span className="label">© {new Date().getFullYear()} {site.name}</span>
+            <span className="label">
+              © {new Date().getFullYear()} {site.name}
+            </span>
             <span>{site.colophon}</span>
           </p>
         </div>

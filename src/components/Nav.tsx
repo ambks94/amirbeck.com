@@ -2,7 +2,6 @@
 
 import Image from "next/image";
 import { useEffect, useState } from "react";
-import type { CSSProperties } from "react";
 import { Menu, X } from "lucide-react";
 import styles from "./Nav.module.css";
 import ScrollProgress from "./ScrollProgress";
@@ -35,50 +34,61 @@ export default function Nav() {
 
   return (
     <>
-    <header className={styles.nav}>
-      <ScrollProgress />
-      <div className={`wrap ${styles.inner}`}>
-        <a className={styles.mark} href="#top" aria-label={site.name} onClick={() => setOpen(false)}>
-          <Image src="/logo.png" alt={site.name} width={30} height={30} priority />
-        </a>
+      <header className={styles.nav}>
+        <ScrollProgress />
+        <div className={`wrap ${styles.inner}`}>
+          <a
+            className={styles.mark}
+            href="#top"
+            aria-label={site.name}
+            onClick={() => setOpen(false)}
+          >
+            <Image
+              src="/logo.png"
+              alt={site.name}
+              width={30}
+              height={30}
+              priority
+            />
+          </a>
 
-        {/* Inline nav — desktop. */}
-        <nav className={styles.links}>
-          {items.map((it) => (
-            <a key={it.href} href={it.href}>
-              {it.label}
-            </a>
-          ))}
-        </nav>
-        <a className={`btn ${styles.contact}`} href={`mailto:${site.email}`}>
-          Contact Me
-        </a>
+          {/* Inline nav — tablet and up. */}
+          <nav className={styles.links}>
+            {items.map((it) => (
+              <a key={it.href} href={it.href}>
+                {it.label}
+              </a>
+            ))}
+          </nav>
+          <a className={`btn ${styles.contact}`} href={`mailto:${site.email}`}>
+            Contact Me
+          </a>
 
-        {/* Menu trigger — tablet and below. */}
-        <button
-          type="button"
-          className={styles.menuBtn}
-          aria-label="Open menu"
-          aria-expanded={open}
-          aria-controls="nav-menu"
-          onClick={() => setOpen(true)}
-        >
-          <Menu size={20} strokeWidth={2} />
-        </button>
-      </div>
-    </header>
+          {/* Menu trigger — mobile only. */}
+          <button
+            type="button"
+            className={styles.menuBtn}
+            aria-label="Open menu"
+            aria-expanded={open}
+            aria-controls="nav-menu"
+            onClick={() => setOpen(true)}
+          >
+            <Menu size={20} strokeWidth={2} />
+          </button>
+        </div>
+      </header>
 
-    {/* Full-screen overlay menu — sibling of the header so `position: fixed`
-        resolves to the viewport, not the backdrop-filtered header. */}
-    <div id="nav-menu" className={styles.overlay} data-open={open} aria-hidden={!open}>
+      {/* Full-screen overlay menu, a sibling of the header so `position: fixed`
+          resolves to the viewport rather than the backdrop-filtered header. */}
+      <div
+        id="nav-menu"
+        className={styles.overlay}
+        data-open={open}
+        aria-hidden={!open}
+      >
         <nav className={styles.overlayLinks}>
-          {items.map((it, i) => (
-            <a
-              key={it.href}
-              href={it.href}
-              style={{ "--i": i } as CSSProperties}
-              onClick={() => setOpen(false)}
-            >
+          {items.map((it) => (
+            <a key={it.href} href={it.href} onClick={() => setOpen(false)}>
               {it.label}
             </a>
           ))}
@@ -86,12 +96,16 @@ export default function Nav() {
         <a
           className={styles.overlayContact}
           href={`mailto:${site.email}`}
-          style={{ "--i": items.length } as CSSProperties}
           onClick={() => setOpen(false)}
         >
           Contact Me
         </a>
-        <button type="button" className={styles.close} aria-label="Close menu" onClick={() => setOpen(false)}>
+        <button
+          type="button"
+          className={styles.close}
+          aria-label="Close menu"
+          onClick={() => setOpen(false)}
+        >
           <X size={22} strokeWidth={2} />
         </button>
       </div>

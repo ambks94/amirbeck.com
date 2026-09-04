@@ -114,11 +114,37 @@
   z-index: 0;
   opacity: 0.5;
   /* Fade every edge so the wave lines never show a hard cut. */
-  -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 26%, #000 88%, transparent 100%),
-    linear-gradient(to bottom, transparent 0%, #000 12%, #000 88%, transparent 100%);
+  -webkit-mask-image:
+    linear-gradient(
+      to right,
+      transparent 0%,
+      #000 26%,
+      #000 88%,
+      transparent 100%
+    ),
+    linear-gradient(
+      to bottom,
+      transparent 0%,
+      #000 12%,
+      #000 88%,
+      transparent 100%
+    );
   -webkit-mask-composite: source-in;
-  mask-image: linear-gradient(to right, transparent 0%, #000 26%, #000 88%, transparent 100%),
-    linear-gradient(to bottom, transparent 0%, #000 12%, #000 88%, transparent 100%);
+  mask-image:
+    linear-gradient(
+      to right,
+      transparent 0%,
+      #000 26%,
+      #000 88%,
+      transparent 100%
+    ),
+    linear-gradient(
+      to bottom,
+      transparent 0%,
+      #000 12%,
+      #000 88%,
+      transparent 100%
+    );
   mask-composite: intersect;
   animation: driftCentered 30s ease-in-out infinite;
 }
@@ -134,4 +160,3 @@
     opacity: 0.2;
   }
 }
-

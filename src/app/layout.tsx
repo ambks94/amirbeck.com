@@ -67,7 +67,14 @@ export const metadata: Metadata = {
     siteName: site.name,
     locale: "en_US",
     type: "profile",
-    images: [{ url: "/images/og.png", width: 1200, height: 630, alt: "Amir Beck, Design Engineer" }],
+    images: [
+      {
+        url: "/images/og.png",
+        width: 1200,
+        height: 630,
+        alt: "Amir Beck, Design Engineer",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
@@ -84,7 +91,11 @@ const personLd = {
   name: site.name,
   url: "https://amirbeck.com",
   jobTitle: "Senior Design Engineer",
-  worksFor: { "@type": "Organization", name: "Lumanu", url: "https://lumanu.com" },
+  worksFor: {
+    "@type": "Organization",
+    name: "Lumanu",
+    url: "https://lumanu.com",
+  },
   address: {
     "@type": "PostalAddress",
     addressLocality: "San Francisco",
@@ -93,7 +104,10 @@ const personLd = {
   },
   email: `mailto:${site.email}`,
   sameAs: [site.linkedin, site.github],
-  alumniOf: { "@type": "CollegeOrUniversity", name: "University of California, Davis" },
+  alumniOf: {
+    "@type": "CollegeOrUniversity",
+    name: "University of California, Davis",
+  },
   knowsAbout: [
     "Design engineering",
     "Design systems",

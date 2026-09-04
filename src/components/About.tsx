@@ -23,7 +23,9 @@ export default function About() {
         <div className={styles.grid}>
           <div>
             {about.map((p) => (
-              <p key={p.slice(0, 24)} className={styles.copy}>{p}</p>
+              <p key={p.slice(0, 24)} className={styles.copy}>
+                {p}
+              </p>
             ))}
           </div>
           <div className={styles.kit}>

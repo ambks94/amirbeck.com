@@ -67,7 +67,9 @@
   background: transparent;
   color: var(--ink);
   cursor: pointer;
-  transition: background 0.2s ease, border-color 0.2s ease;
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease;
 }
 .menuBtn:hover {
   background: color-mix(in srgb, var(--ink) 5%, transparent);
@@ -103,7 +105,9 @@
   opacity: 0;
   color: var(--accent);
   transform: translateX(-6px);
-  transition: opacity 0.2s ease, transform 0.2s ease;
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease;
 }
 .overlayLinks a:hover,
 .overlayLinks a:focus-visible {
@@ -140,7 +144,9 @@
   background: var(--surface);
   color: var(--ink);
   cursor: pointer;
-  transition: transform 0.2s ease, background 0.2s ease;
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease;
 }
 .close:hover {
   background: color-mix(in srgb, var(--ink) 6%, transparent);
@@ -169,7 +175,9 @@
     backdrop-filter: blur(18px);
     opacity: 0;
     visibility: hidden;
-    transition: opacity 0.3s ease, visibility 0.3s ease;
+    transition:
+      opacity 0.3s ease,
+      visibility 0.3s ease;
   }
   .overlay[data-open="true"] {
     opacity: 1;
@@ -179,7 +187,18 @@
   .overlay[data-open="true"] .overlayLinks a,
   .overlay[data-open="true"] .overlayContact {
     animation: menuRise 0.5s cubic-bezier(0.19, 1, 0.22, 1) both;
-    animation-delay: calc(var(--i) * 0.06s + 0.06s);
+  }
+  .overlay[data-open="true"] .overlayLinks a:nth-child(1) {
+    animation-delay: 0.06s;
+  }
+  .overlay[data-open="true"] .overlayLinks a:nth-child(2) {
+    animation-delay: 0.12s;
+  }
+  .overlay[data-open="true"] .overlayLinks a:nth-child(3) {
+    animation-delay: 0.18s;
+  }
+  .overlay[data-open="true"] .overlayContact {
+    animation-delay: 0.24s;
   }
 }
 

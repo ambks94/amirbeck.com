@@ -6,10 +6,20 @@ import LoopVideo from "./LoopVideo";
 import styles from "./CaseStudy.module.css";
 import { site } from "@/content/site";
 import { caseStudies } from "@/content/caseStudies";
-import type { CaseBlock, CaseChapter, CaseImage, CaseSection, CaseStudy } from "@/content/caseStudies";
+import type {
+  CaseBlock,
+  CaseChapter,
+  CaseImage,
+  CaseSection,
+  CaseStudy,
+} from "@/content/caseStudies";
 
 const chId = (ch: CaseChapter) =>
-  ch.id ?? ch.title.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+  ch.id ??
+  ch.title
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-|-$/g, "");
 
 function Frame({ image, sizes }: { image: CaseImage; sizes: string }) {
   return (
@@ -26,7 +36,15 @@ function Frame({ image, sizes }: { image: CaseImage; sizes: string }) {
   );
 }
 
-function Figure({ image, caption, sizes }: { image: CaseImage; caption?: string; sizes: string }) {
+function Figure({
+  image,
+  caption,
+  sizes,
+}: {
+  image: CaseImage;
+  caption?: string;
+  sizes: string;
+}) {
   return (
     <figure className={styles.figure}>
       <Frame image={image} sizes={sizes} />
@@ -51,11 +69,16 @@ function Media({ section }: { section: CaseSection }) {
       </div>
     );
   }
-  if (imgs.length === 1) return <Frame image={imgs[0]} sizes="(max-width: 1120px) 100vw, 1040px" />;
+  if (imgs.length === 1)
+    return <Frame image={imgs[0]} sizes="(max-width: 1120px) 100vw, 1040px" />;
   return (
     <div className={imgs.length >= 3 ? styles.grid3 : styles.grid2}>
       {imgs.map((im) => (
-        <Frame key={im.src} image={im} sizes="(max-width: 760px) 100vw, 340px" />
+        <Frame
+          key={im.src}
+          image={im}
+          sizes="(max-width: 760px) 100vw, 340px"
+        />
       ))}
     </div>
   );
@@ -66,7 +89,12 @@ function BlockMedia({ block }: { block: CaseBlock }) {
   if (block.embed) {
     return (
       <div className={styles.embed}>
-        <iframe src={block.embed} loading="lazy" allowFullScreen title="Interactive prototype" />
+        <iframe
+          src={block.embed}
+          loading="lazy"
+          allowFullScreen
+          title="Interactive prototype"
+        />
       </div>
     );
   }
@@ -85,12 +113,23 @@ function BlockMedia({ block }: { block: CaseBlock }) {
     );
   }
   if (imgs.length === 1) {
-    return <Figure image={imgs[0]} caption={block.captions?.[0]} sizes="(max-width: 1120px) 100vw, 1040px" />;
+    return (
+      <Figure
+        image={imgs[0]}
+        caption={block.captions?.[0]}
+        sizes="(max-width: 1120px) 100vw, 1040px"
+      />
+    );
   }
   return (
     <div className={imgs.length >= 3 ? styles.grid3 : styles.grid2}>
       {imgs.map((im, i) => (
-        <Figure key={im.src} image={im} caption={block.captions?.[i]} sizes="(max-width: 760px) 100vw, 500px" />
+        <Figure
+          key={im.src}
+          image={im}
+          caption={block.captions?.[i]}
+          sizes="(max-width: 760px) 100vw, 500px"
+        />
       ))}
     </div>
   );
@@ -103,12 +142,20 @@ export default function CaseStudyView({ study }: { study: CaseStudy }) {
       <header className={styles.nav}>
         <div className={`wrap ${styles.navInner}`}>
           <Link className={styles.mark} href="/" aria-label={site.name}>
-            <Image src="/logo.png" alt={site.name} width={30} height={30} priority />
+            <Image
+              src="/logo.png"
+              alt={site.name}
+              width={30}
+              height={30}
+              priority
+            />
           </Link>
           <Link className={styles.back} href="/#work">
             <ArrowLeft size={15} strokeWidth={2} aria-hidden="true" /> Work
           </Link>
-          <a className="btn" href={`mailto:${site.email}`}>Contact Me</a>
+          <a className="btn" href={`mailto:${site.email}`}>
+            Contact Me
+          </a>
         </div>
       </header>
 
@@ -122,7 +169,10 @@ export default function CaseStudyView({ study }: { study: CaseStudy }) {
 
           {study.hero && (
             <div className={styles.heroShot}>
-              <Frame image={study.hero} sizes="(max-width: 1120px) 100vw, 1040px" />
+              <Frame
+                image={study.hero}
+                sizes="(max-width: 1120px) 100vw, 1040px"
+              />
             </div>
           )}
 
@@ -150,8 +200,12 @@ export default function CaseStudyView({ study }: { study: CaseStudy }) {
                     <p className={styles.detailText}>{study.role}</p>
                     {study.workIncluded && (
                       <>
-                        <span className={styles.detailLabel}>Work included</span>
-                        <p className={styles.detailText}>{study.workIncluded}</p>
+                        <span className={styles.detailLabel}>
+                          Work included
+                        </span>
+                        <p className={styles.detailText}>
+                          {study.workIncluded}
+                        </p>
                       </>
                     )}
                   </div>
@@ -176,10 +230,24 @@ export default function CaseStudyView({ study }: { study: CaseStudy }) {
                       .filter((c) => c.summary)
                       .map((ch) => (
                         <li key={ch.title}>
-                          <a href={`#${chId(ch)}`} className={styles.featuredItem}>
-                            <span className={styles.featuredName}>{ch.title}</span>
-                            {ch.summary && <span className={styles.featuredSummary}>{ch.summary}</span>}
-                            <ArrowDown size={14} strokeWidth={2} aria-hidden="true" className={styles.featuredArrow} />
+                          <a
+                            href={`#${chId(ch)}`}
+                            className={styles.featuredItem}
+                          >
+                            <span className={styles.featuredName}>
+                              {ch.title}
+                            </span>
+                            {ch.summary && (
+                              <span className={styles.featuredSummary}>
+                                {ch.summary}
+                              </span>
+                            )}
+                            <ArrowDown
+                              size={14}
+                              strokeWidth={2}
+                              aria-hidden="true"
+                              className={styles.featuredArrow}
+                            />
                           </a>
                         </li>
                       ))}
@@ -188,11 +256,17 @@ export default function CaseStudyView({ study }: { study: CaseStudy }) {
               )}
 
               {study.chapters?.map((ch) => (
-                <section key={ch.title} id={chId(ch)} className={styles.chapter}>
+                <section
+                  key={ch.title}
+                  id={chId(ch)}
+                  className={styles.chapter}
+                >
                   <h2 className={styles.chapterTitle}>{ch.title}</h2>
                   {ch.blocks.map((b, i) => (
                     <div key={i} className={styles.block}>
-                      {b.heading && <h3 className={styles.blockHead}>{b.heading}</h3>}
+                      {b.heading && (
+                        <h3 className={styles.blockHead}>{b.heading}</h3>
+                      )}
                       {b.body && <p className={styles.body}>{b.body}</p>}
                       {b.list && (
                         <ul className={styles.outcomeList}>
@@ -202,7 +276,9 @@ export default function CaseStudyView({ study }: { study: CaseStudy }) {
                         </ul>
                       )}
                       <BlockMedia block={b} />
-                      {b.callout && <p className={styles.callout}>{b.callout}</p>}
+                      {b.callout && (
+                        <p className={styles.callout}>{b.callout}</p>
+                      )}
                     </div>
                   ))}
                 </section>
@@ -213,7 +289,9 @@ export default function CaseStudyView({ study }: { study: CaseStudy }) {
               {study.sections?.map((s, i) => (
                 <section key={s.heading} className={styles.section}>
                   <div className={styles.head}>
-                    <span className={styles.index}>{String(i + 1).padStart(2, "0")}</span>
+                    <span className={styles.index}>
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
                     <h2 className={styles.h2}>{s.heading}</h2>
                   </div>
                   {s.tags && (
@@ -261,7 +339,11 @@ export default function CaseStudyView({ study }: { study: CaseStudy }) {
                     <Link href={`/${c.slug}`} className={styles.moreItem}>
                       <span className={styles.moreName}>{c.name}</span>
                       <span className={styles.moreCat}>{c.category}</span>
-                      <ArrowUpRight size={15} strokeWidth={2} aria-hidden="true" />
+                      <ArrowUpRight
+                        size={15}
+                        strokeWidth={2}
+                        aria-hidden="true"
+                      />
                     </Link>
                   </li>
                 ))}

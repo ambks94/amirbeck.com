@@ -8,8 +8,7 @@ export const site = {
   phoneHref: "+15302048757",
   linkedin: "https://www.linkedin.com/in/amir-beck/",
   github: "https://github.com/amirbecklumanu",
-  lead:
-    "I design and build software, leading Lumanu's payments platform from concept to production code.",
+  lead: "I design and build software, leading Lumanu's payments platform from concept to production code.",
   sub: "",
   colophon: "I designed and built this site. Hosted on Vercel.",
 };
@@ -24,14 +23,23 @@ export const stack = [
   "TypeScript",
   "CSS Modules",
   "Motion",
+  "Lucide",
   "Figma",
 ];
 
 export type Stat = { figure: string; text: string; source: string };
 
 export const stats: Stat[] = [
-  { figure: "90%", text: "of the app redesign coded personally", source: "Lumanu" },
-  { figure: "~50%", text: "cut in digital signing mistakes", source: "SkySlope" },
+  {
+    figure: "90%",
+    text: "of the app redesign coded personally",
+    source: "Lumanu",
+  },
+  {
+    figure: "~50%",
+    text: "cut in digital signing mistakes",
+    source: "SkySlope",
+  },
   { figure: "~25%", text: "drop in onboarding drop off", source: "Granate" },
   { figure: "1 quarter", text: "developed and launched", source: "EasyPeady" },
 ];
@@ -43,7 +51,13 @@ export type Project = {
   years: string;
   body: string;
   outcomes: string[];
-  image: { src: string; width: number; height: number; alt: string; browser?: string };
+  image: {
+    src: string;
+    width: number;
+    height: number;
+    alt: string;
+    browser?: string;
+  };
   links: { label: string; href: string; external?: boolean }[];
 };
 
@@ -53,8 +67,7 @@ export const projects: Project[] = [
     name: "Lumanu",
     category: "Payments Platform",
     years: "2023 to Now",
-    body:
-      "Lumanu is a fintech that processes payments and handles tax compliance for brands paying creators. I redesigned the app from the ground up and personally coded 90% of it.",
+    body: "Lumanu is a fintech that processes payments and handles tax compliance for brands paying creators. I redesigned the app from the ground up and personally coded 90% of it.",
     outcomes: [
       "Led full app redesign, pivoting company strategy from influencer marketing to payments",
       "Integrated design system with code, accelerating feature development",
@@ -77,8 +90,7 @@ export const projects: Project[] = [
     name: "SkySlope",
     category: "Real Estate Platform",
     years: "2020 to 2022",
-    body:
-      "SkySlope builds real estate transaction software. I improved the UX across DigiSign, Forms, and Breeze, and led Breeze's design from concept through launch.",
+    body: "SkySlope builds real estate transaction software. I improved the UX across DigiSign, Forms, and Breeze, and led Breeze's design from concept through launch.",
     outcomes: [
       "Cut digital signing mistakes by ~50%",
       "Expanded product for entire real estate teams",
@@ -93,7 +105,11 @@ export const projects: Project[] = [
     },
     links: [
       { label: "View Case Study", href: "/skyslope" },
-      { label: "View SkySlope", href: "https://skyslope.com/products-services/", external: true },
+      {
+        label: "View SkySlope",
+        href: "https://skyslope.com/products-services/",
+        external: true,
+      },
     ],
   },
   {
@@ -101,8 +117,7 @@ export const projects: Project[] = [
     name: "Granate",
     category: "Grief Support App",
     years: "2022 to 2023",
-    body:
-      "I led product design for an app built to support individuals through loss and end of life planning. My focus was simplifying onboarding, driving engagement, and building a scalable design foundation.",
+    body: "I led product design for an app built to support individuals through loss and end of life planning. My focus was simplifying onboarding, driving engagement, and building a scalable design foundation.",
     outcomes: [
       "~25% drop in onboarding drop off",
       "~30% lift in weekly engagement",
@@ -121,8 +136,7 @@ export const projects: Project[] = [
     name: "EasyPeady",
     category: "Real Estate Form Streamlining",
     years: "2021",
-    body:
-      "I streamlined the PEAD form so real estate agents could stay focused on clients during the pandemic. Built and launched as a standalone web app in one quarter.",
+    body: "I streamlined the PEAD form so real estate agents could stay focused on clients during the pandemic. Built and launched as a standalone web app in one quarter.",
     outcomes: [
       "Developed and launched in a quarter",
       "15% uplift in cross product engagement",
@@ -137,7 +151,11 @@ export const projects: Project[] = [
     },
     links: [
       { label: "View Case Study", href: "/easypeady" },
-      { label: "View Breeze", href: "https://breeze.skyslope.com", external: true },
+      {
+        label: "View Breeze",
+        href: "https://breeze.skyslope.com",
+        external: true,
+      },
     ],
   },
 ];
@@ -146,20 +164,17 @@ export const practices = [
   {
     label: "Craft",
     title: "Taste is knowing what to cut",
-    body:
-      "I cut to the key problem and the business goal behind it, then design only what serves both.",
+    body: "I cut to the key problem and the business goal behind it, then design only what serves both.",
   },
   {
     label: "Systems",
     title: "The system and the code agree",
-    body:
-      "I align the design system and codebase so handoff is clean and the work is ready for AI tools.",
+    body: "I align the design system and codebase so handoff is clean and the work is ready for AI tools.",
   },
   {
     label: "Design & code",
     title: "I build what I design",
-    body:
-      "I design a scalable system and ship it in React, Next.js, and TypeScript. I build features and use AI to prototype and optimize.",
+    body: "I design a scalable system and ship it in React, Next.js, and TypeScript. I build features and use AI to prototype and optimize.",
   },
 ];
 

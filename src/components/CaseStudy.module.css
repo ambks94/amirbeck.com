@@ -456,7 +456,9 @@
   border-bottom: 1px solid var(--rule);
   text-decoration: none;
   color: inherit;
-  transition: padding 0.25s ease, color 0.2s ease;
+  transition:
+    padding 0.25s ease,
+    color 0.2s ease;
 }
 .featuredItem:hover {
   padding-inline: 12px 8px;
@@ -528,7 +530,9 @@
   border-bottom: 1px solid var(--rule);
   text-decoration: none;
   color: inherit;
-  transition: padding 0.25s ease, color 0.2s ease;
+  transition:
+    padding 0.25s ease,
+    color 0.2s ease;
 }
 .moreItem:hover {
   padding-inline: 12px 8px;

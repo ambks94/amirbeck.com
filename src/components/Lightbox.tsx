@@ -23,7 +23,12 @@ export default function Lightbox({
   }, [image]);
 
   return (
-    <dialog ref={ref} className={styles.dialog} onClose={onClose} onCancel={onClose}>
+    <dialog
+      ref={ref}
+      className={styles.dialog}
+      onClose={onClose}
+      onCancel={onClose}
+    >
       {image ? (
         <div className={styles.inner} onClick={onClose}>
           <span className={styles.media}>

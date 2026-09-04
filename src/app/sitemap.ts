@@ -5,7 +5,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const base = "https://amirbeck.com";
   const now = new Date();
   return [
-    { url: `${base}/`, lastModified: now, changeFrequency: "monthly", priority: 1 },
+    {
+      url: `${base}/`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 1,
+    },
     ...caseStudies.map((c) => ({
       url: `${base}/${c.slug}`,
       lastModified: now,

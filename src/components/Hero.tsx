@@ -9,29 +9,57 @@ export default function Hero() {
     <section className={styles.hero}>
       <div className={`wrap ${styles.grid}`}>
         <DotRow variant="a" className={`${styles.dotRow} rise`} />
-        <p className={`label ${styles.eyebrow} rise`} style={{ animationDelay: "0.05s" }}>
+        <p
+          className={`label ${styles.eyebrow} rise`}
+          style={{ animationDelay: "0.05s" }}
+        >
           {site.focus}
         </p>
         <h1 className={`${styles.h1} rise`} style={{ animationDelay: "0.12s" }}>
           {site.name}
         </h1>
-        <p className={`${styles.role} rise`} style={{ animationDelay: "0.19s" }}>
+        <p
+          className={`${styles.role} rise`}
+          style={{ animationDelay: "0.19s" }}
+        >
           {site.role}
         </p>
-        <p className={`${styles.lead} rise`} style={{ animationDelay: "0.27s" }}>
+        <p
+          className={`${styles.lead} rise`}
+          style={{ animationDelay: "0.27s" }}
+        >
           {site.lead}
         </p>
 
-        <div className={`${styles.actions} rise`} style={{ animationDelay: "0.36s" }}>
-          <a className="btn" href="#work">See Work</a>
-          <a className="btn btn--ghost" href="#how">How I work</a>
+        <div
+          className={`${styles.actions} rise`}
+          style={{ animationDelay: "0.36s" }}
+        >
+          <a className="btn" href="#work">
+            See Work
+          </a>
+          <a className="btn btn--ghost" href="#how">
+            How I work
+          </a>
         </div>
 
-        <div className={`${styles.jump} rise`} style={{ animationDelay: "0.48s" }}>
-          <a href="#work">Work <ArrowDown size={12} strokeWidth={2} aria-hidden="true" /></a>
-          <a href="#how">How I work <ArrowDown size={12} strokeWidth={2} aria-hidden="true" /></a>
-          <a href="#about">About <ArrowDown size={12} strokeWidth={2} aria-hidden="true" /></a>
-          <a href="#contact">Contact <ArrowDown size={12} strokeWidth={2} aria-hidden="true" /></a>
+        <div
+          className={`${styles.jump} rise`}
+          style={{ animationDelay: "0.48s" }}
+        >
+          <a href="#work">
+            Work <ArrowDown size={12} strokeWidth={2} aria-hidden="true" />
+          </a>
+          <a href="#how">
+            How I work{" "}
+            <ArrowDown size={12} strokeWidth={2} aria-hidden="true" />
+          </a>
+          <a href="#about">
+            About <ArrowDown size={12} strokeWidth={2} aria-hidden="true" />
+          </a>
+          <a href="#contact">
+            Contact <ArrowDown size={12} strokeWidth={2} aria-hidden="true" />
+          </a>
         </div>
       </div>
 

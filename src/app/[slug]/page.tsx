@@ -26,7 +26,14 @@ export async function generateMetadata({
       description: study.intro,
       url: `https://amirbeck.com/${study.slug}`,
       type: "article",
-      images: [{ url: "/images/og.png", width: 1200, height: 630, alt: `${study.name}, Amir Beck` }],
+      images: [
+        {
+          url: "/images/og.png",
+          width: 1200,
+          height: 630,
+          alt: `${study.name}, Amir Beck`,
+        },
+      ],
     },
   };
 }

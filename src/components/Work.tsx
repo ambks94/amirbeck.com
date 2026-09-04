@@ -17,7 +17,7 @@ function emphasizeMetrics(text: string) {
       </b>
     ) : (
       part
-    )
+    ),
   );
 }
 
@@ -28,15 +28,18 @@ export default function Work() {
   useEffect(() => {
     const list = listRef.current;
     if (!list) return;
-    const entries = Array.from(list.querySelectorAll<HTMLElement>(`.${styles.entry}`));
+    const entries = Array.from(
+      list.querySelectorAll<HTMLElement>(`.${styles.entry}`),
+    );
     const observer = new IntersectionObserver(
-      (obs) => obs.forEach((e) => {
-        if (e.isIntersecting) {
-          (e.target as HTMLElement).classList.add(styles.visible);
-          observer.unobserve(e.target);
-        }
-      }),
-      { threshold: 0.08 }
+      (obs) =>
+        obs.forEach((e) => {
+          if (e.isIntersecting) {
+            (e.target as HTMLElement).classList.add(styles.visible);
+            observer.unobserve(e.target);
+          }
+        }),
+      { threshold: 0.08 },
     );
     entries.forEach((el) => observer.observe(el));
     return () => observer.disconnect();
@@ -67,7 +70,12 @@ export default function Work() {
                 <span className={styles.wave} aria-hidden="true">
                   {/* one stroke: squiggle, dips down, then runs straight under the
                       label as its underline. Draws in on hover via stroke-dashoffset. */}
-                  <svg className={styles.waveSvg} width="380" height="30" fill="none">
+                  <svg
+                    className={styles.waveSvg}
+                    width="380"
+                    height="30"
+                    fill="none"
+                  >
                     <path
                       className={styles.waveLine}
                       pathLength={100}
@@ -110,7 +118,10 @@ export default function Work() {
                         sizes="(max-width: 1120px) 100vw, 1120px"
                         quality={90}
                         preload={i === 0}
-                        style={{ objectFit: "cover", objectPosition: "center top" }}
+                        style={{
+                          objectFit: "cover",
+                          objectPosition: "center top",
+                        }}
                       />
                     </span>
                   </span>
@@ -145,9 +156,17 @@ export default function Work() {
                       >
                         {l.label}
                         {l.external ? (
-                          <ArrowUpRight size={15} strokeWidth={2} aria-hidden="true" />
+                          <ArrowUpRight
+                            size={15}
+                            strokeWidth={2}
+                            aria-hidden="true"
+                          />
                         ) : (
-                          <ArrowRight size={15} strokeWidth={2} aria-hidden="true" />
+                          <ArrowRight
+                            size={15}
+                            strokeWidth={2}
+                            aria-hidden="true"
+                          />
                         )}
                       </a>
                     ))}
