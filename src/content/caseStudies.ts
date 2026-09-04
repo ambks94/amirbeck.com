@@ -65,7 +65,7 @@ export const caseStudies: CaseStudy[] = [
       {
         heading: "Buyer dashboard",
         tags: ["Figma", "Motion", "React"],
-        problem: "Buyers could not see the value moving through their workspace at a glance.",
+        problem: "We wanted to highlight out value and give users a clear actionable overview page.",
         body: "I designed, built, and animated a role aware homepage that surfaces that value and gives a clear, actionable overview.",
         result: "A dashboard that makes invisible value visible on first load.",
         video: "/images/lumanu/buyer-dashboard.webm",
