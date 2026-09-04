@@ -17,6 +17,16 @@ export const site = {
 export const workIntro =
   "Fintech and real estate products, designed and coded end to end.";
 
+// Tech behind this site, listed in the footer.
+export const stack = [
+  "Next.js",
+  "React",
+  "TypeScript",
+  "CSS Modules",
+  "Motion",
+  "Figma",
+];
+
 export type Stat = { figure: string; text: string; source: string };
 
 export const stats: Stat[] = [

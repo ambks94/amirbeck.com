@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowDown, ArrowLeft, ArrowRight, ArrowUpRight } from "lucide-react";
-import Footer from "./Footer";
+import Contact from "./Contact";
 import LoopVideo from "./LoopVideo";
 import styles from "./CaseStudy.module.css";
 import { site } from "@/content/site";
@@ -269,7 +269,7 @@ export default function CaseStudyView({ study }: { study: CaseStudy }) {
           </nav>
         </article>
       </main>
-      <Footer />
+      <Contact />
     </>
   );
 }

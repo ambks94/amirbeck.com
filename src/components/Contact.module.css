@@ -25,6 +25,65 @@
   gap: 10px;
   margin-top: 26px;
 }
+
+/* Credit line, merged in from the old footer. */
+/* One clean left-aligned column: tech stack, then the credit line. */
+.meta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: clamp(22px, 4vw, 30px);
+  margin-top: clamp(40px, 7vw, 64px);
+  padding-top: 22px;
+  border-top: 1px solid var(--rule);
+}
+.stackCol {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.stack {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px 0;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--muted);
+}
+.stack li {
+  display: inline-flex;
+  align-items: center;
+}
+.stack li:not(:last-child)::after {
+  content: "·";
+  margin: 0 12px;
+  color: var(--faint);
+}
+.credit {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  font-size: var(--step--1);
+  color: var(--muted);
+}
+
+/* Mobile: stack the contact buttons full width. */
+@media (max-width: 560px) {
+  .actions {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+  .actions :global(.btn) {
+    width: 100%;
+  }
+}
 .curves {
   position: absolute;
   right: -4%;

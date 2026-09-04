@@ -9,7 +9,7 @@ export default function Hero() {
     <section className={styles.hero}>
       <div className={`wrap ${styles.grid}`}>
         <DotRow variant="a" className={`${styles.dotRow} rise`} />
-        <p className="label rise" style={{ animationDelay: "0.05s" }}>
+        <p className={`label ${styles.eyebrow} rise`} style={{ animationDelay: "0.05s" }}>
           {site.focus}
         </p>
         <h1 className={`${styles.h1} rise`} style={{ animationDelay: "0.12s" }}>

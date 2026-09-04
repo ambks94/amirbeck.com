@@ -55,6 +55,10 @@
   gap: 10px;
   margin-top: 30px;
 }
+/* Eyebrow (FINTECH · PAYMENTS · SAN FRANCISCO) — keep it to one line. */
+.eyebrow {
+  white-space: nowrap;
+}
 .jump {
   display: flex;
   flex-wrap: wrap;
@@ -72,8 +76,25 @@
   text-decoration: none;
   display: inline-flex;
   align-items: center;
+  gap: 4px;
+  white-space: nowrap;
   min-height: 44px;
   transition: color 0.2s ease;
+}
+/* Fit the eyebrow and the jump row on one line on small screens. */
+@media (max-width: 560px) {
+  .eyebrow {
+    font-size: 0.6rem;
+    letter-spacing: 0.06em;
+  }
+  .jump {
+    flex-wrap: nowrap;
+    gap: 12px;
+  }
+  .jump a {
+    font-size: 0.6rem;
+    letter-spacing: 0.03em;
+  }
 }
 .jump a:hover {
   color: var(--accent);

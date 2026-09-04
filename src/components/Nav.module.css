@@ -20,17 +20,15 @@
   text-decoration: none;
   margin-right: auto;
   min-height: 44px;
+  position: relative;
+  z-index: 60;
 }
 .mark img {
   border-radius: 4px;
   display: block;
 }
-.mark b {
-  font-family: var(--font-display);
-  font-weight: 600;
-  font-size: 1.02rem;
-  letter-spacing: -0.01em;
-}
+
+/* Inline links + contact button — desktop. */
 .links {
   display: flex;
   align-items: center;
@@ -45,13 +43,159 @@
   display: inline-flex;
   align-items: center;
   border-radius: 3px;
+  white-space: nowrap;
   transition: color 0.2s ease;
 }
 .links a:hover {
   color: var(--ink);
 }
+.contact {
+  flex: 0 0 auto;
+  white-space: nowrap;
+}
+
+/* Menu trigger — hidden on desktop. */
+.menuBtn {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  width: 44px;
+  height: 44px;
+  border: 1px solid var(--rule);
+  border-radius: 9px;
+  background: transparent;
+  color: var(--ink);
+  cursor: pointer;
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+.menuBtn:hover {
+  background: color-mix(in srgb, var(--ink) 5%, transparent);
+}
+
+/* Full-screen overlay menu — hidden on desktop. */
+.overlay {
+  display: none;
+}
+.overlayLinks {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(4px, 1.6vw, 12px);
+}
+.overlayLinks a {
+  position: relative;
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(2.6rem, 13vw, 4rem);
+  line-height: 1.04;
+  letter-spacing: -0.015em;
+  color: var(--ink);
+  text-decoration: none;
+  width: max-content;
+  transform: translateY(14px);
+  transition: color 0.2s ease;
+}
+/* Magnific-style leading pointer on hover/focus. */
+.overlayLinks a::before {
+  content: "→";
+  position: absolute;
+  left: -0.9em;
+  opacity: 0;
+  color: var(--accent);
+  transform: translateX(-6px);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+.overlayLinks a:hover,
+.overlayLinks a:focus-visible {
+  color: var(--accent);
+}
+.overlayLinks a:hover::before,
+.overlayLinks a:focus-visible::before {
+  opacity: 1;
+  transform: translateX(0);
+}
+.overlayContact {
+  margin-top: clamp(22px, 7vw, 40px);
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+  text-decoration: none;
+  width: max-content;
+  transform: translateY(14px);
+}
+.close {
+  position: absolute;
+  left: 50%;
+  bottom: clamp(30px, 8vw, 52px);
+  transform: translateX(-50%);
+  width: 54px;
+  height: 54px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  border: 1px solid var(--rule);
+  background: var(--surface);
+  color: var(--ink);
+  cursor: pointer;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+.close:hover {
+  background: color-mix(in srgb, var(--ink) 6%, transparent);
+}
+.close:active {
+  transform: translateX(-50%) scale(0.94);
+}
+
 @media (max-width: 640px) {
-  .optional {
+  .links,
+  .contact {
     display: none;
+  }
+  .menuBtn {
+    display: inline-flex;
+  }
+  .overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 50;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: clamp(28px, 9vw, 60px);
+    background: color-mix(in srgb, var(--paper) 97%, transparent);
+    backdrop-filter: blur(18px);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+  }
+  .overlay[data-open="true"] {
+    opacity: 1;
+    visibility: visible;
+  }
+  /* Staggered rise — transform only, so text is legible on the first frame. */
+  .overlay[data-open="true"] .overlayLinks a,
+  .overlay[data-open="true"] .overlayContact {
+    animation: menuRise 0.5s cubic-bezier(0.19, 1, 0.22, 1) both;
+    animation-delay: calc(var(--i) * 0.06s + 0.06s);
+  }
+}
+
+@keyframes menuRise {
+  to {
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .overlayLinks a,
+  .overlayContact {
+    transform: none;
+    animation: none !important;
+  }
+  .overlay {
+    transition: opacity 0.001s;
   }
 }
