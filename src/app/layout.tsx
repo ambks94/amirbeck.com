@@ -1,5 +1,10 @@
 import type { Metadata } from "next";
-import { Instrument_Serif, Geist, Inter, JetBrains_Mono } from "next/font/google";
+import {
+  Instrument_Serif,
+  Geist,
+  Inter,
+  JetBrains_Mono,
+} from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import { site } from "@/content/site";
 import "./globals.css";

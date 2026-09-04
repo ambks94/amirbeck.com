@@ -9,10 +9,12 @@ export type DirectoryItem = {
 
 export default function DirectoryNav({
   label,
+  ariaLabel,
   items,
   className,
 }: {
-  label: string;
+  label?: string;
+  ariaLabel?: string;
   items: DirectoryItem[];
   className?: string;
 }) {
@@ -21,9 +23,9 @@ export default function DirectoryNav({
   return (
     <nav
       className={[styles.root, className].filter(Boolean).join(" ")}
-      aria-label={label}
+      aria-label={ariaLabel ?? label}
     >
-      <span className={styles.label}>{label}</span>
+      {label ? <span className={styles.label}>{label}</span> : null}
       <ul className={styles.list}>
         {items.map((item) => (
           <li key={item.href}>

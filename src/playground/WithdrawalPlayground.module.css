@@ -1,0 +1,1291 @@
+.root {
+  --white: #ffffff;
+  --n25: #fafafa;
+  --n50: #f6f6f6;
+  --n100: #e7e7ec;
+  --n200: #d9d9e0;
+  --n300: #b9b9c6;
+  --n400: #a1a1b0;
+  --n500: #898999;
+  --n600: #737381;
+  --n700: #5d5d69;
+  --n800: #484856;
+  --n900: #2f2e3f;
+  --primary100: #f8feeb;
+  --primary300: #eafec5;
+  --primary500: #b9fa3d;
+  --secondary500: #6200ee;
+  --danger500: #e22735;
+  --danger600: #c21c37;
+  --warning100: #fff4e5;
+  --teal50: #fafcfb;
+  --blue600: #2147d4;
+  --input-border: rgba(0, 0, 0, 0.23);
+  --opt-hover: rgba(185, 250, 61, 0.15);
+  --opt-selected: rgba(185, 250, 61, 0.2);
+  --text-primary: rgba(0, 0, 0, 0.87);
+  --font: var(--font-inter), var(--font-body);
+  --ease-page: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-out: cubic-bezier(0.215, 0.61, 0.355, 1);
+  --stage: 980px;
+
+  background: var(--ink);
+  padding: 32px 20px 28px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 22px;
+  width: 100%;
+  font-family: var(--font);
+  font-size: 14px;
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+}
+
+.root :where(h1, h2, h3) {
+  font-family: inherit;
+  letter-spacing: 0;
+}
+
+.benchHead {
+  width: var(--stage);
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.benchLead {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.benchCopy {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+
+.benchTitle {
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: -0.1px;
+  line-height: 1.2;
+  color: var(--paper);
+  margin: 0;
+}
+
+.benchSub {
+  font-size: 12px;
+  line-height: 1.4;
+  color: color-mix(in srgb, var(--paper) 64%, var(--ink));
+  margin: 0;
+  max-width: none;
+}
+
+.benchReset {
+  appearance: none;
+  flex-shrink: 0;
+  border: 1px solid color-mix(in srgb, var(--paper) 16%, var(--ink));
+  background: transparent;
+  color: color-mix(in srgb, var(--paper) 72%, var(--ink));
+  font-family: var(--font);
+  font-size: 12px;
+  font-weight: 500;
+  padding: 5px 12px;
+  min-height: 28px;
+  border-radius: 3px;
+  cursor: pointer;
+  transition:
+    background-color 120ms ease,
+    color 120ms ease;
+}
+
+.benchReset:hover {
+  background: var(--paper);
+  color: var(--ink);
+}
+
+.benchReset:focus-visible {
+  outline: 2px solid var(--paper);
+  outline-offset: 2px;
+}
+
+.stage {
+  width: var(--stage);
+  max-width: 100%;
+  height: 760px;
+  position: relative;
+  flex-shrink: 0;
+  border-radius: 4px;
+  overflow: hidden;
+  background: var(--n25);
+  color: var(--text-primary);
+  box-shadow:
+    0 11px 15px -7px rgba(0, 0, 0, 0.2),
+    0 24px 38px 3px rgba(0, 0, 0, 0.14),
+    0 9px 46px 8px rgba(0, 0, 0, 0.12);
+}
+
+.stage[data-device="mobile"] {
+  width: 390px;
+  height: 780px;
+  border-radius: 22px;
+}
+
+.controls {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.controlsLabel {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: color-mix(in srgb, var(--paper) 48%, var(--ink));
+  margin: 0;
+}
+
+.seg {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2px;
+  padding: 2px;
+  width: 168px;
+  background: color-mix(in srgb, var(--paper) 8%, var(--ink));
+  border: 1px solid color-mix(in srgb, var(--paper) 16%, var(--ink));
+  border-radius: 3px;
+}
+
+.seg button {
+  appearance: none;
+  border: 0;
+  border-radius: 2px;
+  background: transparent;
+  color: color-mix(in srgb, var(--paper) 55%, var(--ink));
+  font-family: var(--font);
+  font-size: 12px;
+  font-weight: 500;
+  padding: 5px 10px;
+  min-height: 28px;
+  cursor: pointer;
+  transition:
+    background-color 120ms ease,
+    color 120ms ease;
+}
+
+.seg button:hover {
+  color: var(--paper);
+}
+
+.seg button[aria-pressed="true"] {
+  background: var(--paper);
+  color: var(--ink);
+}
+
+.seg button:focus-visible {
+  outline: 2px solid var(--paper);
+  outline-offset: 2px;
+}
+
+.hidden {
+  display: none;
+}
+
+.combo input:focus-visible {
+  outline: none;
+}
+
+/* The scrolling page viewport inside the frame */
+.viewport {
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+/* ============================================================
+     FullpageFormLayoutRaw
+     ============================================================ */
+.page {
+  min-height: 100%;
+  background: var(--n25);
+  color: var(--text-primary);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  overflow-x: hidden;
+  /* Was the header block's 32px padding plus its 40px bottom margin */
+  padding-top: 72px;
+}
+
+.stage[data-device="mobile"] .page {
+  padding-top: 24px;
+}
+
+/* Container disableGutters maxWidth="md" */
+.page-container {
+  max-width: 900px;
+  width: 100%;
+  margin: 0 auto;
+  flex: 1;
+}
+
+.page-center {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  width: 100%;
+}
+.stage[data-device="mobile"] .page-center {
+  display: block;
+}
+
+/* Stack width={{ xs: '100%', md: 640 }} mx={1} */
+.form-stack {
+  display: flex;
+  flex-direction: column;
+  width: 640px;
+  margin: 0 8px;
+}
+.stage[data-device="mobile"] .form-stack {
+  width: auto;
+  padding-bottom: 96px;
+}
+
+/* ============================================================
+     LinkWithdrawalLayout header strip
+     ============================================================ */
+.head-strip {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 4px;
+  padding: 8px 16px;
+  border: 1px solid var(--n100);
+  border-bottom: none;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  background: var(--teal50);
+  flex-shrink: 0;
+}
+
+/* IconButton, size medium: 5px padding around a 16px icon, so a 26px box.
+     The component wraps its icon in a line-height 0 span; without that the
+     inline SVG's baseline adds space and the padding reads as uneven. */
+.icon-btn {
+  appearance: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  padding: 5px;
+  height: 26px;
+  width: 26px;
+  min-width: 26px;
+  flex-shrink: 0;
+  border: 0;
+  border-radius: 4px;
+  background: transparent;
+  color: inherit;
+  line-height: 0;
+  cursor: pointer;
+  transition: background-color 120ms ease;
+}
+
+.icon-btn svg {
+  display: block;
+  width: 16px;
+  height: 16px;
+}
+
+.icon-btn:hover {
+  background: var(--n50);
+}
+
+/* ============================================================
+     Page body card
+     ============================================================ */
+.body-box {
+  border: 1px solid var(--n100);
+  border-top: none;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+  background: var(--white);
+}
+
+.stage[data-device="mobile"] .body-box {
+  border-top: 1px solid var(--n100);
+}
+
+/* --- Typography --- */
+.body1 {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.4286;
+  letter-spacing: 0;
+  margin: 0;
+  color: inherit;
+}
+.body2 {
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.333;
+  letter-spacing: 0.0025em;
+  margin: 0;
+  color: inherit;
+}
+.medium {
+  font-weight: 500;
+}
+.bold {
+  font-weight: 700;
+}
+
+/* ============================================================
+     TransferOverview, desktop
+     ============================================================ */
+.overview {
+  --overview-pad-y: 8px;
+  --overview-center-gap: 2px;
+  --overview-lines: 2;
+  --overview-line-height: calc(12px * 1.333);
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  height: calc(
+    var(--overview-pad-y) * 2 + 14px + var(--overview-center-gap) +
+      (var(--overview-line-height) * var(--overview-lines)) + 1px
+  );
+  border-top: 0.5px solid var(--n100);
+  border-bottom: 0.5px solid var(--n100);
+}
+
+.stage[data-device="mobile"] .overview {
+  display: none;
+}
+
+.col {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  align-items: center;
+  justify-content: flex-start;
+  flex: 1;
+  min-width: 0;
+  padding: var(--overview-pad-y) 24px;
+}
+
+.col-text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-width: 0;
+}
+
+.col-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--overview-center-gap, 8px);
+  min-width: 200px;
+  border-left: 0.5px solid var(--n100);
+  border-right: 0.5px solid var(--n100);
+  padding: var(--overview-pad-y) 8px;
+}
+
+.col-center > svg {
+  display: block;
+  flex-shrink: 0;
+}
+
+.col-center .center-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-height: calc(var(--overview-line-height) * var(--overview-lines));
+  overflow: hidden;
+}
+
+.col-center .body2 {
+  text-align: center;
+  color: var(--n700);
+}
+
+.col .body1,
+.col .body2 {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.col .body2 {
+  color: var(--n700);
+}
+
+/* Column's blur fade, replayed when the label changes */
+@keyframes blurFadeIn {
+  0% {
+    opacity: 0;
+    filter: blur(8px);
+  }
+  50% {
+    opacity: 0.8;
+    filter: blur(2px);
+  }
+  100% {
+    opacity: 1;
+    filter: blur(0px);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.blur-fade {
+  animation: blurFadeIn 200ms var(--ease-page);
+}
+.fade {
+  animation: fadeIn 200ms var(--ease-page);
+}
+
+/* OverlappingMethodBadges */
+.badges {
+  position: relative;
+  width: 38px;
+  height: 38px;
+  flex-shrink: 0;
+}
+
+.tile {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  border-radius: 4px;
+  border: 1px solid var(--n100);
+  background: var(--n50);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tile-flag {
+  top: 0;
+  left: 0;
+  overflow: hidden;
+}
+.tile-icon {
+  bottom: 0;
+  right: 0;
+}
+.tile svg {
+  display: block;
+}
+
+/* ============================================================
+     TransferOverviewMobile
+     ============================================================ */
+.overview-mobile {
+  display: none;
+}
+
+.stage[data-device="mobile"] .overview-mobile {
+  display: grid;
+  grid-template-columns: 1fr 0.75fr 1fr;
+  background: var(--n50);
+  border-top: 1px solid var(--n100);
+  border-bottom: 1px solid var(--n100);
+  width: 100%;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+}
+
+.overview-mobile .col {
+  flex-direction: column;
+  gap: 4px;
+  justify-content: center;
+  flex: none;
+  padding: 16px;
+  min-height: 90px;
+}
+
+.overview-mobile .col-text {
+  align-items: center;
+}
+.overview-mobile .col-center {
+  min-width: 0;
+  padding: 16px 8px;
+}
+.overview-mobile .body2 {
+  font-size: 12px;
+}
+.overview-mobile .tile {
+  background: var(--n25);
+}
+
+/* ============================================================
+     RecipientDetailsForm
+     ============================================================ */
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 16px 24px;
+}
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.currency-block {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* AnimateIn */
+@keyframes animateIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-in {
+  animation: animateIn 200ms var(--ease-page) both;
+  will-change: transform;
+}
+
+/* --- Outlined / Autocomplete --- */
+.field {
+  position: relative;
+  width: 100%;
+}
+
+.field-label {
+  display: block;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.333;
+  letter-spacing: 0.0025em;
+  margin-bottom: 4px;
+  color: var(--text-primary);
+}
+
+.combo {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  width: 100%;
+  background: var(--white);
+  border: 1px solid var(--input-border);
+  border-radius: 4px;
+  padding: 4px 16px 4px 8px;
+  transition: border-color 120ms ease;
+}
+
+.combo:hover {
+  border-color: var(--n700);
+}
+.combo[data-focus="true"] {
+  border-color: var(--n900);
+}
+
+.combo input {
+  flex: 1;
+  min-width: 0;
+  border: 0;
+  outline: none;
+  background: transparent;
+  font-family: var(--font);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 23px;
+  color: var(--text-primary);
+  padding: 0;
+}
+
+.combo input::placeholder {
+  color: var(--n400);
+  opacity: 1;
+}
+
+.combo-adorn {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.combo-arrow {
+  appearance: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  padding: 2px;
+  border: 0;
+  border-radius: 4px;
+  background: transparent;
+  color: var(--n600);
+  cursor: pointer;
+  transition:
+    transform 150ms ease,
+    background-color 120ms ease;
+}
+
+.combo-arrow:hover {
+  background: var(--n50);
+}
+.field[data-open="true"] .combo-arrow {
+  transform: rotate(180deg);
+}
+
+/* Autocomplete popup: Paper elevation 8 */
+.listbox {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  right: 0;
+  z-index: 40;
+  max-height: 240px;
+  overflow-y: auto;
+  background: var(--white);
+  border-radius: 4px;
+  box-shadow:
+    0 5px 5px -3px rgba(0, 0, 0, 0.2),
+    0 8px 10px 1px rgba(0, 0, 0, 0.14),
+    0 3px 14px 2px rgba(0, 0, 0, 0.12);
+  padding: 8px 0;
+  margin: 0;
+  list-style: none;
+}
+
+.field:not([data-open="true"]) .listbox {
+  display: none;
+}
+
+.listbox li {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 6px 16px;
+  min-height: 36px;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--text-primary);
+  cursor: pointer;
+}
+
+.listbox li:hover {
+  background: var(--opt-hover);
+}
+.listbox li[data-active="true"] {
+  background: var(--opt-selected);
+}
+.listbox li[data-active="true"]:hover {
+  background: rgba(185, 250, 61, 0.3);
+}
+.listbox li[data-empty="true"] {
+  cursor: default;
+  color: var(--n500);
+}
+.listbox li[data-empty="true"]:hover {
+  background: transparent;
+}
+
+/* --- CurrencyRow --- */
+.currency-row {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 56px;
+  padding: 0 16px;
+  gap: 16px;
+  border-radius: 4px;
+  border: 1px solid var(--n100);
+  background: var(--white);
+  cursor: pointer;
+  text-align: left;
+  font-family: var(--font);
+  transition:
+    border-color 150ms ease,
+    background-color 150ms ease,
+    transform 150ms ease;
+}
+
+.currency-row[data-selected="true"] {
+  border-color: var(--primary500);
+  background: var(--primary100);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .currency-row:hover {
+    background: var(--n25);
+  }
+  .currency-row:hover .radio {
+    background: var(--n100);
+    border-color: var(--n800);
+  }
+  .currency-row[data-selected="true"]:hover {
+    background: var(--primary100);
+  }
+  .currency-row[data-selected="true"]:hover .radio {
+    background: var(--primary500);
+    border-color: var(--primary500);
+  }
+}
+
+.currency-row:active {
+  transform: scale(0.98);
+}
+.currency-row .row-text {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  min-width: 0;
+}
+.currency-row .body2 {
+  color: var(--n600);
+}
+.currency-row .code {
+  color: var(--n900);
+}
+
+/* SelectionRadio */
+.radio {
+  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--n700);
+  background: transparent;
+  transition: all 80ms ease-out;
+}
+
+.radio[data-selected="true"] {
+  border-color: var(--primary500);
+  background: var(--primary500);
+}
+.radio-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--white);
+}
+
+/* Flag placeholder for the Other row */
+.flag-blank {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 1px dashed var(--n300);
+  flex-shrink: 0;
+}
+
+/* Inline text link */
+.text-link {
+  text-decoration: underline;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0;
+  font: inherit;
+  color: inherit;
+}
+
+/* --- InfoCard, severity WARNING, filled --- */
+.info-card {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: start;
+  width: fit-content;
+  gap: 12px;
+  padding: 8px 16px;
+  background: var(--warning100);
+  border-radius: 4px;
+  border: 1px solid transparent;
+  border-left: 4px solid transparent;
+  color: var(--n900);
+}
+
+.stage[data-device="mobile"] .info-card {
+  flex-direction: column;
+  width: 100%;
+  padding: 8px;
+}
+
+.info-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--n900);
+}
+.stage[data-device="mobile"] .info-icon {
+  padding-top: 4px;
+}
+.info-body {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  align-items: flex-start;
+  text-align: left;
+}
+
+.error-text {
+  color: var(--danger500);
+}
+
+/* ============================================================
+     Step 2: method cards
+     ============================================================ */
+.method-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding-bottom: 16px;
+}
+.method-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 16px 24px;
+}
+
+.method-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+  padding: 12px;
+  border-radius: 4px;
+  border: 1px solid var(--n100);
+  background: var(--white);
+  cursor: pointer;
+  text-align: left;
+  font-family: var(--font);
+  color: var(--text-primary);
+  transition:
+    border-color 150ms ease,
+    background-color 150ms ease,
+    transform 150ms ease;
+}
+
+.method-card[data-recommended="true"] {
+  margin-top: 8px;
+}
+.method-card[data-selected="true"] {
+  border-color: var(--primary500);
+  background: var(--primary100);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .method-card:hover {
+    background: var(--n25);
+  }
+  .method-card:hover .radio {
+    background: var(--n100);
+    border-color: var(--n800);
+  }
+  .method-card[data-selected="true"]:hover {
+    background: var(--primary100);
+  }
+  .method-card[data-selected="true"]:hover .radio {
+    background: var(--primary500);
+    border-color: var(--primary500);
+  }
+}
+
+.method-card:active {
+  transform: scale(0.99);
+}
+
+.recommended-chip {
+  position: absolute;
+  top: -12px;
+  left: 16px;
+  display: inline-flex;
+  align-items: center;
+  min-height: 20px;
+  padding: 4px;
+  border-radius: 4px;
+  background: var(--blue600);
+  color: var(--white);
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 14px;
+}
+
+.method-radio {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+}
+
+.method-top {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+  padding-right: 24px;
+}
+
+.method-glyph {
+  width: 32px;
+  height: 32px;
+  border-radius: 4px;
+  border: 1px solid var(--n100);
+  background: var(--n50);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: var(--text-primary);
+  transition:
+    border-color 150ms ease,
+    background-color 150ms ease;
+}
+
+.method-card[data-selected="true"] .method-glyph {
+  border-color: var(--primary500);
+  background: var(--primary300);
+}
+
+.method-desc {
+  color: var(--n600);
+  margin-top: -4px;
+}
+.method-rule {
+  height: 1px;
+  background: var(--n100);
+}
+
+.method-info {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+}
+
+.info-block {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+  flex: 1;
+  min-width: 0;
+}
+
+.info-tile {
+  width: 24px;
+  height: 24px;
+  border-radius: 4px;
+  background: var(--n50);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: var(--n800);
+}
+
+.info-tile svg {
+  display: block;
+}
+.info-value {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+/* ============================================================
+     Step 2: ConnectMethodSection
+     ============================================================ */
+.connect-section {
+  border: 1px solid var(--n100);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.connect-head {
+  padding: 8px 24px;
+  background: var(--teal50);
+  border-bottom: 0.5px solid var(--n100);
+}
+
+.connect-body {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 16px 24px;
+  background: var(--white);
+}
+
+.connect-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.connect-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.field-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+.stage[data-device="mobile"] .field-grid {
+  grid-template-columns: 1fr;
+}
+.field-wide {
+  grid-column: 1 / -1;
+}
+
+.combo-disabled {
+  background: var(--n50);
+}
+.combo-disabled input {
+  color: var(--n600);
+  cursor: not-allowed;
+}
+
+.other-picker {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.terms {
+  color: var(--n600);
+}
+.muted-600 {
+  color: var(--n600);
+}
+.center {
+  text-align: center;
+}
+
+/* RadioGroup, mirroring MuiRadio */
+.radio-row {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 4px;
+}
+
+.radio-label {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  padding: 4px;
+}
+
+.radio-label input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.mui-radio {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  border: 1px solid var(--n700);
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 80ms ease-out;
+}
+
+.radio-label:hover .mui-radio[data-checked="false"] {
+  background: var(--n100);
+  border-color: var(--n800);
+}
+
+.mui-radio[data-checked="true"] {
+  background: var(--n900);
+  border-color: var(--n900);
+}
+
+.mui-radio[data-checked="true"]::after {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--white);
+}
+
+.radio-label:hover .mui-radio[data-checked="true"] {
+  background: var(--n800);
+  border-color: var(--n800);
+}
+
+/* Checkbox inside the SWIFT warning */
+.check-label {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  margin-top: 8px;
+}
+
+.check-label input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.cbx-box {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+  border-radius: 2px;
+  border: 1px solid var(--n700);
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 12px 12px;
+  transition: all 80ms ease-out;
+}
+
+.cbx-box[data-checked="true"] {
+  background-color: var(--n900);
+  border-color: var(--n900);
+  background-image: url("data:image/svg+xml,%3Csvg width='12' height='12' viewBox='0 0 12 12' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M9 3.5L4.5 8L3 6.5' stroke='white' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+}
+
+.info-card-block {
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+}
+
+/* PayPal login, standing in for the PayPal AAC widget.
+     Styled as WhiteOutlinedButton: transparent fill, inset neutral 900 ring. */
+.paypal-btn {
+  appearance: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  width: 100%;
+  padding: 6px 10px;
+  border: 0;
+  border-radius: 4px;
+  box-shadow: inset 0 0 0 1px var(--n900);
+  background: transparent;
+  color: #000000;
+  font-family: var(--font);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 16px;
+  letter-spacing: 1.25px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background-color 120ms ease;
+}
+
+.paypal-btn:hover {
+  background: var(--n50);
+}
+.paypal-btn svg {
+  flex-shrink: 0;
+}
+
+.linked-notice {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding: 32px 24px;
+  text-align: center;
+}
+
+.linked-notice .btn-contained {
+  width: auto;
+  padding: 6px 16px;
+}
+
+/* --- Next button --- */
+.next-box {
+  padding: 16px 24px;
+}
+
+.btn-contained {
+  appearance: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  gap: 6px;
+  font-family: var(--font);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 16px;
+  letter-spacing: 1.25px;
+  text-transform: uppercase;
+  padding: 6px 10px;
+  border-radius: 4px;
+  border: 0;
+  background: #000000;
+  color: var(--white);
+  cursor: pointer;
+  transition: background-color 120ms ease;
+}
+
+.btn-contained:disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-in,
+  .blur-fade,
+  .fade {
+    animation: none;
+  }
+  .currency-row:active,
+  .method-card:active {
+    transform: none;
+  }
+}
+
+/* Reserves height for the lazily-mounted flow so gating it on scroll does not
+   shift the page. Roughly the height of the details step. */
+.flowPlaceholder {
+  min-height: 560px;
+}

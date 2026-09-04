@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import PermissionsPlayground from "@/playground/PermissionsPlayground";
+import WithdrawalPlayground from "@/playground/WithdrawalPlayground";
 import DirectoryNav from "@/components/DirectoryNav";
 import { playgroundGroups, type PlaygroundItem } from "@/content/playground";
 import caseStyles from "@/components/CaseStudy.module.css";
@@ -7,21 +8,22 @@ import styles from "./page.module.css";
 
 export const metadata: Metadata = {
   title: "Playground",
-  description: "Live UI grouped by company work and personal work.",
+  description: "Live UI grouped by company work and side projects.",
   alternates: { canonical: "/playground" },
 };
 
 function Stage({ item }: { item: PlaygroundItem }) {
-  switch (item.slug) {
-    case "permissions":
-      return <PermissionsPlayground />;
-    default:
-      return null;
+  if (item.slug === "permissions") {
+    return <PermissionsPlayground />;
   }
+  if (item.slug === "withdrawal") {
+    return <WithdrawalPlayground />;
+  }
+  return null;
 }
 
 function Experiment({ item }: { item: PlaygroundItem }) {
-  const kicker = item.kind === "company" ? item.company : "Personal";
+  const kicker = item.kind === "company" ? item.company : "Side projects";
 
   return (
     <div id={item.slug} className={styles.experiment}>
@@ -49,6 +51,10 @@ function Experiment({ item }: { item: PlaygroundItem }) {
       <div className={styles.stage}>
         <Stage item={item} />
       </div>
+      {item.disclaimer ? (
+        <p className={styles.disclaimer}>{item.disclaimer}</p>
+      ) : null}
+      {item.note ? <p className={styles.note}>{item.note}</p> : null}
     </div>
   );
 }
@@ -60,7 +66,7 @@ export default function PlaygroundPage() {
     <article>
       <h1 className={`rise ${styles.title}`}>Playground</h1>
       <p className={styles.intro}>
-        Live UI grouped by company work and personal work.
+        Live UI grouped by company work and side projects.
       </p>
 
       <div className={styles.directory}>

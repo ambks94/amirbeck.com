@@ -137,13 +137,7 @@ function PermChip({ group, held }: { group: GroupDef; held: Set<string> }) {
   );
 }
 
-function Chips({
-  kind,
-  held,
-}: {
-  kind: WorkspaceKind;
-  held: Set<string>;
-}) {
+function Chips({ kind, held }: { kind: WorkspaceKind; held: Set<string> }) {
   if (hasEveryPerm(kind, held)) {
     return (
       <span className={styles.chip}>
@@ -182,6 +176,8 @@ function InviteeCard({
   onRemove: () => void;
 }) {
   const held = new Set(invitee.held);
+  const hasChips =
+    hasEveryPerm(kind, held) || groupsHeld(kind, held).length > 0;
 
   return (
     <div className={styles.inviteeRow}>
@@ -208,12 +204,16 @@ function InviteeCard({
             onFocus={onSelect}
             onClick={(event) => event.stopPropagation()}
           />
+          {error ? <p className={styles.fieldError}>{error}</p> : null}
         </div>
-        <div className={styles.divider} />
-        <div className={styles.chips}>
-          <Chips kind={kind} held={held} />
-        </div>
-        {error ? <p className={styles.fieldError}>{error}</p> : null}
+        {hasChips ? (
+          <>
+            <div className={styles.divider} />
+            <div className={styles.chips}>
+              <Chips kind={kind} held={held} />
+            </div>
+          </>
+        ) : null}
       </div>
       <button
         type="button"
@@ -291,10 +291,7 @@ function GroupCard({
       <div className={styles.collapse} data-open={expanded}>
         <div className={styles.collapseInner}>
           <div className={styles.permTableWrap}>
-            <table
-              className={styles.permTable}
-              data-disabled={loading}
-            >
+            <table className={styles.permTable} data-disabled={loading}>
               <tbody>
                 {group.permissions.map((row) => {
                   const checked = isRowOn(held, row);
@@ -398,142 +395,148 @@ function AddMembers() {
   return (
     <div className={styles.root}>
       <header className={styles.benchHead}>
-        <p className={styles.benchTitle}>Add Members Modal</p>
-        <p className={styles.benchSub}>
-          Invite members and set permissions per member. Brand and vendor
-          workspaces get different permissions.
-        </p>
+        <div className={styles.benchLead}>
+          <div className={styles.benchCopy}>
+            <p className={styles.benchTitle}>Add Members Modal</p>
+            <p className={styles.benchSub}>
+              Invite members and set permissions per member. Brand and vendor
+              workspaces get different permissions.
+            </p>
+          </div>
+          <button type="button" className={styles.benchReset} onClick={reset}>
+            Reset
+          </button>
+        </div>
+        <div className={styles.controls}>
+          <p className={styles.controlsLabel}>Workspace type</p>
+          <div className={styles.seg}>
+            <button
+              type="button"
+              aria-pressed={kind === "brand"}
+              onClick={() => switchKind("brand")}
+            >
+              Brand
+            </button>
+            <button
+              type="button"
+              aria-pressed={kind === "vendor"}
+              onClick={() => switchKind("vendor")}
+            >
+              Vendor
+            </button>
+          </div>
+        </div>
       </header>
       <div className={styles.dialog} ref={setOverlay}>
         <OverlayRoot.Provider value={overlay}>
-        <div className={styles.modalHead}>
-          <h2 className={styles.h6}>Add members</h2>
-          <p className={`${styles.body2} ${styles.muted}`}>
-            Invite members to your workspace.
-          </p>
-        </div>
-        <div className={styles.divider} />
-        <div className={styles.modalBody}>
-          <div className={styles.invitees}>
-            {invitees.map((invitee, idx) => (
-              <InviteeCard
-                key={invitee.id}
-                invitee={invitee}
-                idx={idx}
-                selected={idx === selectedIdx}
-                error={errors[idx] ?? ""}
-                removable={invitees.length > 1}
-                loading={loading}
-                kind={kind}
-                onSelect={() => setSelectedIdx(idx)}
-                onEmail={(email) => patchInvitee(idx, { email })}
-                onRemove={() => {
-                  const lastIdx = invitees.length - 2;
-                  setInvitees((list) => list.filter((_, i) => i !== idx));
-                  setErrors((list) => list.filter((_, i) => i !== idx));
-                  setSelectedIdx((current) => {
-                    const moved = current > idx ? current - 1 : current;
-                    return Math.max(0, Math.min(moved, lastIdx));
-                  });
-                }}
-              />
-            ))}
-            <div className={styles.addAnother}>
-              <button
-                type="button"
-                className={`${styles.btn} ${styles.btnText}`}
-                disabled={loading}
-                onClick={() => {
-                  const next = newInvitee(kind, "");
-                  setInvitees((list) => [...list, next]);
-                  setSelectedIdx(invitees.length);
-                }}
-              >
-                <Plus size={14} strokeWidth={2} aria-hidden="true" />
-                Add another
-              </button>
-            </div>
+          <div className={styles.modalHead}>
+            <h2 className={styles.h6}>Add members</h2>
+            <p className={`${styles.body2} ${styles.muted}`}>
+              Invite members to your workspace.
+            </p>
           </div>
-          <div className={styles.panelWrap}>
-            <div className={styles.panel}>
-              <div className={styles.panelHead}>
-                <p className={styles.body1}>
-                  Permissions for{" "}
-                  {selected?.email ? selected.email : "new team member"}
-                </p>
-                <p className={`${styles.body2} ${styles.muted}`}>
-                  These permissions apply only to this member.
-                </p>
+          <div className={styles.divider} />
+          <div className={styles.modalBody}>
+            <div className={styles.invitees}>
+              {invitees.map((invitee, idx) => (
+                <InviteeCard
+                  key={invitee.id}
+                  invitee={invitee}
+                  idx={idx}
+                  selected={idx === selectedIdx}
+                  error={errors[idx] ?? ""}
+                  removable={invitees.length > 1}
+                  loading={loading}
+                  kind={kind}
+                  onSelect={() => setSelectedIdx(idx)}
+                  onEmail={(email) => patchInvitee(idx, { email })}
+                  onRemove={() => {
+                    const lastIdx = invitees.length - 2;
+                    setInvitees((list) => list.filter((_, i) => i !== idx));
+                    setErrors((list) => list.filter((_, i) => i !== idx));
+                    setSelectedIdx((current) => {
+                      const moved = current > idx ? current - 1 : current;
+                      return Math.max(0, Math.min(moved, lastIdx));
+                    });
+                  }}
+                />
+              ))}
+              <div className={styles.addAnother}>
+                <button
+                  type="button"
+                  className={`${styles.btn} ${styles.btnText}`}
+                  disabled={loading}
+                  onClick={() => {
+                    const next = newInvitee(kind, "");
+                    setInvitees((list) => [...list, next]);
+                    setSelectedIdx(invitees.length);
+                  }}
+                >
+                  <Plus size={14} strokeWidth={2} aria-hidden="true" />
+                  Add another
+                </button>
               </div>
-              <div className={styles.panelScroll}>
-                <div className={styles.permissionsList}>
-                  {groups.map((group) => (
-                    <GroupCard
-                      key={group.id}
-                      group={group}
-                      held={held}
-                      expanded={Boolean(expanded[group.id])}
-                      loading={loading}
-                      onExpand={() =>
-                        setExpanded((current) => ({
-                          ...current,
-                          [group.id]: !current[group.id],
-                        }))
-                      }
-                      onToggleGroup={(enabled) =>
-                        applyToggle(groupPermIds(group), enabled)
-                      }
-                      onToggleRow={(row, enabled) =>
-                        applyToggle([row.id], enabled)
-                      }
-                    />
-                  ))}
+            </div>
+            <div className={styles.panelWrap}>
+              <div className={styles.panel}>
+                <div className={styles.panelHead}>
+                  <p className={styles.body1}>
+                    Permissions for{" "}
+                    {selected?.email ? selected.email : "new team member"}
+                  </p>
+                  <p className={`${styles.body2} ${styles.muted}`}>
+                    These permissions apply only to this member.
+                  </p>
+                </div>
+                <div className={styles.panelScroll}>
+                  <div className={styles.permissionsList}>
+                    {groups.map((group) => (
+                      <GroupCard
+                        key={group.id}
+                        group={group}
+                        held={held}
+                        expanded={Boolean(expanded[group.id])}
+                        loading={loading}
+                        onExpand={() =>
+                          setExpanded((current) => ({
+                            ...current,
+                            [group.id]: !current[group.id],
+                          }))
+                        }
+                        onToggleGroup={(enabled) =>
+                          applyToggle(groupPermIds(group), enabled)
+                        }
+                        onToggleRow={(row, enabled) =>
+                          applyToggle([row.id], enabled)
+                        }
+                      />
+                    ))}
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-        <div className={styles.divider} />
-        <div className={styles.modalFoot}>
-          <div className={styles.btnGroup}>
-            <button
-              type="button"
-              className={`${styles.btn} ${styles.btnText}`}
-              onClick={reset}
-            >
-              Cancel
-            </button>
-            <button
-              type="button"
-              className={`${styles.btn} ${styles.btnContained}`}
-              disabled={loading}
-              onClick={onSubmit}
-            >
-              Send invites
-            </button>
+          <div className={styles.divider} />
+          <div className={styles.modalFoot}>
+            <div className={styles.btnGroup}>
+              <button
+                type="button"
+                className={`${styles.btn} ${styles.btnText}`}
+                onClick={reset}
+              >
+                Cancel
+              </button>
+              <button
+                type="button"
+                className={`${styles.btn} ${styles.btnContained}`}
+                disabled={loading}
+                onClick={onSubmit}
+              >
+                Send invites
+              </button>
+            </div>
           </div>
-        </div>
         </OverlayRoot.Provider>
-      </div>
-
-      <div className={styles.controls}>
-        <p className={styles.controlsLabel}>Workspace type</p>
-        <div className={styles.seg}>
-          <button
-            type="button"
-            aria-pressed={kind === "brand"}
-            onClick={() => switchKind("brand")}
-          >
-            Brand
-          </button>
-          <button
-            type="button"
-            aria-pressed={kind === "vendor"}
-            onClick={() => switchKind("vendor")}
-          >
-            Vendor
-          </button>
-        </div>
       </div>
     </div>
   );

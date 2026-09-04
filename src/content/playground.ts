@@ -9,6 +9,8 @@ type PlaygroundBase = {
   problem: string;
   solution: string;
   description: string;
+  disclaimer?: string;
+  note?: string;
 };
 
 export type PlaygroundItem =
@@ -16,8 +18,8 @@ export type PlaygroundItem =
   | (PlaygroundBase & { kind: "personal" });
 
 export const playgroundGroupLabels: Record<PlaygroundGroupId, string> = {
-  company: "Company",
-  personal: "Personal",
+  company: "Company work",
+  personal: "Side projects",
 };
 
 export const playgroundItems: PlaygroundItem[] = [
@@ -31,8 +33,22 @@ export const playgroundItems: PlaygroundItem[] = [
       "Our roles could not meet the different requirements from buyer auditors.",
     solution:
       "We moved to permission groups, so access can be set per user for enterprise companies with stricter compliance requirements.",
-    description:
-      "Granular workspace permissioning",
+    description: "Granular workspace permissioning",
+  },
+  {
+    slug: "withdrawal",
+    title: "Simplify Linking Withdrawal Methods",
+    kind: "company",
+    company: "Lumanu",
+    blurb: "Linking withdrawal methods & live currency conversion",
+    problem:
+      "Users were confused when linking their withdrawal method, resulting in support tickets.",
+    solution:
+      "Simplify the flow and guide users, starting with country and currency, then showing the withdrawal methods that work for that pair.",
+    description: "Link a withdrawal method by wallet",
+    disclaimer:
+      "The exchange rate displayed is for demonstration purposes only. It does not reflect any company financial policy.",
+    note: "The wallet is a fixed $1,000 USD. Currency conversion uses a live mid market rate from open.er-api.com, refreshed every 15 minutes. I read the country header Vercel provides to set your default country for the input, or your browser's timezone if that's missing.",
   },
 ];
 
