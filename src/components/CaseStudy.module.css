@@ -228,16 +228,19 @@
   color: var(--accent);
 }
 
-/* framed screenshot (images already carry their own browser chrome) */
+/* framed screenshot, matted inside a padded card */
 .shot {
-  border-radius: 10px;
-  overflow: hidden;
+  padding: clamp(12px, 1.8vw, 24px);
+  background: var(--surface);
+  border: 1px solid color-mix(in srgb, var(--ink) 5%, transparent);
+  border-radius: 12px;
   box-shadow: 0 24px 60px -30px color-mix(in srgb, var(--ink) 45%, transparent);
 }
 .shot img {
   display: block;
   width: 100%;
   height: auto;
+  border-radius: 5px;
 }
 .heroShot {
   margin-top: clamp(34px, 5vw, 54px);

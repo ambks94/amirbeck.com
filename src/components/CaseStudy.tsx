@@ -251,23 +251,6 @@ export default function CaseStudyView({ study }: { study: CaseStudy }) {
             </div>
           )}
 
-          <div className={styles.links}>
-            {study.links.map((l) => (
-              <a
-                key={l.href}
-                className="btn btn--ghost"
-                href={l.href}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                {l.label} <ArrowUpRight size={15} strokeWidth={2} aria-hidden="true" />
-              </a>
-            ))}
-            <Link className="btn" href="/#work">
-              <ArrowLeft size={15} strokeWidth={2} aria-hidden="true" /> All work
-            </Link>
-          </div>
-
           <nav className={styles.more} aria-label="More case studies">
             <span className={styles.detailLabel}>More work</span>
             <ul className={styles.moreList}>
