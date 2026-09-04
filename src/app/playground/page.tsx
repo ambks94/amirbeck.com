@@ -8,7 +8,7 @@ import styles from "./page.module.css";
 
 export const metadata: Metadata = {
   title: "Playground",
-  description: "Live UI grouped by company work and side projects.",
+  description: "Live UI demos grouped by company work and side projects.",
   alternates: { canonical: "/playground" },
 };
 
@@ -64,8 +64,13 @@ export default function PlaygroundPage() {
 
   return (
     <article>
-      <h1 className={`rise ${styles.title}`}>Playground</h1>
-      <p className={styles.intro}>
+      <h1 className={`rise ${styles.title}`} style={{ animationDelay: "0.12s" }}>
+        Playground
+      </h1>
+      <p
+        className={`rise ${styles.intro}`}
+        style={{ animationDelay: "0.19s" }}
+      >
         Live UI grouped by company work and side projects.
       </p>
 

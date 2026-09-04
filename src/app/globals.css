@@ -58,7 +58,7 @@
 }
 
 html {
-  scroll-behavior: smooth;
+  scroll-behavior: auto;
   /* Clip bleed on `html`, not `body` — overflow on body breaks sticky nav. */
   overflow-x: clip;
   overscroll-behavior-x: none;

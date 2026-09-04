@@ -82,7 +82,11 @@ export default function Playground() {
 
         <div className={styles.frame}>
           <span className={styles.floatWrap}>
-            <Link href="/playground" className={`btn ${styles.floatCta}`}>
+            <Link
+              href="/playground"
+              scroll={false}
+              className={`btn ${styles.floatCta}`}
+            >
               View playground
               <ArrowRight size={15} strokeWidth={2} aria-hidden="true" />
             </Link>

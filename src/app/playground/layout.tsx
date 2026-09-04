@@ -14,7 +14,12 @@ export default function PlaygroundLayout({
     <>
       <header className={styles.nav}>
         <div className={`wrap ${styles.navInner}`}>
-          <Link className={styles.mark} href="/" aria-label={site.name}>
+          <Link
+            className={styles.mark}
+            href="/"
+            scroll={false}
+            aria-label={site.name}
+          >
             <Image
               src="/logo.png"
               alt={site.name}
@@ -23,7 +28,7 @@ export default function PlaygroundLayout({
               priority
             />
           </Link>
-          <Link className={styles.back} href="/">
+          <Link className={styles.back} href="/" scroll={false}>
             <ArrowLeft size={15} strokeWidth={2} aria-hidden="true" /> Home
           </Link>
           <a className="btn" href={`mailto:${site.email}`}>

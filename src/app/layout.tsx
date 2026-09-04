@@ -106,6 +106,7 @@ export default function RootLayout({
       className={`${instrumentSerif.variable} ${geist.variable} ${inter.variable} ${jetbrains.variable}`}
     >
       <body>
+        <ScrollReset />
         {children}
         <Analytics />
       </body>
