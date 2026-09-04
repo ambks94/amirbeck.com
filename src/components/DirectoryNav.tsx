@@ -12,7 +12,7 @@ export default function DirectoryNav({
   items,
   className,
 }: {
-  label: string;
+  label?: string;
   items: DirectoryItem[];
   className?: string;
 }) {
@@ -23,7 +23,7 @@ export default function DirectoryNav({
       className={[styles.root, className].filter(Boolean).join(" ")}
       aria-label={label}
     >
-      <span className={styles.label}>{label}</span>
+      {label ? <span className={styles.label}>{label}</span> : null}
       <ul className={styles.list}>
         {items.map((item) => (
           <li key={item.href}>

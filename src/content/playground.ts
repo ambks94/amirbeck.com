@@ -31,8 +31,7 @@ export const playgroundItems: PlaygroundItem[] = [
       "Our roles could not meet the different requirements from buyer auditors.",
     solution:
       "We moved to permission groups, so access can be set per user for enterprise companies with stricter compliance requirements.",
-    description:
-      "Granular workspace permissioning",
+    description: "Granular workspace permissioning",
   },
 ];
 

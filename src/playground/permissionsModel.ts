@@ -157,7 +157,11 @@ const vendor: GroupDef[] = [
     chip: "Invoices",
     icon: "receiptText",
     permissions: [
-      { id: "createInvoices", title: "Create invoices", needs: ["viewInvoices"] },
+      {
+        id: "createInvoices",
+        title: "Create invoices",
+        needs: ["viewInvoices"],
+      },
     ],
   },
   {

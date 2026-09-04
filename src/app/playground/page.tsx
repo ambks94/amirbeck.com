@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import PermissionsPlayground from "@/playground/PermissionsPlayground";
 import DirectoryNav from "@/components/DirectoryNav";
+import NameWave from "@/components/NameWave";
 import { playgroundGroups, type PlaygroundItem } from "@/content/playground";
 import caseStyles from "@/components/CaseStudy.module.css";
 import styles from "./page.module.css";
@@ -10,6 +11,20 @@ export const metadata: Metadata = {
   description: "Live UI grouped by company work and personal work.",
   alternates: { canonical: "/playground" },
 };
+
+function groupCategory(
+  group: ReturnType<typeof playgroundGroups>[number],
+) {
+  if (group.id !== "company") return undefined;
+  const names = [
+    ...new Set(
+      group.items.flatMap((item) =>
+        item.kind === "company" ? [item.company] : [],
+      ),
+    ),
+  ];
+  return names.join(", ") || undefined;
+}
 
 function Stage({ item }: { item: PlaygroundItem }) {
   switch (item.slug) {
@@ -65,15 +80,20 @@ export default function PlaygroundPage() {
 
       <div className={styles.directory}>
         {groups.map((group) => (
-          <DirectoryNav
-            key={group.id}
-            label={group.label}
-            items={group.items.map((item) => ({
-              href: `#${item.slug}`,
-              name: item.title,
-              summary: item.blurb,
-            }))}
-          />
+          <div key={group.id} className={styles.directoryGroup}>
+            <NameWave
+              name={group.label}
+              category={groupCategory(group)}
+            />
+            <DirectoryNav
+              label={group.label}
+              items={group.items.map((item) => ({
+                href: `#${item.slug}`,
+                name: item.title,
+                summary: item.blurb,
+              }))}
+            />
+          </div>
         ))}
       </div>
 
