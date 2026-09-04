@@ -38,7 +38,8 @@ with AI tools, then held it to a high bar. All of it turns off under `prefers-re
   through launch. Cut digital signing mistakes by ~50%.
 - **Granate.** Led product design for a grief support app. ~25% drop in onboarding drop off, and
   a ~30% lift in weekly engagement.
-- **EasyPeady.** Designed and launched a standalone real estate form app in one quarter.
+- **EasyPeady.** Designed and launched a standalone real estate form app in one quarter,
+  built alongside engineering. It became the groundwork for Breeze.
 
 ## Stack
 
