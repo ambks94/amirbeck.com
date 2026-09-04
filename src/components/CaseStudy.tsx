@@ -66,7 +66,8 @@ function Video({ src, caption }: { src: string; caption?: string }) {
 }
 
 function Media({ section }: { section: CaseSection }) {
-  if (section.video) return <Video src={section.video} caption={section.caption} />;
+  if (section.video)
+    return <Video src={section.video} caption={section.caption} />;
   const imgs = section.images ?? [];
   if (!imgs.length) return null;
   if (section.beforeAfter && imgs.length >= 2) {

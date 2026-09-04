@@ -30,9 +30,11 @@
   text-wrap: balance;
 }
 .role {
+  font-family: var(--font-display);
+  font-style: italic;
   font-size: var(--step-2);
+  font-weight: 400;
   color: var(--accent);
-  font-weight: 500;
   margin: 8px 0 0;
   letter-spacing: -0.01em;
 }
