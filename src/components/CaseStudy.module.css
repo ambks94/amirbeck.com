@@ -242,19 +242,6 @@
 .heroShot {
   margin-top: clamp(34px, 5vw, 54px);
 }
-.videoFrame {
-  overflow: hidden;
-  border-radius: 10px;
-  box-shadow: 0 24px 60px -30px color-mix(in srgb, var(--ink) 45%, transparent);
-}
-.video {
-  display: block;
-  width: 100%;
-  height: auto;
-}
-.videoFrameCrop .video {
-  transform: scale(1.0015);
-}
 .grid2,
 .grid3 {
   display: grid;

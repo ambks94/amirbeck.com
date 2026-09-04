@@ -2,31 +2,10 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowDown, ArrowLeft, ArrowRight, ArrowUpRight } from "lucide-react";
 import Footer from "./Footer";
+import LoopVideo from "./LoopVideo";
 import styles from "./CaseStudy.module.css";
 import { site } from "@/content/site";
 import type { CaseBlock, CaseImage, CaseSection, CaseStudy } from "@/content/caseStudies";
-
-const VIDEO_MP4 = new Set([
-  "/images/skyslope/digisign-usability.webm",
-  "/images/skyslope/digisign-behavior.webm",
-]);
-
-// ReplayKit left a 1px black hairline on this capture — scale it in so the
-// overflow clip on the frame eats the line without recoding the file.
-const VIDEO_CROP = new Set(["/images/lumanu/buyer-dashboard.webm"]);
-
-function LoopVideo({ src }: { src: string }) {
-  const mp4 = VIDEO_MP4.has(src) ? src.replace(/\.webm$/, ".mp4") : null;
-  const crop = VIDEO_CROP.has(src);
-  return (
-    <div className={`${styles.videoFrame}${crop ? ` ${styles.videoFrameCrop}` : ""}`}>
-      <video className={styles.video} autoPlay muted loop playsInline preload="metadata">
-        <source src={src} type="video/webm" />
-        {mp4 ? <source src={mp4} type="video/mp4" /> : null}
-      </video>
-    </div>
-  );
-}
 
 function Frame({ image, sizes }: { image: CaseImage; sizes: string }) {
   return (

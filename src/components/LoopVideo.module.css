@@ -1,0 +1,15 @@
+.frame {
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 24px 60px -30px color-mix(in srgb, var(--ink) 45%, transparent);
+}
+
+.video {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.crop {
+  transform: scale(1.0015);
+}
