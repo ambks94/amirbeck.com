@@ -489,9 +489,7 @@ function isPhoneViewport() {
 function LinkFlow() {
   const [device, setDevice] = useState<Device>("desktop");
   const [step, setStep] = useState<Step>("details");
-  // LinkFlow only mounts client-side (gated on scroll), so it is safe to seed
-  // country state from the browser here without risking a hydration mismatch.
-  // A later /api/geo response refines it.
+  // Client-only mount (scroll-gated), so browser locale is safe to read here.
   const [initialDefaults] = useState(visitorCountryDefaults);
   const [country, setCountry] = useState(initialDefaults.country);
   const [currency, setCurrency] = useState<string | null>(
@@ -535,8 +533,6 @@ function LinkFlow() {
   }, []);
 
   useEffect(() => {
-    // Seeded from the browser above; here we only refine it from the edge geo
-    // header once the request returns.
     let cancelled = false;
     fetch("/api/geo", { cache: "no-store" })
       .then((res) => (res.ok ? res.json() : null))
@@ -1420,8 +1416,7 @@ export default function WithdrawalPlayground() {
   const ref = useRef<HTMLDivElement>(null);
   const [ready, setReady] = useState(false);
 
-  // Only mount the flow — and fire its geo / FX requests — once the experiment
-  // scrolls near the viewport, so nothing kicks off just by loading the page.
+  // Mount (and fetch geo / FX) only once the experiment is near the viewport.
   useEffect(() => {
     const el = ref.current;
     if (!el) return;

@@ -5,13 +5,16 @@ import { useEffect, useState } from "react";
 const cache = new Map<string, number>();
 
 export function useFxRate(from: string, to: string | null): number | null {
-  // A conversion is only needed for two different currencies.
   const pair = to && from !== to ? `${from}:${to}` : null;
 
-  // Derive the synchronous answer during render: no rate needed, 1:1, or a
-  // value we've already fetched. Only an uncached cross-currency pair is null.
   const derived: number | null =
-    to === null ? null : from === to ? 1 : pair ? (cache.get(pair) ?? null) : null;
+    to === null
+      ? null
+      : from === to
+        ? 1
+        : pair
+          ? (cache.get(pair) ?? null)
+          : null;
 
   const [fetched, setFetched] = useState<{ pair: string; rate: number } | null>(
     null,
@@ -38,8 +41,7 @@ export function useFxRate(from: string, to: string | null): number | null {
   }, [pair, from, to]);
 
   if (derived !== null) return derived;
-  // Only honor a fetched rate that matches the current pair, so switching
-  // currencies never briefly shows the previous rate.
+  // Ignore a stale rate if the pair changed while the fetch was in flight.
   if (fetched && fetched.pair === pair) return fetched.rate;
   return null;
 }

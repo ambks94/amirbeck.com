@@ -4,7 +4,6 @@
   overflow: visible;
 }
 
-/* Every animatable piece transforms around its own center, smoothly. */
 .g1,
 .g2,
 .g3,
@@ -19,7 +18,6 @@
   transition: transform 0.55s cubic-bezier(0.22, 0.68, 0, 1);
 }
 
-/* ---------- variant A (hero) ---------- */
 .va:hover .dot {
   transform: translateX(3px);
 }
@@ -33,7 +31,6 @@
   transform: translateY(-3px);
 }
 
-/* ---------- variant B (work) — staggered lift ---------- */
 .vb:hover .g1 {
   transform: translateY(-4px);
 }
@@ -50,7 +47,6 @@
   transform: scale(1.5);
 }
 
-/* ---------- variant C (how I work) — spin + drift ---------- */
 .vc:hover .crescent {
   transform: rotate(190deg);
 }
@@ -64,7 +60,6 @@
   transform: scale(1.08);
 }
 
-/* ---------- variant D (about) — gentle drift ---------- */
 .vd:hover .g1 {
   transform: translateX(3px);
 }

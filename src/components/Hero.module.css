@@ -57,7 +57,6 @@
   gap: 10px;
   margin-top: 30px;
 }
-/* Eyebrow (FINTECH · PAYMENTS · SAN FRANCISCO) — keep it to one line. */
 .eyebrow {
   white-space: nowrap;
   margin-bottom: 14px;
@@ -84,7 +83,6 @@
   min-height: 44px;
   transition: color 0.2s ease;
 }
-/* Fit the eyebrow and the jump row on small screens without sideways scroll. */
 @media (max-width: 560px) {
   .eyebrow {
     font-size: 0.6rem;
@@ -102,9 +100,6 @@
   color: var(--accent);
 }
 
-/* Gradient lines: a tall, narrow field of wavy strokes fading left(dark) to
-   right(light), spanning the full hero height on the right and bleeding off the
-   page edge. Content sits to the left of it; z-index 0 keeps it in the background. */
 .stipple {
   position: absolute;
   right: 0;
@@ -115,7 +110,6 @@
   pointer-events: none;
   z-index: 0;
   opacity: 0.5;
-  /* Fade every edge so the wave lines never show a hard cut. */
   -webkit-mask-image:
     linear-gradient(
       to right,

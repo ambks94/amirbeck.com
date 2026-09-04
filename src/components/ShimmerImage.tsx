@@ -15,8 +15,6 @@ type Props = {
   objectPosition?: string;
 };
 
-// Large images (multi-MB masters) get a shimmer skeleton that a Motion sweep
-// crosses until the image decodes, then the image fades in over it.
 export default function ShimmerImage({
   src,
   alt,

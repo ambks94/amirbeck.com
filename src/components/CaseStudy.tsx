@@ -54,7 +54,6 @@ function Figure({
   );
 }
 
-// media for the micro layout (video / before-after / grid)
 function Video({ src, caption }: { src: string; caption?: string }) {
   const video = <LoopVideo src={src} label={caption} />;
   if (!caption) return video;
@@ -97,7 +96,6 @@ function Media({ section }: { section: CaseSection }) {
   );
 }
 
-// media for a story block (images with captions)
 function BlockMedia({ block }: { block: CaseBlock }) {
   if (block.embed) {
     return (

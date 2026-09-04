@@ -231,7 +231,6 @@
 .result .metaLabel {
   color: var(--accent);
 }
-/* problem -> solution group with the animated rail, for story blocks */
 .flowGroup {
   position: relative;
   display: flex;
@@ -248,14 +247,8 @@
   grid-row: auto;
 }
 
-/* framed screenshot, matted inside a padded card */
-/* Liquid-glass panel: a translucent, faintly gradient surface with a blurred
-   backdrop, a hairline border, and a top inner sheen — the screenshot floats
-   on it rather than sitting on a flat card. */
 .shot {
   padding: clamp(14px, 2vw, 28px);
-  /* Frosted paper: tinted toward the page so it lifts off the background
-     without reading as a separate off-white card. */
   background: color-mix(in srgb, var(--surface) 50%, transparent);
   backdrop-filter: blur(14px) saturate(1.1);
   -webkit-backdrop-filter: blur(14px) saturate(1.1);
@@ -289,7 +282,6 @@
     grid-template-columns: repeat(3, 1fr);
   }
 }
-/* Phone-screenshot grids: a larger corner radius echoes the device curvature. */
 .grid2 .shot,
 .grid3 .shot {
   border-radius: 24px;
@@ -299,7 +291,6 @@
   border-radius: 14px;
 }
 
-/* before / after pair */
 .beforeAfter {
   display: grid;
   grid-template-columns: 1fr auto 1fr;
@@ -329,7 +320,6 @@
   border-top: 1px solid var(--rule);
 }
 
-/* ---------- story layout ---------- */
 .overview {
   margin-top: clamp(40px, 6vw, 72px);
   display: flex;
@@ -469,7 +459,6 @@
   line-height: 1.5;
 }
 
-/* ---------- featured projects nav ---------- */
 .chapter {
   scroll-margin-top: 78px;
 }
@@ -477,7 +466,6 @@
   margin-top: clamp(36px, 5vw, 56px);
 }
 
-/* ---------- figma prototype embed ---------- */
 .embed {
   position: relative;
   width: 100%;
@@ -495,7 +483,6 @@
   border: 0;
 }
 
-/* ---------- cross links ---------- */
 .more {
   margin-top: clamp(44px, 6vw, 76px);
   display: flex;

@@ -3,7 +3,6 @@ import styles from "./Contact.module.css";
 import MagneticIllo from "./MagneticIllo";
 import { site, stack } from "@/content/site";
 
-// Single site footer: the closing contact CTA plus the credit line.
 export default function Contact() {
   return (
     <footer className={styles.contact} id="contact">

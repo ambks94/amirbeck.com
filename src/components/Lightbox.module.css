@@ -26,9 +26,6 @@
   height: 100%;
   cursor: zoom-out;
 }
-/* Hairline inset so a contain-fit shot can sit edge to edge without
-   clipping against the viewport, and so the hover-scale on the homepage
-   cards has a matching full-bleed treatment when enlarged. */
 .media {
   position: absolute;
   inset: clamp(8px, 1.2vw, 16px);

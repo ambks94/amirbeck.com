@@ -9,7 +9,6 @@ import ShimmerImage from "./ShimmerImage";
 import DotRow from "./DotRow";
 import { projects, type Project } from "@/content/site";
 
-// Wrap metric tokens (~50%, 15%, 30%) so they read stronger than the label text.
 function emphasizeMetrics(text: string) {
   return text.split(/(~?\d+(?:\.\d+)?%?)/g).map((part, i) =>
     /^~?\d+(?:\.\d+)?%?$/.test(part) ? (
@@ -68,8 +67,6 @@ export default function Work() {
               <div className={styles.head}>
                 <h3 className={styles.name}>{p.name}</h3>
                 <span className={styles.wave} aria-hidden="true">
-                  {/* one stroke: squiggle, dips down, then runs straight under the
-                      label as its underline. Draws in on hover via stroke-dashoffset. */}
                   <svg
                     className={styles.waveSvg}
                     width="380"
@@ -91,9 +88,6 @@ export default function Work() {
                 <p className={`label ${styles.years}`}>{p.years}</p>
               </div>
 
-              {/* One fixed 4:3 slot for every project so the entries align.
-                  Inset padding keeps the shot centered and gives the hover
-                  zoom room before overflow:hidden on the frame. */}
               <button
                 type="button"
                 className={`${styles.shot} ${p.image.browser ? styles.shotBrowser : ""}`}

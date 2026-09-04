@@ -26,7 +26,6 @@
     opacity: 0.2;
   }
 }
-/* Line cluster anchored in the top-left corner (magnetic). */
 .topLeft {
   position: absolute;
   left: -4%;

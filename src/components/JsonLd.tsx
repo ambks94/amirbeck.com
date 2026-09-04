@@ -1,8 +1,4 @@
-// Serialize JSON-LD safely for inlining inside a <script> tag. Escaping `<`
-// (and the U+2028/U+2029 line separators, which are valid JSON but break JS
-// string parsing) prevents a value from closing the element with a literal
-// `</script>`. The data is static today, but the guard is cheap and keeps it
-// safe if it ever draws on dynamic content.
+// Escape `<` and U+2028/U+2029 so JSON-LD cannot close the <script> tag.
 function safeJson(data: object) {
   return JSON.stringify(data)
     .replace(/</g, "\\u003c")

@@ -28,7 +28,6 @@
   display: block;
 }
 
-/* Inline links + contact button — desktop. */
 .links {
   display: flex;
   align-items: center;
@@ -54,7 +53,6 @@
   white-space: nowrap;
 }
 
-/* Menu trigger — hidden on desktop. */
 .menuBtn {
   display: none;
   align-items: center;
@@ -75,7 +73,6 @@
   background: color-mix(in srgb, var(--ink) 5%, transparent);
 }
 
-/* Full-screen overlay menu — hidden on desktop. */
 .overlay {
   display: none;
 }
@@ -96,7 +93,6 @@
   width: max-content;
   transition: color 0.2s ease;
 }
-/* Magnific-style leading pointer on hover/focus. */
 .overlayLinks a::before {
   content: "→";
   position: absolute;
@@ -161,7 +157,6 @@
   .menuBtn {
     display: inline-flex;
   }
-  /* Motion (AnimatePresence) drives opacity + the staggered link rise. */
   .overlay {
     position: fixed;
     inset: 0;

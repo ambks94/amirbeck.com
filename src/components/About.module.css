@@ -6,7 +6,6 @@
   position: relative;
   z-index: 1;
 }
-/* Contour on the RIGHT — cut edge hugs the page edge, bleeding off (mirror of Work). */
 .contour {
   position: absolute;
   right: -6%;
@@ -15,7 +14,6 @@
   height: auto;
   pointer-events: none;
   z-index: 0;
-  /* Fade the lines out toward every edge so they never cut off hard. */
   -webkit-mask-image: radial-gradient(closest-side, #000 50%, transparent 100%);
   mask-image: radial-gradient(closest-side, #000 50%, transparent 100%);
 }

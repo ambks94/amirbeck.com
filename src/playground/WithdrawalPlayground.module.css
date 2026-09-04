@@ -206,16 +206,12 @@
   outline: none;
 }
 
-/* The scrolling page viewport inside the frame */
 .viewport {
   height: 100%;
   overflow-y: auto;
   overflow-x: hidden;
 }
 
-/* ============================================================
-     FullpageFormLayoutRaw
-     ============================================================ */
 .page {
   min-height: 100%;
   background: var(--n25);
@@ -224,7 +220,6 @@
   flex-direction: column;
   justify-content: flex-start;
   overflow-x: hidden;
-  /* Was the header block's 32px padding plus its 40px bottom margin */
   padding-top: 72px;
 }
 
@@ -232,7 +227,6 @@
   padding-top: 24px;
 }
 
-/* Container disableGutters maxWidth="md" */
 .page-container {
   max-width: 900px;
   width: 100%;
@@ -250,7 +244,6 @@
   display: block;
 }
 
-/* Stack width={{ xs: '100%', md: 640 }} mx={1} */
 .form-stack {
   display: flex;
   flex-direction: column;
@@ -262,9 +255,6 @@
   padding-bottom: 96px;
 }
 
-/* ============================================================
-     LinkWithdrawalLayout header strip
-     ============================================================ */
 .head-strip {
   display: flex;
   flex-direction: row;
@@ -279,9 +269,6 @@
   flex-shrink: 0;
 }
 
-/* IconButton, size medium: 5px padding around a 16px icon, so a 26px box.
-     The component wraps its icon in a line-height 0 span; without that the
-     inline SVG's baseline adds space and the padding reads as uneven. */
 .icon-btn {
   appearance: none;
   display: inline-flex;
@@ -312,9 +299,6 @@
   background: var(--n50);
 }
 
-/* ============================================================
-     Page body card
-     ============================================================ */
 .body-box {
   border: 1px solid var(--n100);
   border-top: none;
@@ -327,7 +311,6 @@
   border-top: 1px solid var(--n100);
 }
 
-/* --- Typography --- */
 .body1 {
   font-size: 14px;
   font-weight: 500;
@@ -351,9 +334,6 @@
   font-weight: 700;
 }
 
-/* ============================================================
-     TransferOverview, desktop
-     ============================================================ */
 .overview {
   --overview-pad-y: 8px;
   --overview-center-gap: 2px;
@@ -433,7 +413,6 @@
   color: var(--n700);
 }
 
-/* Column's blur fade, replayed when the label changes */
 @keyframes blurFadeIn {
   0% {
     opacity: 0;
@@ -465,7 +444,6 @@
   animation: fadeIn 200ms var(--ease-page);
 }
 
-/* OverlappingMethodBadges */
 .badges {
   position: relative;
   width: 38px;
@@ -498,9 +476,6 @@
   display: block;
 }
 
-/* ============================================================
-     TransferOverviewMobile
-     ============================================================ */
 .overview-mobile {
   display: none;
 }
@@ -542,9 +517,6 @@
   background: var(--n25);
 }
 
-/* ============================================================
-     RecipientDetailsForm
-     ============================================================ */
 .form {
   display: flex;
   flex-direction: column;
@@ -562,7 +534,6 @@
   gap: 8px;
 }
 
-/* AnimateIn */
 @keyframes animateIn {
   from {
     opacity: 0;
@@ -579,7 +550,6 @@
   will-change: transform;
 }
 
-/* --- Outlined / Autocomplete --- */
 .field {
   position: relative;
   width: 100%;
@@ -663,7 +633,6 @@
   transform: rotate(180deg);
 }
 
-/* Autocomplete popup: Paper elevation 8 */
 .listbox {
   position: absolute;
   top: calc(100% + 4px);
@@ -717,7 +686,6 @@
   background: transparent;
 }
 
-/* --- CurrencyRow --- */
 .currency-row {
   display: flex;
   align-items: center;
@@ -775,7 +743,6 @@
   color: var(--n900);
 }
 
-/* SelectionRadio */
 .radio {
   flex-shrink: 0;
   width: 16px;
@@ -800,7 +767,6 @@
   background: var(--white);
 }
 
-/* Flag placeholder for the Other row */
 .flag-blank {
   width: 24px;
   height: 24px;
@@ -809,7 +775,6 @@
   flex-shrink: 0;
 }
 
-/* Inline text link */
 .text-link {
   text-decoration: underline;
   cursor: pointer;
@@ -820,7 +785,6 @@
   color: inherit;
 }
 
-/* --- InfoCard, severity WARNING, filled --- */
 .info-card {
   display: flex;
   flex-direction: row;
@@ -863,9 +827,6 @@
   color: var(--danger500);
 }
 
-/* ============================================================
-     Step 2: method cards
-     ============================================================ */
 .method-stack {
   display: flex;
   flex-direction: column;
@@ -1023,9 +984,6 @@
   overflow-wrap: anywhere;
 }
 
-/* ============================================================
-     Step 2: ConnectMethodSection
-     ============================================================ */
 .connect-section {
   border: 1px solid var(--n100);
   border-radius: 4px;
@@ -1094,7 +1052,6 @@
   text-align: center;
 }
 
-/* RadioGroup, mirroring MuiRadio */
 .radio-row {
   display: flex;
   flex-direction: column;
@@ -1153,7 +1110,6 @@
   border-color: var(--n800);
 }
 
-/* Checkbox inside the SWIFT warning */
 .check-label {
   display: flex;
   flex-direction: row;
@@ -1194,8 +1150,6 @@
   width: 100%;
 }
 
-/* PayPal login, standing in for the PayPal AAC widget.
-     Styled as WhiteOutlinedButton: transparent fill, inset neutral 900 ring. */
 .paypal-btn {
   appearance: none;
   display: inline-flex;
@@ -1240,7 +1194,6 @@
   padding: 6px 16px;
 }
 
-/* --- Next button --- */
 .next-box {
   padding: 16px 24px;
 }
@@ -1284,8 +1237,6 @@
   }
 }
 
-/* Reserves height for the lazily-mounted flow so gating it on scroll does not
-   shift the page. Roughly the height of the details step. */
 .flowPlaceholder {
   min-height: 560px;
 }

@@ -50,6 +50,10 @@ export default function Hero() {
           <a href="#work">
             Work <ArrowDown size={12} strokeWidth={2} aria-hidden="true" />
           </a>
+          <a href="#playground">
+            Playground{" "}
+            <ArrowDown size={12} strokeWidth={2} aria-hidden="true" />
+          </a>
           <a href="#how">
             How I work{" "}
             <ArrowDown size={12} strokeWidth={2} aria-hidden="true" />
@@ -63,8 +67,6 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* Gradient lines spanning the full hero height on the right, bleeding off the
-          page edge. Capped so it can never push content or scroll the page sideways. */}
       <MagneticIllo
         className={styles.stipple}
         src="/illustrations/stipple.svg"

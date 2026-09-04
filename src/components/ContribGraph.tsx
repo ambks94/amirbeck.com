@@ -3,8 +3,6 @@ import styles from "./ContribGraph.module.css";
 
 type Day = { date: string; level: number };
 
-// GitHub's own public contributions calendar (HTML). No auth. Returns empty on
-// any failure so the section simply hides rather than breaking the page.
 async function fetchUser(
   user: string,
 ): Promise<{ days: Day[]; total: number }> {
@@ -20,7 +18,6 @@ async function fetchUser(
     const html = await res.text();
 
     const days: Day[] = [];
-    // day cells carry data-date and data-level (in either attribute order)
     const re =
       /data-date="(\d{4}-\d{2}-\d{2})"[^>]*?data-level="(\d)"|data-level="(\d)"[^>]*?data-date="(\d{4}-\d{2}-\d{2})"/g;
     let m: RegExpExecArray | null;
@@ -43,7 +40,6 @@ const GAP = 3;
 export default async function ContribGraph() {
   const results = await Promise.all(usernames.map(fetchUser));
 
-  // merge both accounts: highest level per date, sum the headline totals
   const levels = new Map<string, number>();
   let total = 0;
   for (const r of results) {
@@ -57,7 +53,6 @@ export default async function ContribGraph() {
     .map(([date, level]) => ({ date, level }))
     .sort((a, b) => a.date.localeCompare(b.date));
 
-  // columns = weeks, rows = weekday (0 Sun .. 6 Sat)
   const weeks: (Day | null)[][] = [];
   let week: (Day | null)[] = [];
   days.forEach((d, i) => {

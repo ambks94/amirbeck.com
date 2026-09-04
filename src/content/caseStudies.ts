@@ -5,8 +5,6 @@ export type CaseImage = {
   height: number;
   alt: string;
 };
-// A micro case study. Media is optional: a looping video, or one or more framed
-// images (set `beforeAfter` to show the first two with an arrow between).
 export type CaseSection = {
   heading: string;
   body: string;
@@ -19,7 +17,6 @@ export type CaseSection = {
   beforeAfter?: boolean;
 };
 
-// Story layout: an overview, then chapters of blocks (heading + body + media).
 export type CaseBlock = {
   heading?: string;
   body?: string;
@@ -48,16 +45,13 @@ export type CaseStudy = {
   years: string;
   role: string;
   intro: string;
-  /** Optional third-person summary for meta tags and JSON-LD. Falls back to intro. */
   description?: string;
   hero?: CaseImage;
   problem?: string;
   result?: string;
   metrics: CaseMetric[];
   layout?: "micro" | "story";
-  // micro layout
   sections?: CaseSection[];
-  // story layout
   overview?: string[];
   impact?: string[];
   workIncluded?: string;

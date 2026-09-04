@@ -136,9 +136,7 @@ function countryFromLocales(tags: readonly string[]): string | null {
       const maximized = locale.maximize();
       const region = supported(maximized.region ?? locale.region);
       if (region) return region;
-    } catch {
-      // Ignore tags the runtime cannot parse.
-    }
+    } catch {}
   }
   return null;
 }

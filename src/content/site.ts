@@ -16,7 +16,6 @@ export const site = {
     "Amir Beck is a senior design engineer and product designer in San Francisco who both designs and ships fintech products. At Lumanu he leads the design of a B2B2C payments platform and personally builds it in React, Next.js, and TypeScript. He bridges Figma to production code on a design system that compounds.",
 };
 
-// Tech behind this site, listed in the footer.
 export const stack = [
   "Next.js",
   "React",

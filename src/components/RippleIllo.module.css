@@ -2,7 +2,7 @@
   display: block;
   width: 100%;
   height: auto;
-  opacity: 0.16;
+  opacity: var(--ripple-rest, 0.16);
 }
 .bright {
   position: absolute;

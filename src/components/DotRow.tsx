@@ -1,7 +1,5 @@
 import styles from "./DotRow.module.css";
 
-// The four brand glyphs (target, crescent, eclipse, target) as inline SVG so
-// individual dots can animate. `variant` gives each placement a unique hover.
 export default function DotRow({
   variant = "a",
   className = "",
@@ -19,7 +17,6 @@ export default function DotRow({
       fill="none"
       aria-hidden="true"
     >
-      {/* glyph 1 — target */}
       <g className={styles.g1}>
         <circle
           className={styles.ring}
@@ -32,7 +29,6 @@ export default function DotRow({
         <circle className={styles.dot} cx="7" cy="16" r="3" fill="var(--ink)" />
       </g>
 
-      {/* glyph 2 — crescent */}
       <mask
         id={maskId}
         width="24"
@@ -63,7 +59,6 @@ export default function DotRow({
         />
       </g>
 
-      {/* glyph 3 — eclipse */}
       <g className={styles.g3}>
         <circle
           className={styles.eclipseBack}
@@ -85,7 +80,6 @@ export default function DotRow({
         />
       </g>
 
-      {/* glyph 4 — target */}
       <g className={styles.g4}>
         <circle
           className={styles.ring}

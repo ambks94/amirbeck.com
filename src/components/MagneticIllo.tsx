@@ -14,17 +14,13 @@ import {
 type Props = {
   src: string;
   className?: string;
-  /** The element's own resting transform (from its CSS class), preserved so the
-   *  repulsion and drift compose with it instead of overriding it. */
+  /** Resting transform from CSS; repulsion and drift compose with it. */
   base?: string;
   strength?: number;
   radius?: number;
   driftAmp?: number;
 };
 
-// A background line illustration that drifts gently on its own and leans away
-// from the pointer — a light magnetic-repulsion read on the "iron filings" idea.
-// Transform-only (GPU); springs keep the repulsion interruptible.
 export default function MagneticIllo({
   src,
   className,
@@ -48,7 +44,6 @@ export default function MagneticIllo({
   const cy = useTransform(() => sy.get() + dy.get());
   const transform = useMotionTemplate`translate(${cx}px, ${cy}px) ${base}`;
 
-  // Slow, autonomous drift so the illustration has life at rest.
   useAnimationFrame((t) => {
     if (reduce) return;
     const s = t / 1000;
@@ -56,7 +51,6 @@ export default function MagneticIllo({
     dy.set(Math.cos(s * 0.14) * driftAmp);
   });
 
-  // Pointer repulsion, tracked on the window so it works behind content.
   useEffect(() => {
     if (reduce) return;
     const onMove = (e: PointerEvent) => {
@@ -76,8 +70,6 @@ export default function MagneticIllo({
 
   if (reduce) {
     return (
-      // Decorative SVG illustration; next/image adds no value for an inline,
-      // animated SVG and would only add overhead.
       // eslint-disable-next-line @next/next/no-img-element
       <img
         ref={ref}
@@ -85,6 +77,7 @@ export default function MagneticIllo({
         src={src}
         alt=""
         aria-hidden="true"
+        style={base ? { transform: base } : undefined}
       />
     );
   }

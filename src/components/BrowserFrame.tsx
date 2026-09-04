@@ -2,8 +2,6 @@ import Image from "next/image";
 import styles from "./BrowserFrame.module.css";
 import type { CaseImage } from "@/content/caseStudies";
 
-// Code-drawn browser chrome around a screenshot. One consistent frame for every
-// project so shots align even when the source images differ.
 export default function BrowserFrame({
   image,
   url,

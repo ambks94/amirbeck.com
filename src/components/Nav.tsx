@@ -20,7 +20,6 @@ export default function Nav() {
   const [open, setOpen] = useState(false);
   const reduce = useReducedMotion();
 
-  // Lock scroll and close on Escape while the overlay is open.
   useEffect(() => {
     if (!open) return;
     const onKey = (e: KeyboardEvent) => {
@@ -36,7 +35,6 @@ export default function Nav() {
     };
   }, [open]);
 
-  // Interruptible list: springs carry velocity when the menu is toggled fast.
   const list: Variants = {
     show: {
       transition: { staggerChildren: reduce ? 0 : 0.05, delayChildren: 0.04 },
@@ -79,7 +77,6 @@ export default function Nav() {
             />
           </a>
 
-          {/* Inline nav — tablet and up. */}
           <nav className={styles.links}>
             {items.map((it) => (
               <a key={it.href} href={it.href}>
@@ -91,7 +88,6 @@ export default function Nav() {
             Contact Me
           </a>
 
-          {/* Menu trigger — mobile only. */}
           <button
             type="button"
             className={styles.menuBtn}
@@ -105,8 +101,6 @@ export default function Nav() {
         </div>
       </header>
 
-      {/* Full-screen overlay menu, a sibling of the header so `position: fixed`
-          resolves to the viewport rather than the backdrop-filtered header. */}
       <AnimatePresence>
         {open && (
           <motion.div

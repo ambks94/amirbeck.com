@@ -59,9 +59,7 @@
 
 html {
   scroll-behavior: smooth;
-  /* Clip decorative bleed on the root, not on `body` — overflow on body
-     makes a nested scroller and breaks sticky nav + window.scrollY.
-     `clip` (not `hidden`) actually stops sideways panning on iOS. */
+  /* Clip bleed on `html`, not `body` — overflow on body breaks sticky nav. */
   overflow-x: clip;
   overscroll-behavior-x: none;
 }
@@ -103,8 +101,6 @@ h3 {
   letter-spacing: -0.015em;
   margin: 0;
 }
-
-/* ---------- shared primitives ---------- */
 
 .wrap {
   max-width: 1120px;
@@ -189,9 +185,6 @@ h3 {
   opacity: 0.75;
 }
 
-/* ---------- motion ----------
-   Entrance animates transform only, never opacity, so every word is legible
-   on the first painted frame. */
 @keyframes rise {
   from {
     transform: translateY(16px);

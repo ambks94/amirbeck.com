@@ -55,7 +55,6 @@
   height: auto;
 }
 
-/* intensity ramp, brand colors, works in light and dark via tokens */
 .l0 {
   fill: var(--rule);
 }
@@ -72,7 +71,6 @@
   fill: var(--accent);
 }
 
-/* Slow, faint breathing on only the densest days. Per-cell delay set inline. */
 @keyframes cellPulse {
   0%,
   100% {
