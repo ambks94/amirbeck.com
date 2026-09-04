@@ -51,7 +51,7 @@ export const projects: Project[] = [
       "Launched features creating significant new revenue streams",
     ],
     image: {
-      src: "/images/home/lumanu.png",
+      src: "/images/home/lumanu_home.png",
       width: 5760,
       height: 4096,
       alt: "Lumanu project detail view showing budget, spending, and a payments table",
@@ -75,11 +75,11 @@ export const projects: Project[] = [
       "15% increase in cross product usage",
     ],
     image: {
-      src: "/images/home/Skyslope.png",
-      width: 5760,
-      height: 4096,
+      src: "/images/home/skyslope_home.png",
+      width: 4320,
+      height: 3072,
       alt: "SkySlope interface showing document and signing tools for real estate agents",
-      browser: "breeze.skyslope.com",
+      browser: "skyslope.com",
     },
     links: [
       { label: "View Case Study", href: "/skyslope" },
