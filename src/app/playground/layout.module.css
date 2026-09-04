@@ -1,0 +1,46 @@
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: color-mix(in srgb, var(--paper) 88%, transparent);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--rule);
+}
+.navInner {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  height: 60px;
+}
+.mark {
+  display: inline-flex;
+  align-items: center;
+}
+.mark img {
+  width: 30px;
+  height: 30px;
+}
+.back {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-right: auto;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  text-decoration: none;
+  min-height: 44px;
+  transition: color 0.2s ease;
+}
+.back:hover {
+  color: var(--accent);
+}
+
+.main {
+  padding-block: clamp(40px, 7vw, 88px) var(--band);
+}
+.article {
+  max-width: 1040px;
+}

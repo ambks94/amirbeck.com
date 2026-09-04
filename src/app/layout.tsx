@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Instrument_Serif, Geist, JetBrains_Mono } from "next/font/google";
+import { Instrument_Serif, Geist, Inter, JetBrains_Mono } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import { site } from "@/content/site";
 import "./globals.css";
@@ -16,6 +16,13 @@ const geist = Geist({
   subsets: ["latin"],
   weight: ["400", "500", "600"],
   variable: "--font-geist",
+  display: "swap",
+});
+
+const inter = Inter({
+  subsets: ["latin"],
+  weight: ["400", "500", "600"],
+  variable: "--font-inter",
   display: "swap",
 });
 
@@ -90,7 +97,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${instrumentSerif.variable} ${geist.variable} ${jetbrains.variable}`}
+      className={`${instrumentSerif.variable} ${geist.variable} ${inter.variable} ${jetbrains.variable}`}
     >
       <body>
         {children}

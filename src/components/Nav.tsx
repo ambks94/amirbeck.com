@@ -13,6 +13,7 @@ const items = [
   { href: "#work", label: "Work" },
   { href: "#how", label: "How I work" },
   { href: "#about", label: "About" },
+  { href: "/playground", label: "Playground" },
 ];
 
 export default function Nav() {

@@ -1,7 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowDown, ArrowLeft, ArrowRight, ArrowUpRight } from "lucide-react";
+import { ArrowLeft, ArrowRight, ArrowUpRight } from "lucide-react";
 import Contact from "./Contact";
+import DirectoryNav from "./DirectoryNav";
 import LoopVideo from "./LoopVideo";
 import styles from "./CaseStudy.module.css";
 import { site } from "@/content/site";
@@ -252,36 +253,17 @@ export default function CaseStudyView({ study }: { study: CaseStudy }) {
               </div>
 
               {study.chapters && study.chapters.some((c) => c.summary) && (
-                <nav className={styles.featured} aria-label="Featured projects">
-                  <span className={styles.detailLabel}>Featured projects</span>
-                  <ul className={styles.featuredList}>
-                    {study.chapters
-                      .filter((c) => c.summary)
-                      .map((ch) => (
-                        <li key={ch.title}>
-                          <a
-                            href={`#${chId(ch)}`}
-                            className={styles.featuredItem}
-                          >
-                            <span className={styles.featuredName}>
-                              {ch.title}
-                            </span>
-                            {ch.summary && (
-                              <span className={styles.featuredSummary}>
-                                {ch.summary}
-                              </span>
-                            )}
-                            <ArrowDown
-                              size={14}
-                              strokeWidth={2}
-                              aria-hidden="true"
-                              className={styles.featuredArrow}
-                            />
-                          </a>
-                        </li>
-                      ))}
-                  </ul>
-                </nav>
+                <DirectoryNav
+                  className={styles.featured}
+                  label="Featured projects"
+                  items={study.chapters
+                    .filter((c) => c.summary)
+                    .map((ch) => ({
+                      href: `#${chId(ch)}`,
+                      name: ch.title,
+                      summary: ch.summary,
+                    }))}
+                />
               )}
 
               {study.chapters?.map((ch) => (
