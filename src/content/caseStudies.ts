@@ -55,7 +55,7 @@ export const caseStudies: CaseStudy[] = [
     years: "2023 to Now",
     role: "Lead Design Engineer",
     intro:
-      "I lead the design of Lumanu's B2B2C payments platform.",
+      "Lumanu is a fintech that processes payments and handles tax compliance for brands paying creators.",
     metrics: [
       { figure: "~90%", text: "of the app redesign coded personally" },
       { figure: "1", text: "company pivot to payments, driven by the redesign" },
