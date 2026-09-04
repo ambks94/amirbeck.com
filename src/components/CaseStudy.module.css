@@ -227,20 +227,45 @@
 .result .metaLabel {
   color: var(--accent);
 }
+/* problem -> solution group with the animated rail, for story blocks */
+.flowGroup {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding-left: 26px;
+  max-width: calc(var(--measure) + 26px);
+}
+.flowGroup > .flow {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  grid-row: auto;
+}
 
 /* framed screenshot, matted inside a padded card */
+/* Liquid-glass panel: a translucent, faintly gradient surface with a blurred
+   backdrop, a hairline border, and a top inner sheen — the screenshot floats
+   on it rather than sitting on a flat card. */
 .shot {
-  padding: clamp(12px, 1.8vw, 24px);
-  background: var(--surface);
-  border: 1px solid color-mix(in srgb, var(--ink) 5%, transparent);
-  border-radius: 12px;
-  box-shadow: 0 24px 60px -30px color-mix(in srgb, var(--ink) 45%, transparent);
+  padding: clamp(14px, 2vw, 28px);
+  /* Frosted paper: tinted toward the page so it lifts off the background
+     without reading as a separate off-white card. */
+  background: color-mix(in srgb, var(--surface) 50%, transparent);
+  backdrop-filter: blur(14px) saturate(1.1);
+  -webkit-backdrop-filter: blur(14px) saturate(1.1);
+  border: 1px solid color-mix(in srgb, var(--ink) 4%, transparent);
+  border-radius: 16px;
+  box-shadow:
+    inset 0 1px 0 color-mix(in srgb, #ffffff 35%, transparent),
+    0 30px 70px -40px color-mix(in srgb, var(--ink) 38%, transparent);
 }
 .shot img {
   display: block;
   width: 100%;
   height: auto;
-  border-radius: 5px;
+  border-radius: 8px;
 }
 .heroShot {
   margin-top: clamp(34px, 5vw, 54px);
@@ -259,6 +284,15 @@
   .grid3 {
     grid-template-columns: repeat(3, 1fr);
   }
+}
+/* Phone-screenshot grids: a larger corner radius echoes the device curvature. */
+.grid2 .shot,
+.grid3 .shot {
+  border-radius: 24px;
+}
+.grid2 .shot img,
+.grid3 .shot img {
+  border-radius: 14px;
 }
 
 /* before / after pair */

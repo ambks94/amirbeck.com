@@ -37,15 +37,25 @@ export default function Nav() {
 
   // Interruptible list: springs carry velocity when the menu is toggled fast.
   const list: Variants = {
-    show: { transition: { staggerChildren: reduce ? 0 : 0.05, delayChildren: 0.04 } },
+    show: {
+      transition: { staggerChildren: reduce ? 0 : 0.05, delayChildren: 0.04 },
+    },
     exit: { transition: { staggerChildren: 0.025, staggerDirection: -1 } },
   };
   const line: Variants = reduce
     ? { hidden: { opacity: 0 }, show: { opacity: 1 }, exit: { opacity: 0 } }
     : {
         hidden: { opacity: 0, y: 18 },
-        show: { opacity: 1, y: 0, transition: { type: "spring", duration: 0.5, bounce: 0 } },
-        exit: { opacity: 0, y: 10, transition: { duration: 0.15, ease: [0.19, 1, 0.22, 1] } },
+        show: {
+          opacity: 1,
+          y: 0,
+          transition: { type: "spring", duration: 0.5, bounce: 0 },
+        },
+        exit: {
+          opacity: 0,
+          y: 10,
+          transition: { duration: 0.15, ease: [0.19, 1, 0.22, 1] },
+        },
       };
 
   return (
@@ -53,8 +63,19 @@ export default function Nav() {
       <header className={styles.nav}>
         <ScrollProgress />
         <div className={`wrap ${styles.inner}`}>
-          <a className={styles.mark} href="#top" aria-label={site.name} onClick={() => setOpen(false)}>
-            <Image src="/logo.png" alt={site.name} width={30} height={30} priority />
+          <a
+            className={styles.mark}
+            href="#top"
+            aria-label={site.name}
+            onClick={() => setOpen(false)}
+          >
+            <Image
+              src="/logo.png"
+              alt={site.name}
+              width={30}
+              height={30}
+              priority
+            />
           </a>
 
           {/* Inline nav — tablet and up. */}
@@ -103,7 +124,12 @@ export default function Nav() {
               exit="exit"
             >
               {items.map((it) => (
-                <motion.a key={it.href} href={it.href} variants={line} onClick={() => setOpen(false)}>
+                <motion.a
+                  key={it.href}
+                  href={it.href}
+                  variants={line}
+                  onClick={() => setOpen(false)}
+                >
                   {it.label}
                 </motion.a>
               ))}
@@ -115,12 +141,21 @@ export default function Nav() {
               initial="hidden"
               animate="show"
               exit="exit"
-              transition={reduce ? undefined : { delay: 0.22, type: "spring", duration: 0.5, bounce: 0 }}
+              transition={
+                reduce
+                  ? undefined
+                  : { delay: 0.22, type: "spring", duration: 0.5, bounce: 0 }
+              }
               onClick={() => setOpen(false)}
             >
               Contact Me
             </motion.a>
-            <button type="button" className={styles.close} aria-label="Close menu" onClick={() => setOpen(false)}>
+            <button
+              type="button"
+              className={styles.close}
+              aria-label="Close menu"
+              onClick={() => setOpen(false)}
+            >
               <X size={22} strokeWidth={2} />
             </button>
           </motion.div>

@@ -1,6 +1,6 @@
-import Image from "next/image";
 import { ArrowDown } from "lucide-react";
 import DotRow from "./DotRow";
+import MagneticIllo from "./MagneticIllo";
 import styles from "./Hero.module.css";
 import { site } from "@/content/site";
 
@@ -65,13 +65,10 @@ export default function Hero() {
 
       {/* Gradient lines spanning the full hero height on the right, bleeding off the
           page edge. Capped so it can never push content or scroll the page sideways. */}
-      <Image
+      <MagneticIllo
         className={styles.stipple}
         src="/illustrations/stipple.svg"
-        alt=""
-        aria-hidden="true"
-        width={738}
-        height={1962}
+        base="translateY(-50%)"
       />
     </section>
   );

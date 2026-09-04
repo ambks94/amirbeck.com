@@ -22,6 +22,8 @@ export type CaseSection = {
 export type CaseBlock = {
   heading?: string;
   body?: string;
+  problem?: string;
+  result?: string;
   list?: string[];
   images?: CaseImage[];
   video?: string;
@@ -45,6 +47,8 @@ export type CaseStudy = {
   role: string;
   intro: string;
   hero?: CaseImage;
+  problem?: string;
+  result?: string;
   metrics: CaseMetric[];
   layout?: "micro" | "story";
   // micro layout
@@ -227,17 +231,9 @@ export const caseStudies: CaseStudy[] = [
     role: "UI and UX Designer",
     intro:
       "SkySlope builds real estate transaction software. I improved the UX across DigiSign, Forms, and Breeze, and led Breeze from concept through launch.",
-    hero: {
-      src: "/images/skyslope.webp",
-      width: 2800,
-      height: 2099,
-      alt: "SkySlope transaction software for real estate agents",
-    },
     metrics: [],
     layout: "story",
-    overview: [
-      "SkySlope makes software for processing real estate transaction documents: e signing with DigiSign, guided forms with Breeze, and document management with Forms. I improved the experience and the fit between these apps, and led the design of Breeze from first concept through launch.",
-    ],
+
     impact: [
       "Cut digital signing mistakes by ~50%",
       "Made paperwork delegation easier for whole teams",
@@ -257,8 +253,11 @@ export const caseStudies: CaseStudy[] = [
         summary: "Making e signing much easier to use.",
         blocks: [
           {
-            heading: "Problem",
-            body: "Agent feedback kept pointing to frustration placing signatures in DigiSign. The goal was clear, make the core e signing experience much easier to use.",
+            problem:
+              "Agents kept hitting friction placing signatures in DigiSign, a 40 to 50% error rate in testing.",
+            body: "Agent feedback kept pointing to it, and the goal was clear, make the core e signing experience much easier to use.",
+            result:
+              "A clearer placement flow and a preferences page, so signing stops fighting the agent.",
           },
           {
             heading: "Usability testing",
@@ -275,7 +274,7 @@ export const caseStudies: CaseStudy[] = [
           },
           {
             callout:
-              "After closing the gaps from testing, we released to everyone.",
+              "After closing the gaps from testing, we released to our useres and saw a 50% reduction in digital signing mistakes.",
           },
         ],
       },
@@ -285,8 +284,11 @@ export const caseStudies: CaseStudy[] = [
         summary: "Improving teamwork for shared paperwork.",
         blocks: [
           {
-            heading: "Overview",
-            body: "Agents handle a lot of paperwork, often with assistants called transaction coordinators. I reshaped Forms to support whole teams, not just individual agents.",
+            problem:
+              "Forms served individual agents, but agents work with transaction coordinators who handle much of the paperwork.",
+            body: "I reshaped Forms to support whole teams, not just individual agents.",
+            result:
+              "Shared access, per agent file filtering, and file history, so teams can delegate paperwork cleanly.",
           },
           {
             heading: "Team management",
@@ -349,8 +351,11 @@ export const caseStudies: CaseStudy[] = [
         summary: "Simplifying complex disclosure forms for agents.",
         blocks: [
           {
-            heading: "Overview",
-            body: "Breeze launched as a new web app, building on earlier work to help agents complete the many disclosure forms required in California real estate.",
+            problem:
+              "California transactions require many complex disclosure forms, and completing them by hand is slow and error prone.",
+            body: "Breeze launched as a new web app, building on earlier work to guide agents through those forms.",
+            result:
+              "A wizard that auto fills the common disclosures, tracks client progress, and works on site from a phone.",
           },
           {
             heading: "Disclosures",
@@ -436,17 +441,8 @@ export const caseStudies: CaseStudy[] = [
     role: "Lead Product Designer",
     intro:
       "I led product design for an app that supports people through loss and end of life planning. My work spanned UX, brand, and product strategy for an early stage startup.",
-    hero: {
-      src: "/images/granate.webp",
-      width: 2800,
-      height: 1825,
-      alt: "Granate app screens after the rebrand, alongside the component library",
-    },
     metrics: [],
     layout: "story",
-    overview: [
-      "When I joined Granate, an app that supports people through loss and end of life planning, it was a pivotal moment for an early stage startup. My role went beyond UX and UI. I worked closely with the PM on strategy and even helped with marketing. This case study covers how I improved the experience, grew the user base, and set a premium brand.",
-    ],
     impact: [
       "~25% drop in onboarding drop off",
       "~30% lift in weekly engagement",
@@ -466,8 +462,11 @@ export const caseStudies: CaseStudy[] = [
         summary: "Elevating the app experience and brand.",
         blocks: [
           {
-            heading: "Overview",
-            body: "Granate's first brand was a quick way to launch. As the company matured, a rebrand became essential. I did not just redesign the app visually, I also shipped key usability improvements.",
+            problem:
+              "Granate's first brand was a rushed launch solution, and as the company matured it held the product back.",
+            body: "So I did not just redesign the app visually, I also shipped key usability improvements alongside the rebrand.",
+            result:
+              "A component system and usability fixes that lifted onboarding and weekly engagement.",
           },
           {
             heading: "Navigation",
@@ -570,12 +569,11 @@ export const caseStudies: CaseStudy[] = [
         summary: "Fostering connection between users.",
         blocks: [
           {
-            heading: "Overview",
-            body: "Granate's core mission is to ease the burden of loss and reduce isolation. The community feature serves that directly.",
-          },
-          {
-            heading: "Problem",
-            body: "Users seek connection to navigate loss, and need a space for stories and engagement through sharing, liking, and commenting. We also needed in app content submission for email curation.",
+            problem:
+              "People navigating loss feel isolated and need a space to share stories and connect through liking and commenting.",
+            body: "Granate's core mission is to ease that burden, so the community feature serves it directly.",
+            result:
+              "Story sharing and engagement, plus in app content submission for curated email.",
           },
           {
             heading: "Feature list",
@@ -639,16 +637,11 @@ export const caseStudies: CaseStudy[] = [
         summary: "Surfacing critical tasks right when needed.",
         blocks: [
           {
-            heading: "Overview",
-            body: "Granate aims to simplify the post loss journey, guiding users through tasks without overwhelming them. Feedback kept flagging trouble prioritizing tasks and seeing what mattered at each stage. Our content was accurate, but the way we surfaced it needed work.",
-          },
-          {
-            heading: "Problem",
-            list: [
-              "Users are overwhelmed and lack clear next steps for time sensitive tasks",
-              "Users need to trust that Granate surfaces the most critical items for them",
-              "We were not using collected data to personalize the experience",
-            ],
+            problem:
+              "Users were overwhelmed and could not tell which tasks mattered most at each stage of the post loss journey.",
+            body: "Our content was accurate, but the way we surfaced it needed work, and we were not using collected data to personalize it.",
+            result:
+              "A model that ranks tasks by role, priority, and due date, surfacing the critical ones right when they are needed.",
           },
           {
             heading: "Audit",
@@ -702,6 +695,16 @@ export const caseStudies: CaseStudy[] = [
             callout:
               "Not yet shipped, this defined the app's future: a personalized experience with guided flows and prioritized tasks.",
           },
+          {
+            images: [
+              {
+                src: "/images/granate.webp",
+                width: 2800,
+                height: 1825,
+                alt: "Granate app screens after the rebrand, alongside the component library",
+              },
+            ],
+          },
         ],
       },
     ],
@@ -715,21 +718,16 @@ export const caseStudies: CaseStudy[] = [
     role: "Lead Product Designer",
     intro:
       "In late 2020, agents were overwhelmed by COVID related paperwork, especially the PEAD form required for every home viewing. I led the design and launch of EasyPeady, a web app that streamlined it.",
-    hero: {
-      src: "/images/easypeady.webp",
-      width: 2800,
-      height: 2202,
-      alt: "EasyPeady flow for creating and sending multiple PEAD forms",
-    },
+    problem:
+      "COVID added the PEAD-V form to every home viewing, and managing it across properties and clients pulled buyer agents away from their clients.",
+    result:
+      "A standalone web app that auto fills, sends, and splits PEAD forms, launched in a quarter and later the groundwork for Breeze.",
     metrics: [
       { figure: "1 qtr", text: "from start to launch" },
       { figure: "15%", text: "uplift in cross product engagement" },
       { figure: "New", text: "pipeline of paying users" },
     ],
     layout: "story",
-    overview: [
-      "SkySlope asked for a fast way to handle the PEAD-V form required at every home viewing. I led the design and launch. The work became a standalone product and later the groundwork for Breeze.",
-    ],
     impact: [
       "Developed and launched in one quarter",
       "15% uplift in cross product engagement",
@@ -909,6 +907,16 @@ export const caseStudies: CaseStudy[] = [
         blocks: [
           {
             body: "The fast schedule led to one high impact oversight. An authentication problem surfaced only in user testing after the pivot. A technical audit should have followed the strategic change.",
+          },
+          {
+            images: [
+              {
+                src: "/images/easypeady.webp",
+                width: 2800,
+                height: 2202,
+                alt: "EasyPeady flow for creating and sending multiple PEAD forms",
+              },
+            ],
           },
         ],
       },

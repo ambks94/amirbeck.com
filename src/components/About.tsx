@@ -1,20 +1,13 @@
-import Image from "next/image";
 import DotRow from "./DotRow";
 import ContribGraph from "./ContribGraph";
+import RippleIllo from "./RippleIllo";
 import styles from "./About.module.css";
 import { about, kit } from "@/content/site";
 
 export default function About() {
   return (
     <section className={`section ${styles.about}`} id="about">
-      <Image
-        className={styles.contour}
-        src="/illustrations/contour.svg"
-        alt=""
-        aria-hidden="true"
-        width={460}
-        height={700}
-      />
+      <RippleIllo className={styles.contour} src="/illustrations/contour.svg" />
       <div className={`wrap ${styles.wrap}`}>
         <div className="sectionHead">
           <h2>About</h2>

@@ -1,11 +1,17 @@
 import Image from "next/image";
 import DotRow from "./DotRow";
+import MagneticIllo from "./MagneticIllo";
 import styles from "./HowIWork.module.css";
 import { practices } from "@/content/site";
 
 export default function HowIWork() {
   return (
     <section className={`section ${styles.band}`} id="how">
+      <MagneticIllo
+        className={styles.topLeft}
+        src="/illustrations/curves.svg"
+        strength={30}
+      />
       <Image
         className={styles.arc}
         src="/illustrations/arc.svg"

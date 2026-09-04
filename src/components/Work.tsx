@@ -117,6 +117,7 @@ export default function Work() {
                         alt={p.image.alt}
                         sizes="(max-width: 1120px) 100vw, 1120px"
                         priority={i === 0}
+                        quality={100}
                         objectFit="cover"
                         objectPosition="center top"
                       />
@@ -129,6 +130,7 @@ export default function Work() {
                       alt={p.image.alt}
                       sizes="(max-width: 1120px) 100vw, 1120px"
                       priority={i === 0}
+                      quality={100}
                       objectFit="contain"
                       objectPosition="center"
                     />

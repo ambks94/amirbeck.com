@@ -86,20 +86,22 @@
 }
 .curves {
   position: absolute;
-  right: -4%;
-  bottom: -14%;
-  width: min(38%, 400px);
+  right: -8%;
+  bottom: -22%;
+  width: min(56%, 620px);
   height: auto;
   opacity: 0.45;
   pointer-events: none;
   z-index: 0;
-  animation: drift 28s ease-in-out infinite reverse;
+  /* Fade the lines out toward every edge so they never cut off hard. */
+  -webkit-mask-image: radial-gradient(closest-side, #000 45%, transparent 100%);
+  mask-image: radial-gradient(closest-side, #000 45%, transparent 100%);
 }
 @media (max-width: 899px) {
   .curves {
-    width: 64%;
-    right: -16%;
-    bottom: -8%;
+    width: 92%;
+    right: -22%;
+    bottom: -12%;
     opacity: 0.3;
   }
 }
