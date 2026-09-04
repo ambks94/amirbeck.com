@@ -75,8 +75,10 @@ export default function MagneticIllo({
   }, [reduce, radius, strength, px, py]);
 
   if (reduce) {
-    // eslint-disable-next-line @next/next/no-img-element
     return (
+      // Decorative SVG illustration; next/image adds no value for an inline,
+      // animated SVG and would only add overhead.
+      // eslint-disable-next-line @next/next/no-img-element
       <img
         ref={ref}
         className={className}
@@ -87,7 +89,6 @@ export default function MagneticIllo({
     );
   }
   return (
-    // eslint-disable-next-line @next/next/no-img-element
     <motion.img
       ref={ref}
       className={className}
