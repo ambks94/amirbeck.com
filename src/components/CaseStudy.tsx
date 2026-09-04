@@ -11,13 +11,20 @@ const VIDEO_MP4 = new Set([
   "/images/skyslope/digisign-behavior.webm",
 ]);
 
+// ReplayKit left a 1px black hairline on this capture — scale it in so the
+// overflow clip on the frame eats the line without recoding the file.
+const VIDEO_CROP = new Set(["/images/lumanu/buyer-dashboard.webm"]);
+
 function LoopVideo({ src }: { src: string }) {
   const mp4 = VIDEO_MP4.has(src) ? src.replace(/\.webm$/, ".mp4") : null;
+  const crop = VIDEO_CROP.has(src);
   return (
-    <video className={styles.video} autoPlay muted loop playsInline preload="metadata">
-      <source src={src} type="video/webm" />
-      {mp4 ? <source src={mp4} type="video/mp4" /> : null}
-    </video>
+    <div className={`${styles.videoFrame}${crop ? ` ${styles.videoFrameCrop}` : ""}`}>
+      <video className={styles.video} autoPlay muted loop playsInline preload="metadata">
+        <source src={src} type="video/webm" />
+        {mp4 ? <source src={mp4} type="video/mp4" /> : null}
+      </video>
+    </div>
   );
 }
 
