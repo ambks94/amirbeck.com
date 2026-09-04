@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowLeft, ArrowRight, ArrowUpRight } from "lucide-react";
+import { ArrowDown, ArrowLeft, ArrowRight, ArrowUpRight } from "lucide-react";
 import Footer from "./Footer";
 import styles from "./CaseStudy.module.css";
 import { site } from "@/content/site";
@@ -83,6 +83,17 @@ function BlockMedia({ block }: { block: CaseBlock }) {
   if (block.video) return <LoopVideo src={block.video} />;
   const imgs = block.images ?? [];
   if (!imgs.length) return null;
+  if (block.beforeAfter && imgs.length >= 2) {
+    return (
+      <div className={styles.beforeAfter}>
+        <Frame image={imgs[0]} sizes="(max-width: 760px) 100vw, 500px" />
+        <span className={styles.arrow} aria-hidden="true">
+          <ArrowRight size={22} strokeWidth={1.5} />
+        </span>
+        <Frame image={imgs[1]} sizes="(max-width: 760px) 100vw, 500px" />
+      </div>
+    );
+  }
   if (imgs.length === 1) {
     return <Figure image={imgs[0]} caption={block.captions?.[0]} sizes="(max-width: 1120px) 100vw, 1040px" />;
   }
@@ -205,6 +216,13 @@ export default function CaseStudyView({ study }: { study: CaseStudy }) {
                   )}
                   <Media section={s} />
                   <div className={styles.copy}>
+                    {s.problem && s.result ? (
+                      <span className={styles.flow} aria-hidden="true">
+                        <span className={styles.flowRail}>
+                          <span className={styles.flowShine} />
+                        </span>
+                      </span>
+                    ) : null}
                     {s.problem && (
                       <p className={styles.meta}>
                         <span className={styles.metaLabel}>Problem</span>

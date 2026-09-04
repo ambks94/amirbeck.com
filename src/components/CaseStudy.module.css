@@ -129,6 +129,62 @@
   flex-direction: column;
   gap: 15px;
 }
+.copy:has(.flow) {
+  display: grid;
+  grid-template-columns: 12px minmax(0, 1fr);
+  column-gap: 14px;
+  max-width: calc(var(--measure) + 26px);
+}
+.flow {
+  grid-column: 1;
+  grid-row: 1 / span 3;
+  position: relative;
+  width: 12px;
+  color: var(--accent);
+}
+.copy:has(.flow) > :not(.flow) {
+  grid-column: 2;
+}
+.flowRail {
+  position: absolute;
+  top: 0.45em;
+  bottom: 10px;
+  left: 50%;
+  width: 1.5px;
+  transform: translateX(-50%);
+  overflow: hidden;
+  border-radius: 99px;
+  background: linear-gradient(to bottom, var(--rule), var(--accent));
+}
+.flowShine {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 42%;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    color-mix(in srgb, var(--accent) 85%, var(--paper)),
+    var(--accent),
+    transparent
+  );
+  animation: flowDown 2.8s linear infinite;
+}
+@keyframes flowDown {
+  from {
+    transform: translateY(-110%);
+  }
+  to {
+    transform: translateY(250%);
+  }
+}
+.flowHead {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  display: block;
+}
 .tags {
   list-style: none;
   margin: 0;

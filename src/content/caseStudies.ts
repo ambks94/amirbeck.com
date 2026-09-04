@@ -55,7 +55,7 @@ export const caseStudies: CaseStudy[] = [
     years: "2023 to Now",
     role: "Lead Design Engineer",
     intro:
-      "I lead the design of Lumanu's B2B2C payments platform. I redesigned the app from the ground up and personally coded most of it.",
+      "I lead the design of Lumanu's B2B2C payments platform.",
     metrics: [
       { figure: "~90%", text: "of the app redesign coded personally" },
       { figure: "1", text: "company pivot to payments, driven by the redesign" },
@@ -73,9 +73,9 @@ export const caseStudies: CaseStudy[] = [
       {
         heading: "App redesign",
         tags: ["Figma", "React", "Next.js"],
-        problem: "The app was information dense and hard to use.",
+        problem: "The app was information dense, hard to navigate, and had outdated UI.",
         body: "I redesigned it from the ground up and held it to a pixel perfect bar, coding 90% myself, with help on the left nav and new features like universal search.",
-        result: "A faster, clearer app, mostly shipped in my own code.",
+        result: "A faster, clearer, and more modern app.",
         beforeAfter: true,
         images: [
           { src: "/images/lumanu/app-redesign-before.webp", width: 2400, height: 1805, alt: "The Lumanu app before the redesign" },
@@ -87,7 +87,7 @@ export const caseStudies: CaseStudy[] = [
         tags: ["Code Connect", "Figma MCP"],
         problem: "User feedback and CS tickets pointed to a missing reporting feature.",
         body: "I spotted the need, then built and launched reporting myself. Figma Code Connect and the Figma MCP took me from design straight into shipped code.",
-        result: "A new reporting feature, launched end to end.",
+        result: "A new reporting feature which allowed our clients to audit their finances.",
         video: "/images/lumanu/reporting.webm",
       },
       {
@@ -310,22 +310,108 @@ export const caseStudies: CaseStudy[] = [
       { figure: "15%", text: "uplift in cross product engagement" },
       { figure: "New", text: "pipeline of paying users" },
     ],
-    sections: [
+    layout: "story",
+    overview: [
+      "SkySlope asked for a fast way to handle the PEAD-V form required at every home viewing. I led the design and launch. The work became a standalone product and later the groundwork for Breeze.",
+    ],
+    impact: [
+      "Developed and launched in one quarter",
+      "15% uplift in cross product engagement",
+      "Generated a pipeline of new paying users",
+    ],
+    workIncluded: "UX, UI, User Research",
+    goals: [
+      "How might we allow an agent to send multiple PEAD forms at once?",
+      "How might we use our MLS integration to auto-populate agent and buyer information?",
+      "How might we alert agents when a form is signed by all parties?",
+      "How might we automatically send the completed form to all parties?",
+    ],
+    chapters: [
       {
-        heading: "The problem",
-        body: "Buyer agents balance paperwork against advising clients. SkySlope data showed buyers spend about 10 weeks searching and view a median of 9 homes, so the form needed to be fast and available anywhere.",
+        title: "The problem",
+        blocks: [
+          {
+            heading: "Paperwork vs clients",
+            body: "Buyer agents balance paperwork against advising clients. SkySlope data showed buyers spend about 10 weeks searching and view a median of 9 homes, so the form needed to be fast and available anywhere.",
+            images: [{ src: "/images/easypeady/form-mapping.webp", width: 2800, height: 1319, alt: "The PEAD-V form, mapped by who fills each field" }],
+            captions: ["Who fills each field on the PEAD-V."],
+          },
+          {
+            heading: "What to ship",
+            body: "The MVP had to cover sending one form or several for the same client. Sending to different clients in one pass, and looping in the listing agent, waited.",
+            images: [{ src: "/images/easypeady/use-cases.webp", width: 2800, height: 1759, alt: "Use cases ranked by impact and release goal" }],
+            captions: ["Use cases ranked by impact and what made the MVP."],
+          },
+        ],
       },
       {
-        heading: "Research",
-        body: "In 2020, 53% of SkySlope transactions used a PEAD form. In 2021 it was 72%. Buyer agents were 46% more likely than seller agents to report difficulty, and the only competitor gated the form behind a paid membership.",
+        title: "Research",
+        blocks: [
+          {
+            body: "In 2020, 53% of SkySlope transactions used a PEAD form. In 2021 it was 72%. Buyer agents were 46% more likely than seller agents to report difficulty, and the only competitor gated the form behind a paid membership.",
+          },
+          {
+            heading: "The service",
+            body: "Agents wanted one envelope to sign, then individual PEADs sent to each listing agent. Doing that split by hand was the step to cut.",
+            images: [{ src: "/images/easypeady/service-blueprint.webp", width: 2800, height: 1580, alt: "Service blueprint comparing manual split, multiple envelopes, and an automatic split" }],
+            captions: ["The manual split was the step to remove."],
+          },
+          {
+            images: [{ src: "/images/easypeady/swimlane.webp", width: 2800, height: 1351, alt: "Swimlane of buyer agent, buyer, seller agents, and CC through the PEAD flow" }],
+            captions: ["Who acts at each step, from send through the completed envelope."],
+          },
+        ],
       },
       {
-        heading: "The pivot",
-        body: "Mid development, SkySlope shifted strategy from a paid feature to a free standalone app to capture new users. I partnered on new branding, redesigned the key screens plus a basic style guide, and re envisioned the service blueprint.",
+        title: "The product",
+        blocks: [
+          {
+            heading: "Who is visiting",
+            body: "The flow asks who will visit, then reviews the information before it goes on the form.",
+            images: [
+              { src: "/images/easypeady/visitors-form.webp", width: 2800, height: 1990, alt: "Screen asking who will visit the property" },
+              { src: "/images/easypeady/review.webp", width: 2800, height: 2202, alt: "Review screen before information is added to the PEAD form" },
+            ],
+            captions: ["Who is visiting.", "Review before it goes on the form."],
+          },
+        ],
       },
       {
-        heading: "Retrospective",
-        body: "The fast schedule led to one high impact oversight. An authentication problem surfaced only in user testing after the pivot. A technical audit should have followed the strategic change.",
+        title: "The pivot",
+        blocks: [
+          {
+            body: "Mid development, SkySlope shifted strategy from a paid feature to a free standalone app to capture new users. I partnered on new branding, redesigned the key screens plus a basic style guide, and re envisioned the service blueprint.",
+            beforeAfter: true,
+            images: [
+              { src: "/images/easypeady/buyers-form.webp", width: 2800, height: 1990, alt: "The buyers screen before the standalone brand" },
+              { src: "/images/easypeady/visitors-form.webp", width: 2800, height: 1990, alt: "The visitors screen after the standalone brand" },
+            ],
+          },
+          {
+            heading: "Brand and system",
+            images: [
+              { src: "/images/easypeady/style-guide.webp", width: 2800, height: 2127, alt: "EasyPeady color, type, and button styles" },
+              { src: "/images/easypeady/components.webp", width: 2800, height: 2421, alt: "EasyPeady inputs, radios, dropdown, and table states" },
+            ],
+            captions: ["Color, type, and buttons.", "Inputs and table states."],
+          },
+          {
+            heading: "The flow after",
+            images: [
+              { src: "/images/easypeady/original-flow.webp", width: 2800, height: 957, alt: "Original PEAD flow inside Forms, DigiSign, and SkySlope" },
+              { src: "/images/easypeady/pead-flow.webp", width: 2800, height: 1315, alt: "Standalone PEAD flow across pead by SkySlope, Forms, DigiSign, and SkySlope" },
+            ],
+            captions: ["Inside Forms.", "As its own product."],
+          },
+        ],
+      },
+      {
+        title: "Retrospective",
+        blocks: [
+          {
+            body: "The fast schedule led to one high impact oversight. An authentication problem surfaced only in user testing after the pivot. A technical audit should have followed the strategic change.",
+          },
+        ],
       },
     ],
     links: [{ label: "View Breeze", href: "https://breeze.skyslope.com", external: true }],
