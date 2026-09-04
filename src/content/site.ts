@@ -32,7 +32,7 @@ export type Stat = { figure: string; text: string; source: string };
 export const stats: Stat[] = [
   {
     figure: "~90%",
-    text: "of the app redesign coded personally",
+    text: "of the app UI redesign coded personally",
     source: "Lumanu",
   },
   {
@@ -67,7 +67,7 @@ export const projects: Project[] = [
     name: "Lumanu",
     category: "Payments Platform",
     years: "2023 to Now",
-    body: "Lumanu is a fintech that processes payments and handles tax compliance for brands paying creators. I redesigned the app from the ground up and personally coded ~90% of it.",
+    body: "Lumanu is a fintech that processes payments and handles tax compliance for brands paying creators. I redesigned the app from the ground up.",
     outcomes: [
       "Led full app repositioning design, rebuilding app functionality from influencer marketing to payment processing",
       "Integrated design system with code, accelerating feature development",
