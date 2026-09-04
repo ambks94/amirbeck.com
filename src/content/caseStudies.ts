@@ -6,6 +6,8 @@ export type CaseImage = {
   alt: string;
   /** phone = device crop; wide = full-bleed diagram that should not share a column */
   frame?: "phone" | "wide";
+  /** white plate behind transparent exports in the lightbox */
+  matte?: "white";
 };
 export type CaseSection = {
   heading: string;
@@ -685,6 +687,7 @@ export const caseStudies: CaseStudy[] = [
                 height: 2180,
                 alt: "An audit of every in app question",
                 frame: "wide",
+                matte: "white",
               },
             ],
             captions: ["Every possible in app question."],
@@ -699,6 +702,7 @@ export const caseStudies: CaseStudy[] = [
                 height: 706,
                 alt: "Categorizing tasks by priority and timeline",
                 frame: "wide",
+                matte: "white",
               },
             ],
             captions: ["Categorizing by priority and timeline."],
@@ -713,6 +717,7 @@ export const caseStudies: CaseStudy[] = [
                 height: 2381,
                 alt: "Tailoring tasks to the user's role",
                 frame: "wide",
+                matte: "white",
               },
               {
                 src: "/images/granate/88X7aNZrdX6WATYMfU2M3FgcdBU.webp",
@@ -720,6 +725,7 @@ export const caseStudies: CaseStudy[] = [
                 height: 1744,
                 alt: "Further prioritized task grouping",
                 frame: "wide",
+                matte: "white",
               },
             ],
             captions: [

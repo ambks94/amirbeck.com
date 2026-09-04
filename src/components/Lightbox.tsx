@@ -1,10 +1,16 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, type CSSProperties } from "react";
 import styles from "./Lightbox.module.css";
 
-type ImageData = { src: string; width: number; height: number; alt: string };
+type ImageData = {
+  src: string;
+  width: number;
+  height: number;
+  alt: string;
+  matte?: "white";
+};
 
 export default function Lightbox({
   image,
@@ -32,14 +38,26 @@ export default function Lightbox({
       {image ? (
         <div className={styles.inner} onClick={onClose}>
           <span className={styles.media}>
-            <Image
-              src={image.src}
-              alt={image.alt}
-              fill
-              sizes="100vw"
-              quality={90}
-              style={{ objectFit: "contain", objectPosition: "center" }}
-            />
+            <span
+              className={
+                image.matte === "white" ? styles.plateWhite : styles.plate
+              }
+              style={
+                {
+                  "--ar-w": image.width,
+                  "--ar-h": image.height,
+                } as CSSProperties
+              }
+            >
+              <Image
+                src={image.src}
+                alt={image.alt}
+                fill
+                sizes="100vw"
+                quality={90}
+                style={{ objectFit: "contain", objectPosition: "center" }}
+              />
+            </span>
           </span>
           <p className={styles.caption}>{image.alt}</p>
         </div>

@@ -29,6 +29,20 @@
 .media {
   position: absolute;
   inset: clamp(8px, 1.2vw, 16px);
+  container-type: size;
+  display: grid;
+  place-items: center;
+}
+.plate,
+.plateWhite {
+  position: relative;
+  aspect-ratio: var(--ar-w) / var(--ar-h);
+  width: min(100cqw, calc(100cqh * var(--ar-w) / var(--ar-h)));
+  max-height: 100%;
+}
+.plateWhite {
+  background: #fff;
+  border-radius: 4px;
 }
 .media img {
   animation: pop 0.35s cubic-bezier(0.19, 1, 0.22, 1) both;
