@@ -20,11 +20,12 @@ export type CaseBlock = {
   list?: string[];
   images?: CaseImage[];
   video?: string;
+  embed?: string;
   beforeAfter?: boolean;
   captions?: string[];
   callout?: string;
 };
-export type CaseChapter = { title: string; blocks: CaseBlock[] };
+export type CaseChapter = { id?: string; title: string; summary?: string; blocks: CaseBlock[] };
 
 export type CaseStudy = {
   slug: string;
@@ -171,7 +172,9 @@ export const caseStudies: CaseStudy[] = [
     ],
     chapters: [
       {
+        id: "digisign",
         title: "DigiSign, interactions",
+        summary: "Making e signing much easier to use.",
         blocks: [
           { heading: "Problem", body: "Agent feedback kept pointing to frustration placing signatures in DigiSign. The goal was clear, make the core e signing experience much easier to use." },
           {
@@ -188,7 +191,9 @@ export const caseStudies: CaseStudy[] = [
         ],
       },
       {
+        id: "forms",
         title: "Forms, team access",
+        summary: "Improving teamwork for shared paperwork.",
         blocks: [
           { heading: "Overview", body: "Agents handle a lot of paperwork, often with assistants called transaction coordinators. I reshaped Forms to support whole teams, not just individual agents." },
           {
@@ -216,7 +221,9 @@ export const caseStudies: CaseStudy[] = [
         ],
       },
       {
+        id: "breeze",
         title: "Breeze",
+        summary: "Simplifying complex disclosure forms for agents.",
         blocks: [
           { heading: "Overview", body: "Breeze launched as a new web app, building on earlier work to help agents complete the many disclosure forms required in California real estate." },
           {
@@ -266,27 +273,136 @@ export const caseStudies: CaseStudy[] = [
       height: 1825,
       alt: "Granate app screens after the rebrand, alongside the component library",
     },
-    metrics: [
-      { figure: "~25%", text: "drop in onboarding drop off" },
-      { figure: "~30%", text: "lift in weekly engagement" },
-      { figure: "1", text: "full rebrand and design system" },
+    metrics: [],
+    layout: "story",
+    overview: [
+      "When I joined Granate, an app that supports people through loss and end of life planning, it was a pivotal moment for an early stage startup. My role went beyond UX and UI. I worked closely with the PM on strategy and even helped with marketing. This case study covers how I improved the experience, grew the user base, and set a premium brand.",
     ],
-    sections: [
+    impact: [
+      "~25% drop in onboarding drop off",
+      "~30% lift in weekly engagement",
+      "Set the development team up for quick feature delivery",
+    ],
+    workIncluded: "UX, UI, Product Strategy, Brand, Marketing, Research",
+    goals: [
+      "How might we connect users through community?",
+      "How might we simplify the experience?",
+      "How might we deliver an intelligent, adaptive app?",
+      "How might we define a strong brand identity?",
+    ],
+    chapters: [
       {
-        heading: "Design system",
-        body: "Granate's first brand was a quick launch solution. As the company matured I led a full visual redesign and rebuilt every component under the new brand, with dedicated Figma pages per component type.",
+        id: "design-system",
+        title: "Design system",
+        summary: "Elevating the app experience and brand.",
+        blocks: [
+          { heading: "Overview", body: "Granate's first brand was a quick way to launch. As the company matured, a rebrand became essential. I did not just redesign the app visually, I also shipped key usability improvements." },
+          {
+            heading: "Navigation",
+            body: "User interviews kept flagging navigation as a pain point. After a full audit, I redesigned it by reducing variations, cutting redundant sub navigation, and using common UI patterns for a more intuitive experience.",
+            images: [{ src: "/images/granate/aC3rsdLcjYCFOQkTSsrkIMxCIs.webp", width: 1541, height: 1330, alt: "Granate navigation after the redesign" }],
+            captions: ["A focused view when reviewing specific tasks and questions."],
+          },
+          {
+            heading: "Onboarding",
+            body: "After the first usability and brand updates, onboarding stood out. There was a big drop off between opening the app and reaching the homepage, largely because onboarding could not be skipped. As part of the new system, I pitched and shipped a skip option at the end of account creation.",
+            beforeAfter: true,
+            images: [
+              { src: "/images/granate/yU2idcj3GqMn0XybyJPOFkairU.webp", width: 938, height: 2030, alt: "Onboarding before the change" },
+              { src: "/images/granate/jQfxkXSf8GKNMGIjcmIIz1OT6Q.webp", width: 939, height: 2030, alt: "Onboarding after the change" },
+            ],
+            captions: ["Old", "New"],
+          },
+          {
+            body: "That let new users bypass onboarding, which lifted conversion and grew the user base, a key factor for investor interest.",
+            beforeAfter: true,
+            images: [
+              { src: "/images/granate/CvolQrRmHJOqLmd8E0sdRZJ7Q4.webp", width: 938, height: 2030, alt: "Account creation before" },
+              { src: "/images/granate/ZvSERljg05hpXcetk0EFP9CTBA.webp", width: 939, height: 2030, alt: "Account creation after with skip option" },
+            ],
+            captions: ["Old", "New"],
+          },
+          {
+            heading: "Building for the future",
+            body: "I rebuilt every component under the new brand and tuned it for usability. A core goal was a system that supports a larger design team, so I made dedicated Figma pages per component type for easy discovery.",
+            images: [
+              { src: "/images/granate/AOiugZLCINxahom2ueqPNyt0Fg.webp", width: 1226, height: 2405, alt: "Button components, each in its own frame" },
+              { src: "/images/granate/iHatOeHeHIYd0ekyQp1XQr1a8Qg.webp", width: 2800, height: 643, alt: "The complete Granate design system" },
+            ],
+            captions: ["Button components, each in its own frame.", "The complete design system."],
+          },
+          {
+            heading: "Delivery",
+            body: "With a small dev team, brand and design updates often took a back seat. Rolling out a full system, my priority was a graceful, segmented release. I broke it into chunks and mocked up key screens to show the app after each phase. With the PM, we pulled Skip Onboarding out of the larger scope to ship it sooner.",
+            images: [{ src: "/images/granate/poNXAlFHw1xKzBdJsby8k1hdNL0.webp", width: 2800, height: 1524, alt: "The phased design system rollout" }],
+            captions: ["The phased rollout, mocked screen by screen."],
+          },
+          { callout: "I elevated the Granate brand and shipped real user improvements, all within a small team." },
+        ],
       },
       {
-        heading: "Onboarding",
-        body: "Users dropped off between opening the app and the homepage because onboarding could not be skipped. I pitched and shipped a skip option at the end of account creation, which grew the user base and investor interest.",
+        id: "community",
+        title: "Community",
+        summary: "Fostering connection between users.",
+        blocks: [
+          { heading: "Overview", body: "Granate's core mission is to ease the burden of loss and reduce isolation. The community feature serves that directly." },
+          { heading: "Problem", body: "Users seek connection to navigate loss, and need a space for stories and engagement through sharing, liking, and commenting. We also needed in app content submission for email curation." },
+          {
+            heading: "Feature list",
+            list: ["Story submission and viewing", "Profile and management", "Notifications", "In app submission flow"],
+            images: [{ src: "/images/granate/AwIhFaEzskKhIBedLA7efcdHE.webp", width: 1979, height: 2800, alt: "Prioritizing the community MVP features" }],
+            captions: ["We prioritized MVP features by user impact."],
+          },
+          {
+            heading: "User flow",
+            body: "I mocked up MVP user flows, and after team discussion we settled the direction. One key debate was social sharing of posts and visibility to non users. We prioritized security and blocked it entirely.",
+            images: [{ src: "/images/granate/kRrpEPSeNcpNMdwbf4xQxydI.webp", width: 2800, height: 1641, alt: "The community MVP user flow" }],
+            captions: ["The community MVP flow."],
+          },
+          {
+            heading: "Wireframes",
+            body: "Early collaboration made the move from flows to wireframes smooth and cleared up unknowns before UI. I sketched each flow and key interaction to align with the dev team and prevent scope creep.",
+            images: [{ src: "/images/granate/dkePlkRcEQpuwWv99Tgaly3nOs.webp", width: 2800, height: 1537, alt: "Wireframes for the community flow" }],
+            captions: ["Wireframes for the community flow."],
+          },
+          {
+            heading: "Prototype",
+            body: "This shipped before the new design system, so it was constrained by the existing UI. I added a few new patterns, carefully, to stay close to the interface. Try the notifications flow below.",
+            embed: "https://embed.figma.com/proto/POYj5G4xOvSiaoJ73UXVla/Notifications?page-id=0%3A1&node-id=1-2544&viewport=1543%2C447%2C0.24&scaling=scale-down&starting-point-node-id=1%3A2544&embed-host=share",
+          },
+          { callout: "The feature drove a ~30% lift in weekly engagement across daily active users, retention, and content." },
+        ],
       },
       {
-        heading: "Community",
-        body: "People navigating loss want connection. The MVP added story submission and viewing, profiles, and notifications. I prioritized security and blocked social sharing to non users, and drove a 30% lift in weekly engagement.",
-      },
-      {
-        heading: "Curated tasks",
-        body: "New users are overwhelmed and lack clear next steps. I developed a sliding scale of responsibility, since a grieving spouse and an executor have different needs, so qualifying questions set the role and the app recommends or hides tasks.",
+        id: "curated-tasks",
+        title: "Curated tasks",
+        summary: "Surfacing critical tasks right when needed.",
+        blocks: [
+          { heading: "Overview", body: "Granate aims to simplify the post loss journey, guiding users through tasks without overwhelming them. Feedback kept flagging trouble prioritizing tasks and seeing what mattered at each stage. Our content was accurate, but the way we surfaced it needed work." },
+          { heading: "Problem", list: ["Users are overwhelmed and lack clear next steps for time sensitive tasks", "Users need to trust that Granate surfaces the most critical items for them", "We were not using collected data to personalize the experience"] },
+          {
+            heading: "Audit",
+            body: "I started by auditing every task and question, mapping how questions trigger subtasks and what else in the app influences them.",
+            images: [{ src: "/images/granate/BhvkxmM7MTXKwbdVYk4e1r1th48.webp", width: 2800, height: 2182, alt: "An audit of every in app question" }],
+            captions: ["Every possible in app question."],
+          },
+          {
+            heading: "Priority and due dates",
+            body: "Next I analyzed task prioritization and due dates.",
+            images: [{ src: "/images/granate/tq44NJLR5ZaLRZdWcXmEjKY60M.webp", width: 2800, height: 706, alt: "Categorizing tasks by priority and timeline" }],
+            captions: ["Categorizing by priority and timeline."],
+          },
+          {
+            heading: "Responsibility scale",
+            body: "From there I built a sliding scale of responsibility. A grieving spouse and an executor managing an estate have different needs, so we ask qualifying questions to set the role, then recommend relevant tasks and hide the rest.",
+            images: [
+              { src: "/images/granate/CpIy2hNkH82HCIAUAdfIvigcw.webp", width: 2800, height: 2382, alt: "Tailoring tasks to the user's role" },
+              { src: "/images/granate/88X7aNZrdX6WATYMfU2M3FgcdBU.webp", width: 2800, height: 1830, alt: "Further prioritized task grouping" },
+            ],
+            captions: ["Tailoring tasks to the user's role.", "Further prioritized grouping."],
+          },
+          { callout: "Not yet shipped, this defined the app's future: a personalized experience with guided flows and prioritized tasks." },
+        ],
       },
     ],
     links: [],
@@ -373,6 +489,11 @@ export const caseStudies: CaseStudy[] = [
               { src: "/images/easypeady/review.webp", width: 2800, height: 2202, alt: "Review screen before information is added to the PEAD form" },
             ],
             captions: ["Who is visiting.", "Review before it goes on the form."],
+          },
+          {
+            heading: "Prototype",
+            body: "Try the PEAD flow below, from choosing who is visiting through review and send.",
+            embed: "https://embed.figma.com/proto/8QnYeovNXuF62cHboE8i2L/PEAD?page-id=0%3A1&node-id=0-7809&viewport=1166%2C-5361%2C0.12&scaling=scale-down-width&starting-point-node-id=0%3A7809&embed-host=share",
           },
         ],
       },

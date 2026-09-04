@@ -5,7 +5,11 @@ import Footer from "./Footer";
 import LoopVideo from "./LoopVideo";
 import styles from "./CaseStudy.module.css";
 import { site } from "@/content/site";
-import type { CaseBlock, CaseImage, CaseSection, CaseStudy } from "@/content/caseStudies";
+import { caseStudies } from "@/content/caseStudies";
+import type { CaseBlock, CaseChapter, CaseImage, CaseSection, CaseStudy } from "@/content/caseStudies";
+
+const chId = (ch: CaseChapter) =>
+  ch.id ?? ch.title.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
 
 function Frame({ image, sizes }: { image: CaseImage; sizes: string }) {
   return (
@@ -59,6 +63,13 @@ function Media({ section }: { section: CaseSection }) {
 
 // media for a story block (images with captions)
 function BlockMedia({ block }: { block: CaseBlock }) {
+  if (block.embed) {
+    return (
+      <div className={styles.embed}>
+        <iframe src={block.embed} loading="lazy" allowFullScreen title="Interactive prototype" />
+      </div>
+    );
+  }
   if (block.video) return <LoopVideo src={block.video} />;
   const imgs = block.images ?? [];
   if (!imgs.length) return null;
@@ -157,8 +168,27 @@ export default function CaseStudyView({ study }: { study: CaseStudy }) {
                 )}
               </div>
 
+              {study.chapters && study.chapters.some((c) => c.summary) && (
+                <nav className={styles.featured} aria-label="Featured projects">
+                  <span className={styles.detailLabel}>Featured projects</span>
+                  <ul className={styles.featuredList}>
+                    {study.chapters
+                      .filter((c) => c.summary)
+                      .map((ch) => (
+                        <li key={ch.title}>
+                          <a href={`#${chId(ch)}`} className={styles.featuredItem}>
+                            <span className={styles.featuredName}>{ch.title}</span>
+                            {ch.summary && <span className={styles.featuredSummary}>{ch.summary}</span>}
+                            <ArrowDown size={14} strokeWidth={2} aria-hidden="true" className={styles.featuredArrow} />
+                          </a>
+                        </li>
+                      ))}
+                  </ul>
+                </nav>
+              )}
+
               {study.chapters?.map((ch) => (
-                <section key={ch.title} className={styles.chapter}>
+                <section key={ch.title} id={chId(ch)} className={styles.chapter}>
                   <h2 className={styles.chapterTitle}>{ch.title}</h2>
                   {ch.blocks.map((b, i) => (
                     <div key={i} className={styles.block}>
@@ -237,6 +267,23 @@ export default function CaseStudyView({ study }: { study: CaseStudy }) {
               <ArrowLeft size={15} strokeWidth={2} aria-hidden="true" /> All work
             </Link>
           </div>
+
+          <nav className={styles.more} aria-label="More case studies">
+            <span className={styles.detailLabel}>More work</span>
+            <ul className={styles.moreList}>
+              {caseStudies
+                .filter((c) => c.slug !== study.slug)
+                .map((c) => (
+                  <li key={c.slug}>
+                    <Link href={`/${c.slug}`} className={styles.moreItem}>
+                      <span className={styles.moreName}>{c.name}</span>
+                      <span className={styles.moreCat}>{c.category}</span>
+                      <ArrowUpRight size={15} strokeWidth={2} aria-hidden="true" />
+                    </Link>
+                  </li>
+                ))}
+            </ul>
+          </nav>
         </article>
       </main>
       <Footer />
