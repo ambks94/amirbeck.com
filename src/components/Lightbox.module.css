@@ -23,16 +23,16 @@
   height: 100%;
   display: grid;
   place-items: center;
-  padding: clamp(12px, 3vw, 40px);
+  padding: clamp(4px, 1vw, 14px);
   cursor: zoom-out;
 }
 .inner img {
-  max-width: 100%;
-  max-height: 82vh;
+  max-width: 98vw;
+  max-height: 96vh;
   width: auto;
   height: auto;
   object-fit: contain;
-  border-radius: 5px;
+  border-radius: 8px;
   box-shadow: 0 30px 90px -30px rgba(0, 0, 0, 0.7);
   animation: pop 0.35s cubic-bezier(0.19, 1, 0.22, 1) both;
 }

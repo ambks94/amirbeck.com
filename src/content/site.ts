@@ -51,8 +51,8 @@ export const projects: Project[] = [
     ],
     image: {
       src: "/images/lumanu.webp",
-      width: 2000,
-      height: 1500,
+      width: 2800,
+      height: 2099,
       alt: "Lumanu buyer dashboard, a role aware homepage showing an overview of the workspace",
     },
     links: [
@@ -74,8 +74,8 @@ export const projects: Project[] = [
     ],
     image: {
       src: "/images/skyslope.webp",
-      width: 2000,
-      height: 1500,
+      width: 2800,
+      height: 2099,
       alt: "SkySlope interface showing document and signing tools for real estate agents",
     },
     links: [
@@ -97,8 +97,8 @@ export const projects: Project[] = [
     ],
     image: {
       src: "/images/granate.webp",
-      width: 2000,
-      height: 1304,
+      width: 2800,
+      height: 1825,
       alt: "Granate app screens after the rebrand, alongside the component library",
     },
     links: [{ label: "View Case Study", href: "/granate" }],
@@ -117,8 +117,8 @@ export const projects: Project[] = [
     ],
     image: {
       src: "/images/easypeady.webp",
-      width: 2000,
-      height: 1573,
+      width: 2800,
+      height: 2202,
       alt: "EasyPeady flow for creating and sending multiple PEAD-V forms",
     },
     links: [
