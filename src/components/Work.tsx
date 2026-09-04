@@ -88,21 +88,45 @@ export default function Work() {
                   zoom room before overflow:hidden on the frame. */}
               <button
                 type="button"
-                className={styles.shot}
+                className={`${styles.shot} ${p.image.browser ? styles.shotBrowser : ""}`}
                 onClick={() => setOpen(p.image)}
                 aria-label={`Enlarge: ${p.image.alt}`}
               >
-                <span className={styles.media}>
-                  <Image
-                    src={p.image.src}
-                    alt={p.image.alt}
-                    fill
-                    sizes="(max-width: 1120px) 100vw, 1120px"
-                    quality={85}
-                    preload={i === 0}
-                    style={{ objectFit: "contain", objectPosition: "center" }}
-                  />
-                </span>
+                {p.image.browser ? (
+                  <span className={styles.browser}>
+                    <span className={styles.bar} aria-hidden="true">
+                      <span className={styles.dots}>
+                        <i />
+                        <i />
+                        <i />
+                      </span>
+                      <span className={styles.url}>{p.image.browser}</span>
+                    </span>
+                    <span className={styles.viewport}>
+                      <Image
+                        src={p.image.src}
+                        alt={p.image.alt}
+                        fill
+                        sizes="(max-width: 1120px) 100vw, 1120px"
+                        quality={90}
+                        preload={i === 0}
+                        style={{ objectFit: "cover", objectPosition: "center top" }}
+                      />
+                    </span>
+                  </span>
+                ) : (
+                  <span className={styles.media}>
+                    <Image
+                      src={p.image.src}
+                      alt={p.image.alt}
+                      fill
+                      sizes="(max-width: 1120px) 100vw, 1120px"
+                      quality={90}
+                      preload={i === 0}
+                      style={{ objectFit: "contain", objectPosition: "center" }}
+                    />
+                  </span>
+                )}
                 <span className={styles.zoom}>Enlarge</span>
               </button>
 

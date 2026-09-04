@@ -32,7 +32,7 @@ export default function BrowserFrame({
           width={image.width}
           height={image.height}
           sizes={sizes}
-          quality={85}
+          quality={90}
           preload={priority}
         />
       </div>

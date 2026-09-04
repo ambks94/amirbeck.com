@@ -33,7 +33,7 @@ export type Project = {
   years: string;
   body: string;
   outcomes: string[];
-  image: { src: string; width: number; height: number; alt: string };
+  image: { src: string; width: number; height: number; alt: string; browser?: string };
   links: { label: string; href: string; external?: boolean }[];
 };
 
@@ -51,10 +51,11 @@ export const projects: Project[] = [
       "Launched features creating significant new revenue streams",
     ],
     image: {
-      src: "/images/lumanu.webp",
-      width: 2800,
-      height: 2099,
-      alt: "Lumanu buyer dashboard, a role aware homepage showing an overview of the workspace",
+      src: "/images/home/lumanu.png",
+      width: 5760,
+      height: 4096,
+      alt: "Lumanu project detail view showing budget, spending, and a payments table",
+      browser: "app.lumanu.com",
     },
     links: [
       { label: "View Case Study", href: "/lumanu" },
@@ -74,10 +75,11 @@ export const projects: Project[] = [
       "15% increase in cross product usage",
     ],
     image: {
-      src: "/images/skyslope.webp",
-      width: 2800,
-      height: 2099,
+      src: "/images/home/Skyslope.png",
+      width: 5760,
+      height: 4096,
       alt: "SkySlope interface showing document and signing tools for real estate agents",
+      browser: "breeze.skyslope.com",
     },
     links: [
       { label: "View Case Study", href: "/skyslope" },
@@ -97,9 +99,9 @@ export const projects: Project[] = [
       "Set up the development team for quick feature delivery",
     ],
     image: {
-      src: "/images/granate.webp",
-      width: 2800,
-      height: 1825,
+      src: "/images/home/granate.png",
+      width: 2940,
+      height: 1916,
       alt: "Granate app screens after the rebrand, alongside the component library",
     },
     links: [{ label: "View Case Study", href: "/granate" }],
@@ -117,10 +119,11 @@ export const projects: Project[] = [
       "Generated a pipeline of new paying users",
     ],
     image: {
-      src: "/images/easypeady.webp",
-      width: 2800,
-      height: 2202,
+      src: "/images/home/easypeady.png",
+      width: 2880,
+      height: 2048,
       alt: "EasyPeady flow for creating and sending multiple PEAD-V forms",
+      browser: "easypeady.com",
     },
     links: [
       { label: "View Case Study", href: "/easypeady" },
