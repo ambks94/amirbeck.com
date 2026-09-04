@@ -547,7 +547,7 @@ export const caseStudies: CaseStudy[] = [
           },
           {
             heading: "Delivery",
-            body: "With a small dev team, brand and design updates often took a back seat. Rolling out a full system, my priority was a graceful, segmented release. I broke it into chunks and mocked up key screens to show the app after each phase. With the PM, we pulled Skip Onboarding out of the larger scope to ship it sooner.",
+            body: "With a small dev team, brand and design updates often took a back seat. Rolling out a full system, my priority was a graceful, segmented release. I broke it into four ticketed phases, from colors and cards through navigation and enhanced UI, and mocked up key screens to show the app after each one. With the PM, we pulled Skip Onboarding out of the larger scope to ship it sooner.",
             images: [
               {
                 src: "/images/granate/poNXAlFHw1xKzBdJsby8k1hdNL0.webp",
@@ -806,6 +806,10 @@ export const caseStudies: CaseStudy[] = [
               "Who acts at each step, from send through the completed envelope.",
             ],
           },
+          {
+            heading: "Scoring the options with engineering",
+            body: "I ran a brainstorm with product and engineering. Developers scored each solution's build complexity 1 to 5 while designers scored its UX, so we chose flows that were cheap to build and good to use.",
+          },
         ],
       },
       {
@@ -845,7 +849,7 @@ export const caseStudies: CaseStudy[] = [
         title: "The pivot",
         blocks: [
           {
-            body: "Mid development, SkySlope shifted strategy from a paid feature to a free standalone app to capture new users. I partnered on new branding, redesigned the key screens plus a basic style guide, and re envisioned the service blueprint.",
+            body: "Mid development, SkySlope shifted strategy from a paid feature to a free standalone app to capture new users. I partnered on new branding, redesigned the key screens plus a basic style guide, and re envisioned the service blueprint. I designed the UI alongside development, iterating as we built and clearing UX blockers in drop in calls.",
             beforeAfter: true,
             images: [
               {
