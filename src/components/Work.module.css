@@ -26,13 +26,6 @@
   }
 }
 
-.intro {
-  color: var(--muted);
-  max-width: 60ch;
-  margin: calc(-1 * clamp(16px, 2.5vw, 30px)) 0 clamp(34px, 5vw, 54px);
-  line-height: 1.6;
-}
-
 .list {
   display: flex;
   flex-direction: column;

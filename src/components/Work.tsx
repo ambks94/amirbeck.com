@@ -7,7 +7,7 @@ import styles from "./Work.module.css";
 import Lightbox from "./Lightbox";
 import ShimmerImage from "./ShimmerImage";
 import DotRow from "./DotRow";
-import { projects, workIntro, type Project } from "@/content/site";
+import { projects, type Project } from "@/content/site";
 
 // Wrap metric tokens (~50%, 15%, 30%) so they read stronger than the label text.
 function emphasizeMetrics(text: string) {
@@ -61,7 +61,6 @@ export default function Work() {
           <h2>Work</h2>
           <DotRow variant="b" className="dots" />
         </div>
-        <p className={styles.intro}>{workIntro}</p>
 
         <div className={styles.list} ref={listRef}>
           {projects.map((p, i) => (
