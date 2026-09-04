@@ -84,21 +84,25 @@ export default function Work() {
               </div>
 
               {/* One fixed 4:3 slot for every project so the entries align.
-                  object-fit: contain — nothing crops, nothing distorts. */}
+                  Inset padding keeps the shot centered and gives the hover
+                  zoom room before overflow:hidden on the frame. */}
               <button
                 type="button"
                 className={styles.shot}
                 onClick={() => setOpen(p.image)}
                 aria-label={`Enlarge: ${p.image.alt}`}
               >
-                <Image
-                  src={p.image.src}
-                  alt={p.image.alt}
-                  width={p.image.width}
-                  height={p.image.height}
-                  sizes="(max-width: 1120px) 100vw, 1120px"
-                  priority={i === 0}
-                />
+                <span className={styles.media}>
+                  <Image
+                    src={p.image.src}
+                    alt={p.image.alt}
+                    fill
+                    sizes="(max-width: 1120px) 100vw, 1120px"
+                    quality={85}
+                    preload={i === 0}
+                    style={{ objectFit: "contain", objectPosition: "center" }}
+                  />
+                </span>
                 <span className={styles.zoom}>Enlarge</span>
               </button>
 

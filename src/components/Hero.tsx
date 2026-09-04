@@ -44,7 +44,6 @@ export default function Hero() {
         aria-hidden="true"
         width={738}
         height={1962}
-        priority
       />
     </section>
   );

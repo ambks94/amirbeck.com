@@ -1,12 +1,14 @@
 .dialog {
   border: 0;
   padding: 0;
-  background: transparent;
-  max-width: 100vw;
-  max-height: 100vh;
+  margin: 0;
+  inset: 0;
   width: 100%;
   height: 100%;
-  overflow: visible;
+  max-width: none;
+  max-height: none;
+  background: transparent;
+  overflow: hidden;
 }
 .dialog::backdrop {
   background: color-mix(in srgb, #101413 88%, transparent);
@@ -19,36 +21,35 @@
   }
 }
 .inner {
+  position: relative;
   width: 100%;
   height: 100%;
-  display: grid;
-  place-items: center;
-  padding: clamp(4px, 1vw, 14px);
   cursor: zoom-out;
 }
-.inner img {
-  max-width: 98vw;
-  max-height: 96vh;
-  width: auto;
-  height: auto;
-  object-fit: contain;
-  border-radius: 8px;
-  box-shadow: 0 30px 90px -30px rgba(0, 0, 0, 0.7);
+/* Hairline inset so a contain-fit shot can sit edge to edge without
+   clipping against the viewport, and so the hover-scale on the homepage
+   cards has a matching full-bleed treatment when enlarged. */
+.media {
+  position: absolute;
+  inset: clamp(8px, 1.2vw, 16px);
+}
+.media img {
   animation: pop 0.35s cubic-bezier(0.19, 1, 0.22, 1) both;
 }
 @keyframes pop {
   from {
-    transform: scale(0.975);
+    transform: scale(0.985);
   }
   to {
     transform: scale(1);
   }
 }
 .caption {
-  position: fixed;
+  position: absolute;
   left: 0;
   right: 0;
-  bottom: 14px;
+  bottom: 10px;
+  z-index: 1;
   text-align: center;
   color: #eeebe5;
   font-family: var(--font-mono);
@@ -58,4 +59,6 @@
   opacity: 0.8;
   margin: 0;
   padding-inline: 16px;
+  pointer-events: none;
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.65);
 }

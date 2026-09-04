@@ -6,10 +6,32 @@ import styles from "./CaseStudy.module.css";
 import { site } from "@/content/site";
 import type { CaseBlock, CaseImage, CaseSection, CaseStudy } from "@/content/caseStudies";
 
+const VIDEO_MP4 = new Set([
+  "/images/skyslope/digisign-usability.webm",
+  "/images/skyslope/digisign-behavior.webm",
+]);
+
+function LoopVideo({ src }: { src: string }) {
+  const mp4 = VIDEO_MP4.has(src) ? src.replace(/\.webm$/, ".mp4") : null;
+  return (
+    <video className={styles.video} autoPlay muted loop playsInline preload="metadata">
+      <source src={src} type="video/webm" />
+      {mp4 ? <source src={mp4} type="video/mp4" /> : null}
+    </video>
+  );
+}
+
 function Frame({ image, sizes }: { image: CaseImage; sizes: string }) {
   return (
     <div className={styles.shot}>
-      <Image src={image.src} alt={image.alt} width={image.width} height={image.height} sizes={sizes} />
+      <Image
+        src={image.src}
+        alt={image.alt}
+        width={image.width}
+        height={image.height}
+        sizes={sizes}
+        quality={85}
+      />
     </div>
   );
 }
@@ -25,13 +47,7 @@ function Figure({ image, caption, sizes }: { image: CaseImage; caption?: string;
 
 // media for the micro layout (video / before-after / grid)
 function Media({ section }: { section: CaseSection }) {
-  if (section.video) {
-    return (
-      <video className={styles.video} autoPlay muted loop playsInline preload="metadata">
-        <source src={section.video} type="video/webm" />
-      </video>
-    );
-  }
+  if (section.video) return <LoopVideo src={section.video} />;
   const imgs = section.images ?? [];
   if (!imgs.length) return null;
   if (section.beforeAfter && imgs.length >= 2) {
@@ -57,6 +73,7 @@ function Media({ section }: { section: CaseSection }) {
 
 // media for a story block (images with captions)
 function BlockMedia({ block }: { block: CaseBlock }) {
+  if (block.video) return <LoopVideo src={block.video} />;
   const imgs = block.images ?? [];
   if (!imgs.length) return null;
   if (imgs.length === 1) {

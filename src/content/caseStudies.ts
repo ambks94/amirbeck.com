@@ -19,6 +19,7 @@ export type CaseBlock = {
   body?: string;
   list?: string[];
   images?: CaseImage[];
+  video?: string;
   beforeAfter?: boolean;
   captions?: string[];
   callout?: string;
@@ -176,11 +177,11 @@ export const caseStudies: CaseStudy[] = [
           {
             heading: "Usability testing",
             body: "I ran targeted usability tests to see why users struggled. Many could not place and assign signatures correctly, a 40 to 50% error rate. 4 of 10 testers were frustrated setting the properties of each block after drawing it, and 5 of 10 struggled to change a property selection while creating a block.",
-            images: [{ src: "/images/skyslope/digisign-usability.gif", width: 2560, height: 1440, alt: "Usability test of placing signatures in DigiSign" }],
+            video: "/images/skyslope/digisign-usability.webm",
           },
           {
             body: "DigiSign kept the signature block and its type selected after placement, unlike most e signing tools. That forced extra clicks and unexpected changes when moving to the next signature. Changing who a block was for also changed the signature type.",
-            images: [{ src: "/images/skyslope/digisign-behavior.gif", width: 2560, height: 1440, alt: "The selection behavior that confused users" }],
+            video: "/images/skyslope/digisign-behavior.webm",
           },
           { heading: "Ideation", body: "Solving this was not simple, since many long time users were used to the old behavior. Surveys split evenly, so I built two things, a preferences page to choose the selection behavior, and a clearer flow for changing signers that cut effort and confusion." },
           { callout: "After closing the gaps from testing, we released to everyone." },
@@ -261,8 +262,8 @@ export const caseStudies: CaseStudy[] = [
       "I led product design for an app that supports people through loss and end of life planning. My work spanned UX, brand, and product strategy for an early stage startup.",
     hero: {
       src: "/images/granate.webp",
-      width: 2000,
-      height: 1304,
+      width: 2800,
+      height: 1825,
       alt: "Granate app screens after the rebrand, alongside the component library",
     },
     metrics: [
@@ -300,8 +301,8 @@ export const caseStudies: CaseStudy[] = [
       "In late 2020, agents were overwhelmed by COVID related paperwork, especially the PEAD form required for every home viewing. I led the design and launch of EasyPeady, a web app that streamlined it.",
     hero: {
       src: "/images/easypeady.webp",
-      width: 2000,
-      height: 1573,
+      width: 2800,
+      height: 2202,
       alt: "EasyPeady flow for creating and sending multiple PEAD forms",
     },
     metrics: [

@@ -26,13 +26,16 @@ export default function Lightbox({
     <dialog ref={ref} className={styles.dialog} onClose={onClose} onCancel={onClose}>
       {image ? (
         <div className={styles.inner} onClick={onClose}>
-          <Image
-            src={image.src}
-            alt={image.alt}
-            width={image.width}
-            height={image.height}
-            sizes="100vw"
-          />
+          <span className={styles.media}>
+            <Image
+              src={image.src}
+              alt={image.alt}
+              fill
+              sizes="100vw"
+              quality={85}
+              style={{ objectFit: "contain", objectPosition: "center" }}
+            />
+          </span>
           <p className={styles.caption}>{image.alt}</p>
         </div>
       ) : null}
