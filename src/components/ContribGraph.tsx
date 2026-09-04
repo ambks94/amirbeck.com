@@ -89,6 +89,7 @@ export default async function ContribGraph() {
           viewBox={`0 0 ${w} ${h}`}
           width={w}
           height={h}
+          style={{ aspectRatio: `${w} / ${h}` }}
           role="img"
           aria-label={`${total} GitHub contributions in the last year`}
         >

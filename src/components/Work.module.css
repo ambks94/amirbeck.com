@@ -1,5 +1,6 @@
 .work {
   position: relative;
+  overflow: clip;
 }
 .wrap {
   position: relative;
@@ -56,6 +57,7 @@
   align-items: center;
   gap: 12px;
   flex-wrap: wrap;
+  overflow: clip;
 }
 .name {
   font-weight: 400;

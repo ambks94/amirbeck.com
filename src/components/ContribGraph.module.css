@@ -20,7 +20,7 @@
   color: var(--accent);
 }
 .scroll {
-  overflow-x: auto;
+  overflow: clip;
   padding-bottom: 6px;
 }
 .links {
@@ -50,6 +50,8 @@
 }
 .graph {
   display: block;
+  width: 100%;
+  max-width: 100%;
   height: auto;
 }
 

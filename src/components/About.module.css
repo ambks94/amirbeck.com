@@ -1,5 +1,6 @@
 .about {
   position: relative;
+  overflow: clip;
 }
 .wrap {
   position: relative;

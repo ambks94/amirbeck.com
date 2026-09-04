@@ -81,15 +81,14 @@
   min-height: 44px;
   transition: color 0.2s ease;
 }
-/* Fit the eyebrow and the jump row on one line on small screens. */
+/* Fit the eyebrow and the jump row on small screens without sideways scroll. */
 @media (max-width: 560px) {
   .eyebrow {
     font-size: 0.6rem;
     letter-spacing: 0.06em;
   }
   .jump {
-    flex-wrap: nowrap;
-    gap: 12px;
+    gap: 8px 12px;
   }
   .jump a {
     font-size: 0.6rem;

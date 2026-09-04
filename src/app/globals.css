@@ -59,10 +59,11 @@
 
 html {
   scroll-behavior: smooth;
-  /* Clip the decorative bleed on the root scroll container itself, so `body`
-     never becomes a nested scroll container (which breaks sticky nav +
-     window.scrollY / the scroll-progress bar). */
-  overflow-x: hidden;
+  /* Clip decorative bleed on the root, not on `body` — overflow on body
+     makes a nested scroller and breaks sticky nav + window.scrollY.
+     `clip` (not `hidden`) actually stops sideways panning on iOS. */
+  overflow-x: clip;
+  overscroll-behavior-x: none;
 }
 
 body {

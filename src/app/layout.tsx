@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Instrument_Serif, Geist, JetBrains_Mono } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 import { site } from "@/content/site";
 import "./globals.css";
 
@@ -143,6 +144,7 @@ export default function RootLayout({
     >
       <body>
         {children}
+        <Analytics />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(personLd) }}
