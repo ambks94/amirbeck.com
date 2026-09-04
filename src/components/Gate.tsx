@@ -6,14 +6,19 @@ export default function Gate({ children }: { children: React.ReactNode }) {
   const [ok, setOk] = useState(false);
 
   useEffect(() => {
-    if (sessionStorage.getItem("gate") === "1") {
-      setOk(true);
+    const unlocked =
+      sessionStorage.getItem("gate") === "1" || prompt("Password") === "amirbeck";
+
+    if (!unlocked) return;
+
+    sessionStorage.setItem("gate", "1");
+
+    if (window.location.pathname === "/gate") {
+      window.location.replace("/");
       return;
     }
-    if (prompt("Password") === "amirbeck") {
-      sessionStorage.setItem("gate", "1");
-      setOk(true);
-    }
+
+    setOk(true);
   }, []);
 
   return ok ? children : null;
