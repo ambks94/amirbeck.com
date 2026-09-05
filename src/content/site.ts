@@ -96,7 +96,7 @@ export const projects: Project[] = [
       "15% increase in cross product usage",
     ],
     image: {
-      src: "/images/home/skyslope_home.png",
+      src: "/images/home/skyslope_home_v2.png",
       width: 4320,
       height: 3072,
       alt: "SkySlope interface showing document and signing tools for real estate agents",

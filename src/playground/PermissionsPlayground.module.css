@@ -43,6 +43,12 @@
   -webkit-font-smoothing: antialiased;
 }
 
+@media (max-width: 640px) {
+  .root {
+    padding-inline: 8px;
+  }
+}
+
 .root :where(h1, h2, h3) {
   font-family: inherit;
   letter-spacing: 0;

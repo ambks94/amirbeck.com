@@ -8,6 +8,7 @@ import styles from "./CaseStudy.module.css";
 import { site } from "@/content/site";
 import { caseStudies } from "@/content/caseStudies";
 import CaseShot, { CaseLightbox } from "./CaseShot";
+import Shot from "./Shot";
 import type {
   CaseBlock,
   CaseChapter,
@@ -122,6 +123,7 @@ function BlockMedia({ block }: { block: CaseBlock }) {
     );
   }
   if (imgs.length === 1) {
+    if (block.enlarge) return <Shot image={imgs[0]} />;
     return (
       <CaseShot
         image={imgs[0]}
@@ -189,25 +191,28 @@ export default function CaseStudyView({ study }: { study: CaseStudy }) {
 
       <main className={styles.main}>
         <CaseLightbox>
-          <article className={`wrap ${styles.article}`}>
-            <p className={`label ${styles.kicker}`}>
-              {study.category} · {study.years} · {study.role}
-            </p>
-            <h1 className={styles.title}>{study.name}</h1>
-            <p className={styles.intro}>{study.intro}</p>
+          <article className={styles.article}>
+            <div className={styles.col}>
+              <p className={`label ${styles.kicker}`}>
+                {study.category} · {study.years} · {study.role}
+              </p>
+              <h1 className={styles.title}>{study.name}</h1>
+              <p className={styles.intro}>{study.intro}</p>
 
-            {study.hero && (
-              <div className={styles.heroShot}>
-                <CaseShot
-                  image={study.hero}
-                  sizes="(max-width: 1120px) 100vw, 1040px"
-                />
-              </div>
-            )}
+              {study.hero && (
+                <div className={styles.heroShot}>
+                  <CaseShot
+                    image={study.hero}
+                    sizes="(max-width: 1120px) 100vw, 1040px"
+                  />
+                </div>
+              )}
+            </div>
 
             {story ? (
               <>
-                <div className={styles.overview}>
+                <section className={styles.overviewBand}>
+                <div className={`${styles.col} ${styles.overview}`}>
                   {study.overview?.map((p) => (
                     <p key={p.slice(0, 20)} className={styles.body}>
                       {p}
@@ -266,22 +271,23 @@ export default function CaseStudyView({ study }: { study: CaseStudy }) {
                       </ul>
                     </div>
                   )}
+                  {study.chapters && study.chapters.some((c) => c.summary) && (
+                    <DirectoryNav
+                      className={styles.featured}
+                      label="Featured projects"
+                      items={study.chapters
+                        .filter((c) => c.summary)
+                        .map((ch) => ({
+                          href: `#${chId(ch)}`,
+                          name: ch.title,
+                          summary: ch.summary,
+                        }))}
+                    />
+                  )}
                 </div>
+                </section>
 
-                {study.chapters && study.chapters.some((c) => c.summary) && (
-                  <DirectoryNav
-                    className={styles.featured}
-                    label="Featured projects"
-                    items={study.chapters
-                      .filter((c) => c.summary)
-                      .map((ch) => ({
-                        href: `#${chId(ch)}`,
-                        name: ch.title,
-                        summary: ch.summary,
-                      }))}
-                  />
-                )}
-
+                <div className={styles.col}>
                 {study.chapters?.map((ch) => (
                   <section
                     key={ch.title}
@@ -329,9 +335,10 @@ export default function CaseStudyView({ study }: { study: CaseStudy }) {
                     ))}
                   </section>
                 ))}
+                </div>
               </>
             ) : (
-              <div className={styles.sections}>
+              <div className={`${styles.col} ${styles.sections}`}>
                 {study.sections?.map((s, i) => (
                   <section key={s.heading} className={styles.section}>
                     <div className={styles.head}>
@@ -375,7 +382,7 @@ export default function CaseStudyView({ study }: { study: CaseStudy }) {
               </div>
             )}
 
-            <nav className={styles.more} aria-label="More case studies">
+            <nav className={`${styles.col} ${styles.more}`} aria-label="More case studies">
               <span className={styles.detailLabel}>More work</span>
               <ul className={styles.moreList}>
                 {caseStudies

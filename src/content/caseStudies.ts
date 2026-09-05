@@ -34,6 +34,8 @@ export type CaseBlock = {
   beforeAfter?: boolean;
   captions?: string[];
   callout?: string;
+  /** Render a single image as the home Work card's click-to-enlarge shot. */
+  enlarge?: boolean;
 };
 export type CaseChapter = {
   id?: string;
@@ -489,16 +491,36 @@ export const caseStudies: CaseStudy[] = [
             body: "User interviews kept flagging navigation as a pain point. After a full audit, I redesigned it by reducing variations, cutting redundant sub navigation, and using common UI patterns for a more intuitive experience.",
             images: [
               {
-                src: "/images/granate/aC3rsdLcjYCFOQkTSsrkIMxCIs.webp",
-                width: 1541,
-                height: 1330,
-                alt: "Granate navigation after the redesign",
-                frame: "phone",
+                src: "/images/granate/nav_diagram.webp",
+                width: 2800,
+                height: 1758,
+                alt: "A sitemap audit of every Granate page and its navigation, with callouts on wasted back-button space, an underused top nav, and redundant subpage copy",
+                frame: "wide",
               },
             ],
             captions: [
-              "A focused view when reviewing specific tasks and questions.",
+              "Through this audit of the app's pages and navigation, I identified common themes to establish standardized navigation bars.",
             ],
+          },
+          {
+            body: "Users now see a focused view when reviewing specific tasks and questions.",
+            beforeAfter: true,
+            images: [
+              {
+                src: "/images/granate/aC3rsdLcjYCFOQkTSsrkIMxCIs.webp",
+                width: 1541,
+                height: 1330,
+                alt: "The old navigation: a full screen header with a redundant back row and underused top nav",
+                frame: "phone",
+              },
+              {
+                src: "/images/granate/nav-bar-new.webp",
+                width: 1232,
+                height: 276,
+                alt: "The new navigation: a single focused bar reading Tasks – Funeral & Ceremonies",
+              },
+            ],
+            captions: ["Old", "New"],
           },
           {
             heading: "Onboarding",
@@ -738,11 +760,12 @@ export const caseStudies: CaseStudy[] = [
               "Not yet shipped, this defined the app's future: a personalized experience with guided flows and prioritized tasks.",
           },
           {
+            enlarge: true,
             images: [
               {
-                src: "/images/granate.webp",
-                width: 2800,
-                height: 1825,
+                src: "/images/home/granate.png",
+                width: 2940,
+                height: 1916,
                 alt: "Granate app screens after the rebrand, alongside the component library",
               },
             ],

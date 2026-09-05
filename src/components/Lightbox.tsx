@@ -54,7 +54,7 @@ export default function Lightbox({
                 alt={image.alt}
                 fill
                 sizes="100vw"
-                quality={90}
+                quality={100}
                 style={{ objectFit: "contain", objectPosition: "center" }}
               />
             </span>

@@ -60,6 +60,11 @@
 .stage {
   margin-top: clamp(34px, 5vw, 54px);
 }
+@media (max-width: 640px) {
+  .stage {
+    margin-inline: calc(var(--gutter) * -1 + 4px);
+  }
+}
 .disclaimer {
   margin: 14px 0 0;
   width: 100%;

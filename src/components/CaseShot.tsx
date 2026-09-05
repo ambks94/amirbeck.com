@@ -28,6 +28,7 @@ export default function CaseShot({
   sizes: string;
 }) {
   const enlarge = useContext(LightboxCtx);
+  const [loaded, setLoaded] = useState(false);
   const frame = image.frame;
   const figureClass = [
     styles.figure,
@@ -44,13 +45,21 @@ export default function CaseShot({
         onClick={() => enlarge(image)}
         aria-label={`Enlarge: ${image.alt}`}
       >
+        {!loaded && (
+          <span className={styles.skeleton} aria-hidden="true">
+            <span className={styles.sweep} />
+          </span>
+        )}
         <Image
           src={image.src}
           alt={image.alt}
           width={image.width}
           height={image.height}
           sizes={frame === "phone" ? "(max-width: 760px) 70vw, 352px" : sizes}
-          quality={90}
+          quality={100}
+          className={styles.shotImg}
+          data-loaded={loaded}
+          onLoad={() => setLoaded(true)}
         />
         <span className={styles.zoom}>Enlarge</span>
       </button>
