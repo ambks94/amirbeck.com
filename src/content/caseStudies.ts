@@ -642,10 +642,20 @@ export const caseStudies: CaseStudy[] = [
           {
             heading: "Feature list",
             chips: [
-              "Story submission and viewing",
-              "Profile and management",
+              "Story viewing",
+              "Story submission",
+              "Liking",
+              "Commenting",
+              "Comment replies",
+              "Profile",
+              "Community guidelines",
+              "Image posts",
+              "Post management",
               "Notifications",
-              "In app submission flow",
+              "Notification settings",
+              "Reporting",
+              "In app submission",
+              "Curated email",
             ],
             images: [
               {

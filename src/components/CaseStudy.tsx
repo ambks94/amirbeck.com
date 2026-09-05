@@ -334,7 +334,7 @@ export default function CaseStudyView({ study }: { study: CaseStudy }) {
                           b.body && <p className={styles.body}>{b.body}</p>
                         )}
                         {b.chips && (
-                          <ul className={styles.chipList}>
+                          <ul className={styles.tags}>
                             {b.chips.map((chip) => (
                               <li key={chip}>{chip}</li>
                             ))}
