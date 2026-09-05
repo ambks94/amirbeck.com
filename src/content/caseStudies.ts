@@ -27,15 +27,23 @@ export type CaseBlock = {
   problem?: string;
   result?: string;
   list?: string[];
+  /** Pill row for a short feature set, distinct from the checkmark outcome list. */
+  chips?: string[];
   images?: CaseImage[];
   video?: string;
   caption?: string;
   embed?: string;
+  /** URL shown in the browser chrome around an `embed` prototype. */
+  browser?: string;
   beforeAfter?: boolean;
   captions?: string[];
   callout?: string;
+  /** Small label above a callout, e.g. "Impact" or "Result". */
+  calloutLabel?: string;
   /** Render a single image as the home Work card's click-to-enlarge shot. */
   enlarge?: boolean;
+  /** Render this block as the case study's highlighted closing section. */
+  finale?: boolean;
 };
 export type CaseChapter = {
   id?: string;
@@ -289,6 +297,7 @@ export const caseStudies: CaseStudy[] = [
             body: "Solving this was not simple, since many long time users were used to the old behavior. Surveys split evenly, so I built two things, a preferences page to choose the selection behavior, and a clearer flow for changing signers that cut effort and confusion.",
           },
           {
+            calloutLabel: "Impact",
             callout:
               "After closing the gaps from testing, we released to our useres and saw a 50% reduction in digital signing mistakes.",
           },
@@ -357,6 +366,7 @@ export const caseStudies: CaseStudy[] = [
             captions: ["Track which editor made each change."],
           },
           {
+            calloutLabel: "Impact",
             callout: "The refined flows cut digital signing mistakes by ~50%.",
           },
         ],
@@ -631,7 +641,7 @@ export const caseStudies: CaseStudy[] = [
           },
           {
             heading: "Feature list",
-            list: [
+            chips: [
               "Story submission and viewing",
               "Profile and management",
               "Notifications",
@@ -678,10 +688,12 @@ export const caseStudies: CaseStudy[] = [
           {
             heading: "Prototype",
             body: "This shipped before the new design system, so it was constrained by the existing UI. I added a few new patterns, carefully, to stay close to the interface. Try the notifications flow below.",
+            browser: "granate · notifications",
             embed:
               "https://embed.figma.com/proto/POYj5G4xOvSiaoJ73UXVla/Notifications?page-id=0%3A1&node-id=1-2544&viewport=1543%2C447%2C0.24&scaling=scale-down&starting-point-node-id=1%3A2544&embed-host=share",
           },
           {
+            calloutLabel: "Impact",
             callout:
               "The feature drove a ~30% lift in weekly engagement across daily active users, retention, and content.",
           },
@@ -760,7 +772,10 @@ export const caseStudies: CaseStudy[] = [
               "Not yet shipped, this defined the app's future: a personalized experience with guided flows and prioritized tasks.",
           },
           {
+            finale: true,
             enlarge: true,
+            heading: "The redesigned app",
+            body: "Clearer navigation, curated tasks, and a community, all on the new design system.",
             images: [
               {
                 src: "/images/home/granate.png",
@@ -905,6 +920,7 @@ export const caseStudies: CaseStudy[] = [
           {
             heading: "Prototype",
             body: "Try the PEAD flow below, from choosing who is visiting through review and send.",
+            browser: "easypeady.com",
             embed:
               "https://embed.figma.com/proto/8QnYeovNXuF62cHboE8i2L/PEAD?page-id=0%3A1&node-id=0-7809&viewport=1166%2C-5361%2C0.12&scaling=scale-down-width&starting-point-node-id=0%3A7809&embed-host=share",
           },

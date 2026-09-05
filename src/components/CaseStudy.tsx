@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowLeft, ArrowRight, ArrowUpRight } from "lucide-react";
+import { ArrowLeft, ArrowRight, ArrowUpRight, Check } from "lucide-react";
 import Contact from "./Contact";
 import DirectoryNav from "./DirectoryNav";
 import LoopVideo from "./LoopVideo";
@@ -9,6 +9,7 @@ import { site } from "@/content/site";
 import { caseStudies } from "@/content/caseStudies";
 import CaseShot, { CaseLightbox } from "./CaseShot";
 import Shot from "./Shot";
+import EmbedFrame from "./EmbedFrame";
 import type {
   CaseBlock,
   CaseChapter,
@@ -29,6 +30,10 @@ const chId = (ch: CaseChapter) =>
     .toLowerCase()
     .replace(/[^a-z0-9]+/g, "-")
     .replace(/^-|-$/g, "");
+
+/** Copy + media that continues the previous beat, not a new heading. */
+const isContinued = (b: CaseBlock, i: number) =>
+  i > 0 && !b.heading && !b.problem && !b.callout && !b.finale;
 
 function Video({ src, caption }: { src: string; caption?: string }) {
   const video = <LoopVideo src={src} label={caption} />;
@@ -89,16 +94,7 @@ function Media({ section }: { section: CaseSection }) {
 
 function BlockMedia({ block }: { block: CaseBlock }) {
   if (block.embed) {
-    return (
-      <div className={styles.embed}>
-        <iframe
-          src={block.embed}
-          loading="lazy"
-          allowFullScreen
-          title="Interactive prototype"
-        />
-      </div>
-    );
+    return <EmbedFrame src={block.embed} url={block.browser} />;
   }
   if (block.video) return <Video src={block.video} caption={block.caption} />;
   const imgs = block.images ?? [];
@@ -273,7 +269,6 @@ export default function CaseStudyView({ study }: { study: CaseStudy }) {
                   )}
                   {study.chapters && study.chapters.some((c) => c.summary) && (
                     <DirectoryNav
-                      className={styles.featured}
                       label="Featured projects"
                       items={study.chapters
                         .filter((c) => c.summary)
@@ -295,8 +290,26 @@ export default function CaseStudyView({ study }: { study: CaseStudy }) {
                     className={styles.chapter}
                   >
                     <h2 className={styles.chapterTitle}>{ch.title}</h2>
-                    {ch.blocks.map((b, i) => (
-                      <div key={i} className={styles.block}>
+                    {ch.blocks.map((b, i) =>
+                      b.finale ? (
+                        <div key={i} className={styles.finale}>
+                          <span className={styles.finaleLabel}>
+                            {b.heading ?? "The result"}
+                          </span>
+                          {b.body && (
+                            <p className={styles.finaleText}>{b.body}</p>
+                          )}
+                          <BlockMedia block={b} />
+                        </div>
+                      ) : (
+                      <div
+                        key={i}
+                        className={
+                          isContinued(b, i)
+                            ? `${styles.block} ${styles.continue}`
+                            : styles.block
+                        }
+                      >
                         {b.heading && (
                           <h3 className={styles.blockHead}>{b.heading}</h3>
                         )}
@@ -320,19 +333,39 @@ export default function CaseStudyView({ study }: { study: CaseStudy }) {
                         ) : (
                           b.body && <p className={styles.body}>{b.body}</p>
                         )}
+                        {b.chips && (
+                          <ul className={styles.chipList}>
+                            {b.chips.map((chip) => (
+                              <li key={chip}>{chip}</li>
+                            ))}
+                          </ul>
+                        )}
                         {b.list && (
                           <ul className={styles.outcomeList}>
                             {b.list.map((li) => (
-                              <li key={li}>{li}</li>
+                              <li key={li}>
+                                <Check
+                                  size={16}
+                                  strokeWidth={2.5}
+                                  aria-hidden="true"
+                                />
+                                {li}
+                              </li>
                             ))}
                           </ul>
                         )}
                         <BlockMedia block={b} />
                         {b.callout && (
-                          <p className={styles.callout}>{b.callout}</p>
+                          <div className={styles.calloutBlock}>
+                            <span className={styles.calloutLabel}>
+                              {b.calloutLabel ?? "Result"}
+                            </span>
+                            <p className={styles.callout}>{b.callout}</p>
+                          </div>
                         )}
                       </div>
-                    ))}
+                      ),
+                    )}
                   </section>
                 ))}
                 </div>
