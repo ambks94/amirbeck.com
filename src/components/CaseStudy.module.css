@@ -361,8 +361,10 @@
   width: 100%;
 }
 .panoRail {
-  margin-inline: calc(-1 * var(--gutter));
-  padding-inline: var(--gutter);
+  /* Bleeds to the gutter inside .col; a band sets --pano-bleed:0 so the
+     scroller stays inside its own column instead of running off-screen. */
+  margin-inline: calc(-1 * var(--pano-bleed, var(--gutter)));
+  padding-inline: var(--pano-bleed, var(--gutter));
   overflow-x: auto;
   overscroll-behavior-x: contain;
   scrollbar-width: thin;

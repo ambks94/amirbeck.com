@@ -8,8 +8,8 @@ import styles from "./CaseStudy.module.css";
 import { site } from "@/content/site";
 import { caseStudies } from "@/content/caseStudies";
 import CaseShot, { CaseLightbox } from "./CaseShot";
-import Shot from "./Shot";
-import EmbedFrame from "./EmbedFrame";
+import BlockMedia, { shouldStack, Video } from "./CaseMedia";
+import CaseActs from "./CaseActs";
 import type {
   CaseBlock,
   CaseChapter,
@@ -17,16 +17,6 @@ import type {
   CaseSection,
   CaseStudy,
 } from "@/content/caseStudies";
-
-function shouldStack(imgs: CaseImage[]) {
-  if (imgs.length < 2) return false;
-  const frames = new Set(imgs.map((i) => i.frame ?? "full"));
-  return (
-    frames.has("wide") ||
-    frames.has("pano") ||
-    (frames.has("phone") && frames.size > 1)
-  );
-}
 
 const slugId = (title: string, id?: string) =>
   id ??
@@ -41,17 +31,6 @@ const secId = (s: CaseSection) => slugId(s.heading, s.id);
 /** Copy + media that continues the previous beat, not a new heading. */
 const isContinued = (b: CaseBlock, i: number) =>
   i > 0 && !b.heading && !b.problem && !b.callout && !b.finale;
-
-function Video({ src, caption }: { src: string; caption?: string }) {
-  const video = <LoopVideo src={src} label={caption} />;
-  if (!caption) return video;
-  return (
-    <figure className={styles.figure}>
-      {video}
-      <figcaption className={styles.caption}>{caption}</figcaption>
-    </figure>
-  );
-}
 
 function Media({ section }: { section: CaseSection }) {
   if (section.video)
@@ -99,71 +78,18 @@ function Media({ section }: { section: CaseSection }) {
   );
 }
 
-function BlockMedia({ block }: { block: CaseBlock }) {
-  if (block.embed) {
-    return <EmbedFrame src={block.embed} url={block.browser} />;
-  }
-  if (block.video) return <Video src={block.video} caption={block.caption} />;
-  const imgs = block.images ?? [];
-  if (!imgs.length) return null;
-  if (block.beforeAfter && imgs.length >= 2) {
-    return (
-      <div className={styles.beforeAfter}>
-        <CaseShot
-          image={imgs[0]}
-          caption={block.captions?.[0]}
-          sizes="(max-width: 760px) 100vw, 500px"
-        />
-        <span className={styles.arrow} aria-hidden="true">
-          <ArrowRight size={22} strokeWidth={1.5} />
-        </span>
-        <CaseShot
-          image={imgs[1]}
-          caption={block.captions?.[1]}
-          sizes="(max-width: 760px) 100vw, 500px"
-        />
-      </div>
-    );
-  }
-  if (imgs.length === 1) {
-    if (block.enlarge) return <Shot image={imgs[0]} />;
-    return (
-      <CaseShot
-        image={imgs[0]}
-        caption={block.captions?.[0]}
-        sizes="(max-width: 1120px) 100vw, 1040px"
-      />
-    );
-  }
-  if (shouldStack(imgs)) {
-    return (
-      <div className={styles.stack}>
-        {imgs.map((im, i) => (
-          <CaseShot
-            key={im.src}
-            image={im}
-            caption={block.captions?.[i]}
-            sizes="(max-width: 1120px) 100vw, 1040px"
-          />
-        ))}
-      </div>
-    );
-  }
-  return (
-    <div className={imgs.length >= 3 ? styles.grid3 : styles.grid2}>
-      {imgs.map((im, i) => (
-        <CaseShot
-          key={im.src}
-          image={im}
-          caption={block.captions?.[i]}
-          sizes="(max-width: 760px) 100vw, 500px"
-        />
-      ))}
-    </div>
-  );
-}
-
 function featuredItems(study: CaseStudy) {
+  // The acts layout lists every act by title, so the jump nav needs no extra copy.
+  if (study.layout === "acts") {
+    return (
+      study.chapters?.map((ch) => ({
+        href: `#${chId(ch)}`,
+        name: ch.title,
+        summary: ch.summary,
+      })) ?? []
+    );
+  }
+
   const chapters =
     study.chapters
       ?.filter((c) => c.summary)
@@ -258,7 +184,8 @@ function Overview({
 }
 
 export default function CaseStudyView({ study }: { study: CaseStudy }) {
-  const story = study.layout === "story";
+  const acts = study.layout === "acts";
+  const story = study.layout === "story" || acts;
   const featured = featuredItems(study);
   return (
     <>
@@ -319,11 +246,13 @@ export default function CaseStudyView({ study }: { study: CaseStudy }) {
               <Overview
                 study={study}
                 featured={featured}
-                featuredLabel="Featured projects"
+                featuredLabel={acts ? "Contents" : "Featured projects"}
               />
             )}
 
-            {story ? (
+            {acts ? (
+              <CaseActs chapters={study.chapters ?? []} chapterId={chId} />
+            ) : story ? (
               <div className={styles.col}>
                 {study.chapters?.map((ch) => (
                   <section

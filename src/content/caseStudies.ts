@@ -25,6 +25,12 @@ export type CaseSection = {
   beforeAfter?: boolean;
 };
 
+export type CaseCall = { label: string; text: string };
+export type CasePersona = { name: string; text: string };
+export type CaseStat = { figure: string; text: string };
+export type CaseStep = { role: string; title: string; body: string };
+export type CaseCompare = { label: string; title: string; text: string };
+
 export type CaseBlock = {
   heading?: string;
   body?: string;
@@ -48,6 +54,22 @@ export type CaseBlock = {
   enlarge?: boolean;
   /** Render this block as the case study's highlighted closing section. */
   finale?: boolean;
+  /** Rail label beside a beat in the "acts" layout. */
+  stamp?: string;
+  /** Numbered decision, set in the accent on the rail. */
+  decision?: string;
+  /** The call / why / what it cost triad under a decision beat. */
+  call?: CaseCall[];
+  /** Audience cards. */
+  personas?: CasePersona[];
+  /** Figures set as a table rather than prose, so the numbers read as evidence. */
+  table?: CaseStat[];
+  /** Role-tabbed walkthrough of a flow. */
+  steps?: CaseStep[];
+  /** Before and after of a strategic change. */
+  compare?: CaseCompare[];
+  /** Draw the PEAD swimlane as live DOM instead of shipping it as an image. */
+  lanes?: boolean;
 };
 export type CaseChapter = {
   id?: string;
@@ -68,7 +90,7 @@ export type CaseStudy = {
   problem?: string;
   result?: string;
   metrics: CaseMetric[];
-  layout?: "micro" | "story";
+  layout?: "micro" | "story" | "acts";
   sections?: CaseSection[];
   overview?: string[];
   impact?: string[];
@@ -813,7 +835,7 @@ export const caseStudies: CaseStudy[] = [
       { figure: "15%", text: "uplift in cross product engagement" },
       { figure: "New", text: "pipeline of paying users" },
     ],
-    layout: "story",
+    layout: "acts",
     impact: [
       "Developed and launched in one quarter",
       "15% uplift in cross product engagement",
@@ -831,6 +853,7 @@ export const caseStudies: CaseStudy[] = [
         title: "The problem",
         blocks: [
           {
+            stamp: "Context",
             heading: "Paperwork vs clients",
             body: "Buyer agents balance paperwork against advising clients. SkySlope data showed buyers spend about 10 weeks searching and view a median of 9 homes, so the form needed to be fast and available anywhere.",
             images: [
@@ -844,14 +867,31 @@ export const caseStudies: CaseStudy[] = [
             captions: ["Who fills each field on the PEAD-V."],
           },
           {
+            stamp: "Audience",
             heading: "Who touches the form",
             body: "Buyer agents carried the work and weighed it against advising clients. Buyers wanted to sign what needed signing and get on with the viewing. Seller agents wanted property access to be easy. Research put buyer agents first.",
+            personas: [
+              {
+                name: "Buyer agents",
+                text: "Balancing time spent on paperwork against time spent advising and supporting clients. A simple way to complete paperwork and stay compliant frees up the schedule.",
+              },
+              {
+                name: "Buyers",
+                text: "They do not want to work through volumes of paperwork to view homes. They want to sign what needs signing to close a transaction.",
+              },
+              {
+                name: "Seller agents",
+                text: "The same paperwork and client time trade-off, plus an interest in making property access easy enough to encourage buyers.",
+              },
+            ],
           },
           {
+            stamp: "Team",
             heading: "The team and the clock",
             body: "A PM, a UX researcher, a visual designer, and six developers. The PEAD-V was a COVID requirement, so the window would close. MVP by the end of Q1 2021.",
           },
           {
+            stamp: "Scope",
             heading: "What to ship",
             body: "The MVP had to cover sending one form or several for the same client. Sending to different clients in one pass, and looping in the listing agent, waited.",
             images: [
@@ -870,17 +910,49 @@ export const caseStudies: CaseStudy[] = [
         title: "Research",
         blocks: [
           {
+            stamp: "Validation",
             heading: "Testing whether it was worth building",
             body: "I wrote a PRD with the PM to capture the unvalidated problem statements and our read on the current flow, then went to find out whether the tool had a business case.",
           },
           {
+            stamp: "Qualitative",
             body: "Agents disliked the form but understood why it existed. Most had a workaround, like listing several addresses on one PEAD. Out with clients and away from a computer, they agreed informally to send it later. They filed what the brokerage asked for and rarely opened an old form again.",
           },
           {
-            body: "In 2020, 53% of SkySlope transactions used a PEAD form. In 2021 it was 72%. Buyer agents were 46% more likely than seller agents to report difficulty, and the only competitor gated the form behind a paid membership.",
+            stamp: "Who we build for",
+            decision: "Decision 01",
+            table: [
+              {
+                figure: "53% to 72%",
+                text: "of SkySlope transactions used a PEAD form, 2020 to 2021",
+              },
+              {
+                figure: "+46%",
+                text: "buyer agents more likely than seller agents to report difficulty",
+              },
+              {
+                figure: "Every",
+                text: "agent interviewed called having the form on hand very important",
+              },
+              {
+                figure: "1",
+                text: "competitor, Glide, and it gated the form behind a paid membership",
+              },
+            ],
             calloutLabel: "What it settled",
             callout:
               "The problem and the business case held, and the MVP pointed at buyer agents.",
+            call: [
+              { label: "The call", text: "Scope the MVP to buyer agents." },
+              {
+                label: "Why",
+                text: "They were 46% more likely than seller agents to report difficulty.",
+              },
+              {
+                label: "What it cost",
+                text: "Seller agent cases stayed out of the MVP.",
+              },
+            ],
           },
         ],
       },
@@ -888,21 +960,16 @@ export const caseStudies: CaseStudy[] = [
         title: "Flows",
         blocks: [
           {
+            stamp: "Ideal experience",
             heading: "The ideal experience",
             body: "I mapped who acts at each step and when each email fires.",
-            images: [
-              {
-                src: "/images/easypeady/swimlane.webp",
-                width: 2800,
-                height: 1351,
-                alt: "Swimlane of buyer agent, buyer, seller agents, and CC through the PEAD flow",
-              },
-            ],
+            lanes: true,
             captions: [
               "Who acts at each step, from send through the completed envelope.",
             ],
           },
           {
+            stamp: "Options",
             heading: "Four ways to split it",
             body: "Agents wanted one envelope to sign, then individual PEADs sent to each listing agent. Doing that split by hand was the step to cut.",
             images: [
@@ -916,6 +983,7 @@ export const caseStudies: CaseStudy[] = [
             captions: ["The manual split was the step to remove."],
           },
           {
+            stamp: "Notifications",
             heading: "Where the emails go",
             body: "I mapped every notification the flow depends on and handed it to the team as a design requirement.",
             images: [
@@ -930,6 +998,8 @@ export const caseStudies: CaseStudy[] = [
             captions: ["Each point where the system has to send mail."],
           },
           {
+            stamp: "The split",
+            decision: "Decision 02",
             body: "The PM and I settled on splitting in the backend, with a fallback if the technical constraints held.",
             images: [
               {
@@ -941,8 +1011,23 @@ export const caseStudies: CaseStudy[] = [
               },
             ],
             captions: ["The path we committed to."],
+            call: [
+              {
+                label: "The call",
+                text: "Split the completed envelope in the backend.",
+              },
+              {
+                label: "Why",
+                text: "It removed the split agents were doing by hand.",
+              },
+              {
+                label: "What it cost",
+                text: "A fallback we kept alive in case the constraints held.",
+              },
+            ],
           },
           {
+            stamp: "Collaboration",
             heading: "Scoring the options with engineering",
             body: "I ran a brainstorm with product and engineering. Developers scored each solution's build complexity 1 to 5 while designers scored its UX, so we chose flows that were cheap to build and good to use.",
             images: [
@@ -961,8 +1046,26 @@ export const caseStudies: CaseStudy[] = [
         title: "The app",
         blocks: [
           {
+            stamp: "Structure",
             heading: "From real world steps to app steps",
             body: "With the flow agreed, I translated it into what the application actually does, including the returning user path and where we validate an existing account.",
+            steps: [
+              {
+                role: "Buyer agent",
+                title: "Build one envelope",
+                body: "Add every property the client will visit, then invite the buyer once.",
+              },
+              {
+                role: "Buyer",
+                title: "Sign once",
+                body: "Review the visit details and complete the form from any device.",
+              },
+              {
+                role: "EasyPeady",
+                title: "Split the paperwork",
+                body: "Create the individual PEADs and route them to the listing agents.",
+              },
+            ],
             images: [
               {
                 src: "/images/easypeady/user-flow.webp",
@@ -975,6 +1078,7 @@ export const caseStudies: CaseStudy[] = [
             captions: ["The guided PEAD flow."],
           },
           {
+            stamp: "Wireframes",
             heading: "Wireframes",
             body: "Thirteen screens, from the forms list through signing.",
             images: [
@@ -989,6 +1093,7 @@ export const caseStudies: CaseStudy[] = [
             captions: ["The flow as it stood inside Forms, before the pivot."],
           },
           {
+            stamp: "Screens",
             heading: "Who is visiting",
             body: "The flow asks who will visit, then reviews the information before it goes on the form.",
             images: [
@@ -1005,12 +1110,10 @@ export const caseStudies: CaseStudy[] = [
                 alt: "Review screen before information is added to the PEAD form",
               },
             ],
-            captions: [
-              "Who is visiting.",
-              "Review before it goes on the form.",
-            ],
+            captions: ["Who is visiting.", "Review before it goes on the form."],
           },
           {
+            stamp: "Prototype",
             heading: "Prototype",
             body: "Try the PEAD flow below, from choosing who is visiting through review and send.",
             browser: "easypeady.com",
@@ -1023,10 +1126,39 @@ export const caseStudies: CaseStudy[] = [
         title: "The pivot",
         blocks: [
           {
+            stamp: "Feature to product",
+            decision: "Decision 03",
             heading: "A free app outside the ecosystem",
             body: "Mid development, SkySlope shifted strategy from a paid feature inside Forms to a free standalone app to capture new users. That meant authenticating people with no SkySlope account without making existing users start over, and folding the result back into the suite so nobody had to hop between apps.",
+            compare: [
+              {
+                label: "Before",
+                title: "Inside the existing suite",
+                text: "Known accounts, existing navigation, a paid product context.",
+              },
+              {
+                label: "After",
+                title: "Standalone, free, and connected",
+                text: "An open front door, new authentication, and a handoff back into SkySlope.",
+              },
+            ],
+            call: [
+              {
+                label: "The call",
+                text: "Rebrand mid build rather than pause development.",
+              },
+              {
+                label: "Why",
+                text: "The development team was already ramped up.",
+              },
+              {
+                label: "What it cost",
+                text: "An authentication problem found in user testing, not before.",
+              },
+            ],
           },
           {
+            stamp: "Brand",
             body: "I partnered on new branding, redesigned the key screens plus a basic style guide so development was not blocked, and re envisioned the service blueprint. I designed the UI alongside development, iterating as we built and clearing UX blockers in drop in calls as I outpaced the build.",
             beforeAfter: true,
             images: [
@@ -1045,6 +1177,7 @@ export const caseStudies: CaseStudy[] = [
             ],
           },
           {
+            stamp: "System",
             heading: "Brand and system",
             images: [
               {
@@ -1058,6 +1191,7 @@ export const caseStudies: CaseStudy[] = [
             captions: ["Color, type, and every component state on one sheet."],
           },
           {
+            stamp: "Blueprint",
             heading: "The flow after",
             images: [
               {
@@ -1081,10 +1215,12 @@ export const caseStudies: CaseStudy[] = [
         title: "Launch",
         blocks: [
           {
+            stamp: "Launch",
             body: "We shipped the MVP use cases and put the app in front of a small group of agents. Their feedback drove the next round of improvements and surfaced the authentication problem.",
           },
           {
             finale: true,
+            stamp: "Impact",
             heading: "Impact",
             body: "SkySlope's other products saw a 15% lift in usage, the app generated a pipeline of new paying users, and it became the groundwork for Breeze.",
             images: [
@@ -1102,6 +1238,7 @@ export const caseStudies: CaseStudy[] = [
         title: "Retrospective",
         blocks: [
           {
+            stamp: "Retrospective",
             body: "The fast schedule led to one high impact oversight. An authentication problem surfaced only in user testing after the pivot. A technical audit should have followed the strategic change.",
           },
         ],

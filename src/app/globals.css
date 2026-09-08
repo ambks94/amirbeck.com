@@ -8,6 +8,16 @@
   --accent: #24405c;
   --on-accent: #eeebe5;
 
+  /* alternating band ground for the acts case-study layout */
+  --band-alt: #333937;
+  --on-alt: #eeebe5;
+
+  /* roles in a service flow, desaturated to sit on the paper */
+  --role-agent: #955234;
+  --role-buyer: #5b4b72;
+  --role-system: #24405c;
+  --role-listing: #456b56;
+
   --step--1: clamp(0.82rem, 0.79rem + 0.12vw, 0.88rem);
   --step-0: clamp(1rem, 0.96rem + 0.2vw, 1.09rem);
   --step-1: clamp(1.15rem, 1.08rem + 0.34vw, 1.35rem);
@@ -46,6 +56,12 @@
     --accent: #9fc0d8;
     --on-accent: #1b1f1e;
     --shade: #050605;
+    --band-alt: #2a302e;
+    --on-alt: #eeebe5;
+    --role-agent: #c98a5f;
+    --role-buyer: #9b8ab8;
+    --role-system: #9fc0d8;
+    --role-listing: #7fae93;
   }
 }
 
@@ -59,6 +75,12 @@
   --accent: #9fc0d8;
   --on-accent: #1b1f1e;
   --shade: #050605;
+  --band-alt: #2a302e;
+  --on-alt: #eeebe5;
+  --role-agent: #c98a5f;
+  --role-buyer: #9b8ab8;
+  --role-system: #9fc0d8;
+  --role-listing: #7fae93;
 }
 
 *,

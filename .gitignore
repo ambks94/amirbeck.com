@@ -45,3 +45,6 @@ CLAUDE.md
 
 # dev-time asset tooling (harvest + optimize scripts) — not needed to build or host
 /scripts/
+
+# local-only case study explorations (route exists on the dev machine, never deploys)
+/src/app/prototypes/
