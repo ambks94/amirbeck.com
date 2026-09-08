@@ -35,7 +35,24 @@ export default function Lightbox({
       onClose={onClose}
       onCancel={onClose}
     >
-      {image ? (
+      {image && image.width / image.height > 5 ? (
+        <div className={styles.inner}>
+          {/* Fitting a 13:1 board to the viewport leaves a ~100px sliver, so it
+              opens at a readable height and scrolls instead. */}
+          <div className={styles.panoScroll} onClick={onClose}>
+            <Image
+              src={image.src}
+              alt={image.alt}
+              width={image.width}
+              height={image.height}
+              sizes="2560px"
+              quality={100}
+              className={styles.panoImg}
+            />
+          </div>
+          <p className={styles.caption}>{image.alt}</p>
+        </div>
+      ) : image ? (
         <div className={styles.inner} onClick={onClose}>
           <span className={styles.media}>
             <span

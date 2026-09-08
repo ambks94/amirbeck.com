@@ -47,6 +47,23 @@
 .media img {
   animation: pop 0.35s cubic-bezier(0.19, 1, 0.22, 1) both;
 }
+.panoScroll {
+  position: absolute;
+  inset: clamp(8px, 1.2vw, 16px);
+  display: flex;
+  align-items: center;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  cursor: zoom-out;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(238, 235, 229, 0.3) transparent;
+}
+.panoImg {
+  height: min(70vh, 620px);
+  width: auto;
+  max-width: none;
+  margin-block: auto;
+}
 @keyframes pop {
   from {
     transform: scale(0.985);

@@ -21,15 +21,22 @@ import type {
 function shouldStack(imgs: CaseImage[]) {
   if (imgs.length < 2) return false;
   const frames = new Set(imgs.map((i) => i.frame ?? "full"));
-  return frames.has("wide") || (frames.has("phone") && frames.size > 1);
+  return (
+    frames.has("wide") ||
+    frames.has("pano") ||
+    (frames.has("phone") && frames.size > 1)
+  );
 }
 
-const chId = (ch: CaseChapter) =>
-  ch.id ??
-  ch.title
+const slugId = (title: string, id?: string) =>
+  id ??
+  title
     .toLowerCase()
     .replace(/[^a-z0-9]+/g, "-")
     .replace(/^-|-$/g, "");
+
+const chId = (ch: CaseChapter) => slugId(ch.title, ch.id);
+const secId = (s: CaseSection) => slugId(s.heading, s.id);
 
 /** Copy + media that continues the previous beat, not a new heading. */
 const isContinued = (b: CaseBlock, i: number) =>
@@ -156,8 +163,103 @@ function BlockMedia({ block }: { block: CaseBlock }) {
   );
 }
 
+function featuredItems(study: CaseStudy) {
+  const chapters =
+    study.chapters
+      ?.filter((c) => c.summary)
+      .map((ch) => ({
+        href: `#${chId(ch)}`,
+        name: ch.title,
+        summary: ch.summary,
+      })) ?? [];
+  if (chapters.length) return chapters;
+
+  return (
+    study.sections
+      ?.filter((s) => s.summary)
+      .map((s) => ({
+        href: `#${secId(s)}`,
+        name: s.heading,
+        summary: s.summary,
+      })) ?? []
+  );
+}
+
+function Overview({
+  study,
+  featured,
+  featuredLabel,
+}: {
+  study: CaseStudy;
+  featured: ReturnType<typeof featuredItems>;
+  featuredLabel: string;
+}) {
+  return (
+    <section className={styles.overviewBand}>
+      <div className={`${styles.col} ${styles.overview}`}>
+        {study.overview?.map((p) => (
+          <p key={p.slice(0, 20)} className={styles.body}>
+            {p}
+          </p>
+        ))}
+        {study.problem && study.result && (
+          <div className={styles.flowGroup}>
+            <span className={styles.flow} aria-hidden="true">
+              <span className={styles.flowRail}>
+                <span className={styles.flowShine} />
+              </span>
+            </span>
+            <p className={styles.meta}>
+              <span className={styles.metaLabel}>Problem</span>
+              {study.problem}
+            </p>
+            <p className={`${styles.meta} ${styles.result}`}>
+              <span className={styles.metaLabel}>Solution</span>
+              {study.result}
+            </p>
+          </div>
+        )}
+        <div className={styles.details}>
+          {study.impact && study.impact.length > 0 && (
+            <div className={styles.detailCol}>
+              <span className={styles.detailLabel}>Impact</span>
+              <ul className={styles.detailList}>
+                {study.impact.map((im) => (
+                  <li key={im}>{im}</li>
+                ))}
+              </ul>
+            </div>
+          )}
+          <div className={styles.detailCol}>
+            <span className={styles.detailLabel}>Role</span>
+            <p className={styles.detailText}>{study.role}</p>
+            {study.workIncluded && (
+              <>
+                <span className={styles.detailLabel}>Work included</span>
+                <p className={styles.detailText}>{study.workIncluded}</p>
+              </>
+            )}
+          </div>
+        </div>
+        {study.goals && study.goals.length > 0 && (
+          <div className={styles.goals}>
+            <span className={styles.detailLabel}>Goals</span>
+            <ul className={styles.goalList}>
+              {study.goals.map((g) => (
+                <li key={g}>{g}</li>
+              ))}
+            </ul>
+          </div>
+        )}
+        <DirectoryNav label={featuredLabel} items={featured} />
+      </div>
+    </section>
+  );
+}
+
 export default function CaseStudyView({ study }: { study: CaseStudy }) {
   const story = study.layout === "story";
+  const featured = featuredItems(study);
   return (
     <>
       <header className={styles.nav}>
@@ -203,86 +305,26 @@ export default function CaseStudyView({ study }: { study: CaseStudy }) {
                   />
                 </div>
               )}
+
+              {!story && (
+                <DirectoryNav
+                  label="Featured work"
+                  items={featured}
+                  className={styles.featured}
+                />
+              )}
             </div>
 
-            {story ? (
-              <>
-                <section className={styles.overviewBand}>
-                <div className={`${styles.col} ${styles.overview}`}>
-                  {study.overview?.map((p) => (
-                    <p key={p.slice(0, 20)} className={styles.body}>
-                      {p}
-                    </p>
-                  ))}
-                  {study.problem && study.result && (
-                    <div className={styles.flowGroup}>
-                      <span className={styles.flow} aria-hidden="true">
-                        <span className={styles.flowRail}>
-                          <span className={styles.flowShine} />
-                        </span>
-                      </span>
-                      <p className={styles.meta}>
-                        <span className={styles.metaLabel}>Problem</span>
-                        {study.problem}
-                      </p>
-                      <p className={`${styles.meta} ${styles.result}`}>
-                        <span className={styles.metaLabel}>Solution</span>
-                        {study.result}
-                      </p>
-                    </div>
-                  )}
-                  <div className={styles.details}>
-                    {study.impact && study.impact.length > 0 && (
-                      <div className={styles.detailCol}>
-                        <span className={styles.detailLabel}>Impact</span>
-                        <ul className={styles.detailList}>
-                          {study.impact.map((im) => (
-                            <li key={im}>{im}</li>
-                          ))}
-                        </ul>
-                      </div>
-                    )}
-                    <div className={styles.detailCol}>
-                      <span className={styles.detailLabel}>Role</span>
-                      <p className={styles.detailText}>{study.role}</p>
-                      {study.workIncluded && (
-                        <>
-                          <span className={styles.detailLabel}>
-                            Work included
-                          </span>
-                          <p className={styles.detailText}>
-                            {study.workIncluded}
-                          </p>
-                        </>
-                      )}
-                    </div>
-                  </div>
-                  {study.goals && study.goals.length > 0 && (
-                    <div className={styles.goals}>
-                      <span className={styles.detailLabel}>Goals</span>
-                      <ul className={styles.goalList}>
-                        {study.goals.map((g) => (
-                          <li key={g}>{g}</li>
-                        ))}
-                      </ul>
-                    </div>
-                  )}
-                  {study.chapters && study.chapters.some((c) => c.summary) && (
-                    <DirectoryNav
-                      label="Featured projects"
-                      items={study.chapters
-                        .filter((c) => c.summary)
-                        .map((ch) => ({
-                          href: `#${chId(ch)}`,
-                          name: ch.title,
-                          summary: ch.summary,
-                        }))}
-                    />
-                  )}
-                </div>
-                </section>
+            {story && (
+              <Overview
+                study={study}
+                featured={featured}
+                featuredLabel="Featured projects"
+              />
+            )}
 
-                <div className={styles.col}>
+            {story ? (
+              <div className={styles.col}>
                 {study.chapters?.map((ch) => (
                   <section
                     key={ch.title}
@@ -368,12 +410,15 @@ export default function CaseStudyView({ study }: { study: CaseStudy }) {
                     )}
                   </section>
                 ))}
-                </div>
-              </>
+              </div>
             ) : (
               <div className={`${styles.col} ${styles.sections}`}>
                 {study.sections?.map((s, i) => (
-                  <section key={s.heading} className={styles.section}>
+                  <section
+                    key={s.heading}
+                    id={secId(s)}
+                    className={styles.section}
+                  >
                     <div className={styles.head}>
                       <span className={styles.index}>
                         {String(i + 1).padStart(2, "0")}

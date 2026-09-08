@@ -66,6 +66,9 @@
   margin: 24px 0 0;
   text-wrap: pretty;
 }
+.featured {
+  margin-top: clamp(32px, 5vw, 56px);
+}
 
 .metrics {
   display: flex;
@@ -108,6 +111,7 @@
   display: flex;
   flex-direction: column;
   gap: clamp(16px, 3vw, 32px);
+  scroll-margin-top: 80px;
 }
 .head {
   display: flex;
@@ -349,6 +353,38 @@
 }
 .figurePhone {
   width: min(22rem, 100%);
+}
+/* Boards past ~5:1 are hairlines when fit to the column: the wireframe strip is
+   13.7:1, so 76px tall at 1040px. These keep a legible height and scroll sideways
+   instead. The rail bleeds into the gutter so the clipped edge reads as scrollable. */
+.figurePano {
+  width: 100%;
+}
+.panoRail {
+  margin-inline: calc(-1 * var(--gutter));
+  padding-inline: var(--gutter);
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scrollbar-width: thin;
+  scrollbar-color: color-mix(in srgb, var(--ink) 22%, transparent) transparent;
+}
+.panoRail:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 16px;
+}
+.panoRail .shot {
+  width: max-content;
+  min-width: 100%;
+}
+.panoRail .shot img {
+  width: auto;
+  max-width: none;
+  height: clamp(200px, 30vw, 320px);
+}
+/* The pill would sit at the far right of a 4000px plate, off screen on load. */
+.panoRail .zoom {
+  display: none;
 }
 .stack {
   display: flex;
@@ -647,6 +683,13 @@
 }
 .figurePhone {
   width: min(22rem, 100%);
+}
+/* Portrait sheets (the EasyPeady style guide is 1:1.69) would run ~1750px tall at
+   the full 1040px column. Cap the width so the page stays scannable; the lightbox
+   is where you read the component states. */
+.figureTall {
+  width: 100%;
+  max-width: 30rem;
 }
 .caption {
   margin: 16px 0 0;
