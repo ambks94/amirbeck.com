@@ -30,8 +30,7 @@ const FLOW: { actor: ActorKey; text: string; mail?: string }[] = [
   },
 ];
 
-const rowOf = (actor: ActorKey) =>
-  ACTORS.findIndex((a) => a.key === actor) + 1;
+const rowOf = (actor: ActorKey) => ACTORS.findIndex((a) => a.key === actor) + 1;
 
 function Lanes({ caption }: { caption?: string }) {
   return (
@@ -43,53 +42,53 @@ function Lanes({ caption }: { caption?: string }) {
         </p>
 
         <ScrollHint className={styles.lanesScroll}>
-        <div className={styles.lanesGrid}>
-          {ACTORS.map((a, i) => (
-            <Fragment key={a.key}>
-              <span
-                className={styles.laneName}
-                style={{ "--r": i + 1 } as React.CSSProperties}
-              >
-                <i
-                  className={styles.swatch}
-                  style={{ background: `var(--role-${a.key})` }}
+          <div className={styles.lanesGrid}>
+            {ACTORS.map((a, i) => (
+              <Fragment key={a.key}>
+                <span
+                  className={styles.laneName}
+                  style={{ "--r": i + 1 } as React.CSSProperties}
+                >
+                  <i
+                    className={styles.swatch}
+                    style={{ background: `var(--role-${a.key})` }}
+                    aria-hidden="true"
+                  />
+                  {a.name}
+                </span>
+                <span
+                  className={styles.laneRule}
+                  style={{ "--r": i + 1 } as React.CSSProperties}
                   aria-hidden="true"
                 />
-                {a.name}
-              </span>
-              <span
-                className={styles.laneRule}
-                style={{ "--r": i + 1 } as React.CSSProperties}
-                aria-hidden="true"
-              />
-            </Fragment>
-          ))}
+              </Fragment>
+            ))}
 
-          {FLOW.map((step, i) => (
-            <div
-              key={step.text}
-              className={styles.flowStep}
-              style={
-                {
-                  "--r": rowOf(step.actor),
-                  "--c": i + 2,
-                  background: `var(--role-${step.actor})`,
-                } as React.CSSProperties
-              }
-            >
-              <span className={styles.flowNum}>
-                {String(i + 1).padStart(2, "0")}
-              </span>
-              <span className={styles.flowText}>{step.text}</span>
-              <span className={styles.flowActor}>
-                {ACTORS.find((a) => a.key === step.actor)?.name}
-              </span>
-              {step.mail && (
-                <span className={styles.flowMail}>{step.mail}</span>
-              )}
-            </div>
-          ))}
-        </div>
+            {FLOW.map((step, i) => (
+              <div
+                key={step.text}
+                className={styles.flowStep}
+                style={
+                  {
+                    "--r": rowOf(step.actor),
+                    "--c": i + 2,
+                    background: `var(--role-${step.actor})`,
+                  } as React.CSSProperties
+                }
+              >
+                <span className={styles.flowNum}>
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <span className={styles.flowText}>{step.text}</span>
+                <span className={styles.flowActor}>
+                  {ACTORS.find((a) => a.key === step.actor)?.name}
+                </span>
+                {step.mail && (
+                  <span className={styles.flowMail}>{step.mail}</span>
+                )}
+              </div>
+            ))}
+          </div>
         </ScrollHint>
       </div>
       {caption && <p className={styles.caption}>{caption}</p>}

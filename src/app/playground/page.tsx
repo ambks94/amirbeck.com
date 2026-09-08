@@ -64,13 +64,13 @@ export default function PlaygroundPage() {
 
   return (
     <article>
-      <h1 className={`rise ${styles.title}`} style={{ animationDelay: "0.12s" }}>
+      <h1
+        className={`rise ${styles.title}`}
+        style={{ animationDelay: "0.12s" }}
+      >
         Playground
       </h1>
-      <p
-        className={`rise ${styles.intro}`}
-        style={{ animationDelay: "0.19s" }}
-      >
+      <p className={`rise ${styles.intro}`} style={{ animationDelay: "0.19s" }}>
         Live UI grouped by company work and side projects.
       </p>
 

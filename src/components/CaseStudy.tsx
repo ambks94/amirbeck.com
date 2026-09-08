@@ -273,68 +273,74 @@ export default function CaseStudyView({ study }: { study: CaseStudy }) {
                           <BlockMedia block={b} />
                         </div>
                       ) : (
-                      <div
-                        key={i}
-                        className={
-                          isContinued(b, i)
-                            ? `${styles.block} ${styles.continue}`
-                            : styles.block
-                        }
-                      >
-                        {b.heading && (
-                          <h3 className={styles.blockHead}>{b.heading}</h3>
-                        )}
-                        {b.problem && b.result ? (
-                          <div className={styles.flowGroup}>
-                            <span className={styles.flow} aria-hidden="true">
-                              <span className={styles.flowRail}>
-                                <span className={styles.flowShine} />
+                        <div
+                          key={i}
+                          className={
+                            isContinued(b, i)
+                              ? `${styles.block} ${styles.continue}`
+                              : styles.block
+                          }
+                        >
+                          {b.heading && (
+                            <h3 className={styles.blockHead}>{b.heading}</h3>
+                          )}
+                          {b.problem && b.result ? (
+                            <div className={styles.flowGroup}>
+                              <span className={styles.flow} aria-hidden="true">
+                                <span className={styles.flowRail}>
+                                  <span className={styles.flowShine} />
+                                </span>
                               </span>
-                            </span>
-                            <p className={styles.meta}>
-                              <span className={styles.metaLabel}>Problem</span>
-                              {b.problem}
-                            </p>
-                            {b.body && <p className={styles.body}>{b.body}</p>}
-                            <p className={`${styles.meta} ${styles.result}`}>
-                              <span className={styles.metaLabel}>Solution</span>
-                              {b.result}
-                            </p>
-                          </div>
-                        ) : (
-                          b.body && <p className={styles.body}>{b.body}</p>
-                        )}
-                        {b.chips && (
-                          <ul className={styles.tags}>
-                            {b.chips.map((chip) => (
-                              <li key={chip}>{chip}</li>
-                            ))}
-                          </ul>
-                        )}
-                        {b.list && (
-                          <ul className={styles.outcomeList}>
-                            {b.list.map((li) => (
-                              <li key={li}>
-                                <Check
-                                  size={16}
-                                  strokeWidth={2.5}
-                                  aria-hidden="true"
-                                />
-                                {li}
-                              </li>
-                            ))}
-                          </ul>
-                        )}
-                        <BlockMedia block={b} />
-                        {b.callout && (
-                          <div className={styles.calloutBlock}>
-                            <span className={styles.calloutLabel}>
-                              {b.calloutLabel ?? "Result"}
-                            </span>
-                            <p className={styles.callout}>{b.callout}</p>
-                          </div>
-                        )}
-                      </div>
+                              <p className={styles.meta}>
+                                <span className={styles.metaLabel}>
+                                  Problem
+                                </span>
+                                {b.problem}
+                              </p>
+                              {b.body && (
+                                <p className={styles.body}>{b.body}</p>
+                              )}
+                              <p className={`${styles.meta} ${styles.result}`}>
+                                <span className={styles.metaLabel}>
+                                  Solution
+                                </span>
+                                {b.result}
+                              </p>
+                            </div>
+                          ) : (
+                            b.body && <p className={styles.body}>{b.body}</p>
+                          )}
+                          {b.chips && (
+                            <ul className={styles.tags}>
+                              {b.chips.map((chip) => (
+                                <li key={chip}>{chip}</li>
+                              ))}
+                            </ul>
+                          )}
+                          {b.list && (
+                            <ul className={styles.outcomeList}>
+                              {b.list.map((li) => (
+                                <li key={li}>
+                                  <Check
+                                    size={16}
+                                    strokeWidth={2.5}
+                                    aria-hidden="true"
+                                  />
+                                  {li}
+                                </li>
+                              ))}
+                            </ul>
+                          )}
+                          <BlockMedia block={b} />
+                          {b.callout && (
+                            <div className={styles.calloutBlock}>
+                              <span className={styles.calloutLabel}>
+                                {b.calloutLabel ?? "Result"}
+                              </span>
+                              <p className={styles.callout}>{b.callout}</p>
+                            </div>
+                          )}
+                        </div>
                       ),
                     )}
                   </section>
@@ -389,7 +395,10 @@ export default function CaseStudyView({ study }: { study: CaseStudy }) {
               </div>
             )}
 
-            <nav className={`${styles.col} ${styles.more}`} aria-label="More case studies">
+            <nav
+              className={`${styles.col} ${styles.more}`}
+              aria-label="More case studies"
+            >
               <span className={styles.detailLabel}>More work</span>
               <ul className={styles.moreList}>
                 {caseStudies

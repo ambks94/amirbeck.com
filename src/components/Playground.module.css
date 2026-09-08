@@ -167,9 +167,7 @@
   align-content: start;
   gap: 10px;
   padding: clamp(24px, 3vw, 34px) clamp(20px, 2.6vw, 32px);
-  min-height: calc(
-    0.75em + 2.5em + 2.8em + 20px + clamp(48px, 6vw, 68px)
-  );
+  min-height: calc(0.75em + 2.5em + 2.8em + 20px + clamp(48px, 6vw, 68px));
   background: var(--surface);
   border: 1px solid color-mix(in srgb, var(--ink) 5%, transparent);
   border-radius: 16px;

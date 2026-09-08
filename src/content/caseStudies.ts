@@ -1114,7 +1114,10 @@ export const caseStudies: CaseStudy[] = [
                 alt: "Review screen before information is added to the PEAD form",
               },
             ],
-            captions: ["Who is visiting.", "Review before it goes on the form."],
+            captions: [
+              "Who is visiting.",
+              "Review before it goes on the form.",
+            ],
           },
           {
             stamp: "Prototype",
