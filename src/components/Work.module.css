@@ -17,6 +17,16 @@
   z-index: 0;
   transform: scaleX(-1) translateX(30%);
   animation: drift 34s ease-in-out infinite;
+  /* soften the outer rings, and feather the side facing the content harder.
+     The element is mirrored with scaleX(-1), so its left edge is the visual right. */
+  -webkit-mask-image:
+    radial-gradient(closest-side, #000 30%, transparent 92%),
+    linear-gradient(to right, transparent 0%, #000 55%);
+  -webkit-mask-composite: source-in;
+  mask-image:
+    radial-gradient(closest-side, #000 30%, transparent 92%),
+    linear-gradient(to right, transparent 0%, #000 55%);
+  mask-composite: intersect;
 }
 @media (max-width: 899px) {
   .contour {

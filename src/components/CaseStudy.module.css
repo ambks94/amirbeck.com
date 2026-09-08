@@ -10,7 +10,7 @@
   display: flex;
   align-items: center;
   gap: 20px;
-  height: 60px;
+  min-height: 62px; /* matches the home Nav so the bar doesn't jump between pages */
 }
 .mark {
   display: inline-flex;

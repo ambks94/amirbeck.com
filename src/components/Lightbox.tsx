@@ -13,6 +13,11 @@ type ImageData = {
   matte?: "white";
 };
 
+/** Matches .plate: min(available width, available height × aspect). */
+function plateSizes(width: number, height: number) {
+  return `min(calc(100vw - 32px), calc((100vh - 32px) * ${width} / ${height}))`;
+}
+
 export default function Lightbox({
   image,
   onClose,
@@ -79,7 +84,7 @@ export default function Lightbox({
                 src={image.src}
                 alt={image.alt}
                 fill
-                sizes="100vw"
+                sizes={plateSizes(image.width, image.height)}
                 quality={100}
                 style={{ objectFit: "contain", objectPosition: "center" }}
               />
