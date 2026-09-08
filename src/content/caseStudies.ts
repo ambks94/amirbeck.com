@@ -287,7 +287,7 @@ export const caseStudies: CaseStudy[] = [
     description:
       "Amir Beck improved UX across SkySlope DigiSign, Forms, and Breeze, led Breeze from concept through launch, and cut digital signing mistakes by ~50%.",
     metrics: [],
-    layout: "story",
+    layout: "acts",
 
     impact: [
       "Cut digital signing mistakes by ~50%",
@@ -488,7 +488,7 @@ export const caseStudies: CaseStudy[] = [
     description:
       "Amir Beck led product design for Granate, a grief support app. Onboarding drop off fell ~25% and weekly engagement rose ~30%.",
     metrics: [],
-    layout: "story",
+    layout: "acts",
     impact: [
       "~25% drop in onboarding drop off",
       "~30% lift in weekly engagement",

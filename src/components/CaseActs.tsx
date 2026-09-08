@@ -96,19 +96,60 @@ function Lanes({ caption }: { caption?: string }) {
   );
 }
 
+function beatStamp(block: CaseBlock) {
+  if (block.stamp) return block.stamp;
+  if (block.heading && !block.finale) return block.heading;
+  if (block.finale) return "Result";
+  if (block.callout) return block.calloutLabel ?? "Result";
+}
+
 function Beat({ block }: { block: CaseBlock }) {
+  const stamp = beatStamp(block);
+  const showHead =
+    !!block.heading &&
+    (block.finale || (!!block.stamp && block.stamp !== block.heading));
+  const brief = !!(block.problem && block.result);
+
   return (
     <div className={styles.beat}>
       <div className={styles.rail}>
         {block.decision && (
           <span className={styles.decision}>{block.decision}</span>
         )}
-        {block.stamp && <span className={styles.stamp}>{block.stamp}</span>}
+        {stamp && <span className={styles.stamp}>{stamp}</span>}
       </div>
 
       <div className={styles.beatBody}>
-        {block.heading && <h3 className={styles.head}>{block.heading}</h3>}
-        {block.body && <p className={styles.text}>{block.body}</p>}
+        {showHead && <h3 className={styles.head}>{block.heading}</h3>}
+
+        {brief ? (
+          <div className={styles.flowGroup}>
+            <span className={styles.flow} aria-hidden="true">
+              <span className={styles.flowRail}>
+                <span className={styles.flowShine} />
+              </span>
+            </span>
+            <p className={styles.meta}>
+              <span className={styles.metaLabel}>Problem</span>
+              {block.problem}
+            </p>
+            {block.body && <p className={styles.text}>{block.body}</p>}
+            <p className={`${styles.meta} ${styles.result}`}>
+              <span className={styles.metaLabel}>Solution</span>
+              {block.result}
+            </p>
+          </div>
+        ) : (
+          block.body && <p className={styles.text}>{block.body}</p>
+        )}
+
+        {block.chips && (
+          <ul className={styles.chips}>
+            {block.chips.map((chip) => (
+              <li key={chip}>{chip}</li>
+            ))}
+          </ul>
+        )}
 
         {block.personas && (
           <div className={styles.personas}>

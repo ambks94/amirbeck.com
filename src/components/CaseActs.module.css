@@ -107,6 +107,100 @@
   margin-top: -16px;
 }
 
+/* problem → solution, with the animated rail from the story layout */
+.flowGroup {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding-left: 24px;
+  max-width: calc(var(--measure) + 24px);
+}
+.flow {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 12px;
+  color: var(--pop);
+}
+.flowRail {
+  position: absolute;
+  top: 0.45em;
+  bottom: 12px;
+  left: 50%;
+  width: 1.5px;
+  transform: translateX(-50%);
+  overflow: hidden;
+  border-radius: 99px;
+  background: linear-gradient(to bottom, var(--hair), var(--pop));
+}
+.flowShine {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 42%;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    color-mix(in srgb, var(--pop) 85%, var(--ground)),
+    var(--pop),
+    transparent
+  );
+  animation: flowDown 2.8s linear infinite;
+}
+@keyframes flowDown {
+  from {
+    transform: translateY(-110%);
+  }
+  to {
+    transform: translateY(250%);
+  }
+}
+.meta {
+  margin: 0;
+  display: flex;
+  gap: 12px;
+  align-items: baseline;
+  color: var(--dim);
+  line-height: 1.5;
+}
+.metaLabel {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--whisper);
+  flex: 0 0 auto;
+  min-width: 56px;
+  padding-top: 2px;
+}
+.result {
+  color: var(--on);
+}
+.result .metaLabel {
+  color: var(--pop);
+}
+
+.chips {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.chips li {
+  font-family: var(--font-mono);
+  font-size: 0.64rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--dim);
+  border: 1px solid var(--hair);
+  border-radius: 999px;
+  padding: 5px 11px;
+}
+
 @media (min-width: 860px) {
   .act,
   .beat {
