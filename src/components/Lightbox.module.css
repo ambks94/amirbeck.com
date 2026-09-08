@@ -47,9 +47,15 @@
 .media img {
   animation: pop 0.35s cubic-bezier(0.19, 1, 0.22, 1) both;
 }
-.panoScroll {
+.panoFrame {
   position: absolute;
   inset: clamp(8px, 1.2vw, 16px);
+}
+.panoFrame > * {
+  height: 100%;
+}
+.panoScroll {
+  height: 100%;
   display: flex;
   align-items: center;
   overflow-x: auto;
@@ -63,6 +69,15 @@
   width: auto;
   max-width: none;
   margin-block: auto;
+}
+.panoPlate {
+  background: #fff;
+  border-radius: 4px;
+  height: min(70vh, 620px);
+  display: flex;
+}
+.panoPlate .panoImg {
+  height: 100%;
 }
 @keyframes pop {
   from {

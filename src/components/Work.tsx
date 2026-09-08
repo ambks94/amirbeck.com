@@ -2,12 +2,11 @@
 
 import Image from "next/image";
 import { ArrowUpRight, ArrowRight } from "lucide-react";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import styles from "./Work.module.css";
-import Lightbox from "./Lightbox";
-import ShimmerImage from "./ShimmerImage";
+import Shot from "./Shot";
 import DotRow from "./DotRow";
-import { projects, type Project } from "@/content/site";
+import { projects } from "@/content/site";
 
 function emphasizeMetrics(text: string) {
   return text.split(/(~?\d+(?:\.\d+)?%?)/g).map((part, i) =>
@@ -22,7 +21,6 @@ function emphasizeMetrics(text: string) {
 }
 
 export default function Work() {
-  const [open, setOpen] = useState<Project["image"] | null>(null);
   const listRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -88,49 +86,7 @@ export default function Work() {
                 <p className={`label ${styles.years}`}>{p.years}</p>
               </div>
 
-              <button
-                type="button"
-                className={`${styles.shot} ${p.image.browser ? styles.shotBrowser : ""}`}
-                onClick={() => setOpen(p.image)}
-                aria-label={`Enlarge: ${p.image.alt}`}
-              >
-                {p.image.browser ? (
-                  <span className={styles.browser}>
-                    <span className={styles.bar} aria-hidden="true">
-                      <span className={styles.dots}>
-                        <i />
-                        <i />
-                        <i />
-                      </span>
-                      <span className={styles.url}>{p.image.browser}</span>
-                    </span>
-                    <span className={styles.viewport}>
-                      <ShimmerImage
-                        src={p.image.src}
-                        alt={p.image.alt}
-                        sizes="(max-width: 1120px) 100vw, 1120px"
-                        priority={i === 0}
-                        quality={100}
-                        objectFit="cover"
-                        objectPosition="center top"
-                      />
-                    </span>
-                  </span>
-                ) : (
-                  <span className={styles.media}>
-                    <ShimmerImage
-                      src={p.image.src}
-                      alt={p.image.alt}
-                      sizes="(max-width: 1120px) 100vw, 1120px"
-                      priority={i === 0}
-                      quality={100}
-                      objectFit="contain"
-                      objectPosition="center"
-                    />
-                  </span>
-                )}
-                <span className={styles.zoom}>Enlarge</span>
-              </button>
+              <Shot image={p.image} priority={i === 0} />
 
               <div className={styles.body}>
                 <div>
@@ -174,8 +130,6 @@ export default function Work() {
           ))}
         </div>
       </div>
-
-      <Lightbox image={open} onClose={() => setOpen(null)} />
     </section>
   );
 }

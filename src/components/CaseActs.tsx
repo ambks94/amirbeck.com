@@ -2,6 +2,7 @@ import { Fragment } from "react";
 import { ArrowRight } from "lucide-react";
 import BlockMedia from "./CaseMedia";
 import CaseSteps from "./CaseSteps";
+import ScrollHint from "./ScrollHint";
 import styles from "./CaseActs.module.css";
 import type { CaseBlock, CaseChapter } from "@/content/caseStudies";
 
@@ -41,7 +42,7 @@ function Lanes({ caption }: { caption?: string }) {
           <span className={styles.laneAxisTime}>Time &rarr;</span>
         </p>
 
-        <div className={styles.lanesScroll}>
+        <ScrollHint className={styles.lanesScroll}>
         <div className={styles.lanesGrid}>
           {ACTORS.map((a, i) => (
             <Fragment key={a.key}>
@@ -89,7 +90,7 @@ function Lanes({ caption }: { caption?: string }) {
             </div>
           ))}
         </div>
-        </div>
+        </ScrollHint>
       </div>
       {caption && <p className={styles.caption}>{caption}</p>}
     </div>

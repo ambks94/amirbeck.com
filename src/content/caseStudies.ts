@@ -9,6 +9,8 @@ export type CaseImage = {
   frame?: "phone" | "tall" | "wide" | "pano";
   /** white plate behind transparent exports in the lightbox */
   matte?: "white";
+  /** URL in the home Work card's browser chrome */
+  browser?: string;
 };
 export type CaseSection = {
   heading: string;
@@ -862,6 +864,7 @@ export const caseStudies: CaseStudy[] = [
                 width: 2800,
                 height: 1393,
                 alt: "The PEAD-V form, mapped by who fills each field",
+                matte: "white",
               },
             ],
             captions: ["Who fills each field on the PEAD-V."],
@@ -1008,6 +1011,7 @@ export const caseStudies: CaseStudy[] = [
                 height: 453,
                 frame: "pano",
                 alt: "The agreed path, splitting the completed envelope in the backend on an individual form level",
+                matte: "white",
               },
             ],
             captions: ["The path we committed to."],
@@ -1186,6 +1190,7 @@ export const caseStudies: CaseStudy[] = [
                 height: 2800,
                 frame: "tall",
                 alt: "EasyPeady color, type, buttons, inputs, radios, dropdown, and table states",
+                matte: "white",
               },
             ],
             captions: ["Color, type, and every component state on one sheet."],
@@ -1199,12 +1204,14 @@ export const caseStudies: CaseStudy[] = [
                 width: 2800,
                 height: 957,
                 alt: "Original PEAD flow inside Forms, DigiSign, and SkySlope",
+                matte: "white",
               },
               {
                 src: "/images/easypeady/pead-flow.webp",
                 width: 2800,
                 height: 1315,
                 alt: "Standalone PEAD flow across pead by SkySlope, Forms, DigiSign, and SkySlope",
+                matte: "white",
               },
             ],
             captions: ["Inside Forms.", "As its own product."],
@@ -1220,15 +1227,17 @@ export const caseStudies: CaseStudy[] = [
           },
           {
             finale: true,
+            enlarge: true,
             stamp: "Impact",
             heading: "Impact",
             body: "SkySlope's other products saw a 15% lift in usage, the app generated a pipeline of new paying users, and it became the groundwork for Breeze.",
             images: [
               {
-                src: "/images/easypeady.webp",
-                width: 2800,
-                height: 2202,
-                alt: "EasyPeady flow for creating and sending multiple PEAD forms",
+                src: "/images/home/easypeady.png",
+                width: 2880,
+                height: 2048,
+                alt: "EasyPeady flow for creating and sending multiple PEAD-V forms",
+                browser: "easypeady.com",
               },
             ],
           },

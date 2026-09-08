@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { createContext, useContext, useState, type ReactNode } from "react";
 import Lightbox from "./Lightbox";
+import ScrollHint from "./ScrollHint";
 import styles from "./CaseStudy.module.css";
 import type { CaseImage } from "@/content/caseStudies";
 
@@ -78,9 +79,14 @@ export default function CaseShot({
   return (
     <figure className={figureClass}>
       {pano ? (
-        <div className={styles.panoRail} tabIndex={0} role="group" aria-label={image.alt}>
+        <ScrollHint
+          className={styles.panoRail}
+          tabIndex={0}
+          role="group"
+          aria-label={image.alt}
+        >
           {shot}
-        </div>
+        </ScrollHint>
       ) : (
         shot
       )}

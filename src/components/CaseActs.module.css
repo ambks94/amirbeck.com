@@ -270,6 +270,7 @@
 .laneWrap {
   grid-column: 1 / -1;
   margin-top: 12px;
+  min-width: 0;
 }
 @media (min-width: 860px) {
   /* column 2 only: the rail is sticky and would float over a full-width lane board */

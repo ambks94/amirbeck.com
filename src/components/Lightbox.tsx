@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useEffect, useRef, type CSSProperties } from "react";
 import styles from "./Lightbox.module.css";
+import ScrollHint from "./ScrollHint";
 
 type ImageData = {
   src: string;
@@ -39,16 +40,24 @@ export default function Lightbox({
         <div className={styles.inner}>
           {/* Fitting a 13:1 board to the viewport leaves a ~100px sliver, so it
               opens at a readable height and scrolls instead. */}
-          <div className={styles.panoScroll} onClick={onClose}>
-            <Image
-              src={image.src}
-              alt={image.alt}
-              width={image.width}
-              height={image.height}
-              sizes="2560px"
-              quality={100}
-              className={styles.panoImg}
-            />
+          <div className={styles.panoFrame}>
+            <ScrollHint className={styles.panoScroll} onClick={onClose}>
+              <span
+                className={
+                  image.matte === "white" ? styles.panoPlate : undefined
+                }
+              >
+                <Image
+                  src={image.src}
+                  alt={image.alt}
+                  width={image.width}
+                  height={image.height}
+                  sizes="2560px"
+                  quality={100}
+                  className={styles.panoImg}
+                />
+              </span>
+            </ScrollHint>
           </div>
           <p className={styles.caption}>{image.alt}</p>
         </div>
