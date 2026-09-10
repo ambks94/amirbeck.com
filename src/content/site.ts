@@ -66,7 +66,7 @@ export const projects: Project[] = [
     name: "Lumanu",
     category: "Payments Platform",
     years: "2023 to Now",
-    body: "Lumanu is a fintech that processes payments for brands paying creators. I redesigned the app from the ground up.",
+    body: "Lumanu is a fintech that processes payments for brands paying creators.",
     outcomes: [
       "Led full app repositioning design, rebuilding app functionality from influencer marketing to payment processing",
       "Integrated design system with code, accelerating feature development",
@@ -99,7 +99,7 @@ export const projects: Project[] = [
       src: "/images/home/skyslope_home_v2.png",
       width: 4320,
       height: 3072,
-      alt: "SkySlope interface showing document and signing tools for real estate agents",
+      alt: "SkySlope DigiSign preparing an envelope, with recipients, a disclosure document, and the signature field toolbar",
       browser: "skyslope.com",
     },
     links: [

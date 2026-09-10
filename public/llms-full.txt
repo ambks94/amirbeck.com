@@ -24,17 +24,23 @@ Years: 2023 to now
 Role: Lead Design Engineer
 Category: Payments Platform
 
-Lumanu is a fintech that processes payments and handles for brands paying creators. The redesign supported a company pivot from influencer marketing to payments, and launched features that created new revenue streams.
+Lumanu is a fintech that processes payments for brands paying creators. The redesign supported a company pivot from influencer marketing to payments, and launched features that created new revenue streams.
+
+Outcomes cited on the site:
+
+- ~90% of the app UI redesign coded personally
+- 1 company pivot to payments, driven by the redesign
+- New revenue streams launched
 
 Work on the case study includes:
 
-- A role-aware buyer dashboard, designed, built, and animated in React
-- An app redesign held to a pixel-perfect bar, with help on the left nav and universal search
-- A reporting feature, designed and shipped so clients can audit their finances, using Figma Code Connect and the Figma MCP
-- Aligning the design system and the codebase (naming, components, Code Connect) so UI matches development and AI IDEs pick the right components
-- A tax engine for global compliance, researched with clients
-- Projects, for real-time spending visibility across agencies, SMBs, enterprise, and DTC
-- Vendor onboarding and compliance, redesigned using Heap funnel analytics and support data
+- A role-aware buyer dashboard, designed, built, and animated in React, that surfaces product value and gives an actionable homepage
+- An app redesign from the ground up, coding ~90% personally, with help on the left nav and complex layout files
+- A reporting feature, built and launched so clients can audit their finances, using Figma Code Connect, the Figma MCP, and Claude Code to go from design to shipped code
+- Aligning the design system and the codebase in component UI, naming, and functionality, then using Code Connect for a 1 to 1 match, so developers pick the right component, mockups match development, and AI IDEs and code assistants work more accurately
+- A tax engine that automates global tax compliance, research driven and shaped with users
+- Projects, for real-time spending visibility and cross team collaboration, researched across agencies, SMBs, enterprise, and DTC
+- Vendor onboarding and compliance, redesigned across multiple rounds using Heap funnel analytics and CS ticket data, balancing international and domestic compliance with user feedback
 
 ## SkySlope
 
@@ -48,10 +54,14 @@ SkySlope builds real estate transaction software. Amir Beck improved UX across D
 Outcomes cited on the site:
 
 - Cut digital signing mistakes by ~50%
-- 15% increase in cross product usage
-- Expanded the product for entire real estate teams, not only individual agents
+- Made paperwork delegation easier for whole teams
+- Drove a 15% increase in cross product usage, opening new customer pipelines
 
-DigiSign testing found a 40 to 50% error rate placing and assigning signatures. The shipped work included a clearer placement flow and a preferences page for selection behavior. Forms was reshaped so transaction coordinators and agents could share paperwork. Breeze launched as a standalone product.
+DigiSign: usability testing found agents struggled to place and assign signature blocks. 4 of 10 testers were frustrated placing and assigning blocks, and 5 of 10 struggled to change a block's properties after placement. DigiSign kept the signature block selected after placement, unlike most e-signing tools, so switching signer reassigned the block already on the page instead of starting a new one. Because long time users were used to the old interaction and the survey split was even, the shipped work was a preferences page for selection behavior plus a clearer flow for changing signers. Launching it cut digital signing mistakes by 50%.
+
+Forms: built to serve individual agents, but agents work with transaction coordinators who handle much of the paperwork. Added team management, filtering the file list by collaborator, and file history for compliance auditing. The result was an all inclusive document management tool that grew market share across large brokerages.
+
+Breeze: California transactions require many complex disclosure forms, and completing them by hand is slow and error prone. Breeze launched as a wizard flow product covering the key disclosures (MHTDS, SPQ, TDS, EQ), with a dashboard for tracking client progress and a mobile first design, including dictation on AVID visual inspection forms for completing them on site. It drove a 15% increase in cross product usage and created a new inbound customer pipeline.
 
 ## Granate
 

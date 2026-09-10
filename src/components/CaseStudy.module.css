@@ -466,25 +466,25 @@
   border-radius: 14px;
 }
 
+/* Before over after, so both shots get the full column instead of half of it. */
 .beforeAfter {
   display: grid;
-  grid-template-columns: 1fr auto 1fr;
-  align-items: center;
+  grid-template-columns: 1fr;
   justify-items: center;
-  gap: clamp(12px, 2vw, 24px);
+  gap: clamp(10px, 1.6vw, 18px);
 }
 .arrow {
-  display: grid;
-  place-items: center;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
   color: var(--faint);
 }
-@media (max-width: 640px) {
-  .beforeAfter {
-    grid-template-columns: 1fr;
-  }
-  .arrow {
-    transform: rotate(90deg);
-  }
+.arrowLabel {
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+  color: var(--whisper);
 }
 
 .links {

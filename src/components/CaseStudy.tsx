@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowLeft, ArrowRight, ArrowUpRight, Check } from "lucide-react";
+import { ArrowDown, ArrowLeft, ArrowUpRight, Check } from "lucide-react";
 import Contact from "./Contact";
 import DirectoryNav from "./DirectoryNav";
 import LoopVideo from "./LoopVideo";
@@ -34,17 +34,24 @@ const isContinued = (b: CaseBlock, i: number) =>
 
 function Media({ section }: { section: CaseSection }) {
   if (section.video)
-    return <Video src={section.video} caption={section.caption} />;
+    return (
+      <Video
+        src={section.video}
+        caption={section.caption}
+        browser={section.browser}
+      />
+    );
   const imgs = section.images ?? [];
   if (!imgs.length) return null;
   if (section.beforeAfter && imgs.length >= 2) {
     return (
       <div className={styles.beforeAfter}>
-        <CaseShot image={imgs[0]} sizes="(max-width: 760px) 100vw, 500px" />
-        <span className={styles.arrow} aria-hidden="true">
-          <ArrowRight size={22} strokeWidth={1.5} />
+        <CaseShot image={imgs[0]} sizes="(max-width: 1120px) 100vw, 1040px" />
+        <span className={styles.arrow}>
+          <ArrowDown size={20} strokeWidth={1.5} aria-hidden="true" />
+          <span className={styles.arrowLabel}>After</span>
         </span>
-        <CaseShot image={imgs[1]} sizes="(max-width: 760px) 100vw, 500px" />
+        <CaseShot image={imgs[1]} sizes="(max-width: 1120px) 100vw, 1040px" />
       </div>
     );
   }

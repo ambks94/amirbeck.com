@@ -23,6 +23,8 @@ export type CaseSection = {
   result?: string;
   video?: string;
   caption?: string;
+  /** URL shown in the browser chrome around a section video. */
+  browser?: string;
   images?: CaseImage[];
   beforeAfter?: boolean;
 };
@@ -130,9 +132,9 @@ export const caseStudies: CaseStudy[] = [
     years: "2023 to Now",
     role: "Lead Design Engineer",
     intro:
-      "Lumanu is a fintech that processes payments for brands paying creators.",
+      "Lumanu is a fintech that processes payments for brands paying creators. I lead product design and assist on front-end development.",
     description:
-      "Amir Beck led the Lumanu payments platform redesign as lead product designer. Lumanu processes payments for brands paying creators.",
+      "Amir Beck is lead design engineer on the Lumanu payments platform, coding ~90% of the app UI redesign. Lumanu processes payments for brands paying creators.",
     metrics: [
       { figure: "~90%", text: "of the app UI redesign coded personally" },
       {
@@ -149,8 +151,10 @@ export const caseStudies: CaseStudy[] = [
         problem:
           "We wanted to highlight Lumanu's value and give users a clear actionable overview page.",
         body: "I designed, built, and animated a role aware homepage that surfaces that value and gives a clear, actionable overview.",
-        result: "A dashboard that surfaces product value and gives an actionable homepage.",
+        result:
+          "A dashboard that surfaces product value and gives an actionable homepage.",
         video: "/images/lumanu/buyer-dashboard.webm",
+        browser: "use.lumanu.com",
         caption:
           "Role-aware Lumanu homepage that surfaces value and an actionable overview.",
       },
@@ -168,12 +172,14 @@ export const caseStudies: CaseStudy[] = [
             src: "/images/lumanu/app-redesign-before.webp",
             width: 2400,
             height: 1805,
+            browser: "use.lumanu.com",
             alt: "The Lumanu app before the redesign",
           },
           {
             src: "/images/lumanu/app-redesign-after.webp",
             width: 2400,
             height: 1707,
+            browser: "use.lumanu.com",
             alt: "The Lumanu app after the redesign",
           },
         ],
@@ -188,6 +194,7 @@ export const caseStudies: CaseStudy[] = [
         result:
           "A new reporting feature which allowed our clients to audit their finances.",
         video: "/images/lumanu/reporting.webm",
+        browser: "use.lumanu.com/org-id/reporting",
         caption:
           "Reporting in Lumanu, built so clients can audit their finances.",
       },
@@ -218,8 +225,7 @@ export const caseStudies: CaseStudy[] = [
         heading: "Tax engine",
         summary: "Payment processing for global tax compliance.",
         tags: ["Research", "0 to 1", "Client interviews"],
-        problem:
-          "Users needed to handle global tax compliance.",
+        problem: "Users needed to handle global tax compliance.",
         body: "I designed a tax engine to automate taxes, research driven and shaped with users.",
         result:
           "A new tax engine that automates taxes, giving the company the feature they need to grow globally.",
@@ -266,7 +272,8 @@ export const caseStudies: CaseStudy[] = [
         heading: "Vendor onboarding and compliance",
         summary: "A straightforward sign up, and vendors ready to pay.",
         tags: ["Heap analytics", "Compliance UX"],
-        problem: "Vendor compliance requirements were getting more demanding and complex with international compliance requirements.",
+        problem:
+          "Vendor compliance requirements were getting more demanding and complex with international compliance requirements.",
         body: "I drove multiple redesigns of onboarding using Heap funnel analytics and CS ticket data, balancing compliance with user feedback.",
         result:
           "A easy to use onboarding experience for vendors that's fully compliant with international and domestic compliance requirements.",
@@ -305,7 +312,7 @@ export const caseStudies: CaseStudy[] = [
     intro:
       "SkySlope builds real estate transaction software. I improved the UX across DigiSign, Forms, and Breeze, and led Breeze from concept through launch.",
     description:
-      "Amir Beck improved UX across SkySlope DigiSign, Forms, and Breeze, led Breeze from concept through launch, and cut digital signing mistakes by ~50%.",
+      "Amir Beck improved UX across SkySlope DigiSign, Forms, and Breeze, led Breeze from concept through launch, cut digital signing mistakes by 50%, and drove a 15% increase in cross product usage.",
     metrics: [],
     layout: "acts",
 
@@ -403,7 +410,7 @@ export const caseStudies: CaseStudy[] = [
                 width: 2400,
                 height: 1707,
                 browser: "forms.skyslope.com/files/new",
-                alt: "Requesting access with multiple emails",
+                alt: "Choosing which team member a new file is created for in Forms",
               },
             ],
             captions: [
@@ -420,7 +427,7 @@ export const caseStudies: CaseStudy[] = [
                 width: 2400,
                 height: 1707,
                 browser: "forms.skyslope.com/files",
-                alt: "Filtering files by owner in Forms",
+                alt: "Filtering the Forms file list by collaborator",
               },
             ],
             captions: ["Filter by one or more file owners."],
@@ -434,7 +441,7 @@ export const caseStudies: CaseStudy[] = [
                 width: 2400,
                 height: 1833,
                 browser: "forms.skyslope.com/envelope-name/history",
-                alt: "File history tracking edits in Forms",
+                alt: "Envelope history, with a summary of recipients and an activity log of sends, views, and signatures",
               },
             ],
             captions: ["Track which editor made each change."],
@@ -500,7 +507,7 @@ export const caseStudies: CaseStudy[] = [
                 bar: "/images/skyslope/breeze-bar-1.webp",
                 barWidth: 1500,
                 barHeight: 224,
-                alt: "Breeze on mobile, the visual inspection form",
+                alt: "Breeze on mobile, the dashboard with Start New Disclosures and a list of clients and properties",
               },
               {
                 screen: "/images/skyslope/breeze-phone-2.webp",
@@ -514,7 +521,7 @@ export const caseStudies: CaseStudy[] = [
                 foot: "/images/skyslope/breeze-foot-2.webp",
                 footWidth: 1131,
                 footHeight: 222,
-                alt: "Breeze on mobile, completing a room by room entry",
+                alt: "Breeze on mobile, an AVID inspection question with a notes field and a dictate option",
               },
               {
                 screen: "/images/skyslope/breeze-phone-3.webp",
@@ -527,7 +534,7 @@ export const caseStudies: CaseStudy[] = [
                 foot: "/images/skyslope/breeze-foot-3.webp",
                 footWidth: 1131,
                 footHeight: 222,
-                alt: "Breeze on mobile, reviewing the completed form",
+                alt: "Breeze on mobile, the summary screen for reviewing recipients, property, and observations before finishing",
               },
             ],
           },
