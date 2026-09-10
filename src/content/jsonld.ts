@@ -88,10 +88,10 @@ function ogFor(study: CaseStudy) {
   const project = projects.find((p) => p.slug === study.slug);
   return {
     "@type": "ImageObject",
-    url: abs(project?.image.src ?? "/images/og.png"),
-    width: project?.image.width ?? 1200,
-    height: project?.image.height ?? 630,
-    caption: project?.image.alt ?? `${study.name}, ${site.name}`,
+    url: abs(project?.image?.src ?? "/images/og.png"),
+    width: project?.image?.width ?? 1200,
+    height: project?.image?.height ?? 630,
+    caption: project?.image?.alt ?? `${study.name}, ${site.name}`,
   };
 }
 

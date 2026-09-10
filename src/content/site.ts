@@ -43,6 +43,8 @@ export const stats: Stat[] = [
   { figure: "1 quarter", text: "developed and launched", source: "EasyPeady" },
 ];
 
+import type { CasePhone } from "./caseStudies";
+
 export type Project = {
   slug: string;
   name: string;
@@ -50,13 +52,15 @@ export type Project = {
   years: string;
   body: string;
   outcomes: string[];
-  image: {
+  /** A card shows either one shot in the 4:3 slot, or a row of phone mocks. */
+  image?: {
     src: string;
     width: number;
     height: number;
     alt: string;
     browser?: string;
   };
+  phones?: CasePhone[];
   links: { label: string; href: string; external?: boolean }[];
 };
 
@@ -122,12 +126,29 @@ export const projects: Project[] = [
       "~30% lift in weekly engagement",
       "Set up the development team for quick feature delivery",
     ],
-    image: {
-      src: "/images/home/granate.png",
-      width: 2940,
-      height: 1916,
-      alt: "Granate app screens after the rebrand, alongside the component library",
-    },
+    phones: [
+      {
+        screen: "/images/granate/granate-phone-1.webp",
+        width: 1026,
+        height: 2275,
+        noScroll: true,
+        alt: "Granate on mobile, a task detail for creating a will with priority, guidance, and lawyer resources",
+      },
+      {
+        screen: "/images/granate/granate-phone-2.webp",
+        width: 1026,
+        height: 2275,
+        noScroll: true,
+        alt: "Granate on mobile, the community resources feed",
+      },
+      {
+        screen: "/images/granate/granate-phone-3.webp",
+        width: 1026,
+        height: 2275,
+        noScroll: true,
+        alt: "Granate on mobile, tasks grouped by priority with due dates and subtasks",
+      },
+    ],
     links: [{ label: "View Case Study", href: "/granate" }],
   },
   {

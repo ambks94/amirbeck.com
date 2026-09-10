@@ -96,6 +96,24 @@ function Lanes({ caption }: { caption?: string }) {
   );
 }
 
+/** A blank line in `body` starts a new paragraph, so long copy can breathe
+ *  without turning the field into an array. */
+function Body({ text, className }: { text: string; className: string }) {
+  const paras = text
+    .split(/\n{2,}/)
+    .map((t) => t.trim())
+    .filter(Boolean);
+  return (
+    <>
+      {paras.map((t) => (
+        <p key={t.slice(0, 24)} className={className}>
+          {t}
+        </p>
+      ))}
+    </>
+  );
+}
+
 function beatStamp(block: CaseBlock) {
   if (block.stamp) return block.stamp;
   if (block.heading && !block.finale) return block.heading;
@@ -133,14 +151,14 @@ function Beat({ block }: { block: CaseBlock }) {
               <span className={styles.metaLabel}>Problem</span>
               {block.problem}
             </p>
-            {block.body && <p className={styles.text}>{block.body}</p>}
+            {block.body && <Body text={block.body} className={styles.text} />}
             <p className={`${styles.meta} ${styles.result}`}>
               <span className={styles.metaLabel}>Solution</span>
               {block.result}
             </p>
           </div>
         ) : (
-          block.body && <p className={styles.text}>{block.body}</p>
+          block.body && <Body text={block.body} className={styles.text} />
         )}
 
         {block.chips && (

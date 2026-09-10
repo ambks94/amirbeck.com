@@ -95,6 +95,12 @@
   scrollbar-width: thin;
 }
 
+/* A plain phone mock: the screenshot is the whole device, so the frame takes
+   its ratio and nothing is cropped. */
+.bare {
+  aspect-ratio: auto;
+}
+
 /* A screen sized to the frame: no scrolling, no scrollbar gutter. */
 .locked {
   overflow: hidden;
@@ -151,6 +157,20 @@
     animation: none;
     transition: none;
   }
+}
+
+/* Plain mocks: one row at every width, sharing whatever space there is. */
+.rowTight {
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  gap: clamp(6px, 1.4vw, 20px);
+}
+.rowTight .phone {
+  flex: 1 1 0;
+  min-width: 0;
+  width: auto;
+  border-radius: clamp(8px, 1.4vw, 18px);
 }
 
 /* Desktop: the three sit side by side and share the column. */

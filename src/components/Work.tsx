@@ -5,6 +5,7 @@ import { ArrowUpRight, ArrowRight } from "lucide-react";
 import { useEffect, useRef } from "react";
 import styles from "./Work.module.css";
 import Shot from "./Shot";
+import PhoneScroll from "./PhoneScroll";
 import DotRow from "./DotRow";
 import { projects } from "@/content/site";
 
@@ -86,7 +87,11 @@ export default function Work() {
                 <p className={`label ${styles.years}`}>{p.years}</p>
               </div>
 
-              <Shot image={p.image} priority={i === 0} />
+              {p.phones ? (
+                <PhoneScroll phones={p.phones} />
+              ) : p.image ? (
+                <Shot image={p.image} priority={i === 0} />
+              ) : null}
 
               <div className={styles.body}>
                 <div>

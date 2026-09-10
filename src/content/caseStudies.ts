@@ -39,9 +39,11 @@ export type CasePhone = {
   screen: string;
   width: number;
   height: number;
-  bar: string;
-  barWidth: number;
-  barHeight: number;
+  /** App top bar pinned above the scroller. Omit for a plain phone mock whose
+   *  screenshot already carries its own status bar. */
+  bar?: string;
+  barWidth?: number;
+  barHeight?: number;
   /** Label in the browser chrome above the device. */
   browser?: string;
   /** Screen fits the frame — lock it so no scroller is offered at all. */
@@ -566,50 +568,50 @@ export const caseStudies: CaseStudy[] = [
     years: "2022 to 2023",
     role: "Lead Product Designer",
     intro:
-      "I led product design for an app that supports people through loss and end of life planning. My work spanned UX, brand, and product strategy for an early stage startup.",
+      "I led product design for Granate, an app for an early stage startup, that supports people through loss and end of life planning. My work spanned UX, UI, branding, and product strategy.",
     description:
-      "Amir Beck led product design for Granate, a grief support app. Onboarding drop off fell ~25% and weekly engagement rose ~30%.",
+      "Amir Beck led product design for Granate, an app for an early stage startup, that supports people through loss and end of life planning. Onboarding drop off fell ~25% and weekly engagement rose ~30%.",
     metrics: [],
     layout: "acts",
     impact: [
       "~25% drop in onboarding drop off",
-      "~30% lift in weekly engagement",
+      "~30% increase in weekly engagement",
       "Set the development team up for quick feature delivery",
     ],
     workIncluded: "UX, UI, Product Strategy, Brand, Marketing, Research",
     goals: [
       "How might we connect users through community?",
       "How might we simplify the experience?",
-      "How might we deliver an intelligent, adaptive app?",
+      "How might we deliver a smart and adaptive user experience?",
       "How might we define a strong brand identity?",
     ],
     chapters: [
       {
         id: "design-system",
         title: "Design system",
-        summary: "Elevating the app experience and brand.",
+        summary: "Improving the app experience and brand identity.",
         blocks: [
           {
-            problem:
-              "Granate's first brand was a rushed launch solution, and as the company matured it held the product back.",
-            body: "So I did not just redesign the app visually, I also shipped key usability improvements alongside the rebrand.",
+            problem: "Granate's first initial brand was due for a refresh.",
+            body: "I redesigned the app visually, and shipped key usability improvements alongside the rebrand.",
             result:
-              "A component system and usability fixes that lifted onboarding and weekly engagement.",
+              "A component system and usability fixes that improved the app experience and brand identity.",
           },
           {
             heading: "Navigation",
-            body: "User interviews kept flagging navigation as a pain point. After a full audit, I redesigned it by reducing variations, cutting redundant sub navigation, and using common UI patterns for a more intuitive experience.",
+            body: "User interviews kept flagging navigation as a pain point. After a full audit, I improved the navigation by reducing variations, cutting redundant sub nav, and using clearer UI patterns for a more intuitive experience.",
             images: [
               {
                 src: "/images/granate/nav_diagram.webp",
                 width: 2800,
                 height: 1758,
+                matte: "white",
                 alt: "A sitemap audit of every Granate page and its navigation, with callouts on wasted back-button space, an underused top nav, and redundant subpage copy",
                 frame: "wide",
               },
             ],
             captions: [
-              "Through this audit of the app's pages and navigation, I identified common themes to establish standardized navigation bars.",
+              "Through an audit of the app's pages and navigation, I identified common themes to create a standardized navigation bar.",
             ],
           },
           {
@@ -627,6 +629,7 @@ export const caseStudies: CaseStudy[] = [
                 src: "/images/granate/nav-bar-new.webp",
                 width: 1232,
                 height: 276,
+                frame: "phone",
                 alt: "The new navigation: a single focused bar reading Tasks – Funeral & Ceremonies",
               },
             ],
@@ -634,7 +637,7 @@ export const caseStudies: CaseStudy[] = [
           },
           {
             heading: "Onboarding",
-            body: "After the first usability and brand updates, onboarding stood out. There was a big drop off between opening the app and reaching the homepage, largely because onboarding could not be skipped. As part of the new system, I pitched and shipped a skip option at the end of account creation.",
+            body: "There was a big drop off between opening the app and reaching the homepage, largely because onboarding was long and dense.\n\nAs part of the new design, I pitched and shipped a skip option at the end of account creation to allow users to get in and try the app out before finalizing setup.",
             beforeAfter: true,
             images: [
               {
@@ -655,7 +658,7 @@ export const caseStudies: CaseStudy[] = [
             captions: ["Old", "New"],
           },
           {
-            body: "That let new users bypass onboarding, which lifted conversion and grew the user base, a key factor for investor interest.",
+            body: "I also introduced a progress bar to help users track their progress through onboarding.",
             beforeAfter: true,
             images: [
               {
@@ -677,7 +680,7 @@ export const caseStudies: CaseStudy[] = [
           },
           {
             heading: "Building for the future",
-            body: "I rebuilt every component under the new brand and tuned it for usability. A core goal was a system that supports a larger design team, so I made dedicated Figma pages per component type for easy discovery.",
+            body: "I rebuilt every component under the new brand identity with an emphasis on usability, scalability, and team accessibility. Using dedicated Figma pages per component type for easy internal discovery and access.",
             images: [
               {
                 src: "/images/granate/AOiugZLCINxahom2ueqPNyt0Fg.webp",
@@ -709,7 +712,7 @@ export const caseStudies: CaseStudy[] = [
           },
           {
             heading: "Delivery",
-            body: "With a small dev team, brand and design updates often took a back seat. Rolling out a full system, my priority was a graceful, segmented release. I broke it into four ticketed phases, from colors and cards through navigation and enhanced UI, and mocked up key screens to show the app after each one. With the PM, we pulled Skip Onboarding out of the larger scope to ship it sooner.",
+            body: "With a small dev team, design work often got deprioritized. I split the redesign into four phases so we could ship it piece by piece, capture value in each release, without the app feeling inconsistent along the way.",
             images: [
               {
                 src: "/images/granate/poNXAlFHw1xKzBdJsby8k1hdNL0.webp",
@@ -723,7 +726,7 @@ export const caseStudies: CaseStudy[] = [
           },
           {
             callout:
-              "I elevated the Granate brand and shipped real user improvements, all within a small team.",
+              "I redesiged the Granate UI, updated the brand, and shipped real user improvements, all within a small team.",
           },
         ],
       },
@@ -734,10 +737,10 @@ export const caseStudies: CaseStudy[] = [
         blocks: [
           {
             problem:
-              "People navigating loss feel isolated and need a space to share stories and connect through liking and commenting.",
-            body: "Granate's core mission is to ease that burden, so the community feature serves it directly.",
+              "People navigating loss feel isolated and need a space to share stories and connect.",
+            body: "Granate's core mission is to ease the burden of loss, so the community feature serves it directly.",
             result:
-              "Story sharing and engagement, plus in app content submission for curated email.",
+              "Story sharing and engagement, plus in app content submission for curated email newsletters.",
           },
           {
             heading: "Feature list",
@@ -769,7 +772,7 @@ export const caseStudies: CaseStudy[] = [
           },
           {
             heading: "User flow",
-            body: "I mocked up MVP user flows, and after team discussion we settled the direction. One key debate was social sharing of posts and visibility to non users. We prioritized security and blocked it entirely.",
+            body: "I wireframed, and diagrammed the MVP user flows, and after team discussion we settled the direction. One key debate was social sharing of posts and visibility to non users. We prioritized security and kept the app private to users.",
             images: [
               {
                 src: "/images/granate/kRrpEPSeNcpNMdwbf4xQxydI.webp",
@@ -779,11 +782,11 @@ export const caseStudies: CaseStudy[] = [
                 frame: "wide",
               },
             ],
-            captions: ["The community MVP flow."],
+            captions: ["The community MVP user flows."],
           },
           {
             heading: "Wireframes",
-            body: "Early collaboration made the move from flows to wireframes smooth and cleared up unknowns before UI. I sketched each flow and key interaction to align with the dev team and prevent scope creep.",
+            body: "Early collaboration made the move from user flows to wireframes smooth and cleared up any unknowns before designing the UI. I sketched each flow and interaction and communicated with the dev team to stay within the technically fesible.",
             images: [
               {
                 src: "/images/granate/dkePlkRcEQpuwWv99Tgaly3nOs.webp",
@@ -797,7 +800,6 @@ export const caseStudies: CaseStudy[] = [
           },
           {
             heading: "Prototype",
-            body: "This shipped before the new design system, so it was constrained by the existing UI. I added a few new patterns, carefully, to stay close to the interface. Try the notifications flow below.",
             browser: "granate · notifications",
             embed:
               "https://embed.figma.com/proto/POYj5G4xOvSiaoJ73UXVla/Notifications?page-id=0%3A1&node-id=1-2544&viewport=1543%2C447%2C0.24&scaling=scale-down&starting-point-node-id=1%3A2544&embed-host=share",
@@ -805,7 +807,7 @@ export const caseStudies: CaseStudy[] = [
           {
             calloutLabel: "Impact",
             callout:
-              "The feature drove a ~30% lift in weekly engagement across daily active users, retention, and content.",
+              "The feature drove a ~30% increase in weekly engagement across daily active users and increased retention.",
           },
         ],
       },
@@ -816,14 +818,14 @@ export const caseStudies: CaseStudy[] = [
         blocks: [
           {
             problem:
-              "Users were overwhelmed and could not tell which tasks mattered most at each stage of the post loss journey.",
-            body: "Our content was accurate, but the way we surfaced it needed work, and we were not using collected data to personalize it.",
+              "Users were overwhelmed and could not tell which tasks mattered most at each stage of the loss journey.",
+            body: "Our content was accurate, but the way we surfaced it needed work.",
             result:
-              "A model that ranks tasks by role, priority, and due date, surfacing the critical ones right when they are needed.",
+              "A model that ranks tasks by role, priority, and due date, surfacing the most critical ones when they are needed.",
           },
           {
             heading: "Audit",
-            body: "I started by auditing every task and question, mapping how questions trigger subtasks and what else in the app influences them.",
+            body: "I started by auditing every task and question, mapping how questions trigger subtasks and what else in the app might influence them.",
             images: [
               {
                 src: "/images/granate/BhvkxmM7MTXKwbdVYk4e1r1th48.webp",
@@ -838,7 +840,7 @@ export const caseStudies: CaseStudy[] = [
           },
           {
             heading: "Priority and due dates",
-            body: "Next I analyzed task prioritization and due dates.",
+            body: "Next I analyzed task prioritization and due date sequencing.",
             images: [
               {
                 src: "/images/granate/tq44NJLR5ZaLRZdWcXmEjKY60M.webp",
@@ -849,11 +851,10 @@ export const caseStudies: CaseStudy[] = [
                 matte: "white",
               },
             ],
-            captions: ["Categorizing by priority and timeline."],
           },
           {
             heading: "Responsibility scale",
-            body: "From there I built a sliding scale of responsibility. A grieving spouse and an executor managing an estate have different needs, so we ask qualifying questions to set the role, then recommend relevant tasks and hide the rest.",
+            body: "From there I built a sliding scale of responsibility. A grieving spouse and an executor managing an estate have different needs, so we ask qualifying questions to set the role, then recommend relevant tasks and deprioritize the rest.",
             images: [
               {
                 src: "/images/granate/CpIy2hNkH82HCIAUAdfIvigcw.webp",
@@ -872,26 +873,33 @@ export const caseStudies: CaseStudy[] = [
                 matte: "white",
               },
             ],
-            captions: [
-              "Tailoring tasks to the user's role.",
-              "Further prioritized grouping.",
-            ],
-          },
-          {
-            callout:
-              "Not yet shipped, this defined the app's future: a personalized experience with guided flows and prioritized tasks.",
+            captions: ["Tailoring tasks to the user's role."],
           },
           {
             finale: true,
-            enlarge: true,
             heading: "The redesigned app",
             body: "Clearer navigation, curated tasks, and a community, all on the new design system.",
-            images: [
+            phones: [
               {
-                src: "/images/home/granate.png",
-                width: 2940,
-                height: 1916,
-                alt: "Granate app screens after the rebrand, alongside the component library",
+                screen: "/images/granate/granate-phone-1.webp",
+                width: 1026,
+                height: 2275,
+                noScroll: true,
+                alt: "Granate on mobile, a task detail for creating a will with priority, guidance, and lawyer resources",
+              },
+              {
+                screen: "/images/granate/granate-phone-2.webp",
+                width: 1026,
+                height: 2275,
+                noScroll: true,
+                alt: "Granate on mobile, the community resources feed",
+              },
+              {
+                screen: "/images/granate/granate-phone-3.webp",
+                width: 1026,
+                height: 2275,
+                noScroll: true,
+                alt: "Granate on mobile, tasks grouped by priority with due dates and subtasks",
               },
             ],
           },

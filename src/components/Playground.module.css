@@ -249,8 +249,10 @@
     max-width: 28ch;
   }
   .frame {
-    margin-top: 20px;
-    padding: 28px 12px 14px;
+    /* The CTA floats on this edge, half above and half inside, so the margin
+       clears it from the lede and the padding clears it from the box. */
+    margin-top: 38px;
+    padding: 46px 12px 14px;
   }
   .box {
     gap: 6px;

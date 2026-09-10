@@ -1,4 +1,4 @@
-import { ArrowRight } from "lucide-react";
+import { ArrowDown } from "lucide-react";
 import LoopVideo from "./LoopVideo";
 import CaseShot from "./CaseShot";
 import Shot from "./Shot";
@@ -63,7 +63,7 @@ export default function BlockMedia({ block }: { block: CaseBlock }) {
           sizes="(max-width: 760px) 100vw, 500px"
         />
         <span className={styles.arrow} aria-hidden="true">
-          <ArrowRight size={22} strokeWidth={1.5} />
+          <ArrowDown size={22} strokeWidth={1.5} />
         </span>
         <CaseShot
           image={imgs[1]}

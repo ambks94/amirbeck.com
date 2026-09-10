@@ -15,10 +15,10 @@ export const dynamicParams = false;
 function ogImage(slug: string, name: string) {
   const project = projects.find((p) => p.slug === slug);
   return {
-    url: project?.image.src ?? "/images/og.png",
-    width: project?.image.width ?? 1200,
-    height: project?.image.height ?? 630,
-    alt: project?.image.alt ?? `${name}, ${site.name}`,
+    url: project?.image?.src ?? "/images/og.png",
+    width: project?.image?.width ?? 1200,
+    height: project?.image?.height ?? 630,
+    alt: project?.image?.alt ?? `${name}, ${site.name}`,
   };
 }
 
