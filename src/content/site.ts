@@ -50,7 +50,7 @@ export type Project = {
   name: string;
   category: string;
   years: string;
-  body: string;
+  body?: string;
   outcomes: string[];
   /** A card shows either one shot in the 4:3 slot, or a row of phone mocks. */
   image?: {
@@ -70,7 +70,6 @@ export const projects: Project[] = [
     name: "Lumanu",
     category: "Payments Platform",
     years: "2023 to Now",
-    body: "Lumanu is a fintech that processes payments for brands paying creators.",
     outcomes: [
       "Led full app repositioning design, rebuilding app functionality from influencer marketing to payment processing",
       "Integrated design system with code, accelerating feature development",
@@ -93,7 +92,6 @@ export const projects: Project[] = [
     name: "SkySlope",
     category: "Real Estate Platform",
     years: "2020 to 2022",
-    body: "SkySlope builds real estate transaction software. I improved the UX across DigiSign, Forms, and Breeze, and led Breeze's design from concept through launch.",
     outcomes: [
       "Cut digital signing mistakes by ~50%",
       "Expanded product for entire real estate teams",
@@ -120,10 +118,9 @@ export const projects: Project[] = [
     name: "Granate",
     category: "Grief Support App",
     years: "2022 to 2023",
-    body: "I led product design for an app built to support individuals through loss and end of life planning. My focus was simplifying onboarding, driving engagement, and building a scalable design foundation.",
     outcomes: [
       "~25% drop in onboarding drop off",
-      "~30% lift in weekly engagement",
+      "~30% increase in weekly engagement",
       "Set up the development team for quick feature delivery",
     ],
     phones: [
@@ -132,6 +129,15 @@ export const projects: Project[] = [
         width: 1026,
         height: 2275,
         noScroll: true,
+        body: "/images/granate/phone-body.webp",
+        bodyWidth: 1200,
+        bodyHeight: 2555,
+        screenTop: 47,
+        notch: "/images/granate/phone-notch.webp",
+        notchX: 356,
+        notchY: 70,
+        notchWidth: 467,
+        notchHeight: 92,
         alt: "Granate on mobile, a task detail for creating a will with priority, guidance, and lawyer resources",
       },
       {
@@ -139,6 +145,15 @@ export const projects: Project[] = [
         width: 1026,
         height: 2275,
         noScroll: true,
+        body: "/images/granate/phone-body.webp",
+        bodyWidth: 1200,
+        bodyHeight: 2555,
+        screenTop: 47,
+        notch: "/images/granate/phone-notch.webp",
+        notchX: 356,
+        notchY: 70,
+        notchWidth: 467,
+        notchHeight: 92,
         alt: "Granate on mobile, the community resources feed",
       },
       {
@@ -146,6 +161,15 @@ export const projects: Project[] = [
         width: 1026,
         height: 2275,
         noScroll: true,
+        body: "/images/granate/phone-body.webp",
+        bodyWidth: 1200,
+        bodyHeight: 2555,
+        screenTop: 47,
+        notch: "/images/granate/phone-notch.webp",
+        notchX: 356,
+        notchY: 70,
+        notchWidth: 467,
+        notchHeight: 92,
         alt: "Granate on mobile, tasks grouped by priority with due dates and subtasks",
       },
     ],
@@ -156,10 +180,9 @@ export const projects: Project[] = [
     name: "EasyPeady",
     category: "Real Estate Form Streamlining",
     years: "2021",
-    body: "I streamlined the PEAD form so real estate agents could stay focused on clients during the pandemic. Built and launched as a standalone web app in one quarter.",
     outcomes: [
       "Developed and launched in a quarter",
-      "15% uplift in cross product engagement",
+      "15% increase in cross product engagement",
       "Generated a pipeline of new paying users",
     ],
     image: {
@@ -180,21 +203,20 @@ export const projects: Project[] = [
   },
 ];
 
-export const practices = [
+export type Practice = { label: string; title: string; body?: string };
+
+export const practices: Practice[] = [
   {
     label: "Craft",
     title: "Taste is knowing what to cut",
-    body: "I cut to the key problem and the business goal behind it, then design only what serves both.",
   },
   {
     label: "Systems",
     title: "The system and the code agree",
-    body: "I align the design system and codebase so handoff is clean and the work is ready for AI tools.",
   },
   {
     label: "Design & code",
     title: "I build what I design",
-    body: "I design a scalable system and ship it in React, Next.js, and TypeScript. I build features and use AI to prototype and optimize.",
   },
 ];
 

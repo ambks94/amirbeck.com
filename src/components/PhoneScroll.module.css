@@ -106,6 +106,41 @@
   overflow: hidden;
 }
 
+/* Device chassis: the body PNG is the whole frame, the screen hangs in its
+   window, and the notch paints on top so it covers the status bar's gap.
+   Every offset is a CSS var set from the asset's own measurements. */
+.chassis {
+  position: relative;
+  display: block;
+  background: none;
+}
+.bodyImg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.chassis .scrollWrap {
+  position: absolute;
+  left: var(--sx);
+  top: var(--sy);
+  width: var(--sw);
+  height: var(--sh);
+  display: block;
+  overflow: hidden;
+  /* Two radii: one % of width, one % of height, so a tall screen still gets a
+     round corner instead of a stretched ellipse. */
+  border-radius: 5.4% / 2.4%;
+}
+.notch {
+  position: absolute;
+  left: var(--nx);
+  top: var(--ny);
+  width: var(--nw);
+  height: var(--nh);
+  z-index: 3;
+  display: block;
+}
+
 .screen {
   display: block;
   width: 100%;
@@ -172,6 +207,14 @@
   width: auto;
   border-radius: clamp(8px, 1.4vw, 18px);
 }
+/* A baked device render already carries its outline, corners and shadow. */
+.phone:has(.bare) {
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  background: none;
+  overflow: visible;
+}
 
 /* Desktop: the three sit side by side and share the column. */
 @media (min-width: 1000px) {
@@ -192,4 +235,13 @@
   .phone {
     width: 100%;
   }
+}
+
+/* The body PNG already carries the outline, corners and shadow. */
+.phone:has(.chassis) {
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  background: none;
+  overflow: visible;
 }

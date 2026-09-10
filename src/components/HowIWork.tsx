@@ -30,7 +30,7 @@ export default function HowIWork() {
             <div key={p.label} className={styles.item}>
               <p className="label">{p.label}</p>
               <h3 className={styles.title}>{p.title}</h3>
-              <p className={styles.body}>{p.body}</p>
+              {p.body && <p className={styles.body}>{p.body}</p>}
             </div>
           ))}
         </div>

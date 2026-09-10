@@ -389,7 +389,7 @@ export default function CaseStudyView({ study }: { study: CaseStudy }) {
                           {s.problem}
                         </p>
                       )}
-                      <p className={styles.body}>{s.body}</p>
+                      {s.body && <p className={styles.body}>{s.body}</p>}
                       {s.result && (
                         <p className={`${styles.meta} ${styles.result}`}>
                           <span className={styles.metaLabel}>Result</span>

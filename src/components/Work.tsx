@@ -95,7 +95,7 @@ export default function Work() {
 
               <div className={styles.body}>
                 <div>
-                  <p className={styles.copy}>{p.body}</p>
+                  {p.body && <p className={styles.copy}>{p.body}</p>}
                   <div className={styles.links}>
                     {p.links.map((l) => (
                       <a
