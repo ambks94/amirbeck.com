@@ -65,6 +65,3 @@ AGENTS.md
 __pycache__/
 *.pyc
 /.venv/
-
-# local-only case study explorations (route exists on the dev machine, never deploys)
-/src/app/prototypes/
