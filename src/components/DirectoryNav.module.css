@@ -44,6 +44,10 @@
   line-height: 1.5;
 }
 .arrow {
+  /* Always the last column: entries without a summary only place two children,
+     which would otherwise leave the arrow sitting in the summary track. */
+  grid-column: -2 / -1;
+  justify-self: end;
   color: var(--faint);
 }
 .item:hover .arrow,

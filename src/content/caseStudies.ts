@@ -165,6 +165,7 @@ export const caseStudies: CaseStudy[] = [
         tags: ["Figma", "Motion", "React"],
         problem:
           "We wanted to highlight Lumanu's value and give users a clear actionable overview page.",
+        body: "I designed, built, and animated a role aware homepage that surfaces that value and gives a clear, actionable overview.",
         result:
           "A dashboard that surfaces product value and gives an actionable homepage.",
         video: "/images/lumanu/buyer-dashboard.webm",
@@ -178,6 +179,7 @@ export const caseStudies: CaseStudy[] = [
         tags: ["Figma", "React", "Next.js"],
         problem:
           "The app was information dense, hard to navigate, and had a dated UI.",
+        body: "I redesigned it from the ground up, coding ~90% myself, with help on the left nav and complex layout files.",
         result: "A faster, clearer, and more modern app.",
         beforeAfter: true,
         images: [
@@ -203,6 +205,7 @@ export const caseStudies: CaseStudy[] = [
         tags: ["Code Connect", "Figma MCP"],
         problem:
           "User feedback and CS tickets pointed to a missing reporting feature.",
+        body: "Built and launched reporting myself. Figma Code Connect, the Figma MCP, and claude code took me from design to shipped code.",
         result:
           "A new reporting feature which allowed our clients to audit their finances.",
         video: "/images/lumanu/reporting.webm",
@@ -215,6 +218,7 @@ export const caseStudies: CaseStudy[] = [
         summary: "A 1 to 1 match between the system and the code.",
         tags: ["Design systems", "Code Connect", "AI tooling"],
         problem: "The design system and the codebase had drifted apart.",
+        body: "I aligned them in component UI, naming, and functionality, then used Figma Code Connect for a 1 to 1 match between the system and the codebase.",
         result:
           "Developers pick the right component easily, mockups match development 1 to 1, build time is faster with no manual mapping, and AI IDEs & code assistants work more accurately.",
         images: [
@@ -237,6 +241,7 @@ export const caseStudies: CaseStudy[] = [
         summary: "Payment processing for global tax compliance.",
         tags: ["Research", "0 to 1", "Client interviews"],
         problem: "Users needed to handle global tax compliance.",
+        body: "I designed a tax engine to automate taxes, research driven and shaped with users.",
         result:
           "A new tax engine that automates taxes, giving the company the feature they need to grow globally.",
         images: [
@@ -260,6 +265,7 @@ export const caseStudies: CaseStudy[] = [
         tags: ["Research", "Finance UX"],
         problem:
           "Finance teams lacked visibility and control over marketing spend and marketing teams lacked a way to work in campaign silos.",
+        body: "I designed the Projects feature for real time visibility, control, and cross team collaboration. I ran multiple rounds of research interviews across agencies, SMBs, enterprise, and DTC.",
         result:
           "Finance teams get visability and control, and creative and marketing teams the tools to work efficiently.",
         images: [
@@ -283,6 +289,7 @@ export const caseStudies: CaseStudy[] = [
         tags: ["Heap analytics", "Compliance UX"],
         problem:
           "Vendor compliance requirements were getting more demanding and complex with international compliance requirements.",
+        body: "I drove multiple redesigns of onboarding using Heap funnel analytics and CS ticket data, balancing compliance with user feedback.",
         result:
           "A easy to use onboarding experience for vendors that's fully compliant with international and domestic compliance requirements.",
         images: [
@@ -351,6 +358,7 @@ export const caseStudies: CaseStudy[] = [
           {
             stamp: "Research",
             heading: "Usability Test & Research",
+            body: "To understand why users were struggling, I conducted targeted usability tests. We found that agents struggled to place and assign signatures correctly.",
             table: [
               {
                 figure: "4 of 10",
@@ -364,12 +372,14 @@ export const caseStudies: CaseStudy[] = [
           },
           {
             heading: "Interaction",
+            body: "Our DigiSign tool had an interaction pattern deviance from most other e-signing tools where the signature block stayed selected after placement.",
             video: "/images/skyslope/digisign-selection.webm",
             browser: "digisign.skyslope.com",
             caption:
               "The block stays selected after placement, holding the editing panel open.",
           },
           {
+            body: "When users are placing blocks a common pattern is to put one signature field for one recipient, then another for another recipient. With our existing UX it resulted in users accidentally changing who a block was assigned to instead.",
             video: "/images/skyslope/digisign-reassign.webm",
             browser: "digisign.skyslope.com",
             caption:
@@ -377,6 +387,7 @@ export const caseStudies: CaseStudy[] = [
           },
           {
             heading: "Ideation",
+            body: "Solving this was not simple, since many long time users were used to the old interaction. The survey split was even, so I built two things, a preferences page to choose the selection behavior, and a clearer flow for changing signers that cut effort and confusion.",
             video: "/images/skyslope/digisign-signer-flow.webm",
             browser: "digisign.skyslope.com",
             caption: "The new interaction for placing blocks.",
@@ -400,6 +411,7 @@ export const caseStudies: CaseStudy[] = [
           },
           {
             heading: "Team management",
+            body: "Team management was key to supporting both agents and transaction coordinators (TCs). This allowed us to increase the stickiness of Forms by allowing entire teams to use it together.",
             images: [
               {
                 src: "/images/skyslope/forms-team.webp",
@@ -423,6 +435,7 @@ export const caseStudies: CaseStudy[] = [
           },
           {
             heading: "File management",
+            body: "Transaction coordinators (TCs) often manage files for many agents. I added a filter by agent, so delegating paperwork is easier and much faster.",
             images: [
               {
                 src: "/images/skyslope/forms-filter.webp",
@@ -436,6 +449,7 @@ export const caseStudies: CaseStudy[] = [
           },
           {
             heading: "File history",
+            body: "Agents needed to know who changed what for compliance. I added created file history, so every update is auditable.",
             images: [
               {
                 src: "/images/skyslope/forms-history.webp",
@@ -462,11 +476,13 @@ export const caseStudies: CaseStudy[] = [
           {
             problem:
               "California Real Estate transactions require many complex disclosure forms, and completing them by hand is slow and error prone.",
+            body: "Breeze launched as a new web app, building on earlier work to guide agents through those forms.",
             result:
               "A wizard flow based product that guides users through completing forms, tracks client progress, and features a mobile first design for on-site completion.",
           },
           {
             heading: "Disclosures",
+            body: "Data showed 90% of California transactions involve several key disclosure forms, MHTDS, SPQ, TDS, and EQ. When designing Breeze I focused on optimizing a flow for each form.",
             images: [
               {
                 src: "/images/skyslope/breeze-disclosures.webp",
@@ -480,6 +496,7 @@ export const caseStudies: CaseStudy[] = [
           },
           {
             heading: "Management",
+            body: "I built a dashboard for agents to track clients progress on completing documents so they had a way to review package completion and step in if the client was blocked.",
             images: [
               {
                 src: "/images/skyslope/breeze-management.webp",
@@ -495,6 +512,7 @@ export const caseStudies: CaseStudy[] = [
           },
           {
             heading: "Mobile first",
+            body: "Agents often work on the go, so Breeze is mobile first. Text to speech on visual inspection forms lets them complete forms on site by typing or dictation.",
             phones: [
               {
                 screen: "/images/skyslope/breeze-phone-1.webp",
@@ -588,11 +606,13 @@ export const caseStudies: CaseStudy[] = [
         blocks: [
           {
             problem: "Granate's first initial brand was due for a refresh.",
+            body: "I redesigned the app visually, and shipped key usability improvements alongside the rebrand.",
             result:
               "A component system and usability fixes that improved the app experience and brand identity.",
           },
           {
             heading: "Navigation",
+            body: "User interviews kept flagging navigation as a pain point. After a full audit, I improved the navigation by reducing variations, cutting redundant sub nav, and using clearer UI patterns for a more intuitive experience.",
             images: [
               {
                 src: "/images/granate/nav_diagram.webp",
@@ -608,6 +628,7 @@ export const caseStudies: CaseStudy[] = [
             ],
           },
           {
+            body: "Users now see a focused view when reviewing specific tasks and questions.",
             beforeAfter: true,
             images: [
               {
@@ -629,6 +650,7 @@ export const caseStudies: CaseStudy[] = [
           },
           {
             heading: "Onboarding",
+            body: "There was a big drop off between opening the app and reaching the homepage, largely because onboarding was long and dense.\n\nAs part of the new design, I pitched and shipped a skip option at the end of account creation to allow users to get in and try the app out before finalizing setup.",
             beforeAfter: true,
             images: [
               {
@@ -649,6 +671,7 @@ export const caseStudies: CaseStudy[] = [
             captions: ["Old", "New"],
           },
           {
+            body: "I also introduced a progress bar to help users track their progress through onboarding.",
             beforeAfter: true,
             images: [
               {
@@ -670,6 +693,7 @@ export const caseStudies: CaseStudy[] = [
           },
           {
             heading: "Building for the future",
+            body: "I rebuilt every component under the new brand identity with an emphasis on usability, scalability, and team accessibility. Using dedicated Figma pages per component type for easy internal discovery and access.",
             images: [
               {
                 src: "/images/granate/AOiugZLCINxahom2ueqPNyt0Fg.webp",
@@ -701,6 +725,7 @@ export const caseStudies: CaseStudy[] = [
           },
           {
             heading: "Delivery",
+            body: "With a small dev team, design work often got deprioritized. I split the redesign into four phases so we could ship it piece by piece, capture value in each release, without the app feeling inconsistent along the way.",
             images: [
               {
                 src: "/images/granate/poNXAlFHw1xKzBdJsby8k1hdNL0.webp",
@@ -726,6 +751,7 @@ export const caseStudies: CaseStudy[] = [
           {
             problem:
               "People navigating loss feel isolated and need a space to share stories and connect.",
+            body: "Granate's core mission is to ease the burden of loss, so the community feature serves it directly.",
             result:
               "Story sharing and engagement, plus in app content submission for curated email newsletters.",
           },
@@ -759,6 +785,7 @@ export const caseStudies: CaseStudy[] = [
           },
           {
             heading: "User flow",
+            body: "I wireframed, and diagrammed the MVP user flows, and after team discussion we settled the direction. One key debate was social sharing of posts and visibility to non users. We prioritized security and kept the app private to users.",
             images: [
               {
                 src: "/images/granate/kRrpEPSeNcpNMdwbf4xQxydI.webp",
@@ -772,6 +799,7 @@ export const caseStudies: CaseStudy[] = [
           },
           {
             heading: "Wireframes",
+            body: "Early collaboration made the move from user flows to wireframes smooth and cleared up any unknowns before designing the UI. I sketched each flow and interaction and communicated with the dev team to stay within the technically fesible.",
             images: [
               {
                 src: "/images/granate/dkePlkRcEQpuwWv99Tgaly3nOs.webp",
@@ -804,11 +832,13 @@ export const caseStudies: CaseStudy[] = [
           {
             problem:
               "Users were overwhelmed and could not tell which tasks mattered most at each stage of the loss journey.",
+            body: "Our content was accurate, but the way we surfaced it needed work.",
             result:
               "A model that ranks tasks by role, priority, and due date, surfacing the most critical ones when they are needed.",
           },
           {
             heading: "Audit",
+            body: "I started by auditing every task and question, mapping how questions trigger subtasks and what else in the app might influence them.",
             images: [
               {
                 src: "/images/granate/BhvkxmM7MTXKwbdVYk4e1r1th48.webp",
@@ -823,6 +853,7 @@ export const caseStudies: CaseStudy[] = [
           },
           {
             heading: "Priority and due dates",
+            body: "Next I analyzed task prioritization and due date sequencing.",
             images: [
               {
                 src: "/images/granate/tq44NJLR5ZaLRZdWcXmEjKY60M.webp",
@@ -836,6 +867,7 @@ export const caseStudies: CaseStudy[] = [
           },
           {
             heading: "Responsibility scale",
+            body: "From there I built a sliding scale of responsibility. A grieving spouse and an executor managing an estate have different needs, so we ask qualifying questions to set the role, then recommend relevant tasks and deprioritize the rest.",
             images: [
               {
                 src: "/images/granate/CpIy2hNkH82HCIAUAdfIvigcw.webp",
@@ -859,6 +891,7 @@ export const caseStudies: CaseStudy[] = [
           {
             finale: true,
             heading: "The redesigned app",
+            body: "Clearer navigation, curated tasks, and a community, all on the new design system.",
             phones: [
               {
                 screen: "/images/granate/granate-phone-1.webp",
@@ -954,6 +987,7 @@ export const caseStudies: CaseStudy[] = [
           {
             stamp: "Context",
             heading: "Paperwork vs clients",
+            body: "Buyer agents balance paperwork against advising clients. SkySlope data showed buyers spend about 10 weeks searching and view a median of 9 homes, so the form needed to be fast and available anywhere.",
             images: [
               {
                 src: "/images/easypeady/form-mapping.webp",
@@ -968,6 +1002,7 @@ export const caseStudies: CaseStudy[] = [
           {
             stamp: "Audience",
             heading: "Who touches the form",
+            body: "Buyer agents carried the work and weighed it against advising clients. Buyers wanted to sign what needed signing and get on with the viewing. Seller agents wanted property access to be easy. Research put buyer agents first.",
             personas: [
               {
                 name: "Buyer agents",
@@ -986,10 +1021,12 @@ export const caseStudies: CaseStudy[] = [
           {
             stamp: "Team",
             heading: "The team and the clock",
+            body: "A PM, a UX researcher, a visual designer, and six developers. The PEAD-V was a COVID requirement, so the window would close. MVP by the end of Q1 2021.",
           },
           {
             stamp: "Scope",
             heading: "What to ship",
+            body: "The MVP had to cover sending one form or several for the same client. Sending to different clients in one pass, and looping in the listing agent, waited.",
             images: [
               {
                 src: "/images/easypeady/use-cases.webp",
@@ -1008,9 +1045,11 @@ export const caseStudies: CaseStudy[] = [
           {
             stamp: "Validation",
             heading: "Testing whether it was worth building",
+            body: "I wrote a PRD with the PM to capture the unvalidated problem statements and our read on the current flow, then went to find out whether the tool had a business case.",
           },
           {
             stamp: "Qualitative",
+            body: "Agents disliked the form but understood why it existed. Most had a workaround, like listing several addresses on one PEAD. Out with clients and away from a computer, they agreed informally to send it later. They filed what the brokerage asked for and rarely opened an old form again.",
           },
           {
             stamp: "Who we build for",
@@ -1056,6 +1095,7 @@ export const caseStudies: CaseStudy[] = [
           {
             stamp: "Ideal experience",
             heading: "The ideal experience",
+            body: "I mapped who acts at each step and when each email fires.",
             lanes: true,
             captions: [
               "Who acts at each step, from send through the completed envelope.",
@@ -1064,6 +1104,7 @@ export const caseStudies: CaseStudy[] = [
           {
             stamp: "Options",
             heading: "Four ways to split it",
+            body: "Agents wanted one envelope to sign, then individual PEADs sent to each listing agent. Doing that split by hand was the step to cut.",
             images: [
               {
                 src: "/images/easypeady/service-blueprint.webp",
@@ -1077,6 +1118,7 @@ export const caseStudies: CaseStudy[] = [
           {
             stamp: "Notifications",
             heading: "Where the emails go",
+            body: "I mapped every notification the flow depends on and handed it to the team as a design requirement.",
             images: [
               {
                 src: "/images/easypeady/email-flow.webp",
@@ -1091,6 +1133,7 @@ export const caseStudies: CaseStudy[] = [
           {
             stamp: "The split",
             decision: "Decision 02",
+            body: "The PM and I settled on splitting in the backend, with a fallback if the technical constraints held.",
             images: [
               {
                 src: "/images/easypeady/ideal-experience.webp",
@@ -1120,6 +1163,7 @@ export const caseStudies: CaseStudy[] = [
           {
             stamp: "Collaboration",
             heading: "Scoring the options with engineering",
+            body: "I ran a brainstorm with product and engineering. Developers scored each solution's build complexity 1 to 5 while designers scored its UX, so we chose flows that were cheap to build and good to use.",
             images: [
               {
                 src: "/images/easypeady/service-journey.webp",
@@ -1138,18 +1182,22 @@ export const caseStudies: CaseStudy[] = [
           {
             stamp: "Structure",
             heading: "From real world steps to app steps",
+            body: "With the flow agreed, I translated it into what the application actually does, including the returning user path and where we validate an existing account.",
             steps: [
               {
                 role: "Buyer agent",
                 title: "Build one envelope",
+                body: "Add every property the client will visit, then invite the buyer once.",
               },
               {
                 role: "Buyer",
                 title: "Sign once",
+                body: "Review the visit details and complete the form from any device.",
               },
               {
                 role: "EasyPeady",
                 title: "Split the paperwork",
+                body: "Create the individual PEADs and route them to the listing agents.",
               },
             ],
             images: [
@@ -1166,6 +1214,7 @@ export const caseStudies: CaseStudy[] = [
           {
             stamp: "Wireframes",
             heading: "Wireframes",
+            body: "Thirteen screens, from the forms list through signing.",
             images: [
               {
                 src: "/images/easypeady/wireframe-flow.webp",
@@ -1180,6 +1229,7 @@ export const caseStudies: CaseStudy[] = [
           {
             stamp: "Screens",
             heading: "Who is visiting",
+            body: "The flow asks who will visit, then reviews the information before it goes on the form.",
             images: [
               {
                 src: "/images/easypeady/visitors-form.webp",
@@ -1202,6 +1252,7 @@ export const caseStudies: CaseStudy[] = [
           {
             stamp: "Prototype",
             heading: "Prototype",
+            body: "Try the PEAD flow below, from choosing who is visiting through review and send.",
             browser: "easypeady.com",
             embed:
               "https://embed.figma.com/proto/8QnYeovNXuF62cHboE8i2L/PEAD?page-id=0%3A1&node-id=0-7809&viewport=1166%2C-5361%2C0.12&scaling=scale-down-width&starting-point-node-id=0%3A7809&embed-host=share",
@@ -1215,6 +1266,7 @@ export const caseStudies: CaseStudy[] = [
             stamp: "Feature to product",
             decision: "Decision 03",
             heading: "A free app outside the ecosystem",
+            body: "Mid development, SkySlope shifted strategy from a paid feature inside Forms to a free standalone app to capture new users. That meant authenticating people with no SkySlope account without making existing users start over, and folding the result back into the suite so nobody had to hop between apps.",
             compare: [
               {
                 label: "Before",
@@ -1244,6 +1296,7 @@ export const caseStudies: CaseStudy[] = [
           },
           {
             stamp: "Brand",
+            body: "I partnered on new branding, redesigned the key screens plus a basic style guide so development was not blocked, and re envisioned the service blueprint. I designed the UI alongside development, iterating as we built and clearing UX blockers in drop in calls as I outpaced the build.",
             beforeAfter: true,
             images: [
               {
@@ -1303,12 +1356,14 @@ export const caseStudies: CaseStudy[] = [
         blocks: [
           {
             stamp: "Launch",
+            body: "We shipped the MVP use cases and put the app in front of a small group of agents. Their feedback drove the next round of improvements and surfaced the authentication problem.",
           },
           {
             finale: true,
             enlarge: true,
             stamp: "Impact",
             heading: "Impact",
+            body: "SkySlope's other products saw a 15% lift in usage, the app generated a pipeline of new paying users, and it became the groundwork for Breeze.",
             images: [
               {
                 src: "/images/home/easypeady.png",
@@ -1326,6 +1381,7 @@ export const caseStudies: CaseStudy[] = [
         blocks: [
           {
             stamp: "Retrospective",
+            body: "The fast schedule led to one high impact oversight. An authentication problem surfaced only in user testing after the pivot. A technical audit should have followed the strategic change.",
           },
         ],
       },
