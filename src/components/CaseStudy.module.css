@@ -297,6 +297,23 @@
     0 2px 4px color-mix(in srgb, var(--ink) 6%, transparent),
     0 12px 28px -10px color-mix(in srgb, var(--ink) 14%, transparent);
 }
+/* Inside browser chrome the wrapper owns the frame, so drop the glass plate,
+   its padding and its radius — otherwise they stack into a frame in a frame. */
+.shot.shotBare {
+  padding: 0;
+  border-radius: 0;
+}
+.shot.shotBare::before,
+.shot.shotBare::after {
+  display: none;
+}
+.shot.shotBare img {
+  border-radius: 0;
+}
+.shot.shotBare .skeleton {
+  inset: 0;
+  border-radius: 0;
+}
 .shot:focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: 3px;

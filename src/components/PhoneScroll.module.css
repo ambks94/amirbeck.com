@@ -1,0 +1,175 @@
+/* Vertical on mobile and tablet, one full-size phone at a time. */
+.row {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(20px, 3vw, 32px);
+}
+
+.phone {
+  flex: 0 0 auto;
+  margin: 0;
+  width: 375px;
+  max-width: 100%;
+  border: 1px solid var(--rule);
+  border-radius: 20px;
+  overflow: hidden;
+  background: var(--surface);
+  box-shadow: var(--elev);
+}
+
+/* Browser chrome, scaled down from BrowserFrame for a 231-375px frame. */
+.chrome {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 9px;
+  height: 28px;
+  border-bottom: 1px solid var(--rule);
+  background: color-mix(in srgb, var(--surface) 70%, var(--paper));
+}
+.dots {
+  display: inline-flex;
+  gap: 4px;
+  flex: 0 0 auto;
+}
+.dots i {
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+  background: var(--rule);
+}
+.url {
+  flex: 1 1 auto;
+  min-width: 0;
+  margin: 0 auto;
+  text-align: center;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: var(--paper);
+  font-family: var(--font-mono);
+  font-size: 0.56rem;
+  color: var(--faint);
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+/* The device box. Bar and footer sit outside the scroller, so they hold their
+   edges without sticky and the scrollbar spans only the screen between them.
+   `overflow: hidden` is what makes aspect-ratio win: without it the flex
+   container grows to its content and every phone ends up a different height. */
+.device {
+  display: flex;
+  flex-direction: column;
+  aspect-ratio: 375 / 674;
+  overflow: hidden;
+  /* The screens are light UI, so the plate behind them stays white in both themes. */
+  background: #fff;
+}
+
+.bar,
+.foot {
+  flex: 0 0 auto;
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* Holds the scroller plus the floating hint. */
+.scrollWrap {
+  position: relative;
+  display: flex;
+  flex: 1 1 auto;
+  min-height: 0;
+}
+
+.scroller {
+  flex: 1 1 auto;
+  /* Without this the flex item refuses to shrink below its content and never scrolls. */
+  min-height: 0;
+  overflow-y: auto;
+  /* `contain` stops scroll chaining but keeps the rubber-band bounce, which
+     exposes the plate behind the screen at both ends. `none` drops the bounce. */
+  overscroll-behavior-y: none;
+  scrollbar-width: thin;
+}
+
+/* A screen sized to the frame: no scrolling, no scrollbar gutter. */
+.locked {
+  overflow: hidden;
+}
+
+.screen {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* Floating scroll affordance, scaled down from ScrollHint for a phone frame. */
+.hint {
+  position: absolute;
+  z-index: 3;
+  left: 50%;
+  bottom: 10px;
+  transform: translateX(-50%);
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 5px 9px;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--paper) 88%, transparent);
+  border: 1px solid var(--rule);
+  backdrop-filter: blur(6px);
+  font-family: var(--font-mono);
+  font-size: 0.55rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+.hint[data-show] {
+  opacity: 1;
+  animation: phoneBob 2.4s cubic-bezier(0.645, 0.045, 0.355, 1) infinite
+    alternate;
+}
+
+@keyframes phoneBob {
+  from {
+    transform: translate(-50%, -3px);
+  }
+  to {
+    transform: translate(-50%, 4px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hint {
+    animation: none;
+    transition: none;
+  }
+}
+
+/* Desktop: the three sit side by side and share the column. */
+@media (min-width: 1000px) {
+  .row {
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: center;
+    gap: clamp(12px, 1.4vw, 20px);
+  }
+  .phone {
+    flex: 1 1 0;
+    min-width: 0;
+    border-radius: 14px;
+  }
+}
+
+@media (max-width: 420px) {
+  .phone {
+    width: 100%;
+  }
+}

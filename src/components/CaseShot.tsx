@@ -5,6 +5,7 @@ import { createContext, useContext, useState, type ReactNode } from "react";
 import Lightbox from "./Lightbox";
 import ScrollHint from "./ScrollHint";
 import styles from "./CaseStudy.module.css";
+import chrome from "./BrowserFrame.module.css";
 import type { CaseImage } from "@/content/caseStudies";
 
 const LightboxCtx = createContext<(img: CaseImage) => void>(() => {});
@@ -44,7 +45,7 @@ export default function CaseShot({
   const shot = (
     <button
       type="button"
-      className={styles.shot}
+      className={`${styles.shot}${image.browser ? ` ${styles.shotBare}` : ""}`}
       onClick={() => enlarge(image)}
       aria-label={`Enlarge: ${image.alt}`}
     >
@@ -76,6 +77,23 @@ export default function CaseShot({
     </button>
   );
 
+  // Browser chrome supplies the border, radius and shadow, so the shot goes bare.
+  const framed = image.browser ? (
+    <div className={chrome.frame}>
+      <div className={chrome.bar}>
+        <span className={chrome.dots} aria-hidden="true">
+          <i />
+          <i />
+          <i />
+        </span>
+        <span className={chrome.url}>{image.browser}</span>
+      </div>
+      {shot}
+    </div>
+  ) : (
+    shot
+  );
+
   return (
     <figure className={figureClass}>
       {pano ? (
@@ -85,10 +103,10 @@ export default function CaseShot({
           role="group"
           aria-label={image.alt}
         >
-          {shot}
+          {framed}
         </ScrollHint>
       ) : (
-        shot
+        framed
       )}
       {caption ? (
         <figcaption className={styles.caption}>{caption}</figcaption>

@@ -3,11 +3,15 @@ import LoopVideo from "./LoopVideo";
 import CaseShot from "./CaseShot";
 import Shot from "./Shot";
 import EmbedFrame from "./EmbedFrame";
+import PhoneScroll from "./PhoneScroll";
 import styles from "./CaseStudy.module.css";
 import type { CaseBlock, CaseImage } from "@/content/caseStudies";
 
 export function shouldStack(imgs: CaseImage[]) {
   if (imgs.length < 2) return false;
+  // Browser chrome needs the full column — its bar and URL pill go unreadable
+  // at half width.
+  if (imgs.some((i) => i.browser)) return true;
   const frames = new Set(imgs.map((i) => i.frame ?? "full"));
   return (
     frames.has("wide") ||
@@ -36,6 +40,7 @@ export function Video({
 }
 
 export default function BlockMedia({ block }: { block: CaseBlock }) {
+  if (block.phones) return <PhoneScroll phones={block.phones} />;
   if (block.embed) {
     return <EmbedFrame src={block.embed} url={block.browser} />;
   }

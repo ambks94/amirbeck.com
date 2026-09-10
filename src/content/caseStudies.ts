@@ -32,6 +32,24 @@ export type CasePersona = { name: string; text: string };
 export type CaseStat = { figure: string; text: string };
 export type CaseStep = { role: string; title: string; body: string };
 export type CaseCompare = { label: string; title: string; text: string };
+/** A phone frame whose screen scrolls under its own pinned top bar. */
+export type CasePhone = {
+  screen: string;
+  width: number;
+  height: number;
+  bar: string;
+  barWidth: number;
+  barHeight: number;
+  /** Label in the browser chrome above the device. */
+  browser?: string;
+  /** Screen fits the frame — lock it so no scroller is offered at all. */
+  noScroll?: boolean;
+  /** Action bar pinned to the bottom edge, where the screen has one. */
+  foot?: string;
+  footWidth?: number;
+  footHeight?: number;
+  alt: string;
+};
 
 export type CaseBlock = {
   heading?: string;
@@ -72,6 +90,8 @@ export type CaseBlock = {
   compare?: CaseCompare[];
   /** Draw the PEAD swimlane as live DOM instead of shipping it as an image. */
   lanes?: boolean;
+  /** Scrollable phone frames with a pinned app top bar. */
+  phones?: CasePhone[];
 };
 export type CaseChapter = {
   id?: string;
@@ -332,14 +352,14 @@ export const caseStudies: CaseStudy[] = [
             heading: "Interaction",
             body: "Our DigiSign tool had an interaction pattern deviance from most other e-signing tools where the signature block stayed selected after placement.",
             video: "/images/skyslope/digisign-selection.webm",
-            browser: "skyslope · digisign",
+            browser: "digisign.skyslope.com",
             caption:
               "The block stays selected after placement, holding the editing panel open.",
           },
           {
             body: "When users are placing blocks a common pattern is to put one signature field for one recipient, then another for another recipient. With our existing UX it resulted in users accidentally changing who a block was assigned to instead.",
             video: "/images/skyslope/digisign-reassign.webm",
-            browser: "skyslope · digisign",
+            browser: "digisign.skyslope.com",
             caption:
               "Switching signer reassigns the block already on the page.",
           },
@@ -347,7 +367,7 @@ export const caseStudies: CaseStudy[] = [
             heading: "Ideation",
             body: "Solving this was not simple, since many long time users were used to the old interaction. The survey split was even, so I built two things, a preferences page to choose the selection behavior, and a clearer flow for changing signers that cut effort and confusion.",
             video: "/images/skyslope/digisign-signer-flow.webm",
-            browser: "skyslope · digisign",
+            browser: "digisign.skyslope.com",
             caption: "The new interaction for placing blocks.",
           },
           {
@@ -363,55 +383,57 @@ export const caseStudies: CaseStudy[] = [
         blocks: [
           {
             problem:
-              "Forms was created to serve individual agents, but agents work with transaction coordinators who handle much of the paperwork.",
+              "Forms was created to serve individual agents, but agents work with transaction  (TCs) who handle much of the paperwork.",
             result:
               "Shared access, per agent file filtering, and file history, so teams can delegate and manage paperwork across teams.",
           },
           {
             heading: "Team management",
-            body: "Team management was key to supporting both agents and coordinators. This allowed us to increase the stickiness of Forms by allowing entire teams to use it together.",
+            body: "Team management was key to supporting both agents and transaction coordinators (TCs). This allowed us to increase the stickiness of Forms by allowing entire teams to use it together.",
             images: [
               {
                 src: "/images/skyslope/forms-team.webp",
                 width: 2400,
                 height: 1707,
+                browser: "forms.skyslope.com/settings/team",
                 alt: "Sharing and requesting team access in Forms",
               },
               {
                 src: "/images/skyslope/forms-request.webp",
                 width: 2400,
-                height: 1706,
+                height: 1707,
+                browser: "forms.skyslope.com/files/new",
                 alt: "Requesting access with multiple emails",
               },
             ],
             captions: [
               "Sharing and requesting team access in Forms.",
-              "Requesting access supports multiple emails at once.",
+              "Allow TCs to work on under different agent teams",
             ],
           },
           {
             heading: "File management",
-            body: "Coordinators often manage files for many agents. I added a filter by agent, so delegating paperwork is easier and much faster.",
+            body: "Transaction coordinators (TCs) often manage files for many agents. I added a filter by agent, so delegating paperwork is easier and much faster.",
             images: [
               {
                 src: "/images/skyslope/forms-filter.webp",
                 width: 2400,
                 height: 1707,
+                browser: "forms.skyslope.com/files",
                 alt: "Filtering files by owner in Forms",
               },
             ],
-            captions: [
-              "Filter by one or more file owners to see just their files.",
-            ],
+            captions: ["Filter by one or more file owners."],
           },
           {
             heading: "File history",
-            body: "Agents needed to know who changed what. I added a file history, so every update is attributable to a team member.",
+            body: "Agents needed to know who changed what for compliance. I added created file history, so every update is auditable.",
             images: [
               {
                 src: "/images/skyslope/forms-history.webp",
                 width: 2400,
-                height: 1707,
+                height: 1833,
+                browser: "forms.skyslope.com/envelope-name/history",
                 alt: "File history tracking edits in Forms",
               },
             ],
@@ -419,7 +441,8 @@ export const caseStudies: CaseStudy[] = [
           },
           {
             calloutLabel: "Impact",
-            callout: "The refined flows cut digital signing mistakes by ~50%.",
+            callout:
+              "An all inclusive document management tool for real estate agents which enabled us to grow our market share across large brokerages.",
           },
         ],
       },
@@ -430,19 +453,20 @@ export const caseStudies: CaseStudy[] = [
         blocks: [
           {
             problem:
-              "California transactions require many complex disclosure forms, and completing them by hand is slow and error prone.",
+              "California Real Estate transactions require many complex disclosure forms, and completing them by hand is slow and error prone.",
             body: "Breeze launched as a new web app, building on earlier work to guide agents through those forms.",
             result:
-              "A wizard that auto fills the common disclosures, tracks client progress, and works on site from a phone.",
+              "A wizard flow based product that guides users through completing forms, tracks client progress, and features a mobile first design for on-site completion.",
           },
           {
             heading: "Disclosures",
-            body: "Data showed 90% of California transactions involve a few key disclosure forms, MHTDS, SPQ, TDS, and EQ. I designed a wizard that guides users and auto fills these complex forms.",
+            body: "Data showed 90% of California transactions involve several key disclosure forms, MHTDS, SPQ, TDS, and EQ. When designing Breeze I focused on optimizing a flow for each form.",
             images: [
               {
                 src: "/images/skyslope/breeze-disclosures.webp",
                 width: 2400,
-                height: 1878,
+                height: 2053,
+                browser: "breeze.skyslope.com",
                 alt: "Selecting disclosure forms in Breeze",
               },
             ],
@@ -450,12 +474,13 @@ export const caseStudies: CaseStudy[] = [
           },
           {
             heading: "Management",
-            body: "I built a clear way for agents to track how clients were completing documents, so they could watch progress and step in when needed.",
+            body: "I built a dashboard for agents to track clients progress on completing documents so they had a way to review package completion and step in if the client was blocked.",
             images: [
               {
                 src: "/images/skyslope/breeze-management.webp",
                 width: 2400,
                 height: 1707,
+                browser: "breeze.skyslope.com/envelope-name",
                 alt: "Tracking document completion in Breeze",
               },
             ],
@@ -466,17 +491,50 @@ export const caseStudies: CaseStudy[] = [
           {
             heading: "Mobile first",
             body: "Agents often work on the go, so Breeze is mobile first. Text to speech on visual inspection forms lets them complete forms on site by typing or dictation.",
-            images: [
+            phones: [
               {
-                src: "/images/skyslope/breeze-mobile.webp",
-                width: 2400,
-                height: 1484,
-                alt: "Completing a form on site in Breeze on mobile",
+                screen: "/images/skyslope/breeze-phone-1.webp",
+                browser: "breeze.skyslope.com/dashboard",
+                width: 1125,
+                height: 2643,
+                bar: "/images/skyslope/breeze-bar-1.webp",
+                barWidth: 1500,
+                barHeight: 224,
+                alt: "Breeze on mobile, the visual inspection form",
+              },
+              {
+                screen: "/images/skyslope/breeze-phone-2.webp",
+                browser: "breeze.skyslope.com/AVID",
+                noScroll: true,
+                width: 1125,
+                height: 1386,
+                bar: "/images/skyslope/breeze-bar-2.webp",
+                barWidth: 1125,
+                barHeight: 300,
+                foot: "/images/skyslope/breeze-foot-2.webp",
+                footWidth: 1131,
+                footHeight: 222,
+                alt: "Breeze on mobile, completing a room by room entry",
+              },
+              {
+                screen: "/images/skyslope/breeze-phone-3.webp",
+                browser: "breeze.skyslope.com/summary",
+                width: 1125,
+                height: 2769,
+                bar: "/images/skyslope/breeze-bar-3.webp",
+                barWidth: 1125,
+                barHeight: 300,
+                foot: "/images/skyslope/breeze-foot-3.webp",
+                footWidth: 1131,
+                footHeight: 222,
+                alt: "Breeze on mobile, reviewing the completed form",
               },
             ],
-            captions: [
-              "Complete the visual inspection form on site by typing or dictation.",
-            ],
+          },
+          {
+            calloutLabel: "Impact",
+            callout:
+              "Drove a 15% increase in cross product usage, and created a new inbound customer pipeline.",
           },
         ],
       },
