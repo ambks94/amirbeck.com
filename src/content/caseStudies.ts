@@ -298,61 +298,78 @@ export const caseStudies: CaseStudy[] = [
     goals: [
       "How might we reduce the time spent on complex real estate documents?",
       "How might we give agents more time with clients?",
-      "How might we create one experience across all the products?",
+      "How might we create one unified experience across all products?",
       "How might we push the real estate software industry forward?",
     ],
     chapters: [
       {
         id: "digisign",
         title: "DigiSign, interactions",
-        summary: "Making e signing much easier to use.",
+        summary: "Making e-signing easier.",
         blocks: [
           {
             problem:
-              "Agents kept hitting friction placing signatures in DigiSign, a 40 to 50% error rate in testing.",
-            body: "Agent feedback kept pointing to it, and the goal was clear, make the core e signing experience much easier to use.",
+              "Agents kept hitting friction when placing blocks in DigiSign.",
             result:
-              "A clearer placement flow and a preferences page, so signing stops fighting the agent.",
+              "A clearer placement interaction and a preferences page to support existing user behavior.",
           },
           {
-            heading: "Usability testing",
-            body: "I ran targeted usability tests to see why users struggled. Many could not place and assign signatures correctly, a 40 to 50% error rate. 4 of 10 testers were frustrated setting the properties of each block after drawing it, and 5 of 10 struggled to change a property selection while creating a block.",
-            video: "/images/skyslope/digisign-usability.webm",
-            caption:
-              "Usability test of placing and assigning signatures in DigiSign.",
+            stamp: "Research",
+            heading: "Usability Test & Research",
+            body: "To understand why users were struggling, I conducted targeted usability tests. We found that agents struggled to place and assign signatures correctly.",
+            table: [
+              {
+                figure: "4 of 10",
+                text: "testers were frustrated placing and assigning blocks",
+              },
+              {
+                figure: "5 of 10",
+                text: "struggled to change the properties of a block after placement",
+              },
+            ],
           },
           {
-            body: "DigiSign kept the signature block and its type selected after placement, unlike most e signing tools. That forced extra clicks and unexpected changes when moving to the next signature. Changing who a block was for also changed the signature type.",
-            video: "/images/skyslope/digisign-behavior.webm",
+            heading: "Interaction",
+            body: "Our DigiSign tool had an interaction pattern deviance from most other e-signing tools where the signature block stayed selected after placement.",
+            video: "/images/skyslope/digisign-selection.webm",
+            browser: "skyslope · digisign",
             caption:
-              "DigiSign keeping the signature block selected after placement.",
+              "The block stays selected after placement, holding the editing panel open.",
+          },
+          {
+            body: "When users are placing blocks a common pattern is to put one signature field for one recipient, then another for another recipient. With our existing UX it resulted in users accidentally changing who a block was assigned to instead.",
+            video: "/images/skyslope/digisign-reassign.webm",
+            browser: "skyslope · digisign",
+            caption:
+              "Switching signer reassigns the block already on the page.",
           },
           {
             heading: "Ideation",
-            body: "Solving this was not simple, since many long time users were used to the old behavior. Surveys split evenly, so I built two things, a preferences page to choose the selection behavior, and a clearer flow for changing signers that cut effort and confusion.",
+            body: "Solving this was not simple, since many long time users were used to the old interaction. The survey split was even, so I built two things, a preferences page to choose the selection behavior, and a clearer flow for changing signers that cut effort and confusion.",
+            video: "/images/skyslope/digisign-signer-flow.webm",
+            browser: "skyslope · digisign",
+            caption: "The new interaction for placing blocks.",
           },
           {
-            calloutLabel: "Impact",
             callout:
-              "After closing the gaps from testing, we released to our useres and saw a 50% reduction in digital signing mistakes.",
+              "We launched the new interaction and saw a 50% reduction in digital signing mistakes.",
           },
         ],
       },
       {
         id: "forms",
         title: "Forms, team access",
-        summary: "Improving teamwork for shared paperwork.",
+        summary: "Improving cross team collaboration for document management.",
         blocks: [
           {
             problem:
-              "Forms served individual agents, but agents work with transaction coordinators who handle much of the paperwork.",
-            body: "I reshaped Forms to support whole teams, not just individual agents.",
+              "Forms was created to serve individual agents, but agents work with transaction coordinators who handle much of the paperwork.",
             result:
-              "Shared access, per agent file filtering, and file history, so teams can delegate paperwork cleanly.",
+              "Shared access, per agent file filtering, and file history, so teams can delegate and manage paperwork across teams.",
           },
           {
             heading: "Team management",
-            body: "I built ways for agents to add coordinators to their accounts, and for coordinators to request access, so delegation runs smoothly.",
+            body: "Team management was key to supporting both agents and coordinators. This allowed us to increase the stickiness of Forms by allowing entire teams to use it together.",
             images: [
               {
                 src: "/images/skyslope/forms-team.webp",
@@ -368,7 +385,7 @@ export const caseStudies: CaseStudy[] = [
               },
             ],
             captions: [
-              "A user can share or request access from their team view.",
+              "Sharing and requesting team access in Forms.",
               "Requesting access supports multiple emails at once.",
             ],
           },
@@ -409,7 +426,7 @@ export const caseStudies: CaseStudy[] = [
       {
         id: "breeze",
         title: "Breeze",
-        summary: "Simplifying complex disclosure forms for agents.",
+        summary: "Simplifying complex disclosure forms.",
         blocks: [
           {
             problem:

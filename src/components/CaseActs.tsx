@@ -208,9 +208,13 @@ function Beat({ block }: { block: CaseBlock }) {
 
         {block.callout && (
           <div className={styles.callout}>
-            <span className={styles.calloutLabel}>
-              {block.calloutLabel ?? "Result"}
-            </span>
+            {/* The rail already carries this label when they match — only show
+                it here when it says something the rail does not. */}
+            {(block.calloutLabel ?? "Result") !== stamp && (
+              <span className={styles.calloutLabel}>
+                {block.calloutLabel ?? "Result"}
+              </span>
+            )}
             <p className={styles.calloutText}>{block.callout}</p>
           </div>
         )}

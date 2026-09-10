@@ -16,8 +16,16 @@ export function shouldStack(imgs: CaseImage[]) {
   );
 }
 
-export function Video({ src, caption }: { src: string; caption?: string }) {
-  const video = <LoopVideo src={src} label={caption} />;
+export function Video({
+  src,
+  caption,
+  browser,
+}: {
+  src: string;
+  caption?: string;
+  browser?: string;
+}) {
+  const video = <LoopVideo src={src} label={caption} browser={browser} />;
   if (!caption) return video;
   return (
     <figure className={styles.figure}>
@@ -31,7 +39,14 @@ export default function BlockMedia({ block }: { block: CaseBlock }) {
   if (block.embed) {
     return <EmbedFrame src={block.embed} url={block.browser} />;
   }
-  if (block.video) return <Video src={block.video} caption={block.caption} />;
+  if (block.video)
+    return (
+      <Video
+        src={block.video}
+        caption={block.caption}
+        browser={block.browser}
+      />
+    );
   const imgs = block.images ?? [];
   if (!imgs.length) return null;
   if (block.beforeAfter && imgs.length >= 2) {

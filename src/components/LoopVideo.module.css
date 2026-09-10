@@ -1,15 +1,62 @@
 .frame {
+  position: relative;
+  /* The video is absolutely positioned, so it no longer gives the frame its
+     intrinsic width — the frame has to claim the column itself. */
+  width: 100%;
+  aspect-ratio: 16 / 9;
   overflow: hidden;
   border-radius: 10px;
   box-shadow: var(--elev);
+  background: color-mix(in srgb, var(--ink) 4%, var(--surface));
+}
+
+.skeleton {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  background: color-mix(in srgb, var(--ink) 4%, var(--surface));
+}
+
+.sweep {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    color-mix(in srgb, var(--ink) 7%, transparent),
+    transparent
+  );
 }
 
 .video {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
   display: block;
   width: 100%;
-  height: auto;
+  height: 100%;
+  object-fit: contain;
+  opacity: 0;
+  transition: opacity 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.video[data-loaded="true"] {
+  opacity: 1;
+}
+
+/* Inside browser chrome the wrapper owns the border, radius and shadow. */
+.frame[data-chrome] {
+  border-radius: 0;
+  box-shadow: none;
 }
 
 .crop {
   transform: scale(1.0015);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .video {
+    transition: opacity 0.01s;
+  }
 }
