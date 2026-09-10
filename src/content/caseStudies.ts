@@ -983,6 +983,7 @@ export const caseStudies: CaseStudy[] = [
     chapters: [
       {
         title: "The problem",
+        summary: "Paperwork competing with client time.",
         blocks: [
           {
             stamp: "Context",
@@ -1041,6 +1042,7 @@ export const caseStudies: CaseStudy[] = [
       },
       {
         title: "Research",
+        summary: "Testing whether the tool had a business case.",
         blocks: [
           {
             stamp: "Validation",
@@ -1091,6 +1093,7 @@ export const caseStudies: CaseStudy[] = [
       },
       {
         title: "Flows",
+        summary: "Mapping who acts at each step.",
         blocks: [
           {
             stamp: "Ideal experience",
@@ -1178,6 +1181,7 @@ export const caseStudies: CaseStudy[] = [
       },
       {
         title: "The app",
+        summary: "Turning the flow into what the app does.",
         blocks: [
           {
             stamp: "Structure",
@@ -1261,6 +1265,7 @@ export const caseStudies: CaseStudy[] = [
       },
       {
         title: "The pivot",
+        summary: "From a paid feature to a free standalone app.",
         blocks: [
           {
             stamp: "Feature to product",
@@ -1353,6 +1358,7 @@ export const caseStudies: CaseStudy[] = [
       },
       {
         title: "Launch",
+        summary: "Shipping the MVP and what the feedback surfaced.",
         blocks: [
           {
             stamp: "Launch",
@@ -1378,6 +1384,7 @@ export const caseStudies: CaseStudy[] = [
       },
       {
         title: "Retrospective",
+        summary: "What the fast schedule cost.",
         blocks: [
           {
             stamp: "Retrospective",
