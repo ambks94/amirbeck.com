@@ -147,9 +147,9 @@ export const caseStudies: CaseStudy[] = [
         summary: "A role-aware homepage that surfaces value.",
         tags: ["Figma", "Motion", "React"],
         problem:
-          "We wanted to highlight out value and give users a clear actionable overview page.",
+          "We wanted to highlight Lumanu's value and give users a clear actionable overview page.",
         body: "I designed, built, and animated a role aware homepage that surfaces that value and gives a clear, actionable overview.",
-        result: "A dashboard that makes invisible value visible on first load.",
+        result: "A dashboard that surfaces product value and gives an actionable homepage.",
         video: "/images/lumanu/buyer-dashboard.webm",
         caption:
           "Role-aware Lumanu homepage that surfaces value and an actionable overview.",
@@ -159,7 +159,7 @@ export const caseStudies: CaseStudy[] = [
         summary: "Redesigned from the ground up, coding ~90% myself.",
         tags: ["Figma", "React", "Next.js"],
         problem:
-          "The app was information dense, hard to navigate, and had outdated UI.",
+          "The app was information dense, hard to navigate, and had a dated UI.",
         body: "I redesigned it from the ground up, coding ~90% myself, with help on the left nav and complex layout files.",
         result: "A faster, clearer, and more modern app.",
         beforeAfter: true,
@@ -184,7 +184,7 @@ export const caseStudies: CaseStudy[] = [
         tags: ["Code Connect", "Figma MCP"],
         problem:
           "User feedback and CS tickets pointed to a missing reporting feature.",
-        body: "I spotted the need, then built and launched reporting myself. Figma Code Connect and the Figma MCP took me from design straight into shipped code.",
+        body: "Built and launched reporting myself. Figma Code Connect, the Figma MCP, and claude code took me from design to shipped code.",
         result:
           "A new reporting feature which allowed our clients to audit their finances.",
         video: "/images/lumanu/reporting.webm",
@@ -195,10 +195,10 @@ export const caseStudies: CaseStudy[] = [
         heading: "Design system and AI tooling",
         summary: "A 1 to 1 match between the system and the code.",
         tags: ["Design systems", "Code Connect", "AI tooling"],
-        problem: "The design system and the code had drifted apart.",
-        body: "I aligned them in component design, naming, and functionality, then used Figma Code Connect for a 1 to 1 match between the system and the code.",
+        problem: "The design system and the codebase had drifted apart.",
+        body: "I aligned them in component UI, naming, and functionality, then used Figma Code Connect for a 1 to 1 match between the system and the codebase.",
         result:
-          "Developers pick the right component at a glance, UI matches development exactly, build time is faster, and AI IDEs work more accurately.",
+          "Developers pick the right component easily, mockups match development 1 to 1, build time is faster with no manual mapping, and AI IDEs & code assistants work more accurately.",
         images: [
           {
             src: "/images/lumanu/design-system-1.webp",
@@ -219,10 +219,10 @@ export const caseStudies: CaseStudy[] = [
         summary: "Payment processing for global tax compliance.",
         tags: ["Research", "0 to 1", "Client interviews"],
         problem:
-          "Businesses needed to handle global tax compliance, and nothing like it existed in the market.",
-        body: "I designed a tax engine to automate it, research driven and shaped with clients.",
+          "Users needed to handle global tax compliance.",
+        body: "I designed a tax engine to automate taxes, research driven and shaped with users.",
         result:
-          "A differentiation from market feature that gave the company an edge and room to grow globally.",
+          "A new tax engine that automates taxes, giving the company the feature they need to grow globally.",
         images: [
           {
             src: "/images/lumanu/tax-1.webp",
@@ -243,10 +243,10 @@ export const caseStudies: CaseStudy[] = [
         summary: "Real time visibility and control over spending.",
         tags: ["Research", "Finance UX"],
         problem:
-          "Finance teams lacked visibility and control over spending across a diverse client base.",
-        body: "I designed the Projects feature for real time visibility and control, running multiple rounds of research interviews across agencies, SMBs, enterprise, and DTC.",
+          "Finance teams lacked visibility and control over marketing spend and marketing teams lacked a way to work in campaign silos.",
+        body: "I designed the Projects feature for real time visibility, control, and cross team collaboration. I ran multiple rounds of research interviews across agencies, SMBs, enterprise, and DTC.",
         result:
-          "Finance teams get control, and creative and marketing teams get room to run.",
+          "Finance teams get visability and control, and creative and marketing teams the tools to work efficiently.",
         images: [
           {
             src: "/images/lumanu/projects-1.webp",
@@ -266,10 +266,10 @@ export const caseStudies: CaseStudy[] = [
         heading: "Vendor onboarding and compliance",
         summary: "A straightforward sign up, and vendors ready to pay.",
         tags: ["Heap analytics", "Compliance UX"],
-        problem: "Vendor compliance requirements were getting more demanding.",
-        body: "I drove multiple redesigns of onboarding using Heap funnel analytics and support data, balancing compliance with a smooth flow.",
+        problem: "Vendor compliance requirements were getting more demanding and complex with international compliance requirements.",
+        body: "I drove multiple redesigns of onboarding using Heap funnel analytics and CS ticket data, balancing compliance with user feedback.",
         result:
-          "A straightforward sign up for vendors, and fully compliant, ready to pay vendors for brands.",
+          "A easy to use onboarding experience for vendors that's fully compliant with international and domestic compliance requirements.",
         images: [
           {
             src: "/images/lumanu/vendor-1.webp",
