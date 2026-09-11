@@ -988,7 +988,7 @@ export const caseStudies: CaseStudy[] = [
           {
             stamp: "Context",
             heading: "Paperwork vs clients",
-            body: "Agents are always in a balancing act between paperwork and face time with clients. SkySlope data showed buyers spend about 10 weeks searching and view a median of 9 homes. We needed a solution to help free up time for core responsibilites.",
+            body: "Agents are always in a balancing act between paperwork and face time with clients. SkySlope data showed buyers spend about 10 weeks searching and view a median of 9 homes. We needed a solution to help free up time for core responsibilities.",
             images: [
               {
                 src: "/images/easypeady/form-mapping.webp",
@@ -1003,7 +1003,7 @@ export const caseStudies: CaseStudy[] = [
           {
             stamp: "Audience",
             heading: "Who touches the form",
-            body: "Buyer agents faced the bulk of the responsibility. Buyers wanted to sign what needed signing and get on with the viewing. Seller agents just wanted property access to be easy. Our research showed to put buyer agents needs first.",
+            body: "Buyer agents faced the bulk of the responsibility. Buyers wanted to sign what needed signing and get on with the viewing. Seller agents just wanted property access to be easy. Our research told us to put buyer agents' needs first.",
             personas: [
               {
                 name: "Buyer agents",
@@ -1022,7 +1022,7 @@ export const caseStudies: CaseStudy[] = [
           {
             stamp: "Team",
             heading: "The team and the clock",
-            body: "A PM, a UX researcher, a UX/UI designer, and six developers. The PEAD-V was a COVID requirement. Given the nature of the timeliness of the issue we needed a MVP by the end of Q1 2021, ideally sooner.",
+            body: "A PM, a UX researcher, a UX/UI designer, and six developers. The PEAD-V was a COVID requirement. Given the nature of the timeliness of the issue we needed an MVP by the end of Q1 2021, ideally sooner.",
           },
           {
             stamp: "Scope",
@@ -1047,11 +1047,11 @@ export const caseStudies: CaseStudy[] = [
           {
             stamp: "Validation",
             heading: "Testing value",
-            body: "I co-wrote a PRD with the PM to capture the problem statements and our mvp user flow, then we went to test if the tool had a business viability.",
+            body: "I co-wrote a PRD with the PM to capture the problem statements and our MVP user flow, then we went to test if the tool had business viability.",
           },
           {
             stamp: "Qualitative",
-            body: "Agents disliked the form but understood why it existed. Most had a workaround, seller agents had several home addresses on one form. Some agents informally agreed to send it after a showing. Brokerages rarely asked for it and rarely opened opened them.",
+            body: "Agents disliked the form but understood why it existed. Most had a workaround, seller agents had several home addresses on one form. Some agents informally agreed to send it after a showing. Brokerages rarely asked for it and rarely opened it.",
           },
           {
             stamp: "Who we build for",
@@ -1116,7 +1116,7 @@ export const caseStudies: CaseStudy[] = [
                 alt: "Service blueprint comparing manual split, multiple envelopes, and an automatic split",
               },
             ],
-            captions: ["Having a manual split was a clear no-go"],
+            captions: ["Having a manual split was a clear no-go."],
           },
           {
             stamp: "Notifications",
@@ -1155,7 +1155,7 @@ export const caseStudies: CaseStudy[] = [
               },
               {
                 label: "Why",
-                text: "It removed the pdf split agents were doing manually",
+                text: "It removed the PDF split agents were doing manually.",
               },
               {
                 label: "What it cost",
@@ -1201,7 +1201,7 @@ export const caseStudies: CaseStudy[] = [
               {
                 role: "EasyPeady",
                 title: "Split the paperwork",
-                body: "Split into individual PEADs and route them to the listing agents.",
+                body: "Split into individual PEADs and route them to the seller agents.",
               },
             ],
             images: [
@@ -1213,7 +1213,7 @@ export const caseStudies: CaseStudy[] = [
                 alt: "Guided PEAD flow",
               },
             ],
-            captions: ["The PEAD flow"],
+            captions: ["The PEAD flow."],
           },
           {
             stamp: "Wireframes",
@@ -1233,7 +1233,7 @@ export const caseStudies: CaseStudy[] = [
           {
             stamp: "Screens",
             heading: "Who is visiting",
-            body: "The key screen for filling in client information",
+            body: "The key screen for filling in client information.",
             images: [
               {
                 src: "/images/easypeady/visitors-form.webp",
@@ -1250,7 +1250,7 @@ export const caseStudies: CaseStudy[] = [
             ],
             captions: [
               "Who is visiting.",
-              "Review screen before form generation",
+              "Review screen before form generation.",
             ],
           },
           {
@@ -1270,7 +1270,7 @@ export const caseStudies: CaseStudy[] = [
           {
             stamp: "Feature to product",
             decision: "Decision 03",
-            heading: "A free app marketing app outside the ecosystem",
+            heading: "A free marketing app outside the ecosystem",
             body: "Mid-development, SkySlope shifted strategy from this tool being a paid feature inside our existing software, Forms, to a free standalone app. The new goal was to capture new customers. That meant instead of just authenticating users with existing accounts we had to also support net new users.",
             compare: [
               {
@@ -1287,7 +1287,7 @@ export const caseStudies: CaseStudy[] = [
             call: [
               {
                 label: "The call",
-                text: "Rebrand mid-development",
+                text: "Rebrand mid-development.",
               },
               {
                 label: "Why",
@@ -1352,7 +1352,7 @@ export const caseStudies: CaseStudy[] = [
                 matte: "white",
               },
             ],
-            captions: ["Inside Forms", "As a standalone app"],
+            captions: ["Inside Forms.", "As a standalone app."],
           },
         ],
       },
@@ -1362,7 +1362,7 @@ export const caseStudies: CaseStudy[] = [
         blocks: [
           {
             stamp: "Launch",
-            body: "We shipped the MVP  and put the app in front of a small group of agents. Their feedback drove the next round of improvements and surfaced the authentication problem.",
+            body: "We shipped the MVP and put the app in front of a small group of agents. Their feedback drove the next round of improvements and surfaced the authentication problem.",
           },
           {
             finale: true,
@@ -1388,7 +1388,7 @@ export const caseStudies: CaseStudy[] = [
         blocks: [
           {
             stamp: "Retrospective",
-            body: "The fast schedule led to one high impact oversight. An authentication problem surfaced only in user testing after the pivot. More through testing before launch would have helped us discover before launch.",
+            body: "The fast schedule led to one high impact oversight. An authentication problem surfaced only in user testing after the pivot. More thorough testing would have helped us discover it before launch.",
           },
         ],
       },
