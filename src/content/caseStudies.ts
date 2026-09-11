@@ -955,40 +955,40 @@ export const caseStudies: CaseStudy[] = [
     years: "2021",
     role: "Lead Product Designer",
     intro:
-      "In late 2020, agents were overwhelmed by COVID related paperwork, especially the PEAD form required for every home viewing. I led the design and launch of EasyPeady, a web app that streamlined it.",
+      "In late 2020, agents were overwhelmed by COVID related paperwork, especially the PEAD form required for every home viewing. I led the design and launch of EasyPeady, a web app that streamlined form filling.",
     description:
       "Amir Beck designed and launched EasyPeady, a standalone PEAD form app for real estate agents, in one quarter. It later became the groundwork for SkySlope Breeze.",
     problem:
-      "COVID added the PEAD-V form to every home viewing, and managing it across properties and clients pulled buyer agents away from their clients.",
+      "COVID required the PEAD-V form for every home viewing introducing significant work for real estate agents.",
     result:
-      "A standalone web app that auto fills, sends, and splits PEAD forms, launched in a quarter and later the groundwork for Breeze.",
+      "A standalone web app that auto-fills, sends, and splits PEAD forms, launched under a quarter.",
     metrics: [
       { figure: "1 qtr", text: "from start to launch" },
       { figure: "15%", text: "increase in cross product engagement" },
-      { figure: "New", text: "pipeline of paying users" },
+      { figure: "New", text: "pipeline of customers" },
     ],
     layout: "acts",
     impact: [
-      "Developed and launched in one quarter",
+      "Developed and launched in under a quarter",
       "15% increase in cross product engagement",
-      "Generated a pipeline of new paying users",
+      "Generated a pipeline of new customers",
     ],
     workIncluded: "UX, UI, User Research",
     goals: [
       "How might we allow an agent to send multiple PEAD forms at once?",
-      "How might we use our MLS integration to auto-populate agent and buyer information?",
+      "How might we use our MLS integration to auto-populate key agent and buyer information?",
       "How might we alert agents when a form is signed by all parties?",
       "How might we automatically send the completed form to all parties?",
     ],
     chapters: [
       {
         title: "The problem",
-        summary: "Paperwork competing with client time.",
+        summary: "Paperwork consuming real estate agent’s time",
         blocks: [
           {
             stamp: "Context",
             heading: "Paperwork vs clients",
-            body: "Buyer agents balance paperwork against advising clients. SkySlope data showed buyers spend about 10 weeks searching and view a median of 9 homes, so the form needed to be fast and available anywhere.",
+            body: "Agents are always in a balancing act between paperwork and face time with clients. SkySlope data showed buyers spend about 10 weeks searching and view a median of 9 homes. We needed a solution to help free up time for core responsibilites.",
             images: [
               {
                 src: "/images/easypeady/form-mapping.webp",
@@ -1003,11 +1003,11 @@ export const caseStudies: CaseStudy[] = [
           {
             stamp: "Audience",
             heading: "Who touches the form",
-            body: "Buyer agents carried the work and weighed it against advising clients. Buyers wanted to sign what needed signing and get on with the viewing. Seller agents wanted property access to be easy. Research put buyer agents first.",
+            body: "Buyer agents faced the bulk of the responsibility. Buyers wanted to sign what needed signing and get on with the viewing. Seller agents just wanted property access to be easy. Our research showed to put buyer agents needs first.",
             personas: [
               {
                 name: "Buyer agents",
-                text: "Balancing time spent on paperwork against time spent advising and supporting clients. A simple way to complete paperwork and stay compliant frees up the schedule.",
+                text: "Balancing time spent on paperwork against time spent advising and supporting clients. A simple way to complete paperwork and stay compliant to free up their schedule.",
               },
               {
                 name: "Buyers",
@@ -1022,12 +1022,12 @@ export const caseStudies: CaseStudy[] = [
           {
             stamp: "Team",
             heading: "The team and the clock",
-            body: "A PM, a UX researcher, a visual designer, and six developers. The PEAD-V was a COVID requirement, so the window would close. MVP by the end of Q1 2021.",
+            body: "A PM, a UX researcher, a UX/UI designer, and six developers. The PEAD-V was a COVID requirement. Given the nature of the timeliness of the issue we needed a MVP by the end of Q1 2021, ideally sooner.",
           },
           {
             stamp: "Scope",
             heading: "What to ship",
-            body: "The MVP had to cover sending one form or several for the same client. Sending to different clients in one pass, and looping in the listing agent, waited.",
+            body: "The MVP had to cover sending one or multiple forms for one or more buyers. Sending it all in one batch with the seller agent getting a copy.",
             images: [
               {
                 src: "/images/easypeady/use-cases.webp",
