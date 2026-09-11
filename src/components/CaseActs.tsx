@@ -11,7 +11,7 @@ const ACTORS = [
   { key: "agent", name: "Buyer agent" },
   { key: "buyer", name: "Buyer" },
   { key: "system", name: "EasyPeady" },
-  { key: "listing", name: "Listing agent" },
+  { key: "listing", name: "Seller agent" },
 ] as const;
 
 type ActorKey = (typeof ACTORS)[number]["key"];
@@ -26,7 +26,7 @@ const FLOW: { actor: ActorKey; text: string; mail?: string }[] = [
   {
     actor: "listing",
     text: "Receives their own PEAD",
-    mail: "Emails each listing agent",
+    mail: "Emails each seller agent",
   },
 ];
 

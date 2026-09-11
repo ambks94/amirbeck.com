@@ -1027,7 +1027,7 @@ export const caseStudies: CaseStudy[] = [
           {
             stamp: "Scope",
             heading: "What to ship",
-            body: "The MVP had to cover sending one form or several for the same client. Sending to different clients in one pass, and looping in the listing agent, waited.",
+            body: "The MVP had to cover sending one form or several for the same client. Sending to different clients in one pass, and looping in the seller agent, waited.",
             images: [
               {
                 src: "/images/easypeady/use-cases.webp",
@@ -1107,7 +1107,7 @@ export const caseStudies: CaseStudy[] = [
           {
             stamp: "Options",
             heading: "Four ways to split it",
-            body: "Agents wanted one envelope to sign, then individual PEADs sent to each listing agent. Doing that split by hand was the step to cut.",
+            body: "Agents wanted one envelope to sign, then individual PEADs sent to each seller agent. Doing that split by hand was the step to cut.",
             images: [
               {
                 src: "/images/easypeady/service-blueprint.webp",
@@ -1201,7 +1201,7 @@ export const caseStudies: CaseStudy[] = [
               {
                 role: "EasyPeady",
                 title: "Split the paperwork",
-                body: "Create the individual PEADs and route them to the listing agents.",
+                body: "Create the individual PEADs and route them to the seller agents.",
               },
             ],
             images: [
