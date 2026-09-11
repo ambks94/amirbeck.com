@@ -40,7 +40,7 @@ export const stats: Stat[] = [
     source: "SkySlope",
   },
   { figure: "~25%", text: "drop in onboarding drop off", source: "Granate" },
-  { figure: "1 quarter", text: "developed and launched", source: "EasyPeady" },
+  { figure: "1 qtr", text: "developed and launched", source: "EasyPeady" },
 ];
 
 import type { CasePhone } from "./caseStudies";
@@ -183,11 +183,11 @@ export const projects: Project[] = [
     name: "EasyPeady",
     category: "Real Estate Form Streamlining",
     years: "2021",
-    body: "I streamlined the PEAD form so real estate agents could stay focused on clients during the pandemic. Built and launched as a standalone web app in one quarter.",
+    body: "I streamlined the PEAD form so real estate agents could stay focused on client face time instead of being burned with paperwork during the pandemic. Built and launched in under a quarter.",
     outcomes: [
       "Developed and launched in a quarter",
       "15% increase in cross product engagement",
-      "Generated a pipeline of new paying users",
+      "Generated a pipeline of new customers",
     ],
     image: {
       src: "/images/home/easypeady.png",
