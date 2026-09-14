@@ -147,9 +147,9 @@ export const caseStudies: CaseStudy[] = [
     years: "2023 to Now",
     role: "Lead Product Design Engineer",
     intro:
-      "Lumanu is a fintech that processes payments for brands paying creators. I lead product design, code much of the app UI myself, and work with the exec team on what we build.",
+      "Lumanu is the fintech master vendor for marketing partnerships and productions. Global brands use it to onboard, pay, and account for creators, freelancers, and agencies. I lead product design, code much of the app UI myself, and work with the exec team on what we build.",
     description:
-      "Amir Beck is lead product design engineer on the Lumanu payments platform, coding ~90% of the app UI redesign. Lumanu processes payments for brands paying creators.",
+      "Amir Beck is lead product design engineer on the Lumanu payments platform, coding ~90% of the app UI redesign. Lumanu is the fintech master vendor for marketing partnerships and productions, handling onboarding, payments, and accounting for creators, freelancers, and agencies.",
     metrics: [
       { figure: "~90%", text: "of the app UI redesign coded personally" },
       {

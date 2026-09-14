@@ -70,7 +70,7 @@ export const projects: Project[] = [
     name: "Lumanu",
     category: "Payments Platform",
     years: "2023 to Now",
-    body: "Lumanu is a fintech that processes payments for brands paying creators. I work with the exec team on what we build, then lead design on tax, vendor compliance, and payments from inside product and engineering.",
+    body: "Lumanu is the fintech master vendor for marketing partnerships and productions. I work with the exec team on what we build, then lead design on tax, vendor compliance, and payments from inside product and engineering.",
     outcomes: [
       "Led full app repositioning design, rebuilding app functionality from influencer marketing to payment processing",
       "Integrated design system with code, accelerating feature development",
