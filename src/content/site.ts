@@ -1,6 +1,6 @@
 export const site = {
   name: "Amir Beck",
-  role: "Design Engineer",
+  role: "Product Design Engineer",
   location: "San Francisco",
   focus: "Fintech · Payments · San Francisco",
   email: "beck@amirbeck.com",
@@ -13,7 +13,7 @@ export const site = {
   sub: "",
   colophon: "I designed and built this site. Hosted on Vercel.",
   description:
-    "Amir Beck is a senior design engineer and product designer in San Francisco who both designs and ships fintech products. At Lumanu he leads the design of a B2B2C payments platform and personally builds it in React, Next.js, and TypeScript. He bridges Figma to production code on a design system that compounds.",
+    "Amir Beck is a senior product design engineer in San Francisco who both designs and ships fintech products. At Lumanu he leads the design of a B2B2C payments platform and personally builds it in React, Next.js, and TypeScript. He bridges Figma to production code on a design system that compounds.",
 };
 
 export const stack = [
@@ -70,7 +70,7 @@ export const projects: Project[] = [
     name: "Lumanu",
     category: "Payments Platform",
     years: "2023 to Now",
-    body: "Lumanu is a fintech that processes payments for brands paying creators.",
+    body: "Lumanu is a fintech that processes payments for brands paying creators. I work with the exec team on what we build, then lead design on tax, vendor compliance, and payments from inside product and engineering.",
     outcomes: [
       "Led full app repositioning design, rebuilding app functionality from influencer marketing to payment processing",
       "Integrated design system with code, accelerating feature development",
@@ -228,7 +228,7 @@ export const practices: Practice[] = [
 ];
 
 export const about = [
-  "I'm a design engineer at Lumanu in San Francisco, working across Product, Engineering, and Marketing to create, design, and ship product features.",
+  "I'm a product design engineer at Lumanu in San Francisco, working across Product, Engineering, and Marketing to create, design, and ship product features.",
   "I studied Digital Media and Economics at UC Davis, and started out designing and developing websites for clients.",
   "I'm currently working on side projects like Glizzy. Outside of work I love to cook, write and play music, run, and shoot nature photography.",
 ];

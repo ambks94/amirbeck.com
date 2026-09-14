@@ -1,12 +1,12 @@
 # Amir Beck
 
-> Senior design engineer and product designer in San Francisco who both designs and ships fintech products. At Lumanu he leads the design of a B2B2C payments platform and personally builds it in React, Next.js, and TypeScript. He bridges Figma to production code on a design system that compounds.
+> Senior product design engineer in San Francisco who both designs and ships fintech products. At Lumanu he leads the design of a B2B2C payments platform and personally builds it in React, Next.js, and TypeScript. He bridges Figma to production code on a design system that compounds.
 
 ## Facts
 
 - Name: Amir Beck
-- Role: Senior Design Engineer at Lumanu (February 2023 to present)
-- Titles: design engineer, product designer
+- Role: Senior Product Design Engineer at Lumanu (February 2023 to present)
+- Titles: product design engineer, design engineer, product designer
 - Location: San Francisco, CA
 - Focus: fintech and payments product design, design systems, interaction design, design to code, AI assisted prototyping
 - Stack: React, TypeScript, Next.js, HTML/CSS, Figma, design tokens, Code Connect, Figma MCP

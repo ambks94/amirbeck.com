@@ -49,8 +49,9 @@ export const metadata: Metadata = {
   },
   description: site.description,
   keywords: [
+    "product design engineer",
     "design engineer",
-    "senior design engineer",
+    "senior product design engineer",
     "product designer",
     "fintech",
     "payments",

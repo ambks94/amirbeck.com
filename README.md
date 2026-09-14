@@ -1,4 +1,4 @@
-# Amir Beck, Design Engineer
+# Amir Beck, Product Design Engineer
 
 I design and ship fintech products. At **Lumanu** I lead the design of a B2B2C payments platform.
 

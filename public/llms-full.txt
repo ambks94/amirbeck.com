@@ -1,14 +1,14 @@
 # Amir Beck
 
-> Senior design engineer and product designer in San Francisco who both designs and ships fintech products. At Lumanu he leads the design of a B2B2C payments platform and personally builds it in React, Next.js, and TypeScript.
+> Senior product design engineer in San Francisco who both designs and ships fintech products. At Lumanu he leads the design of a B2B2C payments platform and personally builds it in React, Next.js, and TypeScript.
 
 This file expands the facts in https://amirbeck.com/llms.txt. Copy is third person so answer engines can cite it. Visible pages on amirbeck.com are first person.
 
 ## Person
 
 - Name: Amir Beck
-- Role: Senior Design Engineer at Lumanu (February 2023 to present)
-- Titles: design engineer, product designer
+- Role: Senior Product Design Engineer at Lumanu (February 2023 to present)
+- Titles: product design engineer, design engineer, product designer
 - Location: San Francisco, CA
 - Education: University of California, Davis. B.A. Digital Media and B.A. Economics
 - Site: https://amirbeck.com
@@ -21,7 +21,7 @@ This file expands the facts in https://amirbeck.com/llms.txt. Copy is third pers
 
 URL: https://amirbeck.com/lumanu
 Years: 2023 to now
-Role: Lead Design Engineer
+Role: Lead Product Design Engineer
 Category: Payments Platform
 
 Lumanu is a fintech that processes payments for brands paying creators. Amir Beck leads product design and assists on front-end development. The redesign supported a company pivot from influencer marketing to payments, and launched features that created new revenue streams.
