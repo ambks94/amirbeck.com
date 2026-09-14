@@ -29,6 +29,12 @@ const nextConfig: NextConfig = {
   async headers() {
     return [{ source: "/:path*", headers: securityHeaders }];
   },
+  // The resume used to live at /resume.pdf. Keep old links working.
+  async redirects() {
+    return [
+      { source: "/resume.pdf", destination: "/Beck_Resume.pdf", permanent: true },
+    ];
+  },
 };
 
 export default nextConfig;

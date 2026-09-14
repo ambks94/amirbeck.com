@@ -26,7 +26,7 @@ export default function Contact() {
             LinkedIn{" "}
             <ArrowUpRight size={15} strokeWidth={2} aria-hidden="true" />
           </a>
-          <a className="btn btn--ghost" href="/resume.pdf">
+          <a className="btn btn--ghost" href="/Beck_Resume.pdf">
             Résumé (PDF)
           </a>
         </div>
