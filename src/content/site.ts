@@ -183,7 +183,7 @@ export const projects: Project[] = [
     name: "EasyPeady",
     category: "Real Estate Form Streamlining",
     years: "2021",
-    body: "I streamlined the PEAD form so real estate agents could stay focused on client face time instead of being burned with paperwork during the pandemic. Built and launched in under a quarter.",
+    body: "I streamlined the PEAD form so real estate agents could stay focused on client face time instead of being buried in paperwork during the pandemic. Built and launched in under a quarter.",
     outcomes: [
       "Developed and launched in a quarter",
       "15% increase in cross product engagement",
@@ -244,7 +244,7 @@ export const kit = [
   },
   {
     label: "Design & systems",
-    text: "Figma, prototyping, and motion. Design systems that compound in reusable components, variants, Token Studio, and Storybook.",
+    text: "Figma, interaction design, prototyping, and motion. Design systems that compound in reusable components, variants, Token Studio, and Storybook.",
   },
   {
     label: "Product",

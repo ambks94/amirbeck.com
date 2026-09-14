@@ -57,6 +57,12 @@
 .brief {
   margin-top: clamp(28px, 4vw, 44px);
 }
+.detail {
+  margin: 18px 0 0;
+  max-width: 62ch;
+  color: var(--muted);
+  line-height: 1.6;
+}
 .stage {
   margin-top: clamp(34px, 5vw, 54px);
 }

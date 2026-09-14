@@ -24,7 +24,7 @@ Years: 2023 to now
 Role: Lead Design Engineer
 Category: Payments Platform
 
-Lumanu is a fintech that processes payments for brands paying creators. The redesign supported a company pivot from influencer marketing to payments, and launched features that created new revenue streams.
+Lumanu is a fintech that processes payments for brands paying creators. Amir Beck leads product design and assists on front-end development. The redesign supported a company pivot from influencer marketing to payments, and launched features that created new revenue streams.
 
 Outcomes cited on the site:
 
@@ -40,7 +40,7 @@ Work on the case study includes:
 - Aligning the design system and the codebase in component UI, naming, and functionality, then using Code Connect for a 1 to 1 match, so developers pick the right component, mockups match development, and AI IDEs and code assistants work more accurately
 - A tax engine that automates global tax compliance, research driven and shaped with users
 - Projects, for real-time spending visibility and cross team collaboration, researched across agencies, SMBs, enterprise, and DTC
-- Vendor onboarding and compliance, redesigned across multiple rounds using Heap funnel analytics and CS ticket data, balancing international and domestic compliance with user feedback
+- Vendor onboarding and compliance, redesigned across multiple rounds using Heap funnel analytics and CS ticket data, balancing international and domestic requirements with user feedback
 
 ## SkySlope
 
@@ -48,6 +48,7 @@ URL: https://amirbeck.com/skyslope
 Years: 2020 to 2022
 Role: UI and UX Designer
 Category: Real Estate Platform
+Work included: UX, UI, interaction design, user research
 
 SkySlope builds real estate transaction software. Amir Beck improved UX across DigiSign, Forms, and Breeze, and led Breeze from concept through launch.
 
@@ -57,11 +58,11 @@ Outcomes cited on the site:
 - Made paperwork delegation easier for whole teams
 - Drove a 15% increase in cross product usage, opening new customer pipelines
 
-DigiSign: usability testing found agents struggled to place and assign signature blocks. 4 of 10 testers were frustrated placing and assigning blocks, and 5 of 10 struggled to change a block's properties after placement. DigiSign kept the signature block selected after placement, unlike most e-signing tools, so switching signer reassigned the block already on the page instead of starting a new one. Because long time users were used to the old interaction and the survey split was even, the shipped work was a preferences page for selection behavior plus a clearer flow for changing signers. Launching it cut digital signing mistakes by 50%.
+DigiSign: usability testing found agents struggled to place and assign signature blocks. 4 of 10 testers were frustrated placing and assigning blocks, and 5 of 10 struggled to change a block's properties after placement. DigiSign kept the signature block selected after placement, an interaction pattern deviation from most other e-signing tools, so switching signer reassigned the block already on the page instead of starting a new one. Because long time users were used to the old interaction and the survey split was even, the shipped work was a preferences page for selection behavior plus a clearer flow for changing signers. Launching it cut digital signing mistakes by 50%.
 
 Forms: built to serve individual agents, but agents work with transaction coordinators who handle much of the paperwork. Added team management, filtering the file list by collaborator, and file history for compliance auditing. The result was an all inclusive document management tool that grew market share across large brokerages.
 
-Breeze: California transactions require many complex disclosure forms, and completing them by hand is slow and error prone. Breeze launched as a wizard flow product covering the key disclosures (MHTDS, SPQ, TDS, EQ), with a dashboard for tracking client progress and a mobile first design, including dictation on AVID visual inspection forms for completing them on site. It drove a 15% increase in cross product usage and created a new inbound customer pipeline.
+Breeze: California transactions require many complex disclosure forms, and completing them by hand is slow and error prone. Breeze launched as a wizard flow product covering the key disclosures (MHTDS, SPQ, TDS, EQ), with a dashboard for tracking client progress and a mobile first design, including speech to text on visual inspection forms so agents can complete them on site by typing or dictation. It drove a 15% increase in cross product usage and created a new inbound customer pipeline.
 
 ## Granate
 
@@ -69,14 +70,15 @@ URL: https://amirbeck.com/granate
 Years: 2022 to 2023
 Role: Lead Product Designer
 Category: Grief Support App
+Work included: UX, UI, product strategy, brand, marketing, research
 
-Amir Beck led product design for Granate, an app for people going through loss and end of life planning. Work spanned UX, brand, product strategy, marketing, and research.
+Amir Beck led product design for Granate, an app for an early stage startup that supports people through loss and end of life planning. Work spanned UX, UI, branding, and product strategy.
 
 Outcomes cited on the site:
 
 - ~25% drop in onboarding drop off
-- ~30% lift in weekly engagement
-- A component system that set the development team up for faster feature delivery
+- ~30% increase in weekly engagement
+- Set the development team up for quick feature delivery
 
 ## EasyPeady
 
@@ -84,12 +86,24 @@ URL: https://amirbeck.com/easypeady
 Years: 2021
 Role: Lead Product Designer
 Category: Real Estate Form Streamlining
+Work included: UX, UI, user research
 
-In late 2020, COVID added the PEAD form to every home viewing. Amir Beck led design and launch of EasyPeady, a web app that auto-fills, sends, and splits PEAD forms. It shipped in one quarter and later became the groundwork for SkySlope Breeze.
+In late 2020, COVID added the PEAD-V form to every home viewing. Amir Beck led design and launch of EasyPeady, a web app that auto-fills, sends, and splits PEAD forms. It shipped in under a quarter and later became the groundwork for SkySlope Breeze.
 
 Outcomes cited on the site:
 
-- Developed and launched in one quarter
-- Generated a pipeline of new paying users
+- Developed and launched in under a quarter
+- 15% increase in cross product engagement
+- Generated a pipeline of new customers
 
-The 15% cross-product usage increase is a SkySlope platform outcome, listed on https://amirbeck.com/skyslope, not a second EasyPeady metric.
+The 15% figure is one outcome, not two. EasyPeady drove a 15% increase in usage of SkySlope's other products, so it is cited on both https://amirbeck.com/easypeady and https://amirbeck.com/skyslope.
+
+## Playground
+
+URL: https://amirbeck.com/playground
+
+Live UI experiments, rebuilt in React so they run in the browser rather than as screenshots.
+
+Linking withdrawal methods (Lumanu): users were confused when linking their withdrawal method, which generated support tickets. The flow now starts with country and currency, then shows only the withdrawal methods that work for that pair. The country and currency pair decides which payment rails are available. A US payout runs on ACH or an instant debit card. Everywhere else it is a local bank transfer where Lumanu supports one, and a SWIFT wire where it does not. The demo wallet is a fixed $1,000 USD and currency conversion uses a live mid market rate refreshed every 15 minutes.
+
+Permissions (Lumanu): roles could not meet the varying requirements of buyer auditors, so access moved to permission groups that can be set per user for enterprise companies with stricter compliance requirements.

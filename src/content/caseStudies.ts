@@ -205,7 +205,7 @@ export const caseStudies: CaseStudy[] = [
         tags: ["Code Connect", "Figma MCP"],
         problem:
           "User feedback and CS tickets pointed to a missing reporting feature.",
-        body: "Built and launched reporting myself. Figma Code Connect, the Figma MCP, and claude code took me from design to shipped code.",
+        body: "Built and launched reporting myself. Figma Code Connect, the Figma MCP, and Claude Code took me from design to shipped code.",
         result:
           "A new reporting feature which allowed our clients to audit their finances.",
         video: "/images/lumanu/reporting.webm",
@@ -267,7 +267,7 @@ export const caseStudies: CaseStudy[] = [
           "Finance teams lacked visibility and control over marketing spend and marketing teams lacked a way to work in campaign silos.",
         body: "I designed the Projects feature for real time visibility, control, and cross team collaboration. I ran multiple rounds of research interviews across agencies, SMBs, enterprise, and DTC.",
         result:
-          "Finance teams get visability and control, and creative and marketing teams the tools to work efficiently.",
+          "Finance teams get visibility and control, and creative and marketing teams the tools to work efficiently.",
         images: [
           {
             src: "/images/lumanu/projects-1.webp",
@@ -288,10 +288,10 @@ export const caseStudies: CaseStudy[] = [
         summary: "A straightforward sign up, and vendors ready to pay.",
         tags: ["Heap analytics", "Compliance UX"],
         problem:
-          "Vendor compliance requirements were getting more demanding and complex with international compliance requirements.",
+          "Vendor compliance requirements were getting more demanding and complex with international requirements.",
         body: "I drove multiple redesigns of onboarding using Heap funnel analytics and CS ticket data, balancing compliance with user feedback.",
         result:
-          "A easy to use onboarding experience for vendors that's fully compliant with international and domestic compliance requirements.",
+          "An easy to use onboarding experience for vendors that's fully compliant with international and domestic compliance requirements.",
         images: [
           {
             src: "/images/lumanu/vendor-1.webp",
@@ -336,7 +336,7 @@ export const caseStudies: CaseStudy[] = [
       "Made paperwork delegation easier for whole teams",
       "Drove a 15% increase in cross product usage, opening new customer pipelines",
     ],
-    workIncluded: "UX, UI, User Research",
+    workIncluded: "UX, UI, Interaction design, User Research",
     goals: [
       "How might we reduce the time spent on complex real estate documents?",
       "How might we give agents more time with clients?",
@@ -371,8 +371,9 @@ export const caseStudies: CaseStudy[] = [
             ],
           },
           {
+            stamp: "Interaction design",
             heading: "Interaction",
-            body: "Our DigiSign tool had an interaction pattern deviance from most other e-signing tools where the signature block stayed selected after placement.",
+            body: "Our DigiSign tool had an interaction pattern deviation from most other e-signing tools where the signature block stayed selected after placement.",
             video: "/images/skyslope/digisign-selection.webm",
             browser: "digisign.skyslope.com",
             caption:
@@ -405,7 +406,7 @@ export const caseStudies: CaseStudy[] = [
         blocks: [
           {
             problem:
-              "Forms was created to serve individual agents, but agents work with transaction  (TCs) who handle much of the paperwork.",
+              "Forms was created to serve individual agents, but agents work with transaction coordinators (TCs) who handle much of the paperwork.",
             result:
               "Shared access, per agent file filtering, and file history, so teams can delegate and manage paperwork across teams.",
           },
@@ -430,7 +431,7 @@ export const caseStudies: CaseStudy[] = [
             ],
             captions: [
               "Sharing and requesting team access in Forms.",
-              "Allow TCs to work on under different agent teams",
+              "Allow TCs to work under different agent teams",
             ],
           },
           {
@@ -449,7 +450,7 @@ export const caseStudies: CaseStudy[] = [
           },
           {
             heading: "File history",
-            body: "Agents needed to know who changed what for compliance. I added created file history, so every update is auditable.",
+            body: "Agents needed to know who changed what for compliance. I added file history, so every update is auditable.",
             images: [
               {
                 src: "/images/skyslope/forms-history.webp",
@@ -496,7 +497,7 @@ export const caseStudies: CaseStudy[] = [
           },
           {
             heading: "Management",
-            body: "I built a dashboard for agents to track clients progress on completing documents so they had a way to review package completion and step in if the client was blocked.",
+            body: "I built a dashboard for agents to track clients' progress on completing documents so they had a way to review package completion and step in if the client was blocked.",
             images: [
               {
                 src: "/images/skyslope/breeze-management.webp",
@@ -512,7 +513,7 @@ export const caseStudies: CaseStudy[] = [
           },
           {
             heading: "Mobile first",
-            body: "Agents often work on the go, so Breeze is mobile first. Text to speech on visual inspection forms lets them complete forms on site by typing or dictation.",
+            body: "Agents often work on the go, so Breeze is mobile first. Speech to text on visual inspection forms lets them complete forms on site by typing or dictation.",
             phones: [
               {
                 screen: "/images/skyslope/breeze-phone-1.webp",
@@ -605,7 +606,7 @@ export const caseStudies: CaseStudy[] = [
         summary: "Improving the app experience and brand identity.",
         blocks: [
           {
-            problem: "Granate's first initial brand was due for a refresh.",
+            problem: "Granate's initial brand was due for a refresh.",
             body: "I redesigned the app visually, and shipped key usability improvements alongside the rebrand.",
             result:
               "A component system and usability fixes that improved the app experience and brand identity.",
@@ -693,7 +694,7 @@ export const caseStudies: CaseStudy[] = [
           },
           {
             heading: "Building for the future",
-            body: "I rebuilt every component under the new brand identity with an emphasis on usability, scalability, and team accessibility. Using dedicated Figma pages per component type for easy internal discovery and access.",
+            body: "I rebuilt every component under the new brand identity with an emphasis on usability, scalability, and team accessibility. I used dedicated Figma pages per component type for easy internal discovery and access.",
             images: [
               {
                 src: "/images/granate/AOiugZLCINxahom2ueqPNyt0Fg.webp",
@@ -739,7 +740,7 @@ export const caseStudies: CaseStudy[] = [
           },
           {
             callout:
-              "I redesiged the Granate UI, updated the brand, and shipped real user improvements, all within a small team.",
+              "I redesigned the Granate UI, updated the brand, and shipped real user improvements, all within a small team.",
           },
         ],
       },
@@ -799,7 +800,7 @@ export const caseStudies: CaseStudy[] = [
           },
           {
             heading: "Wireframes",
-            body: "Early collaboration made the move from user flows to wireframes smooth and cleared up any unknowns before designing the UI. I sketched each flow and interaction and communicated with the dev team to stay within the technically fesible.",
+            body: "Early collaboration made the move from user flows to wireframes smooth and cleared up any unknowns before designing the UI. I sketched each flow and interaction and communicated with the dev team to stay within the technically feasible.",
             images: [
               {
                 src: "/images/granate/dkePlkRcEQpuwWv99Tgaly3nOs.webp",
@@ -959,9 +960,9 @@ export const caseStudies: CaseStudy[] = [
     description:
       "Amir Beck designed and launched EasyPeady, a standalone PEAD form app for real estate agents, in one quarter. It later became the groundwork for SkySlope Breeze.",
     problem:
-      "COVID required the PEAD-V form for every home viewing introducing significant work for real estate agents.",
+      "COVID required the PEAD-V form for every home viewing, introducing significant work for real estate agents.",
     result:
-      "A standalone web app that auto-fills, sends, and splits PEAD forms, launched under a quarter.",
+      "A standalone web app that auto-fills, sends, and splits PEAD forms, launched in under a quarter.",
     metrics: [
       { figure: "1 qtr", text: "from start to launch" },
       { figure: "15%", text: "increase in cross product engagement" },
@@ -983,7 +984,7 @@ export const caseStudies: CaseStudy[] = [
     chapters: [
       {
         title: "The problem",
-        summary: "Paperwork consuming real estate agent’s time",
+        summary: "Paperwork consuming real estate agents' time",
         blocks: [
           {
             stamp: "Context",
@@ -1281,7 +1282,7 @@ export const caseStudies: CaseStudy[] = [
               {
                 label: "After",
                 title: "Standalone app",
-                text: "An experience for new customers and existing customers in our ecosystem",
+                text: "An experience for new customers and existing customers in our ecosystem.",
               },
             ],
             call: [

@@ -29,12 +29,10 @@ tools, then held it to a high bar. All of it turns off under `prefers-reduced-mo
 ## Selected work
 
 - **[Lumanu](https://amirbeck.com/lumanu).** Lead design of a B2B2C payments platform.
-  Lead the design through the company
-  strategy pivot from influencer marketing to payments.
+  Led the design through the company strategy pivot from influencer marketing to payments.
 - **[SkySlope](https://amirbeck.com/skyslope).** Improved UX across DigiSign, Forms, and
   Breeze, and led Breeze from concept through launch.
 - **[Granate](https://amirbeck.com/granate).** Led product design for a grief support app.
-
 - **[EasyPeady](https://amirbeck.com/easypeady).** Designed and launched a standalone real
   estate form app in one quarter, built alongside engineering. It became the groundwork for Breeze.
 
@@ -45,4 +43,4 @@ Next.js 16, React 19, TypeScript, CSS Modules, Motion, Lucide, self hosted Googl
 ## Contact
 
 [beck@amirbeck.com](mailto:beck@amirbeck.com) ·
-[LinkedIn](https://www.linkedin.com/in/amir-beck/) ·
+[LinkedIn](https://www.linkedin.com/in/amir-beck/)

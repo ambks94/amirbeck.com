@@ -9,6 +9,7 @@ type PlaygroundBase = {
   problem: string;
   solution: string;
   description: string;
+  detail?: string;
   disclaimer?: string;
   note?: string;
 };
@@ -46,6 +47,8 @@ export const playgroundItems: PlaygroundItem[] = [
     solution:
       "Simplify the flow and guide users, starting with country and currency, then showing the withdrawal methods that work for that pair.",
     description: "Link a withdrawal method by wallet",
+    detail:
+      "The country and currency pair decides which rails are available. A US payout runs on ACH or an instant debit card. Everywhere else it is a local bank transfer where we support one, and a SWIFT wire where we do not.",
     disclaimer:
       "The exchange rate displayed is for demonstration purposes only. It does not reflect any company financial policy.",
     note: "The wallet is a fixed $1,000 USD. Currency conversion uses a live mid market rate from open.er-api.com, refreshed every 15 minutes. I read the country header Vercel provides to set your default country for the input, or your browser's timezone if that's missing.",

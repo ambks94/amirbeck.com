@@ -46,6 +46,7 @@ function Experiment({ item }: { item: PlaygroundItem }) {
             {item.solution}
           </p>
         </div>
+        {item.detail ? <p className={styles.detail}>{item.detail}</p> : null}
       </div>
 
       <div className={styles.stage}>
