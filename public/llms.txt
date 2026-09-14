@@ -14,7 +14,7 @@
 
 ## Selected work
 
-- Lumanu (2023 to now): leads design of a B2B2C payments platform. Personally coded ~90% of the app UI redesign. Pivoted company strategy from influencer marketing to payments. Work spans a role aware buyer dashboard, a tax engine for global tax compliance, vendor onboarding and compliance, reporting, and the design system to code alignment.
+- Lumanu (2023 to now): leads design of a B2B2C payments platform, working with the exec team on what gets built. Personally coded ~90% of the app UI redesign. Pivoted company strategy from influencer marketing to payments. Work spans a role aware buyer dashboard, a tax engine for global tax compliance, vendor onboarding and compliance, reporting, and the design system to code alignment.
 - SkySlope (2020 to 2022): improved UX across DigiSign, Forms, and Breeze. Led Breeze from concept through launch. Cut digital signing mistakes by ~50%. Made paperwork delegation easier for whole teams. Drove a 15% increase in cross product usage, opening new customer pipelines.
 - Granate (2022 to 2023): led product design for a grief support app at an early stage startup. ~25% drop in onboarding drop off, ~30% increase in weekly engagement, and a component system that set the development team up for quick feature delivery.
 - EasyPeady (2021): designed and launched a standalone real estate form app in under a quarter. Generated a pipeline of new customers and later became the groundwork for SkySlope Breeze.

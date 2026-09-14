@@ -24,7 +24,7 @@ Years: 2023 to now
 Role: Lead Product Design Engineer
 Category: Payments Platform
 
-Lumanu is a fintech that processes payments for brands paying creators. Amir Beck leads product design and assists on front-end development. The redesign supported a company pivot from influencer marketing to payments, and launched features that created new revenue streams.
+Lumanu is a fintech that processes payments for brands paying creators. Amir Beck leads product design, codes much of the app UI himself, and works with the exec team on what gets built. The redesign supported a company pivot from influencer marketing to payments, and launched features that created new revenue streams.
 
 Outcomes cited on the site:
 
