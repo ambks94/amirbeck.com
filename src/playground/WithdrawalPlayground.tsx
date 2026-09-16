@@ -19,6 +19,7 @@ import {
   WalletMinimal,
 } from "lucide-react";
 import LiveFrame from "@/components/LiveFrame";
+import { fetchWithTimeout, readJson } from "@/lib/net";
 import { FLAG_ART } from "./withdrawalFlags";
 import {
   ALL_CURRENCY_CODES,
@@ -482,6 +483,10 @@ function CurrencyRow({
 
 const PHONE_QUERY = "(max-width: 720px)";
 
+// Geo only refines a default the client already guessed from time zone, so it
+// is not worth waiting on for long.
+const GEO_TIMEOUT_MS = 4000;
+
 function isPhoneViewport() {
   return window.matchMedia(PHONE_QUERY).matches;
 }
@@ -534,17 +539,30 @@ function LinkFlow() {
 
   useEffect(() => {
     let cancelled = false;
-    fetch("/api/geo", { cache: "no-store" })
-      .then((res) => (res.ok ? res.json() : null))
-      .then((data: { country?: string | null } | null) => {
-        if (cancelled || userPickedCountry.current) return;
-        if (!data?.country) return;
-        applyCountryDefaults(visitorCountryDefaults(data.country));
-      })
-      .catch(() => {});
+    const abort = new AbortController();
+
+    (async () => {
+      const res = await fetchWithTimeout("/api/geo", {
+        cache: "no-store",
+        signal: abort.signal,
+        timeoutMs: GEO_TIMEOUT_MS,
+        event: "geo_request_failed",
+      });
+      // No answer just means the local-detection default stands.
+      if (cancelled || !res || !res.ok) return;
+
+      const data = await readJson<{ country?: string | null }>(
+        res,
+        "geo_bad_body",
+      );
+      if (cancelled || userPickedCountry.current) return;
+      if (!data?.country) return;
+      applyCountryDefaults(visitorCountryDefaults(data.country));
+    })();
 
     return () => {
       cancelled = true;
+      abort.abort();
     };
   }, []);
 

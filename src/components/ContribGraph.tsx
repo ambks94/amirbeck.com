@@ -1,20 +1,38 @@
 import { ArrowUpRight } from "lucide-react";
 import styles from "./ContribGraph.module.css";
+import { fetchWithTimeout } from "@/lib/net";
+import { logError, logWarn } from "@/lib/log";
+
+// Scraped at build/revalidate time, so a slow answer stalls a render rather
+// than a visitor. Still bounded: the graph is decoration, not content.
+const GITHUB_TIMEOUT_MS = 6000;
 
 type Day = { date: string; level: number };
 
 async function fetchUser(
   user: string,
 ): Promise<{ days: Day[]; total: number }> {
-  try {
-    const res = await fetch(`https://github.com/users/${user}/contributions`, {
+  const empty = { days: [] as Day[], total: 0 };
+
+  const res = await fetchWithTimeout(
+    `https://github.com/users/${user}/contributions`,
+    {
       next: { revalidate: 86400 },
       headers: {
         "User-Agent": "amirbeck.com",
         "x-requested-with": "XMLHttpRequest",
       },
-    });
-    if (!res.ok) return { days: [], total: 0 };
+      timeoutMs: GITHUB_TIMEOUT_MS,
+      event: "contrib_fetch_failed",
+    },
+  );
+  if (!res) return empty;
+  if (!res.ok) {
+    logWarn("contrib_fetch_status", { user, status: res.status });
+    return empty;
+  }
+
+  try {
     const html = await res.text();
 
     const days: Day[] = [];
@@ -27,9 +45,14 @@ async function fetchUser(
     }
     const t = html.match(/([\d,]+)\s+contribution/);
     const total = t ? Number(t[1].replace(/,/g, "")) : 0;
+    if (days.length === 0) {
+      // GitHub answered but the markup no longer matches — the scrape broke.
+      logWarn("contrib_parse_empty", { user });
+    }
     return { days, total };
-  } catch {
-    return { days: [], total: 0 };
+  } catch (error) {
+    logError("contrib_parse_failed", error, { user });
+    return empty;
   }
 }
 
